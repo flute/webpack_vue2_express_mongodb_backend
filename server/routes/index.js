@@ -1,8 +1,8 @@
 //var express = require('express');
 //var router = express.Router();
 
-//import RBAC from '../lib/rbac.js';
-//const RBAC = require('../lib/rbac');
+//const RBAC = require('../lib/rbac.js');
+const RBAC = require('../lib/rbac');
 
 const db = require('monk')('localhost:27017/blog')
 const posts = db.get('posts');
@@ -10,16 +10,11 @@ const posts = db.get('posts');
 
 module.exports = function(app){
 
-	//app.use(RBAC);
-
-	/*app.get('/', function(req, res, next){
-	  	//res.render('index', { title: 'Express' });
-	  	res.json({ title: 'Express' })
-	})*/
+	app.use(RBAC);
 
 	app.get('/list', function(req, res, next){
 		posts.find({}).then((result) => {
-			console.log(result);
+			//console.log(result);
 			res.json(result);
 		})
 	})

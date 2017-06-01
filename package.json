@@ -14,10 +14,14 @@
     "axios": "^0.16.1",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
+    "iview": "^2.0.0-rc.15",
+    "moment": "^2.18.1",
     "monk": "^5.0.2",
     "vue": "^2.3.3",
+    "vue-awesome": "^2.3.1",
     "vue-axios": "^2.0.2",
-    "vue-router": "^2.3.1"
+    "vue-router": "^2.3.1",
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

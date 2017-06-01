@@ -4,4 +4,4 @@ const rbac = (req, res, next) => {
 	next()
 }
 
-export default rbac
+module.exports = rbac

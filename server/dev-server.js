@@ -26,14 +26,10 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
-/*app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');*/
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-/*app.get('/list',function(req, res){
-  res.json({name: '233'})
-})*/
 routes(app);
 
 var compiler = webpack(webpackConfig)
