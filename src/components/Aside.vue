@@ -1,30 +1,33 @@
 <template>
     <div class="aside">
-        <Menu active-name="1"  width="auto" :open-names="['2']" @on-select="select">
-            <Menu-item name="1">
+        <Menu active-name="version"  width="auto" :open-names="['agent']" @on-select="select">
+            <Menu-item name="version">
                 <span class="icon-cell"><Icon type="android-compass"></Icon></span>
                 <span class="layout-text">版本控制</span>
             </Menu-item>
-            <Submenu name="2">
+            <Menu-item name="bonus" v-show="true">
+                <span class="icon-cell"><Icon type="soup-can-outline"></Icon></span>
+                <span class="layout-text">积分项设定</span>
+            </Menu-item>
+            <Menu-item name="resource">
+                <span class="icon-cell"><Icon type="cube"></Icon></span>
+                <span class="layout-text">资源配置</span>
+            </Menu-item>
+            <Menu-item name="agent">
+                <span class="icon-cell"><Icon type="person"></Icon></span>
+                <span class="layout-text">代理管理</span>
+            </Menu-item>
+            <!-- <Submenu name="agent">
                 <template slot="title">
                     <span class="icon-cell"><Icon type="person"></Icon></span>
-                    用户管理
+                    代理管理
                 </template>
-                <Menu-item name="1-1">用户列表</Menu-item>
-                <Menu-item name="1-2">用户管理</Menu-item>
-            </Submenu>
-            <Submenu name="3">
-                <template slot="title">
-                    <span class="icon-cell"><Icon type="ios-pulse-strong"></Icon></span>
-                    数据统计
-                </template>
-                <Menu-item name="2-1">流量统计</Menu-item>
-                <Menu-item name="2-2">销售数据</Menu-item>
-                <Menu-item name="2-2">实时监控</Menu-item>
-            </Submenu>
-            <Menu-item name="4">
-                <span class="icon-cell"><Icon type="help"></Icon></span>
-                <span class="layout-text">帮助</span>
+                <Menu-item name="1-1">代理列表</Menu-item>
+                <Menu-item name="1-2">代理管理</Menu-item>
+            </Submenu> -->
+            <Menu-item name="settlement">
+                <span class="icon-cell"><Icon type="ios-calculator"></Icon></span>
+                <span class="layout-text">结算</span>
             </Menu-item>
             <Menu-item name="mongo" id="mongo">
                 <span class="icon-cell"><Icon type="code"></Icon></span>
@@ -46,7 +49,9 @@ export default {
         select(name){
             console.log('select name：'+name)
             if( name === 'mongo' ){
-                this.$router.push('/')
+                this.$router.push('/mongo')
+            }else if( name === 'agent' ){
+                this.$router.push('/agent')
             }else{
                 this.$router.push('/home')
             }  

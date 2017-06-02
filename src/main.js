@@ -22,10 +22,16 @@ Vue.prototype.changeTime = time => moment(time).startOf('minute').fromNow().repl
 
 const store = new Vuex.Store({
 	state:{
-
+		isShowLogin: true,
+		userInfo: null
 	},
-	mutation:{
-
+	mutations:{
+		showLogin(state, flag){
+			state.isShowLogin = flag
+		},
+		updateUserInfo(state, data){
+			state.userInfo = data
+		}
 	}
 }) 
 

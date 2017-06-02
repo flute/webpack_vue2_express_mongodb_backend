@@ -1,76 +1,21 @@
 <template>
 	<div class="hello">
-		<div class="option">
-			<Button @click="insert()" type="success">insert</Button>
-			<Button @click="update()" type="info">update</Button>
-			<Button @click="remove()" type="error">remove</Button>
-		</div>
-		<pre>{{list}}</pre>
+		{{msg}}
 	</div>
 </template>
 
 <script>
 export default {
 	name: 'hello',
-	data () {
+	data(){
 		return {
-			msg: 'Welcome to Your Vue.js App',
-			list: null
+			msg: '欢迎登陆管理系统！'
 		}
-	},
-	methods: {
-		getList(){
-			this.axios.get('/list')
-			.then(res => {
-				this.list = res.data
-			})
-			.catch(function (err) {
-				console.error(err)
-			})
-		},
-		insert(){
-			this.axios.get('/insert')
-			.then(res => {
-				//this.list = res.data
-				this.getList()
-			})
-			.catch(function (err) {
-				console.error(err)
-			})
-		},
-		update(){
-			this.axios.get('/update')
-			.then(res => {
-				this.getList()
-			})
-			.catch(function (err) {
-				console.error(err)
-			})
-		},
-		remove(){
-			this.axios.get('/remove')
-			.then(res => {
-				this.getList()
-			})
-			.catch(function (err) {
-				console.error(err)
-			})
-		}
-	},
-	mounted () {
-		this.getList()
 	}
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-pre{
-	text-align: left;
-	font-size: 12px;
-	border: 1px solid rgba(0,0,0,.15);
-    padding: 5px;
-    border-radius: 5px;
-    overflow: auto;
-}
+
 </style>
