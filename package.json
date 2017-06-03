@@ -14,6 +14,7 @@
     "axios": "^0.16.1",
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
+    "express-session": "^1.15.3",
     "iview": "^2.0.0-rc.15",
     "moment": "^2.18.1",
     "monk": "^5.0.2",

@@ -1,9 +1,10 @@
 <template>
-    <div class="agent">
+    <div class="agent" v-show="showAgent">
         <div class="contents">
             <div class="layout-content-main">
             	<div class="agent-option">
             		<Button type="info" @click="newAgent = true">新增代理</Button>
+            		<Button type="error" v-show="showAgentBtn">permission</Button>
             	</div>
             	<div class="agent-list">
             		<table>
@@ -30,14 +31,17 @@
             	</div>
             </div>
         </div>
-        <Modal
+        <Modal @on-ok="submit" @on-cancel="cancel"
 	        title="对话框标题"
 	        v-model="newAgent"
 	        :mask-closable="false">
 	        <Input v-model="account"><span slot="prepend">账号</span></Input>
 	        <Input v-model="name"><span slot="prepend">名称</span></Input>
 	        <Input v-model="pwd"><span slot="prepend">密码</span></Input>
-	        <Button type="success" @click="submit()">确认</Button>
+	        <div slot="footer">
+	            <Button @click="cancel()">取消</Button>
+	            <Button type="success" @click="submit()">确认</Button>
+	        </div>   
 	    </Modal>
     </div>
 </template>
@@ -57,17 +61,30 @@ export default {
 	methods:{
 		submit(){
 			if( !this.account || !this.name || !this.pwd ){
-				alert('请填写完整信息');
+				this.$Message.warning({
+                    content: '请填写完整信息',
+                    duration: 3,
+                    closable: true
+                });
 				return;
 			}
 			this.axios.post('/agent/new', {admin: this.$store.state.userInfo.account, account: this.account, name: this.name, pwd: this.pwd})
 				.then( response => response.data )
 				.then( res => {
 					if( res.status ){
-						alert('新增成功')
-						this.$Modal.remove();
+						this.newAgent = false
+						this.clear()
+						this.$Message.success({
+		                    content: '创建成功',
+		                    duration: 3,
+		                    closable: true
+		                });
 					}else{
-						alert('新增失败')
+						this.$Message.error({
+		                    content: '创建成功',
+		                    duration: 3,
+		                    closable: true
+		                });
 					}
 				})
 		},
@@ -79,6 +96,25 @@ export default {
 					this.agent = res.data
 				}
 			})
+		},
+		cancel(){
+			this.newAgent = false
+			this.clear()
+		},
+		clear(){
+			this.account = ''
+			this.name = ''
+			this.pwd = ''
+		}
+	},
+	computed:{
+		showAgent(){
+			let permission = this.$store.state.permissions
+			return permission ? permission.dom.indexOf('agent')>=0 : flase
+		},
+		showAgentBtn(){
+			let permissions = this.$store.state.permissions
+			return permissions ? permissions.dom.indexOf('version')>=0 : false
 		}
 	},
 	mounted(){
@@ -89,7 +125,6 @@ export default {
 </script>
 
 <style scope>
-
 table{
 	width: 100%;
     text-align: left;

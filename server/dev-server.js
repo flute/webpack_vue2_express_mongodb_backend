@@ -10,6 +10,7 @@ var opn = require('opn')
 var path = require('path')
 var express = require('express')
 var cookieParser = require('cookie-parser')
+var session = require('express-session');
 var bodyParser = require('body-parser')
 var routes = require('./routes/index');
 
@@ -27,9 +28,20 @@ var proxyTable = config.dev.proxyTable
 
 var app = express()
 
+//app.use(express.static(path.join(__dirname, 'static')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+// cookie
 app.use(cookieParser());
+app.use(session({
+    secret: 'backend',
+    name:'backend',
+    cookie: {
+        maxAge: 1000 * 60 * 60
+    },// 1h
+    resave: false,
+    saveUninitialized: true,
+}));
 routes(app);
 
 var compiler = webpack(webpackConfig)

@@ -1,19 +1,19 @@
 <template>
     <div class="aside">
-        <Menu active-name="version"  width="auto" :open-names="['agent']" @on-select="select">
-            <Menu-item name="version">
+        <Menu width="auto" @on-select="select">
+            <Menu-item name="version" v-show="showVersion">
                 <span class="icon-cell"><Icon type="android-compass"></Icon></span>
                 <span class="layout-text">版本控制</span>
             </Menu-item>
-            <Menu-item name="bonus" v-show="true">
+            <Menu-item name="bonus" v-show="showBonus">
                 <span class="icon-cell"><Icon type="soup-can-outline"></Icon></span>
                 <span class="layout-text">积分项设定</span>
             </Menu-item>
-            <Menu-item name="resource">
+            <Menu-item name="resource" v-show="showResource">
                 <span class="icon-cell"><Icon type="cube"></Icon></span>
                 <span class="layout-text">资源配置</span>
             </Menu-item>
-            <Menu-item name="agent">
+            <Menu-item name="agent" v-show="showAgent">
                 <span class="icon-cell"><Icon type="person"></Icon></span>
                 <span class="layout-text">代理管理</span>
             </Menu-item>
@@ -25,7 +25,7 @@
                 <Menu-item name="1-1">代理列表</Menu-item>
                 <Menu-item name="1-2">代理管理</Menu-item>
             </Submenu> -->
-            <Menu-item name="settlement">
+            <Menu-item name="settlement" v-show="showSettlement">
                 <span class="icon-cell"><Icon type="ios-calculator"></Icon></span>
                 <span class="layout-text">结算</span>
             </Menu-item>
@@ -42,19 +42,35 @@ export default {
 	name: 'aside',
     data(){
         return{
-            name:'CNode'
+            
         }
     },
     methods:{
-        select(name){
+        select(name){ // 点击菜单跳转
             console.log('select name：'+name)
-            if( name === 'mongo' ){
-                this.$router.push('/mongo')
-            }else if( name === 'agent' ){
-                this.$router.push('/agent')
-            }else{
-                this.$router.push('/home')
-            }  
+            this.$router.push('/'+name)
+        }
+    },
+    computed:{ // 菜单显示控制
+        showVersion(){
+            let permissions = this.$store.state.permissions
+            return permissions ? permissions.dom.indexOf('version')>=0 : 'false'
+        },
+        showBonus(){
+            let permissions = this.$store.state.permissions
+            return permissions ? permissions.dom.indexOf('bonus')>=0 : 'false'
+        },
+        showResource(){
+            let permissions = this.$store.state.permissions
+            return permissions ? permissions.dom.indexOf('resource')>=0 : 'false'
+        },
+        showAgent(){
+            let permissions = this.$store.state.permissions
+            return permissions ? permissions.dom.indexOf('agent')>=0 : 'false'
+        },
+        showSettlement(){
+            let permissions = this.$store.state.permissions
+            return permissions ? permissions.dom.indexOf('settlement')>=0 : 'false'
         }
     }
 }

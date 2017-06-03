@@ -49,9 +49,31 @@ export default {
 	methods:{
 		logout(name){
 			if( name === 'logout' ){
-				this.$store.commit('showLogin', true)
-				this.$store.commit('updateUserInfo', null)
+				this.axios.get('/logout')
+				.then(response => response.data)
+				.then(res => {
+					if( res.status ){
+						this.$store.commit('showLogin', true)
+						this.$store.commit('updateUserInfo', null)
+					}else{
+						alert('注销失败')
+					}
+				})
 			}
+		},
+		checkLogin(){
+			this.axios.get('/islogin')
+				.then(response => response.data)
+				.then(res => {
+					if( res.status ){
+						// 已登录
+						this.$store.commit('showLogin', false)
+						this.$store.commit('updateUserInfo', res.userinfo)
+						this.$store.commit('updatePermission', res.permission)
+					}else{
+						// 未登录
+					}
+				})
 		}
 	},
 	computed:{
@@ -65,6 +87,10 @@ export default {
 	components:{
 		VAside,
 		VLogin
+	},
+	mounted(){
+		console.log('app.vue mounted')
+		this.checkLogin();
 	}
 }
 </script>

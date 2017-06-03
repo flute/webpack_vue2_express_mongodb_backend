@@ -20,10 +20,20 @@ Vue.use(iView)
 Vue.config.productionTip = false
 Vue.prototype.changeTime = time => moment(time).startOf('minute').fromNow().replace(/hours?/, '小时').replace('ago', '前').replace(/days?/, '天').replace(/minutes?/, '分钟').replace(/\ban?/, '1').replace(/months?/, '个月').replace(/\byears?/, '年').replace(/\s/g, '').replace('fewseconds','分钟');
 
+router.beforeEach((to, from, next) => {
+    iView.LoadingBar.start();
+    next();
+});
+
+router.afterEach((to, from, next) => {
+    iView.LoadingBar.finish();
+});
+
 const store = new Vuex.Store({
 	state:{
 		isShowLogin: true,
-		userInfo: null
+		userInfo: null,
+		permissions: null
 	},
 	mutations:{
 		showLogin(state, flag){
@@ -31,6 +41,9 @@ const store = new Vuex.Store({
 		},
 		updateUserInfo(state, data){
 			state.userInfo = data
+		},
+		updatePermission(state, data){
+			state.permissions = data
 		}
 	}
 }) 

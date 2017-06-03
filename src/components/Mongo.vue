@@ -20,7 +20,7 @@ export default {
 	},
 	methods: {
 		getList(){
-			this.axios.get('/list')
+			this.axios.get('/mongo/list')
 			.then(res => {
 				this.list = res.data
 			})
@@ -29,7 +29,7 @@ export default {
 			})
 		},
 		insert(){
-			this.axios.get('/insert')
+			this.axios.get('/mongo/insert')
 			.then(res => {
 				//this.list = res.data
 				this.getList()
@@ -39,7 +39,7 @@ export default {
 			})
 		},
 		update(){
-			this.axios.get('/update')
+			this.axios.get('/mongo/update')
 			.then(res => {
 				this.getList()
 			})
@@ -48,7 +48,7 @@ export default {
 			})
 		},
 		remove(){
-			this.axios.get('/remove')
+			this.axios.get('/mongo/remove')
 			.then(res => {
 				this.getList()
 			})
@@ -57,7 +57,7 @@ export default {
 			})
 		}
 	},
-	mounted () {
+	mounted(){
 		this.getList()
 	}
 }

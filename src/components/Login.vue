@@ -32,7 +32,11 @@ export default {
     methods:{
         login(){
             if( !this.account || !this.pwd ){
-                alert('请填写账号密码');
+                this.$Message.warning({
+                    content: '请填写账号密码',
+                    duration: 3,
+                    closable: true
+                });
                 return;
             }
 
@@ -41,6 +45,7 @@ export default {
                 .then( res => {
                     if( res.status ){
                         this.$store.commit('updateUserInfo', res.data)
+                        this.$store.commit('updatePermission', res.permission)
                         this.$store.commit('showLogin', false)
                     }else{
                         this.tips = res.error_msg
