@@ -20,7 +20,8 @@ export default {
 	},
 	methods: {
 		getList(){
-			this.axios.get('/mongo/list')
+			let apiUrl = this.$store.state.apiUrl
+			this.axios.get(apiUrl+'/mongo/list')
 			.then(res => {
 				this.list = res.data
 			})
@@ -29,7 +30,8 @@ export default {
 			})
 		},
 		insert(){
-			this.axios.get('/mongo/insert')
+			let apiUrl = this.$store.state.apiUrl
+			this.axios.get(apiUrl+'/mongo/insert')
 			.then(res => {
 				//this.list = res.data
 				this.getList()
@@ -39,7 +41,8 @@ export default {
 			})
 		},
 		update(){
-			this.axios.get('/mongo/update')
+			let apiUrl = this.$store.state.apiUrl
+			this.axios.get(apiUrl+'/mongo/update')
 			.then(res => {
 				this.getList()
 			})
@@ -48,7 +51,8 @@ export default {
 			})
 		},
 		remove(){
-			this.axios.get('/mongo/remove')
+			let apiUrl = this.$store.state.apiUrl
+			this.axios.get(apiUrl+'/mongo/remove')
 			.then(res => {
 				this.getList()
 			})

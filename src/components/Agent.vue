@@ -68,7 +68,8 @@ export default {
                 });
 				return;
 			}
-			this.axios.post('/agent/new', {admin: this.$store.state.userInfo.account, account: this.account, name: this.name, pwd: this.pwd})
+			let apiUrl = this.$store.state.apiUrl
+			this.axios.post(apiUrl+'/agent/new', {admin: this.$store.state.userInfo.account, account: this.account, name: this.name, pwd: this.pwd})
 				.then( response => response.data )
 				.then( res => {
 					if( res.status ){
@@ -89,7 +90,8 @@ export default {
 				})
 		},
 		getAgent(){
-			this.axios.post('/agent/list', {account: this.$store.state.userInfo.account})
+			let apiUrl = this.$store.state.apiUrl
+			this.axios.post(apiUrl+'/agent/list', {account: this.$store.state.userInfo.account})
 			.then( response => response.data )
 			.then( res => {
 				if( res.status ){

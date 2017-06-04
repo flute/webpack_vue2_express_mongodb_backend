@@ -39,8 +39,8 @@ export default {
                 });
                 return;
             }
-
-            this.axios.post('/login',{account: this.account,pwd: this.pwd})
+            let apiUrl = this.$store.state.apiUrl
+            this.axios.post(apiUrl+'/login',{account: this.account,pwd: this.pwd})
                 .then( response => response.data )
                 .then( res => {
                     if( res.status ){

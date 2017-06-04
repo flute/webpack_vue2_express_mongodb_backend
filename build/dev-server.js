@@ -1,4 +1,4 @@
-require('../build/check-versions')()
+require('./check-versions')()
 
 var config = require('../config')
 if (!process.env.NODE_ENV) {
@@ -6,17 +6,11 @@ if (!process.env.NODE_ENV) {
 }
 
 var opn = require('opn')
-// express
 var path = require('path')
 var express = require('express')
-var cookieParser = require('cookie-parser')
-var session = require('express-session');
-var bodyParser = require('body-parser')
-var routes = require('./routes/index');
-
 var webpack = require('webpack')
 var proxyMiddleware = require('http-proxy-middleware')
-var webpackConfig = require('../build/webpack.dev.conf')
+var webpackConfig = require('./webpack.dev.conf')
 
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
@@ -27,23 +21,6 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
-
-//app.use(express.static(path.join(__dirname, 'static')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-// cookie
-app.use(cookieParser());
-app.use(session({
-    secret: 'backend',
-    name:'backend',
-    cookie: {
-        maxAge: 1000 * 60 * 60
-    },// 1h
-    resave: false,
-    saveUninitialized: true,
-}));
-routes(app);
-
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

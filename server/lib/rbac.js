@@ -1,9 +1,12 @@
+
 const rbac = (req, res, next) => {
 	// RBAC权限检验
 	console.log('Time：', Date.now());
 	console.log('originalUrl：'+req.originalUrl)
 	console.log('baseUrl：'+req.baseUrl)
 	console.log('path：'+req.path)
+	console.log(req.session.user)
+	console.log(req.session.permission)
 
 	const pathArr = ['/agent/new','/agent/list','/mongo/list','/mongo/insert','/mongo/update','/mongo/remove'];
 
@@ -30,7 +33,7 @@ const rbac = (req, res, next) => {
 			})
 		}
 	}else{
-		// 静态资源、无需授权路径
+		// 无需授权路径
 		next()
 	}
 

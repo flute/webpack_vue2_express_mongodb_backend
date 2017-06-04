@@ -1,3 +1,4 @@
+
 //var express = require('express');
 //var router = express.Router();
 
@@ -35,10 +36,12 @@ module.exports = function(app){
 	app.post('/login', function(req, res, next){
 		let account = req.body.account,
 			pwd = req.body.pwd;
-
+			console.log('account：'+account,'pwd：'+pwd)
+			console.log(req.params)
 		const user = db.get('user');
-		user.findOne({account: account}).then((userinfo)=>{
+		user.findOne({account: account}, '-_id').then((userinfo)=>{
 			if( userinfo ){
+				console.log('userinfo')
 				console.log(userinfo)
 				if( md5(pwd) == userinfo.pwd ){
 
@@ -49,13 +52,13 @@ module.exports = function(app){
 						}; // 权限合集
 					// 获取角色的所有权限
 					async.eachSeries( userinfo.roles, function(item,cb){
-						role.findOne({name: item}).then((result) => {	console.log('findOne role：');console.log(result)
+						role.findOne({name: item}, '-_id').then((result) => {	console.log('findOne role：');console.log(result)
 							if( result ){
 								//cb(null,result)
 								let permission = db.get('permission')
 								// 获取权限的所有dom
 								async.eachSeries( result.permissions, function(item,callback){
-									permission.findOne({ename: item}).then((presult) => {	console.log('findOne per：');console.log(presult)
+									permission.findOne({ename: item}, '-_id').then((presult) => {	console.log('findOne per：');console.log(presult)
 										if( presult ){
 											perObj.dom = perObj.dom.concat( presult.dom )
 											perObj.path = perObj.path.concat( presult.path )
@@ -99,6 +102,9 @@ module.exports = function(app){
 							}
 							req.session.user = userinfo;
 							req.session.permission = perObj;
+							console.log('123')
+							console.log(req.session.user);console.log(req.session.permission);
+							console.log('456')
 							res.json(data);
 						}
 						db.close();
@@ -114,7 +120,7 @@ module.exports = function(app){
 				// 没有此用户
 				let data = {
 					status: 0,
-					msg: 'wrong password'
+					msg: 'no user'
 				}
 				res.json(data);
 			}
@@ -135,9 +141,9 @@ module.exports = function(app){
 			admin = req.body.admin;
 
 		const user = db.get('user');
-		user.findOne({account: account}).then((userinfo)=>{
+		user.findOne({account: account}, '-_id').then((userinfo)=>{
 			if(!userinfo){
-				user.findOne({account: admin}).then((adminInfo)=>{
+				user.findOne({account: admin}, '-_id').then((adminInfo)=>{
 					if( adminInfo ){
 						if( adminInfo.parents ){
 							var p = adminInfo.parents
@@ -181,7 +187,8 @@ module.exports = function(app){
 			  agent = [];
 		console.log('account：'+account);
 		const users = db.get('user');
-		users.find({}).each((user, {close, pause, resume}) => {
+		users.find({},'-_id').each((user, {close, pause, resume}) => {
+			console.log(user)
 			if( user.parents.indexOf(account) >= 0 ){
 				agent.push(user)
 			}
@@ -196,7 +203,7 @@ module.exports = function(app){
 	})
 
 	app.get('/mongo/list', function(req, res, next){
-		posts.find({}).then((result) => {
+		posts.find({},'-_id').then((result) => {
 			//console.log(result);
 			res.json(result);
 		}).then(() => db.close())

@@ -38,7 +38,7 @@
 <script>
 import VAside from './components/Aside.vue'
 import VLogin from './components/Login.vue'
-
+ 
 export default {
 	name: 'app',
 	data(){
@@ -49,7 +49,8 @@ export default {
 	methods:{
 		logout(name){
 			if( name === 'logout' ){
-				this.axios.get('/logout')
+				let apiUrl = this.$store.state.apiUrl
+				this.axios.get(apiUrl+'/logout')
 				.then(response => response.data)
 				.then(res => {
 					if( res.status ){
@@ -62,7 +63,8 @@ export default {
 			}
 		},
 		checkLogin(){
-			this.axios.get('/islogin')
+			let apiUrl = this.$store.state.apiUrl
+			this.axios.get(apiUrl+'/islogin')
 				.then(response => response.data)
 				.then(res => {
 					if( res.status ){

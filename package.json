@@ -5,16 +5,14 @@
   "author": "ludis <service@ldsun.com>",
   "private": true,
   "scripts": {
-    "dev": "node server/dev-server.js",
-    "start": "node server/dev-server.js",
+    "dev": "node build/dev-server.js",
+    "start": "node build/dev-server.js",
     "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src"
+    "lint": "eslint --ext .js,.vue src",
+    "server": "node server/bin/www"
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "body-parser": "^1.17.2",
-    "cookie-parser": "^1.4.3",
-    "express-session": "^1.15.3",
     "iview": "^2.0.0-rc.15",
     "moment": "^2.18.1",
     "monk": "^5.0.2",
@@ -22,7 +20,16 @@
     "vue-awesome": "^2.3.1",
     "vue-axios": "^2.0.2",
     "vue-router": "^2.3.1",
-    "vuex": "^2.3.1"
+    "vuex": "^2.3.1",
+    "async": "^2.1.4",
+    "cors": "^2.8.3",
+    "body-parser": "~1.15.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "express": "~4.13.4",
+    "express-session": "latest",
+    "formidable": "^1.1.1",
+    "morgan": "~1.7.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
