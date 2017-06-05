@@ -93,6 +93,10 @@ export default {
 	mounted(){
 		console.log('app.vue mounted')
 		this.checkLogin();
+	},
+	beforeRouteEnter (to, from, next) {
+		console.log('哇咔咔')
+		next(vm => vm.from = from)
 	}
 }
 </script>

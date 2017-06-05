@@ -2,7 +2,24 @@
     <div class="agent" v-show="showAgent">
         <div class="contents">
             <div class="layout-content-main">
+            	<h2>我的权限</h2>
+            	<table>
+        			<thead><tr><td>账号</td><td>名称</td><td>权限</td></tr></thead>
+        			<tbody>
+        				<tr>
+        					<td>{{myInfo.account}}</td>
+        					<td>{{myInfo.name}}</td>
+        					<td>
+								<template v-for="per in myPermission.name">
+								    <Tag>{{per}}</Tag>
+								</template>
+        					</td>
+        				</tr>
+        			</tbody>
+        		</table>
+            	
             	<div class="agent-option">
+            		<h2>下属代理</h2>
             		<Button type="info" @click="newAgent = true">新增代理</Button>
             		<Button type="error" v-show="showAgentBtn">permission</Button>
             	</div>
@@ -13,17 +30,21 @@
             					<td>账号</td>
             					<td>名称</td>
             					<td>权限</td>
-            					<td>操作</td>
+            					<!-- <td>操作</td> -->
             				</tr>
             			</thead>
             			<tbody>
             				<tr v-for="(item,index) in agent">
             					<td>{{item.account}}</td>
             					<td>{{item.name}}</td>
-            					<td>{{item.roles}}</td>
             					<td>
-            						<Button>删除</Button>
+									<template v-for="per in item.permission.name">
+									    <Tag>{{per}}</Tag>
+									</template>
             					</td>
+            					<!-- <td>
+            						<Button>删除</Button>
+            					</td> -->
             				</tr>
             			</tbody>
             		</table>
@@ -55,7 +76,9 @@ export default {
 			account:'',
 			name:'',
 			pwd:'',
-			agent:[]
+			agent:[],
+			myInfo: this.$store.state.userInfo,
+			myPermission: this.$store.state.permissions
 		}
 	},
 	methods:{
@@ -95,6 +118,7 @@ export default {
 			.then( response => response.data )
 			.then( res => {
 				if( res.status ){
+					console.log('agent：', res)
 					this.agent = res.data
 				}
 			})
@@ -146,6 +170,14 @@ thead tr{
 	height: 40px;
 	line-height: 40px;
 	background-color: #f8f8f9
+}
+.agent-option{
+	margin-top: 30px;
+}
+.agent-option h2{
+	float: left;
+    margin-right: 20px;
+    line-height: 32px;
 }
 </style>
 

@@ -1,6 +1,6 @@
 <template>
     <div class="aside">
-        <Menu width="auto" @on-select="select">
+        <Menu width="auto" @on-select="select" :active-name="actived">
             <Menu-item name="version" v-show="showVersion">
                 <span class="icon-cell"><Icon type="android-compass"></Icon></span>
                 <span class="layout-text">版本控制</span>
@@ -42,7 +42,7 @@ export default {
 	name: 'aside',
     data(){
         return{
-            
+            actived: ''
         }
     },
     methods:{
@@ -72,6 +72,9 @@ export default {
             let permissions = this.$store.state.permissions
             return permissions ? permissions.dom.indexOf('settlement')>=0 : 'false'
         }
+    },
+    mounted(){
+        this.actived = this.$route.name
     }
 }
 </script>

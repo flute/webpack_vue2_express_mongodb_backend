@@ -48,7 +48,12 @@ export default {
                         this.$store.commit('updatePermission', res.permission)
                         this.$store.commit('showLogin', false)
                     }else{
-                        this.tips = res.error_msg
+                        //this.tips = res.error_msg
+                        this.$Message.error({
+                            content: res.msg,
+                            duration: 3,
+                            closable: true
+                        });
                     }
                 })
         },

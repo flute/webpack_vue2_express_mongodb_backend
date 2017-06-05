@@ -1,19 +1,14 @@
-
 const rbac = (req, res, next) => {
 	// RBAC权限检验
 	console.log('Time：', Date.now());
-	console.log('originalUrl：'+req.originalUrl)
-	console.log('baseUrl：'+req.baseUrl)
-	console.log('path：'+req.path)
 	console.log(req.session.user)
 	console.log(req.session.permission)
 
-	const pathArr = ['/agent/new','/agent/list','/mongo/list','/mongo/insert','/mongo/update','/mongo/remove'];
+	const pathArr = ['/islogin','/logout','/login'];	// 无须授权的路由
 
-	if( pathArr.indexOf(req.path)>=0 ){
-		// 需授权的合法路由
+	if( pathArr.indexOf(req.path)<0 ){
+		// 需授权的路由
 		if( req.session.user && req.session.permission ){
-			//console.log(req)
 			let permission = req.session.permission.path;
 			if( permission.indexOf(req.path)>=0 ){
 				// 有权限

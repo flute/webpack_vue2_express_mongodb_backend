@@ -1,25 +1,19 @@
-
 //var express = require('express');
 //var router = express.Router();
-
-//const RBAC = require('../lib/rbac.js');
-const RBAC = require('../lib/rbac');
-const Islogin = require('../service/islogin.js')
-
-const crypto = require('crypto')
+const crypto = require('crypto');
 const async = require('async');
-
-const db = require('monk')('localhost:27017/backend')
+const db = require('monk')('localhost:27017/backend');
+const RBAC = require('../lib/rbac');
+const Islogin = require('../service/islogin');
+const getAllPermission = require('../service/getAllPermission');
 const posts = db.get('posts');
 
 function md5 (text) {
-  return crypto.createHash('md5').update(text).digest('hex');
+	return crypto.createHash('md5').update(text).digest('hex');
 };
 
 module.exports = function(app){
 
-	//app.use(Islogin);
-	
 	app.use(RBAC)
 
 	app.get('/islogin', Islogin)
@@ -36,79 +30,24 @@ module.exports = function(app){
 	app.post('/login', function(req, res, next){
 		let account = req.body.account,
 			pwd = req.body.pwd;
-			console.log('account：'+account,'pwd：'+pwd)
-			console.log(req.params)
+
 		const user = db.get('user');
 		user.findOne({account: account}, '-_id').then((userinfo)=>{
 			if( userinfo ){
-				console.log('userinfo')
-				console.log(userinfo)
+				console.log('userinfo', userinfo)
 				if( md5(pwd) == userinfo.pwd ){
-
-					let role = db.get('role'),
-						perObj = {
-							path: [],
-							dom: []
-						}; // 权限合集
-					// 获取角色的所有权限
-					async.eachSeries( userinfo.roles, function(item,cb){
-						role.findOne({name: item}, '-_id').then((result) => {	console.log('findOne role：');console.log(result)
-							if( result ){
-								//cb(null,result)
-								let permission = db.get('permission')
-								// 获取权限的所有dom
-								async.eachSeries( result.permissions, function(item,callback){
-									permission.findOne({ename: item}, '-_id').then((presult) => {	console.log('findOne per：');console.log(presult)
-										if( presult ){
-											perObj.dom = perObj.dom.concat( presult.dom )
-											perObj.path = perObj.path.concat( presult.path )
-										}
-										callback()
-									})
-									.catch((err) => {
-										if( err ){
-											callback(err)
-										}
-									})
-								},function(err, result){
-									if( err ){
-										cb(err)
-									}else{
-										cb();
-									}
-								})
-							}else{
-								cb()
-							}
-						})
-						.catch((err) => {
-							if( err ){
-								cb(err)
-							}
-						})	
-					},function(err, results){
-						if( err ){
-							let data = {
-								status: 0,
-								msg: '未知错误'
-							}
-							res.json(data);
+					getAllPermission(userinfo, function(result){
+						console.log('Result：', result)
+						if( !result.status ){
+							res.json(result);
 						}else{
-							let data = {
-								status: 1,
-								msg: 'success',
-								data: userinfo,
-								permission: perObj
-							}
 							req.session.user = userinfo;
-							req.session.permission = perObj;
-							console.log('123')
-							console.log(req.session.user);console.log(req.session.permission);
-							console.log('456')
-							res.json(data);
+							req.session.permission = result.permission;
+							console.info('session：',req.session)
+							res.json(result);
 						}
-						db.close();
-					});
+					})
+					
 				}else{
 					let data = {
 						status: 0,
@@ -127,6 +66,7 @@ module.exports = function(app){
 		})
 		.catch((err) => {
 			if(err){
+				console.log(err)
 				res.json({status: 0, msg: '发生未知错误'})
 			}
 		})
@@ -163,7 +103,7 @@ module.exports = function(app){
 							res.json(result)
 						}).then(() => db.close())
 					}else{
-						// 未找打自身账号
+						// 未找到自身账号
 						res.json({
 							status: 0,
 							msg: '未找到自身账号'
@@ -187,19 +127,74 @@ module.exports = function(app){
 			  agent = [];
 		console.log('account：'+account);
 		const users = db.get('user');
-		users.find({},'-_id').each((user, {close, pause, resume}) => {
-			console.log(user)
+
+		users.find({}, '-_id').then((result) => {
+			if( result ){
+				async.eachSeries( result, function(item, callback){
+					// 根据parents属性确定代理层级关系
+					if( item.parents.indexOf(account) >= 0 ){
+						getAllPermission(item, function(result){
+							console.log('listResult：', result)
+							if( result.status ){
+								item.permission = result.permission
+								agent.push(item)
+							}
+							callback();
+						})
+					}else{
+						callback();
+					}
+				},function(err, result){
+					if( err ){
+						res.json({
+							status: 0,
+							msg: err
+						})
+					}else{
+						res.json({
+							status: 1,
+							msg: 'success',
+							data: agent
+						})
+					}
+					db.close();
+				})
+			}else{
+				res.json({
+					status: 0,
+					msg: 'users empty'
+				})
+			}
+		})
+		///////////////
+		/*users.find({},'-_id').each((user, {close, pause, resume}) => {
+			console.log('user：',user)
 			if( user.parents.indexOf(account) >= 0 ){
-				agent.push(user)
+				
+				getAllPermission(user, function(result){
+					console.log('listResult：', result)
+					if( result.status ){
+						user.permission = result.permission
+						agent.push(user)
+						resume()
+					}else{
+						// 
+					}
+				})
+				
 			}
 			
 		}).then(() => {
+			console.log('EndEndEndEndEndEndEndEndEndEndEndEndEnd')
 			res.json({
 				status: 1,
 				msg: 'success',
 				data: agent
 			})
-		})
+		})*/
+		///////////////////
+
+
 	})
 
 	app.get('/mongo/list', function(req, res, next){

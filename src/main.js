@@ -15,7 +15,7 @@ import 'iview/dist/styles/iview.css'    // 使用 CSS
 Vue.config.debug = true; // debug
 
 Vue.component('icon', Icon)
-axios.defaults.withCredentials = true
+axios.defaults.withCredentials = true    // 请求携带cookie信息-session跨域
 Vue.use(VueAxios, axios)
 Vue.use(Vuex)
 Vue.use(iView)
