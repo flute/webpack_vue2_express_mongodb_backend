@@ -18,13 +18,13 @@
 	                <VAside></VAside>
 	            </i-col>
 	            <i-col class="layout-menu-right" span="20">
-	            	<div class="layout-breadcrumb">
+	            	<!-- <div class="layout-breadcrumb">
 			            <Breadcrumb>
 			                <Breadcrumb-item href="#">首页</Breadcrumb-item>
 			                <Breadcrumb-item href="#">应用中心</Breadcrumb-item>
 			                <Breadcrumb-item>某应用</Breadcrumb-item>
 			            </Breadcrumb>
-			        </div>
+			        </div> -->
 	                <div class="layout-contents">
 	                	<router-view v-if="isLogin"></router-view>
 	                </div>
@@ -171,5 +171,38 @@ export default {
 .Dropdown{
 	background: #333;
 	padding: 0 20px;
+}
+.blockquote{
+	border-left: 3px solid #dddee1;
+    padding: 10px;
+    background: #f8f8f9;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.title{
+	font-size: 18px;
+	font-weight: bold;
+	color: rgb(44, 62, 80);
+}
+table{
+	width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border:1px solid #dddee1; 
+    margin: 10px 0;
+} 
+table tr{
+	border-bottom: 1px solid #e9eaec;
+	height: 48px;
+	line-height: 48px;
+} 
+table tr td{
+	padding: 0 18px;
+}
+thead tr{
+	height: 40px;
+	line-height: 40px;
+	background-color: #f8f8f9
 }
 </style>

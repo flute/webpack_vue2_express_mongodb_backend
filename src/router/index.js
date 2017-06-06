@@ -3,11 +3,14 @@ import Router from 'vue-router'
 
 import Hello from '@/components/Hello'
 import Version from '@/components/Version'
-import Bonus from '@/components/Bonus'
+import Role from '@/components/Role'
+import Client from '@/components/Client'
+import User from '@/components/User'
+/*import Bonus from '@/components/Bonus'
 import Resource from '@/components/Resource'
 import Agent from '@/components/Agent'
 import Settlement from '@/components/Settlement'
-import Mongo from '@/components/Mongo'
+import Mongo from '@/components/Mongo'*/
 
 Vue.use(Router)
 
@@ -25,29 +28,19 @@ export default new Router({
 	        component: Version
 	    },
 	    {
-	        path: '/bonus',
-	        name: 'bonus',
-	        component: Bonus
+	        path: '/role',
+	        name: 'role',
+	        component: Role
 	    },
 	    {
-	        path: '/resource',
-	        name: 'resource',
-	        component: Resource
+	        path: '/client',
+	        name: 'client',
+	        component: Client
 	    },
 	    {
-	        path: '/agent',
-	        name: 'agent',
-	        component: Agent
-	    },
-	    {
-	        path: '/settlement',
-	        name: 'settlement',
-	        component: Settlement
-	    },
-	    {
-	    	path: '/mongo',
-	    	name: 'mongo',
-	    	component: Mongo
+	        path: '/user',
+	        name: 'user',
+	        component: User
 	    }
     ]
 })

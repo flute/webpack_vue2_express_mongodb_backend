@@ -1,0 +1,182 @@
+user
+
+/* 1 */
+{
+    "_id" : ObjectId("5930c8c0dc416800026ee404"),
+    "name" : "超级管理员",
+    "account" : "18001194295",
+    "pwd" : "e10adc3949ba59abbe56e057f20f883e",
+    "roles" : [ 
+        "admin"
+    ],
+    "parents" : []
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("593120d4e3862161db1e8e8d"),
+    "account" : "18001194294",
+    "name" : "朝阳代理",
+    "pwd" : "25d55ad283aa400af464c76d713c07ad",
+    "roles" : [ 
+        "company_admin"
+    ],
+    "parents" : [ 
+        "18001194295"
+    ]
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("593136909dcd8b6fca0d9535"),
+    "account" : "18001194296",
+    "name" : "通州区代理",
+    "pwd" : "e10adc3949ba59abbe56e057f20f883e",
+    "roles" : [ 
+        "company_admin"
+    ],
+    "parents" : [ 
+        "18001194295"
+    ]
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("5932100e9dcd8b6fca0d9536"),
+    "account" : "18001193295",
+    "name" : "亚运村代理",
+    "pwd" : "e10adc3949ba59abbe56e057f20f883e",
+    "roles" : [ 
+        "company_admin"
+    ],
+    "parents" : [ 
+        "18001194295", 
+        "18001194294"
+    ]
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("593277363b0851b156d7ae0d"),
+    "account" : "12345678",
+    "name" : "新加坡代理",
+    "pwd" : "e10adc3949ba59abbe56e057f20f883e",
+    "roles" : [ 
+        "company_admin"
+    ],
+    "parents" : [ 
+        "18001194295"
+    ]
+}
+
+
+role
+
+/* 1 */
+{
+    "_id" : ObjectId("59310a9adc416800026ee40e"),
+    "name" : "admin",
+    "permissions" : [ 
+        "version", 
+        "bonus", 
+        "resource", 
+        "agent", 
+        "settlement", 
+        "mongo"
+    ]
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("59310a9adc416800026ee40f"),
+    "name" : "company_admin",
+    "permissions" : [ 
+        "bonus", 
+        "agent", 
+        "settlement"
+    ]
+}
+
+permission
+
+/* 1 */
+{
+    "_id" : ObjectId("593108c8dc416800026ee409"),
+    "cname" : "版本控制",
+    "ename" : "version",
+    "path" : [ 
+        "/version"
+    ],
+    "dom" : [ 
+        "version"
+    ]
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("593108c8dc416800026ee40a"),
+    "cname" : "积分项设定",
+    "ename" : "bonus",
+    "path" : [ 
+        "/bonus"
+    ],
+    "dom" : [ 
+        "bonus"
+    ]
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("593108c8dc416800026ee40b"),
+    "cname" : "资源配置",
+    "ename" : "resource",
+    "path" : [ 
+        "/resource"
+    ],
+    "dom" : [ 
+        "resource"
+    ]
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("593108c8dc416800026ee40c"),
+    "cname" : "代理管理",
+    "ename" : "agent",
+    "path" : [ 
+        "/agent/new", 
+        "/agent/list"
+    ],
+    "dom" : [ 
+        "agent"
+    ]
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("593108c8dc416800026ee40d"),
+    "cname" : "结算",
+    "ename" : "settlement",
+    "path" : [ 
+        "/settlement"
+    ],
+    "dom" : [ 
+        "settlement"
+    ]
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("59326f17dc416800026ee411"),
+    "cname" : "mongodb",
+    "ename" : "mongo",
+    "path" : [ 
+        "/mongo/list", 
+        "/mongo/insert", 
+        "/mongo/update", 
+        "/mongo/remove"
+    ],
+    "dom" : [ 
+        "mongo"
+    ]
+}

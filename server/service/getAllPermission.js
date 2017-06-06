@@ -1,8 +1,8 @@
 const async = require('async');
-const db = require('monk')('localhost:27017/backend');
+const db = require('monk')('localhost:27017/operate');
 
 const getPermission = (userinfo, callback) => {
-	let role = db.get('role'),
+	let role = db.get('t_role'),
 		perObj = {
 			path: [],
 			dom: [],
@@ -10,9 +10,9 @@ const getPermission = (userinfo, callback) => {
 		}; // 权限合集
 	// 获取角色的所有权限
 	async.eachSeries( userinfo.roles, function(item,cb){
-		role.findOne({name: item}, '-_id').then((result) => {	console.log('findOne role：');console.log(result)
+		role.findOne({ename: item}, '-_id').then((result) => {	console.log('findOne role：');console.log(result)
 			if( result ){
-				let permission = db.get('permission')
+				let permission = db.get('t_permission')
 				// 获取权限的所有dom
 				async.eachSeries( result.permissions, function(item,cback){
 					permission.findOne({ename: item}, '-_id').then((presult) => {	console.log('findOne per：');console.log(presult)

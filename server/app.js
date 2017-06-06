@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // cors允许跨域请求
 app.use(cors({
-	origin:['http://localhost:8080'],
+	origin:['http://localhost:8080','http://192.168.199.162:8080'],
 	methods:['OPTIONS','GET','POST'],
 	credentials: true
 }));

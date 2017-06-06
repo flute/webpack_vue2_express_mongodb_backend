@@ -5,33 +5,17 @@
                 <span class="icon-cell"><Icon type="android-compass"></Icon></span>
                 <span class="layout-text">版本控制</span>
             </Menu-item>
-            <Menu-item name="bonus" v-show="showBonus">
+            <Menu-item name="role" v-show="showRole">
                 <span class="icon-cell"><Icon type="soup-can-outline"></Icon></span>
-                <span class="layout-text">积分项设定</span>
+                <span class="layout-text">角色管理</span>
             </Menu-item>
-            <Menu-item name="resource" v-show="showResource">
+            <Menu-item name="client" v-show="showClient">
                 <span class="icon-cell"><Icon type="cube"></Icon></span>
-                <span class="layout-text">资源配置</span>
+                <span class="layout-text">客户管理</span>
             </Menu-item>
-            <Menu-item name="agent" v-show="showAgent">
+            <Menu-item name="user" v-show="showUser">
                 <span class="icon-cell"><Icon type="person"></Icon></span>
-                <span class="layout-text">代理管理</span>
-            </Menu-item>
-            <!-- <Submenu name="agent">
-                <template slot="title">
-                    <span class="icon-cell"><Icon type="person"></Icon></span>
-                    代理管理
-                </template>
-                <Menu-item name="1-1">代理列表</Menu-item>
-                <Menu-item name="1-2">代理管理</Menu-item>
-            </Submenu> -->
-            <Menu-item name="settlement" v-show="showSettlement">
-                <span class="icon-cell"><Icon type="ios-calculator"></Icon></span>
-                <span class="layout-text">结算</span>
-            </Menu-item>
-            <Menu-item name="mongo" id="mongo">
-                <span class="icon-cell"><Icon type="code"></Icon></span>
-                <span class="layout-text">mongodb</span>
+                <span class="layout-text">用户管理</span>
             </Menu-item>
         </Menu>
     </div>
@@ -56,21 +40,17 @@ export default {
             let permissions = this.$store.state.permissions
             return permissions ? permissions.dom.indexOf('version')>=0 : 'false'
         },
-        showBonus(){
+        showRole(){
             let permissions = this.$store.state.permissions
-            return permissions ? permissions.dom.indexOf('bonus')>=0 : 'false'
+            return permissions ? permissions.dom.indexOf('role')>=0 : 'false'
         },
-        showResource(){
+        showClient(){
             let permissions = this.$store.state.permissions
-            return permissions ? permissions.dom.indexOf('resource')>=0 : 'false'
+            return permissions ? permissions.dom.indexOf('client')>=0 : 'false'
         },
-        showAgent(){
+        showUser(){
             let permissions = this.$store.state.permissions
-            return permissions ? permissions.dom.indexOf('agent')>=0 : 'false'
-        },
-        showSettlement(){
-            let permissions = this.$store.state.permissions
-            return permissions ? permissions.dom.indexOf('settlement')>=0 : 'false'
+            return permissions ? permissions.dom.indexOf('user')>=0 : 'false'
         }
     },
     mounted(){
