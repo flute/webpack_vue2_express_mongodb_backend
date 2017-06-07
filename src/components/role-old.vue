@@ -2,22 +2,33 @@
     <div class="role" v-show="showRole">
         <div class="contents">
             <div class="layout-content-main">
+            	<div class="blockquote title">我的角色</div>
+            	<table>
+        			<thead><tr><td>账号</td><td>名称</td><td>权限</td></tr></thead>
+        			<tbody>
+        				<tr>
+        					<td>{{myInfo.account}}</td>
+        					<td>{{myInfo.name}}</td>
+        					<td>
+								<template v-for="per in myPermission.name">
+								    <Tag>{{per}}</Tag>
+								</template>
+        					</td>
+        				</tr>
+        			</tbody>
+        		</table>
+            	
             	<div class="role-option">
-            		<Button id="newRole" type="info" @click="newRole = true">新增角色</Button>
-            		<div class="search">
-            			<span class="span">按照</span>
-	            		<Select v-model="searchmode" style="width:100px">
-					        <Option v-for="item in searchtype" :value="item.value" :key="item">{{ item.label }}</Option>
-					    </Select>
-					    <Input v-model="search" placeholder="请输入搜索词" style="width: 150px"></Input>
-					    <Button @click="dosearch()">查询</Button>
+            		<div class="blockquote">
+            			<span class="title">角色管理</span>
+            			<Button id="newRole" type="ghost" @click="newRole = true">新增角色</Button>
             		</div>
+            		
             	</div>
             	<div class="role-list">
             		<Row>
 	            		<template v-for="(role,index) in roles">
-	            			<Col span="4" class="offset-right"
-	            			v-if="index>=(pageCurrent-1)*pageSize && index<pageCurrent*pageSize">
+	            			<Col span="4" :offset="index?1:0">
 							    <div class="card">
 					                <p class="card-header">{{role.cname}}</p>
 					                <div class="card-body">
@@ -33,14 +44,6 @@
 					        </Col>
 						</template>
             		</Row>
-            		<div class="paginator">
-            			<Page 
-            			:total="roles.length" 
-            			:page-size="pageSize" 
-            			:current="pageCurrent" 
-            			@on-change="changepage"
-            			show-elevator></Page>
-            		</div>
             		<pre>{{roles}}</pre>
             	</div>
             </div>
@@ -77,20 +80,10 @@ export default {
 			name:'',
 			selectper:[],
 			roles:[], // 角色列表
-			roleArr:[],
+			myInfo: this.$store.state.userInfo,
+			myPermission: this.$store.state.permissions,
 			permissions:[], // 所有权限
-			edit:null,
-			searchmode:'role',
-			searchtype:[{
-				label: '角色名称',
-				value: 'role'
-			},{
-				label: '拥有许可',
-				value: 'permission'
-			}],
-			search:'',
-			pageSize:2,
-			pageCurrent:1
+			edit:null
 		}
 	},
 	methods:{
@@ -102,7 +95,6 @@ export default {
 				if( res.status ){
 					console.log('roles', res)
 					this.roles = res.data
-					this.roleArr = res.data
 					this.permissions = res.permissions
 				}
 			})
@@ -183,29 +175,6 @@ export default {
 				}
 			}
 		},
-		dosearch(){
-			if( this.search === '' ){
-				this.$Message.warning({content: '请输入搜索词', duration: 3, closable: true});
-				return;
-			}
-			let roles = [];
-			for( let i=0;i<this.roleArr.length;i++ ){
-				if( this.searchmode === 'role' ){
-					if( this.roleArr[i].cname.indexOf(this.search)>=0 ){
-						roles.push(this.roleArr[i])
-					}
-				}else if( this.searchmode === 'permission' ){
-					for( let j=0;j<this.roleArr[i].perObj.name.length;j++ ){
-						if( this.roleArr[i].perObj.name[j].indexOf(this.search)>=0 ){
-							roles.push(this.roleArr[i])
-							break;
-						}
-					}
-				}
-			}
-			this.roles = roles;
-			
-		},
 		cancel(){
 			this.newRole = false
 			this.clear()
@@ -222,9 +191,6 @@ export default {
 			let nameChange = this.name == this.edit.cname ? false : true;
 			let permissionChange = this.selectper.toString() == this.edit.permissions.toString() ? false : true 
 			return nameChange || permissionChange
-		},
-		changepage(num){
-			this.pageCurrent = num
 		}
 	},
 	computed:{
@@ -240,7 +206,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scope>
 .card{
 	background: #fff;
     border-radius: 4px;
@@ -268,13 +234,11 @@ export default {
 	display: flex;
     justify-content: space-between;
 }
+#newRole{
+	margin-left: 30px;
+}
 .input-label{
 	font-size: 14px;
-}
-.role-option{
-	margin-bottom: 20px;
-	background: #f8f8f9;
-    padding: 10px;
 }
 </style>
 

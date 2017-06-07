@@ -205,4 +205,25 @@ thead tr{
 	line-height: 40px;
 	background-color: #f8f8f9
 }
+.search{
+	display: inline-flex;
+    align-items: center;
+    margin-left: 50px;
+}
+.search span.span{
+	margin-right: 10px;
+    font-size: 14px;
+}
+.search .ivu-input-wrapper{
+	margin: 0 5px;
+}
+.paginator{
+	margin: 20px 0;
+	display: flex;
+    justify-content: flex-end;
+}
+.offset-right{
+	margin-left: 0;
+    margin-right: 4.16666667%;
+}
 </style>

@@ -6,8 +6,6 @@ const db = require('monk')('localhost:27017/operate');
 const RBAC = require('../lib/rbac');
 const Islogin = require('../service/islogin');
 const getAllPermission = require('../service/getAllPermission');
-//const posts = db.get('posts');
-//import { transliterate as tr, slugify } from 'transliteration';
 const slugify = require('transliteration').slugify
 
 function md5 (text) {
@@ -77,7 +75,7 @@ module.exports = function(app){
 
 
 	// 新增角色
-	app.get('/role/list', function(req, res, next){
+	app.get('/role/list', function(req, res, next){	
 		
 		const roles = db.get('t_role');
 		const permissions = db.get('t_permission');
@@ -267,31 +265,42 @@ module.exports = function(app){
 		
 	})
 
-
 	app.get('/user/list', function(req, res, next){
-		const users = db.get(t_user);
-		users.find({}, '-_id')
-		.then((result) => {
+
+		const users = db.get('t_user');
+		const admin = req.session.user.account;
+
+		users.find({flag: 1}, '-_id')
+		.then((result)=>{
 			if( result ){
+				let data = [];
+				for( let i=0;i<result.length;i++ ){
+					// 如果是上级，有权查看，否则无
+					if( result[i].parents.indexOf(admin)>=0 ){
+						data.push(result[i])
+					}
+				}
 				res.json({
 					status: 1,
 					msg: 'success',
-					data: result
+					data: data
 				})
 			}else{
 				res.json({
 					status: 0,
-					msg: '未找到用户'
+					msg: "未找到用户"
 				})
 			}
 		})
-		.catch((error) => {
+		.catch((error)=>{
 			res.json({
 				status: 0,
 				msg: error
 			})
 		})
+		
 	})
+
 
 	app.post('/user/new', function(req, res, next){
 		let name = req.body.name,
@@ -309,15 +318,25 @@ module.exports = function(app){
 		}
 
 		const user = db.get('t_user')
-		user.getOne({account: creator}, '-_id').then((result)=>{
+		user.findOne({account: creator}, '-_id').then((result)=>{
 			if( result ){
-				
+				// 代理级数控制
+				if( result.parents.length == 9 ){
+					res.json({
+						status: 0,
+						msg: '最多为十级代理，如需开通，请联系管理人员'
+					})
+					return;
+				}
+				// 父级创建者记录
+				let parents = result.parents
+					parents.push(result.account)
 				user.insert({
 					name: name,
 					account: account,
 					pwd: md5(pwd),
 					roles: roles,
-					parents: result.parents.push(result.account),
+					parents: parents,
 					flag: 1
 				}).then((result)=>{
 					if( result ){
@@ -354,79 +373,164 @@ module.exports = function(app){
 	})
 
 
+	app.post('/user/remove', function(req, res, next){
 
-
-
-	// 新增代理
-	app.post('/agent/new', function(req, res, next){
-		let account = req.body.account,
-			name = req.body.name,
-			pwd = req.body.pwd,
-			admin = req.body.admin;
-
-		const user = db.get('t_user');
-		user.findOne({account: account}, '-_id').then((userinfo)=>{
-			if(!userinfo){
-				user.findOne({account: admin}, '-_id').then((adminInfo)=>{
-					if( adminInfo ){
-						if( adminInfo.parents ){
-							var p = adminInfo.parents
+		const account = req.body.account;
+		const creator = req.session.user.account;
+		const users = db.get('t_user');
+		if( !account ){
+			res.json({
+				status: 0,
+				msg: '参数错误'
+			})
+			return;
+		}
+		users.findOne({account: account}, '-_id')
+		.then((result)=>{
+			if( result ){
+				if( result.parents.indexOf(creator)>=0 ){
+					// 父级代理，有权删除
+					result.flag = 0;
+					users.update({account: account}, result).then((result)=>{
+						if( result ){
+							res.json({
+								status: 1,
+								msg: 'success'
+							})
 						}else{
-							var p = []
+							res.json({
+								status: 0,
+								msg: '删除失败'
+							})
 						}
-						p.push(adminInfo.account)
-						console.log(p)
-						user.insert({
-							account: account,
-							name: name,
-							pwd: md5(pwd),
-							roles:['company_admin'],
-							parents: p
-						}).then((result)=>{
-							result.status = 1;
-							res.json(result)
-						}).then(() => db.close())
-					}else{
-						// 未找到自身账号
-						res.json({
-							status: 0,
-							msg: '未找到自身账号'
-						})
-					}
-				})
-				
+					}).then(() => db.close())
+				}else{
+					res.json({
+						status: 0,
+						msg: '没有权限'
+					})
+				}
 			}else{
-				// 账户存在
 				res.json({
 					status: 0,
-					msg: '该账号已存在'
+					msg: "未找到用户"
 				})
 			}
 		})
+		.catch((error)=>{
+			res.json({
+				status: 0,
+				msg: error
+			})
+		})
 		
 	})
-	// 获取代理列表
-	app.post('/agent/list', function(req, res, next){
-		const account = req.body.account,
-			  agent = [];
-		console.log('account：'+account);
-		const users = db.get('t_user');
 
-		users.find({}, '-_id').then((result) => {
+	
+	app.post('/user/update', function(req, res, next){
+		let name = req.body.name
+			account = req.body.account,
+			pwd = req.body.pwd,
+			roles = req.body.roles,
+			creator = req.session.user.account;
+
+		if( !name || !account || !pwd || !roles || roles.length==0 ){
+			res.json({
+				status: 0,
+				msg: '参数错误'
+			})
+			return;
+		}
+
+		const users = db.get('t_user')
+		users.findOne({account:  account}, '-_id')
+		.then((result) => {
 			if( result ){
-				async.eachSeries( result, function(item, callback){
-					// 根据parents属性确定代理层级关系
-					if( item.parents.indexOf(account) >= 0 ){
-						getAllPermission(item, function(result){
-							console.log('listResult：', result)
-							if( result.status ){
-								item.permission = result.permission
-								agent.push(item)
-							}
-							callback();
+				if( result.parents.indexOf( creator )>=0 ){
+					let data = {
+						account: account,
+						name: name,
+						pwd: md5(pwd),
+						roles: roles,
+						parents: result.parents,
+						flag: result.flag
+					}
+					users.update({account: account}, data)
+					.then((result) => {
+						if( result ){
+							res.json({
+								status: 1,
+								msg: 'success'
+							})
+						}else{
+							res.json({
+								status: 0,
+								msg: '更新失败'
+							})
+						}
+					})
+					.catch((error) => {
+						res.json({
+							status: 0,
+							msg: error
 						})
+					})
+					.then(() => db.close())
+				}else{
+					res.json({
+						status: 0,
+						msg: '没有权限'
+					})
+				}
+			}else{
+				res.json({
+					status: 0,
+					msg: '未找到该用户'
+				})
+			}
+		})
+		.catch((error) => {
+			res.json({
+				status: 0,
+				msg: error
+			})
+		})
+		
+	})
+
+
+
+	app.get('/client/list', function(req, res, next){
+
+		const client = db.get('t_client');
+		const user = db.get('t_user');
+		const admin = req.session.user.account;
+
+		client.find({flag: 1}, '-_id')
+		.then((result) => {
+			if( result ){
+				let datas = [];
+				async.eachSeries(result, function(item, callback){
+					// 本人是客户的管理员
+					if( item.user == admin ){
+						item.username = req.session.user.name
+						datas.push( item )
+						callback()
 					}else{
-						callback();
+						user.findOne({account: item.user}, '-_id')
+						.then((result) => {
+							if( result ){
+								if( result.parents.indexOf( admin )>=0 ){
+									// 如果是 客户绑定的管理员 的父级，有权查看
+									item.username = result.name
+									datas.push( item )
+								}
+							}
+							callback()
+						})
+						.catch((err) => {
+							callback(err)
+						})
 					}
 				},function(err, result){
 					if( err ){
@@ -438,54 +542,268 @@ module.exports = function(app){
 						res.json({
 							status: 1,
 							msg: 'success',
-							data: agent
+							data: datas
 						})
 					}
-					db.close();
 				})
 			}else{
 				res.json({
 					status: 0,
-					msg: 'users empty'
+					msg: '查询客户失败'
 				})
 			}
+		})
+		.catch((error) => {
+			res.json({
+				status: 0,
+				msg: error
+			})
+		})
+		
+	})
+
+
+	app.post('/client/new', function(req, res, next){
+		let name = req.body.name,
+			phone = req.body.phone,
+			address = req.body.address,
+			user = req.body.user;
+
+		if( !name || !phone || !address || !user ){
+			res.json({
+				status: 0,
+				msg: '参数错误'
+			})
+			return;
+		}
+
+		const client = db.get('t_client')
+		client.insert({
+			cname: name,
+			ename: slugify(name),
+			phone: phone,
+			address: address,
+			user: user,
+			flag: 1
+		})
+		.then((result) => {
+			if( result){
+				res.json({
+					status: 1,
+					msg: 'success'
+				})
+			}else{
+				res.json({
+					status: 0,
+					msg: '新增失败'
+				})
+			}
+		})
+		.catch((error) => {
+			res.json({
+				status: 0,
+				msg: error
+			})
+		})
+	})
+
+
+	app.post('/client/remove', function(req, res, next){
+		const name = req.body.name;
+		const admin = req.session.user.account;
+		const client = db.get('t_client');
+		const user = db.get('t_user');
+
+		client.findOne({ename: name}, '-_id')
+		.then((result) => {
+			if( result ){
+				let data = {
+					cname: result.cname,
+					ename: result.ename,
+					user: result.user,
+					phone: result.phone,
+					address: result.address,
+					flag: 0
+				}
+				// 判断是否权限删除
+				if( result.user == admin ){
+					client.update({ename: name}, data)
+					.then((result) => {
+						if( result ){
+							res.json({
+								status: 1,
+								msg: 'success'
+							})
+						}else{
+							res.json({
+								status: 0,
+								msg: '删除失败'
+							})
+						}
+					})
+					.catch((error) => {
+						res.json({
+							status: 0,
+							msg: error
+						})
+					})
+				}else{
+					user.findOne({account: result.user}, '-_id')
+					.then(( result ) => {
+						if( result ){
+							if( result.parents.indexOf(admin)>= 0 ){
+								client.update({ename: name}, data)
+								.then((result) => {
+									if( result ){
+										res.json({
+											status: 1,
+											msg: 'success'
+										})
+									}else{
+										res.json({
+											status: 0,
+											msg: '删除失败'
+										})
+									}
+								})
+								.catch((error) => {
+									res.json({
+										status: 0,
+										msg: error
+									})
+								})
+							}else{
+								re.json({
+									status: 0,
+									msg: '没有权限'
+								})
+							}
+						}else{
+							res.json({
+								status: 0,
+								msg: '未找到客户绑定的用户'
+							})
+						}
+					})
+				}
+			}else{
+				res.json({
+					status: 0,
+					msg: '未找到该客户'
+				})
+			}	
+		})
+		.catch((error) => {
+			res.json({
+				status: 0,
+				msg: error
+			})
+		})
+	})
+
+
+	app.post('/client/update', function(req, res, next){
+		let name = req.body.name,
+			phone = req.body.phone,
+			address = req.body.address,
+			user = req.body.user,
+			admin = req.session.user.account;
+		if( !name || !phone || !address || !user || !admin ){
+			res.json({
+				status: 0,
+				msg: '参数错误'
+			})
+			return;
+		}
+		
+		const client = db.get('t_client');
+		const users = db.get('t_user');
+		ename = slugify(name);
+		client.findOne({ename: ename}, '-_id')
+		.then((result) => {
+			if( result ){
+				let data = {
+					cname: name,
+					ename: ename,
+					phone: phone,
+					address: address,
+					user: user,
+					flag: result.flag
+				}
+				if( result.user == admin ){
+					client.update({ename: ename}, data)
+					.then((result) => {
+						if( result ){
+							res.json({
+								status: 1,
+								msg: 'success'
+							})
+						}else{
+							res.json({
+								status: 0,
+								msg: '更新失败'
+							})
+						}
+					})
+					.catch((error) => {
+						res.json({
+							status: 0,
+							msg: error
+						})
+					})
+				}else{
+					users.findOne({account: result.user}, '-_id')
+					.then((result) => {
+						if( result ){
+							if( result.parents.indexOf(admin)>=0 ){
+								client.update({ename: ename}, data)
+								.then((result) => {
+									if( result ){
+										res.json({
+											status: 1,
+											msg: 'success'
+										})
+									}else{
+										res.json({
+											status: 0,
+											msg: '更新失败'
+										})
+									}
+								})
+								.catch((error) => {
+									res.json({
+										status: 0,
+										msg: error
+									})
+								})
+							}else{
+								res.json({
+									status: 0,
+									msg: '没有权限'
+								})
+							}
+						}else{
+							res.json({
+								status: 0,
+								msg: '未找到该客户绑定的用户'
+							})
+						}
+					})
+				}
+			}else{
+				res.json({
+					status: 0,
+					msg: '未找到该客户' 
+				})
+			}
+		})
+		.catch((error) => {
+			res.json({
+				status: 0,
+				msg: error
+			})
 		})
 
 	})
 
-	/*app.get('/mongo/list', function(req, res, next){
-		posts.find({},'-_id').then((result) => {
-			//console.log(result);
-			res.json(result);
-		}).then(() => db.close())
-	})
-
-	app.get('/mongo/insert', function(req, res, next){
-		posts.insert({
-			name: 'bob',
-			time: {
-		        date: new Date(),
-		        year: '2017',
-		        month: '2017-05',
-		        day: '2017-05-31',
-		        minute: '2017-05-31 14:43'
-		    },
-		    title: 'insert',
-		    post: '666666666'
-		}).then((result)=>{
-			res.json(result)
-		}).then(() => db.close())
-	})
-
-	app.get('/mongo/update', function(req, res, next){
-		posts.update({name: 'bob'}, {name: 'stack'}).then((result)=>{
-			res.json(result)
-		}).then(() => db.close())
-	})
-
-	app.get('/mongo/remove', function(req, res, next){
-		posts.remove({name: 'stack'}).then((result)=>{
-			res.json(result)
-		}).then(() => db.close())
-	})*/
 }
