@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var cors = require('cors');
 var routes = require('./routes/index');
-//var redisStore = require('connect-redis')(session);
 
 var app = express();
 
@@ -16,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // cors允许跨域请求
 app.use(cors({
-	origin:['http://localhost:8080','http://192.168.199.162:8080'],
+	origin:['http://localhost:8080','http://192.168.199.162:8080','http://localhost:8000'],
 	methods:['OPTIONS','GET','POST'],
 	credentials: true
 }));
@@ -24,8 +23,8 @@ app.use(cors({
 // cookie
 app.use(cookieParser());
 app.use(session({
-	secret: 'backend123',
-	name:'backend',
+	secret: 'operate123...',
+	name:'operate',
 	cookie: {
 		maxAge: 1000 * 60 * 60,
 	},// 1h

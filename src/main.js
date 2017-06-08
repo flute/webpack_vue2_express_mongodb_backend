@@ -6,15 +6,11 @@ import router from './router'
 import Vuex from 'vuex'	    // vuex
 import axios from 'axios'	// axios
 import VueAxios from 'vue-axios'
-import moment from 'moment'
-import 'vue-awesome/icons'
-import Icon from 'vue-awesome/components/Icon'	// icon
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'    // 使用 CSS
 
 Vue.config.debug = true; // debug
 
-Vue.component('icon', Icon)
 axios.defaults.withCredentials = true    // 请求携带cookie信息-session跨域
 Vue.use(VueAxios, axios)
 Vue.use(Vuex)
@@ -25,7 +21,7 @@ Vue.prototype.checkLogin = function(res){
 	if(res.status == -1) this.$store.commit('showLogin', true)
 	return res.status == -1 ? false : true
 }
-Vue.prototype.changeTime = time => moment(time).startOf('minute').fromNow().replace(/hours?/, '小时').replace('ago', '前').replace(/days?/, '天').replace(/minutes?/, '分钟').replace(/\ban?/, '1').replace(/months?/, '个月').replace(/\byears?/, '年').replace(/\s/g, '').replace('fewseconds','分钟');
+
 // 加载进度条
 router.beforeEach((to, from, next) => {
     iView.LoadingBar.start();

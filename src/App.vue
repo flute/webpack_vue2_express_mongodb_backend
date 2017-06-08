@@ -58,7 +58,7 @@ export default {
 			this.axios.get(apiUrl+'/islogin')
 				.then(response => response.data)
 				.then(res => {
-					if( res.status ){
+					if( res.status === 1 ){
 						// 已登录
 						this.$store.commit('showLogin', false)
 						this.$store.commit('updateUserInfo', res.userinfo)
@@ -159,7 +159,7 @@ export default {
 	height: 100%;
 }
 .header-menu{
-	background-color: #495060;
+	background-color: #495060 !important;
 }
 .layout-menu-left,.layout-menu-left .ivu-menu-light{
 	height: 100%;
