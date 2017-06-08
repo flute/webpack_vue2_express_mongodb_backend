@@ -1,7 +1,9 @@
 ### 前后端分离运营平台
 
 前后端分离RABC角色权限控制运营平台。
+
 前端: vue-cli + vue2 + vuex + vue-router + axios + iview + ES6
+
 后端: express-generator + express + mongndb + monk
 
 ### install
@@ -24,7 +26,7 @@ npm run build
 
 ### 项目目录
 
-```
+```vim
 .
 ├── README.md
 ├── build
