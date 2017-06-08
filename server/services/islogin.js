@@ -1,15 +1,14 @@
-const islogin = (req, res, next) => {
+const islogin = (req, callback) => {
 	// 检测是否登录
 	if( req.session.user && req.session.permission ){
-		res.json({
+		callback({
 			status: 1,
 			msg: '已登录',
 			userinfo: req.session.user,
 			permission: req.session.permission
 		})
-		next()
 	}else{
-		res.json({
+		callback({
 			status: -1,
 			msg: '未登录'
 		})

@@ -1,80 +1,99 @@
-permission
+/* 
+ * mongodb初始化数据
+ * 数据库： operate
+ * 账号/密码： 18888888888/123456
+*/
 
-角色管理 role
-客户（企业）管理 client
-用户管理（代理/管理员） user
-APP版本管理 version
+/* t_user */
 
+    {
+        "name" : "超级管理员",
+        "account" : "18888888888",
+        "pwd" : "e10adc3949ba59abbe56e057f20f883e",
+        "roles" : [ 
+            "admin"
+        ],
+        "parents" : [],
+        "flag" : 1
+    }
 
-{
-    "cname" : "版本控制",
-    "ename" : "version",
-    "path" : ["/version"],
-    "dom" : ["version"],
-    "flag": 1
-}
-{
-    "cname" : "角色管理",
-    "ename" : "role",
-    "path" : ["/role"],
-    "dom" : ["role"],
-    "flag": 1
-}
-{
-    "cname" : "客户管理",
-    "ename" : "client",
-    "path" : ["/client"],
-    "dom" : ["client"],
-    "flag": 1
-}
-{
-    "cname" : "用户管理",
-    "ename" : "user",
-    "path" : ["/user"],
-    "dom" : ["user"],
-    "flag": 1
-}
+/* t_permission */
 
+    /* 1 */
+    {
+        "cname" : "版本控制",
+        "ename" : "version",
+        "path" : [ 
+            "/version"
+        ],
+        "dom" : [ 
+            "version"
+        ],
+        "flag" : 1
+    }
 
-role  角色管理
+    /* 2 */
+    {
+        "cname" : "角色管理",
+        "ename" : "role",
+        "path" : [ 
+            "/role/list", 
+            "/role/new", 
+            "/role/remove", 
+            "/role/update"
+        ],
+        "dom" : [ 
+            "role"
+        ],
+        "flag" : 1
+    }
 
-{
-    "name" : "admin",
-    "permissions" : [ 
-        "role", 
-        "client", 
-        "user", 
-        "version"
-    ],
-    "flag": 1
-}
+    /* 3 */
+    {
+        "cname" : "客户管理",
+        "ename" : "client",
+        "path" : [ 
+            "/user/list", 
+            "/client/list", 
+            "/client/new", 
+            "/client/remove", 
+            "/client/update"
+        ],
+        "dom" : [ 
+            "client"
+        ],
+        "flag" : 1
+    }
 
-{
-    "name" : "user",
-    "permissions" : [ 
-        "client", 
-        "user"
-    ],
-    "flag": 1
-}
+    /* 4 */
+    {
+        "cname" : "用户管理",
+        "ename" : "user",
+        "path" : [ 
+            "/role/list", 
+            "/client/list", 
+            "/user/new", 
+            "/user/list", 
+            "/user/remove", 
+            "/user/update"
+        ],
+        "dom" : [ 
+            "user"
+        ],
+        "flag" : 1
+    }
 
+/* t_role */
 
-client   客户管理
-{
-	"name": "美国布鲁斯集团",
-	"user": "18001194295", 
-	"phone": "18001194295",
-	"address": "美国圣何塞南华街1栋201",
-	"flag": 1
-}
-
-user  用户管理
-
-{
-	"name":  "超级管理员"
-	"account": "18001194295",
-	"pwd": "e10adc3949ba59abbe56e057f20f883e",
-	"role": ["admin"]
-	"parents": [],
-	"flag": 1
-}
+    /* 1 */
+    {
+        "ename" : "admin",
+        "cname" : "超级管理员",
+        "permissions" : [ 
+            "role", 
+            "client", 
+            "user", 
+            "version"
+        ],
+        "flag" : 1
+    }

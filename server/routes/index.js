@@ -17,7 +17,11 @@ module.exports = function(app){
 
 	app.use('/user', userController)
 
-	app.get('/islogin', Islogin)
+	app.get('/islogin', function(req, res, next){
+		Islogin(req, function(result){
+			res.json(result)
+		})
+	})
 	
 	app.get('/logout', function(req, res, next){
 		req.session.user = null

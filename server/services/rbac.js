@@ -1,8 +1,6 @@
 const rbac = (req, res, next) => {
 	// RBAC权限检验
-	console.log('Time：', Date.now());
-	console.log(req.session.user)
-	console.log(req.session.permission)
+	console.log('RBAC-session：', req.session.user, req.session.permission)
 
 	const pathArr = ['/islogin','/logout','/login'];	// 无须授权的路由
 
