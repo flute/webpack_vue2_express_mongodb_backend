@@ -32,11 +32,7 @@ export default {
     methods:{
         login(){
             if( !this.account || !this.pwd ){
-                this.$Message.warning({
-                    content: '请填写账号密码',
-                    duration: 3,
-                    closable: true
-                });
+                this.$Message.warning({content: '请填写账号密码', duration: 3, closable: true});
                 return;
             }
             let apiUrl = this.$store.state.apiUrl
@@ -49,11 +45,7 @@ export default {
                         this.$store.commit('showLogin', false)
                     }else{
                         //this.tips = res.error_msg
-                        this.$Message.error({
-                            content: res.msg,
-                            duration: 3,
-                            closable: true
-                        });
+                        this.$Message.error({content: res.msg, duration: 3, closable: true});
                     }
                 })
         },

@@ -2,7 +2,7 @@
     <div class="user" v-show="showUser">
         <div class="contents">
             <div class="layout-content-main">
-            	<div class="user-option">
+            	<div class="user-option options">
             		<Button type="info" @click="newUser = true">新增用户</Button>
             		<div class="search">
             			<span class="span">按照</span>
@@ -11,6 +11,8 @@
 					    </Select>
 					    <Input v-model="search" placeholder="请输入搜索词" style="width: 150px"></Input>
 					    <Button @click="dosearch()">查询</Button>
+					    <Button class="clear-search" type="dashed" icon="ios-close-outline" @click="clearSearch()"
+					    v-show="users.length!=userArr.length">清除</Button>
             		</div>
             	</div>
             	<div class="user-lists">
@@ -42,6 +44,7 @@
             				</tr>
             			</tbody>
             		</table>
+            		<p class="notip" v-show="users.length==0">没有找到您搜索的用户~</p>
             	</div>
             	<div class="paginator">
         			<Page 
@@ -51,7 +54,7 @@
         			@on-change="changepage"
         			show-elevator></Page>
         		</div>
-            	<pre>{{users}}</pre>
+            	<!-- <pre>{{users}}</pre> -->
             </div>
         </div>
         <Modal @on-ok="submit" @on-cancel="cancel"
@@ -132,6 +135,7 @@ export default {
 			this.axios.get(apiUrl+'/user/list')
 			.then( response => response.data )
 			.then( res => {
+				if(!this.checkLogin(res))return;
 				if( res.status ){
 					this.users = res.data
 					this.userArr = res.data
@@ -158,6 +162,7 @@ export default {
 				this.axios.post(apiUrl+'/user/new', {name: this.name, account: this.account, pwd: this.pwd, roles: this.selectRole})
 					.then( response => response.data )
 					.then( res => {
+						if(!this.checkLogin(res))return;
 						if( res.status ){
 							this.newUser = false
 							this.clear()
@@ -171,6 +176,7 @@ export default {
 				this.axios.post(apiUrl+'/user/update', {name: this.name, account: this.account, pwd: this.pwd, roles: this.selectRole})
 					.then( response => response.data )
 					.then( res => {
+						if(!this.checkLogin(res))return;
 						if( res.status ){
 							this.newUser = false
 							this.clear()
@@ -189,6 +195,7 @@ export default {
 			this.axios.post(apiUrl+'/user/remove', {account: account})
 				.then(response => response.data)
 				.then( res => {
+					if(!this.checkLogin(res))return;
 					if( res.status ){
 						this.$Message.success({content: '删除成功', duration: 3, closable: true});
 		                this.getUsers();
@@ -273,11 +280,14 @@ export default {
 					}
 				}
 			}
-			
 			this.users = users;
 		},
 		changepage(num){
 			this.pageCurrent = num
+		},
+		clearSearch(){
+			this.users = this.userArr
+			this.search = ''
 		}
 	},
 	computed:{
@@ -294,16 +304,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.input-label{
-    display: inline-block;
-    width: 60px;
-}
-.user-option{
-	margin-bottom: 20px;
-	background: #f8f8f9;
-    padding: 10px;
-}
-</style>
-
-
+<style scoped></style>

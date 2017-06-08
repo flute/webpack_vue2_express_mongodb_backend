@@ -21,6 +21,10 @@ Vue.use(Vuex)
 Vue.use(iView)
 
 Vue.config.productionTip = false
+Vue.prototype.checkLogin = function(res){
+	if(res.status == -1) this.$store.commit('showLogin', true)
+	return res.status == -1 ? false : true
+}
 Vue.prototype.changeTime = time => moment(time).startOf('minute').fromNow().replace(/hours?/, '小时').replace('ago', '前').replace(/days?/, '天').replace(/minutes?/, '分钟').replace(/\ban?/, '1').replace(/months?/, '个月').replace(/\byears?/, '年').replace(/\s/g, '').replace('fewseconds','分钟');
 // 加载进度条
 router.beforeEach((to, from, next) => {

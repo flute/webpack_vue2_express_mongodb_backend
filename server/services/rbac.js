@@ -23,7 +23,7 @@ const rbac = (req, res, next) => {
 		}else{
 			// permission denied
 			res.json({
-				status: 0,
+				status: -1,
 				msg: '未登陆'
 			})
 		}

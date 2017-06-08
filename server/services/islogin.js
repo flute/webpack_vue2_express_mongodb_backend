@@ -10,8 +10,8 @@ const islogin = (req, res, next) => {
 		next()
 	}else{
 		res.json({
-			status: 0,
-			msg: '未登录233'
+			status: -1,
+			msg: '未登录'
 		})
 	}
 }

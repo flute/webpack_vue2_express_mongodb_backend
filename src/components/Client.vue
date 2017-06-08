@@ -2,7 +2,7 @@
     <div class="client" v-show="showClient">
         <div class="contents">
             <div class="layout-content-main">
-            	<div class="client-option">
+            	<div class="client-option options">
             		<Button type="info" @click="newClient = true">新增客户</Button>
             		<div class="search">
             			<span class="span">按照</span>
@@ -11,6 +11,8 @@
 					    </Select>
 					    <Input v-model="search" placeholder="请输入搜索词" style="width: 150px"></Input>
 					    <Button @click="dosearch()">查询</Button>
+					    <Button class="clear-search" type="dashed" icon="ios-close-outline" @click="clearSearch()"
+					    v-show="clients.length!=clientArr.length">清除</Button>
             		</div>
             	</div>
             	<div class="client-lists">
@@ -38,6 +40,7 @@
             				</tr>
             			</tbody>
             		</table>
+            		<p class="notip" v-show="clients.length==0">没有找到您搜索的客户~</p>
             	</div>
             	<div class="paginator">
         			<Page 
@@ -47,7 +50,7 @@
         			@on-change="changepage"
         			show-elevator></Page>
         		</div>
-            	<pre>{{clients}}</pre>
+            	<!-- <pre>{{clients}}</pre> -->
             </div>
         </div>
         <Modal @on-ok="submit" @on-cancel="cancel"
@@ -114,6 +117,7 @@ export default {
 			this.axios.get(apiUrl+'/user/list')
 			.then( response => response.data )
 			.then( res => {
+				if(!this.checkLogin(res))return;
 				if( res.status ){
 					this.users = res.data
 				}
@@ -124,6 +128,7 @@ export default {
 			this.axios.get(apiUrl+'/client/list')
 			.then( response => response.data )
 			.then( res => {
+				if(!this.checkLogin(res))return;
 				if( res.status ){
 					this.clients = res.data
 					this.clientArr = res.data
@@ -140,6 +145,7 @@ export default {
 				this.axios.post(apiUrl+'/client/new', {name: this.name, phone: this.phone, address: this.address, user: this.selectUser})
 					.then( response => response.data )
 					.then( res => {
+						if(!this.checkLogin(res))return;
 						if( res.status ){
 							this.newClient = false
 							this.clear()
@@ -153,6 +159,7 @@ export default {
 				this.axios.post(apiUrl+'/client/update', {name: this.name, phone: this.phone, address: this.address, user: this.selectUser})
 					.then( response => response.data )
 					.then( res => {
+						if(!this.checkLogin(res))return;
 						if( res.status ){
 							this.newClient = false
 							this.clear()
@@ -171,6 +178,7 @@ export default {
 			this.axios.post(apiUrl+'/client/remove', {name: name})
 				.then(response => response.data)
 				.then( res => {
+					if(!this.checkLogin(res))return;
 					if( res.status ){
 						this.$Message.success({content: '删除成功', duration: 3, closable: true});
 		                this.getclients();
@@ -241,11 +249,14 @@ export default {
 					}
 				}
 			}
-			
 			this.clients = clients;
 		},
 		changepage(num){
 			this.pageCurrent = num
+		},
+		clearSearch(){
+			this.clients = this.clientArr
+			this.search = ''
 		}
 	},
 	computed:{
@@ -261,16 +272,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.input-label{
-    display: inline-block;
-    width: 100px;
-}
-.client-option{
-	margin-bottom: 20px;
-	background: #f8f8f9;
-    padding: 10px;
-}
-</style>
-
-
+<style scoped></style>

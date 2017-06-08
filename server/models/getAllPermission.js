@@ -1,5 +1,5 @@
 const async = require('async');
-const db = require('monk')('localhost:27017/operate');
+const db = require('../conf/db');
 
 const getPermission = (userinfo, callback) => {
 	let role = db.get('t_role'),
@@ -15,7 +15,7 @@ const getPermission = (userinfo, callback) => {
 				let permission = db.get('t_permission')
 				// 获取权限的所有dom
 				async.eachSeries( result.permissions, function(item,cback){
-					permission.findOne({ename: item}, '-_id').then((presult) => {	console.log('findOne per：');console.log(presult)
+					permission.findOne({ename: item}, '-_id').then((presult) => {	console.log('findOne perssion：');console.log(presult)
 						if( presult ){
 							perObj.dom = perObj.dom.concat( presult.dom )
 							perObj.path = perObj.path.concat( presult.path )

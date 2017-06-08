@@ -2,7 +2,7 @@
     <div class="role" v-show="showRole">
         <div class="contents">
             <div class="layout-content-main">
-            	<div class="role-option">
+            	<div class="role-option options">
             		<Button id="newRole" type="info" @click="newRole = true">新增角色</Button>
             		<div class="search">
             			<span class="span">按照</span>
@@ -11,6 +11,8 @@
 					    </Select>
 					    <Input v-model="search" placeholder="请输入搜索词" style="width: 150px"></Input>
 					    <Button @click="dosearch()">查询</Button>
+					    <Button class="clear-search" type="dashed" icon="ios-close-outline" @click="clearSearch()"
+					    v-show="roles.length!=roleArr.length">清除</Button>
             		</div>
             	</div>
             	<div class="role-list">
@@ -32,6 +34,7 @@
 					            </div>
 					        </Col>
 						</template>
+						<p class="notip" v-show="roles.length==0">没有找到您搜索的角色~</p>
             		</Row>
             		<div class="paginator">
             			<Page 
@@ -41,7 +44,7 @@
             			@on-change="changepage"
             			show-elevator></Page>
             		</div>
-            		<pre>{{roles}}</pre>
+            		<!-- <pre>{{roles}}</pre> -->
             	</div>
             </div>
         </div>
@@ -99,11 +102,14 @@ export default {
 			this.axios.get(apiUrl+'/role/list')
 			.then( response => response.data )
 			.then( res => {
+				if(!this.checkLogin(res))return;
 				if( res.status ){
 					console.log('roles', res)
 					this.roles = res.data
 					this.roleArr = res.data
 					this.permissions = res.permissions
+				}else{
+					this.$Message.error({content: '请求数据出错，请稍后尝试！', duration: 3, closable: true});
 				}
 			})
 		},
@@ -118,6 +124,7 @@ export default {
 				this.axios.post(apiUrl+'/role/new', {name: this.name, permission: this.selectper})
 					.then( response => response.data )
 					.then( res => {
+						if(!this.checkLogin(res))return;
 						if( res.status ){
 							this.newRole = false
 							this.clear()
@@ -135,6 +142,7 @@ export default {
 					this.axios.post(apiUrl+'/role/update', {oldname: this.edit.ename, newname: this.name, permission: this.selectper})
 						.then( response => response.data )
 						.then( res => {
+							if(!this.checkLogin(res))return;
 							if( res.status ){
 								this.newRole = false
 								this.clear()
@@ -155,6 +163,7 @@ export default {
 			this.axios.post(apiUrl+'/role/remove', {name: roleName})
 			.then( response => response.data )
 			.then( res => {
+				if(!this.checkLogin(res))return;
 				if( res.status ){
 					this.$Message.success({content: '删除成功', duration: 3, closable: true});
 	                this.getRoles();
@@ -225,6 +234,10 @@ export default {
 		},
 		changepage(num){
 			this.pageCurrent = num
+		},
+		clearSearch(){
+			this.roles = this.roleArr
+			this.search = ''
 		}
 	},
 	computed:{
@@ -268,14 +281,4 @@ export default {
 	display: flex;
     justify-content: space-between;
 }
-.input-label{
-	font-size: 14px;
-}
-.role-option{
-	margin-bottom: 20px;
-	background: #f8f8f9;
-    padding: 10px;
-}
 </style>
-
-

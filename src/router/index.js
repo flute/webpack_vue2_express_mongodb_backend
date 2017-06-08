@@ -6,11 +6,6 @@ import Version from '@/components/Version'
 import Role from '@/components/Role'
 import Client from '@/components/Client'
 import User from '@/components/User'
-/*import Bonus from '@/components/Bonus'
-import Resource from '@/components/Resource'
-import Agent from '@/components/Agent'
-import Settlement from '@/components/Settlement'
-import Mongo from '@/components/Mongo'*/
 
 Vue.use(Router)
 

@@ -18,13 +18,6 @@
 	                <VAside></VAside>
 	            </i-col>
 	            <i-col class="layout-menu-right" span="20">
-	            	<!-- <div class="layout-breadcrumb">
-			            <Breadcrumb>
-			                <Breadcrumb-item href="#">首页</Breadcrumb-item>
-			                <Breadcrumb-item href="#">应用中心</Breadcrumb-item>
-			                <Breadcrumb-item>某应用</Breadcrumb-item>
-			            </Breadcrumb>
-			        </div> -->
 	                <div class="layout-contents">
 	                	<router-view v-if="isLogin"></router-view>
 	                </div>
@@ -56,8 +49,6 @@ export default {
 					if( res.status ){
 						this.$store.commit('showLogin', true)
 						this.$store.commit('updateUserInfo', null)
-					}else{
-						alert('注销失败')
 					}
 				})
 			}
@@ -90,14 +81,20 @@ export default {
 		VAside,
 		VLogin
 	},
-	mounted(){
-		console.log('app.vue mounted')
+	beforeCreate(){
+		console.log('beforeCreate', this.$store.state.isShowLogin)
+	},
+	created(){
+		console.log('created', this.$store.state.isShowLogin)
 		this.checkLogin();
 	},
-	beforeRouteEnter (to, from, next) {
-		console.log('哇咔咔')
-		next(vm => vm.from = from)
-	}
+	beforeMount(){
+		console.log('beforeMount', this.$store.state.isShowLogin)
+	},
+	mounted(){
+		console.log('mounted', this.$store.state.isShowLogin)
+		
+	},
 }
 </script>
 
@@ -205,6 +202,9 @@ thead tr{
 	line-height: 40px;
 	background-color: #f8f8f9
 }
+table tbody tr:hover{
+	background-color: #ebf7ff;
+}
 .search{
 	display: inline-flex;
     align-items: center;
@@ -225,5 +225,19 @@ thead tr{
 .offset-right{
 	margin-left: 0;
     margin-right: 4.16666667%;
+}
+.clear-search{
+	margin-left: 10px;
+}
+.options{
+	margin-bottom: 20px;
+	background: #f8f8f9;
+    padding: 10px;
+	border: 1px solid #dddee1;
+}
+.input-label{
+	display: inline-block;
+    width: 100px;
+	font-size: 14px;
 }
 </style>
