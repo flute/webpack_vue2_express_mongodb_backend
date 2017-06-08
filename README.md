@@ -1,21 +1,70 @@
-# backend
+### 前后端分离运营平台
 
-> backend build by webpack+vue2+express
+前后端分离RABC角色权限控制运营平台。
+前端: vue-cli + vue2 + vuex + vue-router + axios + iview + ES6
+后端: express-generator + express + mongndb + monk
 
-## Build Setup
+### install
 
 ``` bash
-# install dependencies
-npm install
+# 安装依赖
+cnpm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+# 启动vue热加载 localhost:8080
+cnpm start
 
-# build for production with minification
+# 启动express后端 localhost:3000
+cnpm run server
+
+# 编译vue
 npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
+1. 创建 mongodb 数据库，初始化数据表位于 `static/mongodb.js`，配置数据库连接 `server/conf/db.js`
+2. 然后同时启动 vue 服务和 node 服务即可，分别运行与 8080 和 3000 端口。
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### 项目目录
+
+```
+.
+├── README.md
+├── build
+│   ├── build.js
+│   ├── check-versions.js
+│   ├── dev-client.js
+│   ├── dev-server.js
+│   ├── utils.js
+│   ├── vue-loader.conf.js
+│   ├── webpack.base.conf.js
+│   ├── webpack.dev.conf.js
+│   └── webpack.prod.conf.js
+├── config
+│   ├── dev.env.js
+│   ├── index.js
+│   └── prod.env.js
+├── index.html
+├── package.json
+├── server      // 后端express
+│   ├── app.js
+│   ├── bin
+│   ├── conf
+│   ├── controllers
+│   ├── models
+│   ├── routes
+│   └── services
+├── src // vue
+│   ├── App.vue
+│   ├── assets
+│   ├── components
+│   ├── main.js
+│   └── router
+└── static
+    └── mongodb.json // 初始化mongodb数据
+```
+### 功能
+
+* RABC角色权限控制
+* 角色管理（角色、许可多对多）
+* 客户管理（代理分级、数据权限）
+* 用户管理（用户、角色多对多）
+
+
