@@ -76,7 +76,7 @@
 	        <p>
 	        	<span class="input-label">角色</span>
 		        <Select v-model="selectRole" multiple filterable style="width:250px">
-			    	<Option v-for="item in roles" :value="item.ename" :key="item">{{ item.cname }}</Option>
+			    	<Option v-for="item in roles" :value="item.ename" :key="item" v-if="item.ename!='admin'">{{ item.cname }}</Option>
 			    </Select>
 	        </p>
 	        <div slot="footer">
@@ -191,18 +191,27 @@ export default {
 		},
 		remove(account){
 			if( !account ) return;
-			let apiUrl = this.$store.state.apiUrl
-			this.axios.post(apiUrl+'/user/remove', {account: account})
-				.then(response => response.data)
-				.then( res => {
-					if(!this.checkLogin(res))return;
-					if( res.status ){
-						this.$Message.success({content: '删除成功', duration: 3, closable: true});
-		                this.getUsers();
-					}else{
-						this.$Message.error({content: '删除失败，请稍后尝试', duration: 3, closable: true});
-					}
-				})
+			this.$Modal.confirm({
+                title: '确认删除',
+                content: '<p>确定删除该用户？</p>',
+                onOk: () => {
+                    let apiUrl = this.$store.state.apiUrl
+					this.axios.post(apiUrl+'/user/remove', {account: account})
+						.then(response => response.data)
+						.then( res => {
+							if(!this.checkLogin(res))return;
+							if( res.status ){
+								this.$Message.success({content: '删除成功', duration: 3, closable: true});
+				                this.getUsers();
+							}else{
+								this.$Message.error({content: '删除失败，请稍后尝试', duration: 3, closable: true});
+							}
+						})
+                },
+                onCancel: () => {
+                    //
+                }
+            });
 		},
 		doedit(account){
 			if( !account ) return;

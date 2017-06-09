@@ -14,10 +14,10 @@
         </Menu>
         <div class="layout-content">
             <Row type="flex">
-	            <i-col class="layout-menu-left" span="4">
+	            <i-col class="layout-menu-left" span="3">
 	                <VAside></VAside>
 	            </i-col>
-	            <i-col class="layout-menu-right" span="20">
+	            <i-col class="layout-menu-right" span="21">
 	                <div class="layout-contents">
 	                	<router-view v-if="isLogin"></router-view>
 	                </div>
@@ -239,5 +239,14 @@ table tbody tr:hover{
 	display: inline-block;
     width: 100px;
 	font-size: 14px;
+}
+.ivu-select-multiple .ivu-select-item-selected{
+	display: flex;
+	display: -ms-flexbox;
+	justify-content: space-between;
+	-ms-justify-content: space-between;
+	align-content: center;
+	-ms-align-content: center;
+	line-height: 24px;
 }
 </style>

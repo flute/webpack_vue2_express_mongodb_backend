@@ -174,18 +174,27 @@ export default {
 		},
 		remove(name){
 			if( !name ) return;
-			let apiUrl = this.$store.state.apiUrl
-			this.axios.post(apiUrl+'/client/remove', {name: name})
-				.then(response => response.data)
-				.then( res => {
-					if(!this.checkLogin(res))return;
-					if( res.status ){
-						this.$Message.success({content: '删除成功', duration: 3, closable: true});
-		                this.getclients();
-					}else{
-						this.$Message.error({content: '删除失败，请稍后尝试', duration: 3, closable: true});
-					}
-				})
+			this.$Modal.confirm({
+                title: '确认删除',
+                content: '<p>确定删除该客户？</p>',
+                onOk: () => {
+                    let apiUrl = this.$store.state.apiUrl
+					this.axios.post(apiUrl+'/client/remove', {name: name})
+						.then(response => response.data)
+						.then( res => {
+							if(!this.checkLogin(res))return;
+							if( res.status ){
+								this.$Message.success({content: '删除成功', duration: 3, closable: true});
+				                this.getclients();
+							}else{
+								this.$Message.error({content: '删除失败，请稍后尝试', duration: 3, closable: true});
+							}
+						})
+                },
+                onCancel: () => {
+                    //
+                }
+            });
 		},
 		doedit(name){
 			if( !name ) return;

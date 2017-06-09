@@ -6,7 +6,7 @@
                 <span class="layout-text">版本控制</span>
             </Menu-item>
             <Menu-item name="role" v-show="showRole">
-                <span class="icon-cell"><Icon type="soup-can-outline"></Icon></span>
+                <span class="icon-cell"><Icon type="ios-pricetag"></Icon></span>
                 <span class="layout-text">角色管理</span>
             </Menu-item>
             <Menu-item name="client" v-show="showClient">
