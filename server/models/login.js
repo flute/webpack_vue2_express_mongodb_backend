@@ -9,7 +9,7 @@ const login = (req, callback) => {
 		pwd = req.body.pwd;
 
 	const user = db.get('t_user');
-	user.findOne({account: account}, '-_id').then((userinfo)=>{
+	user.findOne({account: account}, '-flag').then((userinfo)=>{
 		if( userinfo ){
 			console.log('userinfo', userinfo)
 			if( md5(pwd) == userinfo.pwd ){

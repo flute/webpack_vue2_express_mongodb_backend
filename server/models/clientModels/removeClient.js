@@ -2,17 +2,17 @@ const db = require('../../conf/db')
 
 const removeClient = (req, callback) => {
 
+	const id = req.body.id;
 	const name = req.body.name;
-	const admin = req.session.user.account;
+	const admin = req.session.user._id;
 	const client = db.get('t_client');
 	const user = db.get('t_user');
 
-	client.findOne({ename: name}, '-_id')
+	client.findOne({_id: id}, '-_id')
 	.then((result) => {
 		if( result ){
 			let data = {
-				cname: result.cname,
-				ename: result.ename,
+				name: result.name,
 				user: result.user,
 				phone: result.phone,
 				address: result.address,
@@ -20,7 +20,7 @@ const removeClient = (req, callback) => {
 			}
 			// 判断是否权限删除
 			if( result.user == admin ){
-				client.update({ename: name}, data)
+				client.update({_id: id}, data)
 				.then((result) => {
 					if( result ){
 						callback({
@@ -41,11 +41,11 @@ const removeClient = (req, callback) => {
 					})
 				})
 			}else{
-				user.findOne({account: result.user}, '-_id')
+				user.findOne({_id: result.user}, '-_id')
 				.then(( result ) => {
 					if( result ){
 						if( result.parents.indexOf(admin)>= 0 ){
-							client.update({ename: name}, data)
+							client.update({_id: id}, data)
 							.then((result) => {
 								if( result ){
 									callback({

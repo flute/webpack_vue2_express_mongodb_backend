@@ -1,13 +1,12 @@
 const db = require('../../conf/db')
-const slugify = require('transliteration').slugify
 
 const updateRole = (req, callback) => {
 
-	let oldname = req.body.oldname,
-		newname = req.body.newname,
+	let id = req.body.id,
+		name = req.body.name,
 		permission = req.body.permission;
 
-	if( !oldname || !newname || !permission || permission.length==0 ){
+	if( !id || !name || !permission || permission.length==0 ){
 		callback({
 			status: 0,
 			msg: '参数错误'
@@ -16,13 +15,12 @@ const updateRole = (req, callback) => {
 	}
 	const role = db.get('t_role')
 	const data = {
-		cname: newname,
-		ename: slugify(newname),
+		name: name,
 		permissions: permission,
 		flag: 1
 	}
 
-	role.update({ename: oldname}, data).then((result)=>{
+	role.update({_id: id}, data).then((result)=>{
 		if( result ){
 			callback({
 				status: 1,

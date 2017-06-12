@@ -16,8 +16,7 @@ const createRole = (req, callback) => {
 
 	const role = db.get('t_role')
 	role.insert({
-		cname: name,
-		ename: slugify(name),
+		name: name,
 		permissions: permission,
 		flag: 1
 	}).then((result)=>{

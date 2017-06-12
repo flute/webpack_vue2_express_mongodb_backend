@@ -4,13 +4,14 @@ const md5 = text => crypto.createHash('md5').update(text).digest('hex')
 
 const createUser = (req, callback) => {
 
-	let name = req.body.name
+	let id = req.body.id,
+		name = req.body.name
 		account = req.body.account,
 		pwd = req.body.pwd,
 		roles = req.body.roles,
-		creator = req.session.user.account;
+		creator = req.session.user._id;
 
-	if( !name || !account || !pwd || !roles || roles.length==0 ){
+	if( !id || !name || !account || !pwd || !roles || roles.length==0 ){
 		callback({
 			status: 0,
 			msg: '参数错误'
@@ -19,7 +20,7 @@ const createUser = (req, callback) => {
 	}
 
 	const users = db.get('t_user')
-	users.findOne({account:  account}, '-_id')
+	users.findOne({_id:  id}, '-_id')
 	.then((result) => {
 		if( result ){
 			if( result.parents.indexOf( creator )>=0 ){
@@ -31,7 +32,7 @@ const createUser = (req, callback) => {
 					parents: result.parents,
 					flag: result.flag
 				}
-				users.update({account: account}, data)
+				users.update({_id: id}, data)
 				.then((result) => {
 					if( result ){
 						callback({

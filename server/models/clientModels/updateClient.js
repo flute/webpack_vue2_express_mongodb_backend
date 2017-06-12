@@ -3,12 +3,13 @@ const slugify = require('transliteration').slugify
 
 const updateClient = (req, callback) => {
 
-	let name = req.body.name,
+	let id = req.body.id,
+		name = req.body.name,
 		phone = req.body.phone,
 		address = req.body.address,
 		user = req.body.user,
-		admin = req.session.user.account;
-	if( !name || !phone || !address || !user || !admin ){
+		admin = req.session.user._id;
+	if( !id || !name || !phone || !address || !user || !admin ){
 		callback({
 			status: 0,
 			msg: '参数错误'
@@ -19,19 +20,18 @@ const updateClient = (req, callback) => {
 	const client = db.get('t_client');
 	const users = db.get('t_user');
 	ename = slugify(name);
-	client.findOne({ename: ename}, '-_id')
+	client.findOne({_id: id}, '-_id')
 	.then((result) => {
 		if( result ){
 			let data = {
-				cname: name,
-				ename: ename,
+				name: name,
 				phone: phone,
 				address: address,
 				user: user,
 				flag: result.flag
 			}
 			if( result.user == admin ){
-				client.update({ename: ename}, data)
+				client.update({_id: id}, data)
 				.then((result) => {
 					if( result ){
 						callback({
@@ -52,11 +52,11 @@ const updateClient = (req, callback) => {
 					})
 				})
 			}else{
-				users.findOne({account: result.user}, '-_id')
+				users.findOne({_id: result.user}, '-_id')
 				.then((result) => {
 					if( result ){
 						if( result.parents.indexOf(admin)>=0 ){
-							client.update({ename: ename}, data)
+							client.update({_id: id}, data)
 							.then((result) => {
 								if( result ){
 									callback({

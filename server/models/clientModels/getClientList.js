@@ -5,20 +5,20 @@ const getClientList = (req, callback) => {
 
 	const client = db.get('t_client');
 	const user = db.get('t_user');
-	const admin = req.session.user.account;
+	const admin = req.session.user._id;
 
-	client.find({flag: 1}, '-_id')
+	client.find({flag: 1}, '-flag')
 	.then((result) => {
 		if( result ){
 			let datas = [];
 			async.eachSeries(result, function(item, cback){
 				// 本人是客户的管理员
-				if( item.user == admin ){
+				if( item.user == admin ){ 
 					item.username = req.session.user.name
 					datas.push( item )
 					cback()
 				}else{
-					user.findOne({account: item.user}, '-_id')
+					user.findOne({_id: item.user}, '-_id')
 					.then((result) => {
 						if( result ){
 							if( result.parents.indexOf( admin )>=0 ){

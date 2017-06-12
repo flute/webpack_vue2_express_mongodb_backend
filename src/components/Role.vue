@@ -21,15 +21,15 @@
 	            			<Col span="4" class="offset-right"
 	            			v-if="index>=(pageCurrent-1)*pageSize && index<pageCurrent*pageSize">
 							    <div class="card">
-					                <p class="card-header">{{role.cname}}</p>
+					                <p class="card-header">{{role.name}}</p>
 					                <div class="card-body">
 					                	<template v-for="item in role.perObj.name">
 						                	<Tag>{{item}}</Tag>
 						                </template>
 					                </div>
 					                <div class="card-footer">
-					                	<Button type="info" @click.stop="doedit(role.ename)">编辑</Button>
-					                	<Button type="error" @click.stop="remove(role.ename)">删除</Button>
+					                	<Button type="info" @click.stop="doedit(role._id)">编辑</Button>
+					                	<Button type="error" @click.stop="remove(role._id)">删除</Button>
 					                </div>
 					            </div>
 					        </Col>
@@ -59,7 +59,7 @@
 	        <p>
 	        	<span class="input-label">拥有权限：</span>
 		        <Select v-model="selectper" multiple filterable style="width:250px">
-			    	<Option v-for="item in permissions" :value="item.ename" :key="item">{{ item.cname }}</Option>
+			    	<Option v-for="item in permissions" :value="item._id" :key="item">{{ item.name }}</Option>
 			    </Select>
 	        </p>
 	        <div slot="footer">
@@ -139,7 +139,10 @@ export default {
 				if( !this.checkEdit() ){
 					this.$Message.warning({content: '未做任何修改！', duration: 3, closable: true});
 				}else{
-					this.axios.post(apiUrl+'/role/update', {oldname: this.edit.ename, newname: this.name, permission: this.selectper})
+					this.axios.post(apiUrl+'/role/update', {
+						id: this.edit._id, 
+						name: this.name, 
+						permission: this.selectper})
 						.then( response => response.data )
 						.then( res => {
 							if(!this.checkLogin(res))return;
@@ -157,14 +160,14 @@ export default {
 			
 			
 		},
-		remove(roleName){
-			console.log('remove:', roleName)
+		remove(id){
+			console.log('remove:', id)
 			this.$Modal.confirm({
                 title: '确认删除',
                 content: '<p>确定删除该角色？</p>',
                 onOk: () => {
                     let apiUrl = this.$store.state.apiUrl
-					this.axios.post(apiUrl+'/role/remove', {name: roleName})
+					this.axios.post(apiUrl+'/role/remove', {id: id})
 					.then( response => response.data )
 					.then( res => {
 						if(!this.checkLogin(res))return;
@@ -182,20 +185,20 @@ export default {
             });
 			
 		},
-		doedit(roleName){
-			console.log('edit:', roleName)
+		doedit(id){
+			console.log('edit:', id)
 			this.modalTitle = "编辑角色"
 			this.newRole = true
 			// 遍历roles，找出当前编辑的角色
 			for( let i=0;i<this.roles.length;i++ ){
-				if( this.roles[i].ename === roleName ){
+				if( this.roles[i]._id === id ){
 					
-					this.name = this.roles[i].cname
+					this.name = this.roles[i].name
 					this.edit = this.roles[i]
 					// 遍历permissions，找出当前编辑的角色拥有的权限
 					for( let j=0;j<this.permissions.length;j++ ){
-						if( this.roles[i].permissions.indexOf( this.permissions[j].ename ) >=0  ){
-							this.selectper.push( this.permissions[j].ename )
+						if( this.roles[i].permissions.indexOf( this.permissions[j]._id ) >=0  ){
+							this.selectper.push( this.permissions[j]._id )
 						}
 					}
 					
@@ -210,7 +213,7 @@ export default {
 			let roles = [];
 			for( let i=0;i<this.roleArr.length;i++ ){
 				if( this.searchmode === 'role' ){
-					if( this.roleArr[i].cname.indexOf(this.search)>=0 ){
+					if( this.roleArr[i].name.indexOf(this.search)>=0 ){
 						roles.push(this.roleArr[i])
 					}
 				}else if( this.searchmode === 'permission' ){
@@ -238,7 +241,7 @@ export default {
 		},
 		checkEdit(){
 			// 检测编辑是否有变动
-			let nameChange = this.name == this.edit.cname ? false : true;
+			let nameChange = this.name == this.edit.name ? false : true;
 			let permissionChange = this.selectper.toString() == this.edit.permissions.toString() ? false : true 
 			return nameChange || permissionChange
 		},
@@ -272,6 +275,7 @@ export default {
     transition: all .2s ease-in-out;
 	border: 1px solid #dddee1;
     border-color: #e9eaec;
+    margin-bottom: 20px;
 }
 .card:hover {
     box-shadow: 0 1px 6px rgba(0,0,0,.2);
@@ -284,6 +288,7 @@ export default {
 }
 .card .card-body{
 	padding: 16px;
+	min-height: 85px;
 }
 .card .card-footer{
 	border-top: 1px solid #e9eaec;

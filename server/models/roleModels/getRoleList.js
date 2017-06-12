@@ -6,7 +6,7 @@ const getRoleList = (req, callback) => {
 	const roles = db.get('t_role');
 	const permissions = db.get('t_permission');
 
-	roles.find({flag: 1}, '-_id').then((result) => {
+	roles.find({flag: 1}, '-flag').then((result) => {
 		if( result ){
 			let rolesArr = []; // 权限合集
 			async.eachSeries( result, function(item, cback){
@@ -15,12 +15,12 @@ const getRoleList = (req, callback) => {
 					dom: [],
 					name: []
 				};
-				async.eachSeries( item.permissions, function( pername, cb ){
-					permissions.findOne({ename: pername}, '-_id').then((perresult)=>{
+				async.eachSeries( item.permissions, function( pid, cb ){
+					permissions.findOne({_id: pid}, '-_id').then((perresult)=>{
 						if( perresult ){
 							item.perObj.dom = item.perObj.dom.concat( perresult.dom )
 							item.perObj.path = item.perObj.path.concat( perresult.path )
-							item.perObj.name.push( perresult.cname )
+							item.perObj.name.push( perresult.name )
 						}
 						cb();
 					}).catch((error)=>{ cb(error) })
@@ -36,7 +36,7 @@ const getRoleList = (req, callback) => {
 					})
 					return;
 				}else{
-					permissions.find({}, '-_id').then((result)=>{
+					permissions.find({flag: 1}, '-flag').then((result)=>{
 						if( result ){
 							callback({
 								status: 1,

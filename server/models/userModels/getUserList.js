@@ -3,9 +3,9 @@ const db = require('../../conf/db')
 const getUserList = (req, callback) => {
 
 	const users = db.get('t_user');
-	const admin = req.session.user.account;
+	const admin = req.session.user._id;
 
-	users.find({flag: 1}, '-_id')
+	users.find({flag: 1}, '-flag')
 	.then((result)=>{
 		if( result ){
 			let data = [];

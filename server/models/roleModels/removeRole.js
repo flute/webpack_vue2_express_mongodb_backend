@@ -2,8 +2,8 @@ const db = require('../../conf/db')
 
 const removeRole = (req, callback) => {
 
-	let name = req.body.name;
-	if( !name ){
+	let id = req.body.id;
+	if( !id ){
 		callback({
 			status: 0,
 			msg: '参数错误'
@@ -11,10 +11,10 @@ const removeRole = (req, callback) => {
 		return;
 	}
 	const role = db.get('t_role')
-	role.findOne({ename: name}, '-_id').then((result) => {
+	role.findOne({_id: id}, '-_id').then((result) => {
 		if( result ){
 			result.flag = 0;
-			role.update({ename: name}, result).then((result)=>{
+			role.update({_id: id}, result).then((result)=>{
 				if( result ){
 					callback({
 						status: 1,

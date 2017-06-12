@@ -29,13 +29,13 @@
             			<tbody>
             				<tr v-for="(client,index) in clients"
             				v-if="index>=(pageCurrent-1)*pageSize && index<pageCurrent*pageSize">
-            					<td>{{client.cname}}</td>
+            					<td>{{client.name}}</td>
             					<td>{{client.phone}}</td>
             					<td>{{client.address}}</td>
-            					<td>{{client.user}}</td>
+            					<td>{{client.username}}</td>
             					<td>
-            						<Button type="info" @click.stop="doedit(client.ename)">编辑</Button>
-            						<Button type="error" @click.stop="remove(client.ename)">删除</Button>
+            						<Button type="info" @click.stop="doedit(client._id)">编辑</Button>
+            						<Button type="error" @click.stop="remove(client._id)">删除</Button>
             					</td>
             				</tr>
             			</tbody>
@@ -72,7 +72,7 @@
 	        <p>
 	        	<span class="input-label">绑定用户</span>
 		        <Select v-model="selectUser" style="width:250px" filterable>
-			    	<Option v-for="item in users" :value="item.account" :key="item">{{ item.name }}</Option>
+			    	<Option v-for="item in users" :value="item._id" :key="item">{{ item.name }}</Option>
 			    </Select>
 	        </p>
 	        <div slot="footer">
@@ -142,7 +142,11 @@ export default {
 			}
 			let apiUrl = this.$store.state.apiUrl
 			if( this.modalTitle === '新增客户' && !this.edit ){
-				this.axios.post(apiUrl+'/client/new', {name: this.name, phone: this.phone, address: this.address, user: this.selectUser})
+				this.axios.post(apiUrl+'/client/new', {
+					name: this.name, 
+					phone: this.phone, 
+					address: this.address, 
+					user: this.selectUser})
 					.then( response => response.data )
 					.then( res => {
 						if(!this.checkLogin(res))return;
@@ -156,7 +160,12 @@ export default {
 						}
 					})
 			}else{
-				this.axios.post(apiUrl+'/client/update', {name: this.name, phone: this.phone, address: this.address, user: this.selectUser})
+				this.axios.post(apiUrl+'/client/update', {
+					id: this.edit._id,
+					name: this.name, 
+					phone: this.phone, 
+					address: this.address, 
+					user: this.selectUser})
 					.then( response => response.data )
 					.then( res => {
 						if(!this.checkLogin(res))return;
@@ -172,14 +181,14 @@ export default {
 			}
 			
 		},
-		remove(name){
-			if( !name ) return;
+		remove(id){
+			if( !id ) return;
 			this.$Modal.confirm({
                 title: '确认删除',
                 content: '<p>确定删除该客户？</p>',
                 onOk: () => {
                     let apiUrl = this.$store.state.apiUrl
-					this.axios.post(apiUrl+'/client/remove', {name: name})
+					this.axios.post(apiUrl+'/client/remove', {id: id})
 						.then(response => response.data)
 						.then( res => {
 							if(!this.checkLogin(res))return;
@@ -196,22 +205,22 @@ export default {
                 }
             });
 		},
-		doedit(name){
-			if( !name ) return;
+		doedit(id){
+			if( !id ) return;
 			this.modalTitle = "编辑客户"
 			this.newClient = true
 			// 遍历clients，找出当前编辑的用户
 			for( let i=0;i<this.clients.length;i++ ){
-				if( this.clients[i].ename === name ){
+				if( this.clients[i]._id === id ){
 					
-					this.name = this.clients[i].cname
+					this.name = this.clients[i].name
 					this.phone = this.clients[i].phone
 					this.address = this.clients[i].address
 					this.edit = this.clients[i]
 					// 遍历users，找出当前编辑的用户拥有的角色
 					for( let j=0;j<this.users.length;j++ ){
-						if( this.clients[i].user == this.users[j].account  ){
-							this.selectUser = this.users[j].account
+						if( this.clients[i].user == this.users[j]._id  ){
+							this.selectUser = this.users[j]._id
 						}
 					}
 					
@@ -239,7 +248,7 @@ export default {
 			
 			if( this.searchmode === 'name' ){
 				for( let i=0;i<this.clientArr.length;i++ ){
-					if( this.clientArr[i].cname.indexOf(this.search)>=0 ){
+					if( this.clientArr[i].name.indexOf(this.search)>=0 ){
 						clients.push(this.clientArr[i])
 					}
 				}
@@ -247,7 +256,7 @@ export default {
 				let clientUser = '';
 				for( let i=0;i<this.users.length;i++ ){
 					if( this.users[i].name.indexOf(this.search)>=0 ){
-						clientUser = this.users[i].account
+						clientUser = this.users[i]._id
 					}
 				}
 				if( clientUser ){

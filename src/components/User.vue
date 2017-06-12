@@ -33,13 +33,13 @@
             					<td>
             						<template v-for="role in user.roles">
             							<template v-for="item in roles">
-            								<Tag v-if="item.ename == role">{{item.cname}}</Tag>
+            								<Tag v-if="item._id == role">{{item.name}}</Tag>
             							</template>
             						</template>
             					</td>
             					<td>
-            						<Button type="info" @click.stop="doedit(user.account)">编辑</Button>
-            						<Button type="error" @click.stop="remove(user.account)">删除</Button>
+            						<Button type="info" @click.stop="doedit(user._id)">编辑</Button>
+            						<Button type="error" @click.stop="remove(user._id)">删除</Button>
             					</td>
             				</tr>
             			</tbody>
@@ -76,7 +76,7 @@
 	        <p>
 	        	<span class="input-label">角色</span>
 		        <Select v-model="selectRole" multiple filterable style="width:250px">
-			    	<Option v-for="item in roles" :value="item.ename" :key="item" v-if="item.ename!='admin'">{{ item.cname }}</Option>
+			    	<Option v-for="item in roles" :value="item._id" :key="item" v-if="item.name!='超级管理员'">{{ item.name }}</Option>
 			    </Select>
 	        </p>
 	        <div slot="footer">
@@ -159,7 +159,11 @@ export default {
 			}
 			let apiUrl = this.$store.state.apiUrl
 			if( this.modalTitle === '新增用户' && !this.edit ){
-				this.axios.post(apiUrl+'/user/new', {name: this.name, account: this.account, pwd: this.pwd, roles: this.selectRole})
+				this.axios.post(apiUrl+'/user/new', {
+					name: this.name, 
+					account: this.account, 
+					pwd: this.pwd, 
+					roles: this.selectRole})
 					.then( response => response.data )
 					.then( res => {
 						if(!this.checkLogin(res))return;
@@ -173,7 +177,13 @@ export default {
 						}
 					})
 			}else{
-				this.axios.post(apiUrl+'/user/update', {name: this.name, account: this.account, pwd: this.pwd, roles: this.selectRole})
+				this.axios.post(apiUrl+'/user/update', {
+					id: this.edit._id,
+					name: this.name, 
+					account: this.account, 
+					pwd: this.pwd, 
+					roles: 
+					this.selectRole})
 					.then( response => response.data )
 					.then( res => {
 						if(!this.checkLogin(res))return;
@@ -189,14 +199,14 @@ export default {
 			}
 			
 		},
-		remove(account){
-			if( !account ) return;
+		remove(id){
+			if( !id ) return;
 			this.$Modal.confirm({
                 title: '确认删除',
                 content: '<p>确定删除该用户？</p>',
                 onOk: () => {
                     let apiUrl = this.$store.state.apiUrl
-					this.axios.post(apiUrl+'/user/remove', {account: account})
+					this.axios.post(apiUrl+'/user/remove', {id: id})
 						.then(response => response.data)
 						.then( res => {
 							if(!this.checkLogin(res))return;
@@ -213,13 +223,13 @@ export default {
                 }
             });
 		},
-		doedit(account){
-			if( !account ) return;
+		doedit(id){
+			if( !id ) return;
 			this.modalTitle = "编辑用户"
 			this.newUser = true
 			// 遍历users，找出当前编辑的用户
 			for( let i=0;i<this.users.length;i++ ){
-				if( this.users[i].account === account ){
+				if( this.users[i]._id === id ){
 					
 					this.name = this.users[i].name
 					this.account = this.users[i].account
@@ -227,8 +237,8 @@ export default {
 					this.edit = this.users[i]
 					// 遍历roles，找出当前编辑的用户拥有的角色
 					for( let j=0;j<this.roles.length;j++ ){
-						if( this.users[i].roles.indexOf( this.roles[j].ename ) >=0  ){
-							this.selectRole.push( this.roles[j].ename )
+						if( this.users[i].roles.indexOf( this.roles[j]._id ) >=0  ){
+							this.selectRole.push( this.roles[j]._id )
 						}
 					}
 					
@@ -264,7 +274,7 @@ export default {
 				let parentAccount = '';
 				for( let i=0;i<this.userArr.length;i++ ){
 					if( this.userArr[i].name.indexOf(this.search)>=0 || this.userArr[i].account == this.search ){
-						parentAccount = this.userArr[i].account
+						parentAccount = this.userArr[i]._id
 					}
 				}
 				if( parentAccount ){
@@ -277,13 +287,13 @@ export default {
 			}else if( this.searchmode === 'client' ){
 				let clientUser = '';
 				for( let i=0;i<this.clients.length;i++ ){
-					if( this.clients[i].cname.indexOf(this.search)>=0 ){
+					if( this.clients[i].name.indexOf(this.search)>=0 ){
 						clientUser = this.clients[i].user
 					}
 				}
 				if( clientUser ){
 					for( let i=0;i<this.userArr.length;i++ ){
-						if( this.userArr[i].account ==  clientUser){
+						if( this.userArr[i]._id ==  clientUser){
 							users.push(this.userArr[i])
 						}
 					}

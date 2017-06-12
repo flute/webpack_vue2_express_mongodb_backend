@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // cors允许跨域请求
 app.use(cors({
-	origin:['http://localhost:8080','http://192.168.199.162:8080','http://localhost:8000'],
+	origin:['http://localhost:8080','http://192.168.199.163:8080','http://localhost:8000','http://192.168.199.163:8000'],
 	methods:['OPTIONS','GET','POST'],
 	credentials: true
 }));
@@ -50,6 +50,10 @@ app.use(function(err, req, res, next) {
 	// render the error page
 	res.status(err.status || 500);
 	res.render('error');
+});
+
+app.listen(3600, function() {
+    console.log('Express server listening on port ' + app.get('port'));
 });
 
 module.exports = app;

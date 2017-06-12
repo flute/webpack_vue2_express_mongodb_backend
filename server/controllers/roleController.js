@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 // models
-var getRoleList = require('../models/roleModels/getRoleList'),
-	createRole = require('../models/roleModels/createRole'),
-	updateRole = require('../models/roleModels/updateRole');
-	removeRole = require('../models/roleModels/removeRole')
+const getRoleList = require('../models/roleModels/getRoleList'),
+	  createRole = require('../models/roleModels/createRole'),
+	  updateRole = require('../models/roleModels/updateRole');
+	  removeRole = require('../models/roleModels/removeRole')
 
 router.get('/list', function(req, res) {
 	getRoleList(req, function(result){

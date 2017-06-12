@@ -1,5 +1,4 @@
 const db = require('../../conf/db')
-const slugify = require('transliteration').slugify
 
 const createClient = (req, callback) => {
 
@@ -18,8 +17,7 @@ const createClient = (req, callback) => {
 
 	const client = db.get('t_client')
 	client.insert({
-		cname: name,
-		ename: slugify(name),
+		name: name,
 		phone: phone,
 		address: address,
 		user: user,

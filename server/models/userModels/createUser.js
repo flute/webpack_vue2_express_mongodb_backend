@@ -8,7 +8,7 @@ const createUser = (req, callback) => {
 		account = req.body.account,
 		pwd = req.body.pwd,
 		roles = req.body.roles,
-		creator = req.session.user.account;
+		creator = req.session.user._id;
 
 	if( !name || !account || !pwd || !roles || roles.length==0 ){
 		callback({
@@ -19,7 +19,7 @@ const createUser = (req, callback) => {
 	}
 
 	const user = db.get('t_user')
-	user.findOne({account: creator}, '-_id').then((result)=>{
+	user.findOne({_id: creator}, '-_id').then((result)=>{
 		if( result ){
 			// 代理级数控制
 			if( result.parents.length == 9 ){
@@ -31,7 +31,7 @@ const createUser = (req, callback) => {
 			}
 			// 父级创建者记录
 			let parents = result.parents
-				parents.push(result.account)
+				parents.push(creator)
 			user.insert({
 				name: name,
 				account: account,

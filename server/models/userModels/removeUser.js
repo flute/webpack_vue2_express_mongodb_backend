@@ -2,23 +2,23 @@ const db = require('../../conf/db')
 
 const removeUser = (req, callback) => {
 
-	const account = req.body.account;
-	const creator = req.session.user.account;
+	const id = req.body.id;
+	const creator = req.session.user._id;
 	const users = db.get('t_user');
-	if( !account ){
+	if( !id ){
 		callback({
 			status: 0,
 			msg: '参数错误'
 		})
 		return;
 	}
-	users.findOne({account: account}, '-_id')
+	users.findOne({_id: id}, '-_id')
 	.then((result)=>{
 		if( result ){
 			if( result.parents.indexOf(creator)>=0 ){
 				// 父级代理，有权删除
 				result.flag = 0;
-				users.update({account: account}, result).then((result)=>{
+				users.update({_id: id}, result).then((result)=>{
 					if( result ){
 						callback({
 							status: 1,

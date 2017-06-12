@@ -224,7 +224,7 @@ table tbody tr:hover{
 }
 .offset-right{
 	margin-left: 0;
-    margin-right: 4.16666667%;
+    margin-right: 3.16666667%;
 }
 .clear-search{
 	margin-left: 10px;

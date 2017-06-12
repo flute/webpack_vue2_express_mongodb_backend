@@ -7,11 +7,12 @@
 /* t_user */
 
     {
+        "_id" : ObjectId("59361d188862e097ef9797f7"),
         "name" : "超级管理员",
-        "account" : "18888888888",
+        "account" : "18001194295",
         "pwd" : "e10adc3949ba59abbe56e057f20f883e",
         "roles" : [ 
-            "admin"
+            "59361cc98862e097ef9797f6"
         ],
         "parents" : [],
         "flag" : 1
@@ -21,10 +22,14 @@
 
     /* 1 */
     {
-        "cname" : "版本控制",
-        "ename" : "version",
+        "_id" : ObjectId("59361c698862e097ef9797f2"),
+        "name" : "版本控制",
         "path" : [ 
-            "/version"
+            "/version/list", 
+            "/version/new", 
+            "/version/update", 
+            "/version/remove", 
+            "/version/publish"
         ],
         "dom" : [ 
             "version"
@@ -34,8 +39,8 @@
 
     /* 2 */
     {
-        "cname" : "角色管理",
-        "ename" : "role",
+        "_id" : ObjectId("59361c698862e097ef9797f3"),
+        "name" : "角色管理",
         "path" : [ 
             "/role/list", 
             "/role/new", 
@@ -50,8 +55,8 @@
 
     /* 3 */
     {
-        "cname" : "客户管理",
-        "ename" : "client",
+        "_id" : ObjectId("59361c698862e097ef9797f4"),
+        "name" : "客户管理",
         "path" : [ 
             "/user/list", 
             "/client/list", 
@@ -67,8 +72,8 @@
 
     /* 4 */
     {
-        "cname" : "用户管理",
-        "ename" : "user",
+        "_id" : ObjectId("59361c698862e097ef9797f5"),
+        "name" : "用户管理",
         "path" : [ 
             "/role/list", 
             "/client/list", 
@@ -87,13 +92,13 @@
 
     /* 1 */
     {
-        "ename" : "admin",
-        "cname" : "超级管理员",
+        "_id" : ObjectId("59361cc98862e097ef9797f6"),
+        "name" : "超级管理员",
         "permissions" : [ 
-            "role", 
-            "client", 
-            "user", 
-            "version"
+            "59361c698862e097ef9797f2", 
+            "59361c698862e097ef9797f3", 
+            "59361c698862e097ef9797f4", 
+            "59361c698862e097ef9797f5"
         ],
         "flag" : 1
     }

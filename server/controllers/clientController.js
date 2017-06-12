@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 // models
-var getClientList = require('../models/clientModels/getClientList'),
-	createClient = require('../models/clientModels/createClient'),
-	updateClient = require('../models/clientModels/updateClient');
-	removeClient = require('../models/clientModels/removeClient')
+const getClientList = require('../models/clientModels/getClientList'),
+	  createClient = require('../models/clientModels/createClient'),
+	  updateClient = require('../models/clientModels/updateClient');
+	  removeClient = require('../models/clientModels/removeClient')
 
 router.get('/list', function(req, res) {
 	getClientList(req, function(result){

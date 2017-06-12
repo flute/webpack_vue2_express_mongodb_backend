@@ -1,4 +1,5 @@
 // controllers
+const versionController = require('../controllers/versionController')
 const roleController = require('../controllers/roleController')
 const clientController = require('../controllers/clientController')
 const userController = require('../controllers/userController')
@@ -10,6 +11,8 @@ const Login = require('../models/login')
 module.exports = function(app){
 
 	app.use(RBAC)
+
+	app.use('/version', versionController)
 
 	app.use('/role', roleController)
 
