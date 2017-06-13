@@ -8,6 +8,7 @@ import axios from 'axios'	// axios
 import VueAxios from 'vue-axios'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'    // 使用 CSS
+import moment from 'moment'
 
 Vue.config.debug = true; // debug
 
@@ -21,7 +22,7 @@ Vue.prototype.checkLogin = function(res){
 	if(res.status == -1) this.$store.commit('showLogin', true)
 	return res.status == -1 ? false : true
 }
-
+Vue.prototype.changeTime = time => moment(time).format("YYYY-MM-DD");
 // 加载进度条
 router.beforeEach((to, from, next) => {
     iView.LoadingBar.start();

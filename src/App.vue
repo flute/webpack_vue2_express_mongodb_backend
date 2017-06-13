@@ -249,4 +249,26 @@ table tbody tr:hover{
 	-ms-align-content: center;
 	line-height: 24px;
 }
+.ivu-input-wrapper{
+	margin-bottom: 0 !important;
+}
+.login-form .ivu-input-wrapper{
+	margin-bottom: 15px !important;
+}
+.ivu-modal-body p{
+	margin-bottom: 10px;
+}
+.demo-spin-icon-load{
+    animation: ani-demo-spin 1s linear infinite;
+}
+@keyframes ani-demo-spin {
+    from { transform: rotate(0deg);}
+    50%  { transform: rotate(180deg);}
+    to   { transform: rotate(360deg);}
+}
+.demo-spin-col{
+    height: 100px;
+    position: relative;
+    border: 1px solid #eee;
+}
 </style>

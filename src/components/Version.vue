@@ -59,6 +59,9 @@
             		</table>
             		<p class="notip" v-show="versions.length==0">没有找到您搜索的用户~</p>
             	</div>
+	            <Spin fix v-show="loading">
+	                <Icon type="load-c" size=36 class="demo-spin-icon-load"></Icon>
+	            </Spin>
             	<div class="paginator">
         			<Page 
         			:total="versions.length" 
@@ -117,6 +120,7 @@ export default {
 	name: 'version',
 	data(){
 		return{
+			loading: true,
 			newVersion: false,
 			modalTitle: '新增版本',
 			desc: '',
@@ -172,6 +176,7 @@ export default {
 				}else{
 					this.$Message.error({content: '请求数据出错，请稍后尝试！', duration: 3, closable: true});
 				}
+				this.loading = false
 			})
 		},
 		submit(){
@@ -366,12 +371,6 @@ table tr{
 }
 table tr td{
 	border: 1px solid #e9eaec
-}
-.ivu-input-wrapper{
-	margin-bottom: 0;
-}
-.ivu-modal-body p{
-	margin-bottom: 10px;
 }
 </style>
 

@@ -46,6 +46,9 @@
             		</table>
             		<p class="notip" v-show="users.length==0">没有找到您搜索的用户~</p>
             	</div>
+            	<Spin fix v-show="loading">
+	                <Icon type="load-c" size=36 class="demo-spin-icon-load"></Icon>
+	            </Spin>
             	<div class="paginator">
         			<Page 
         			:total="users.length" 
@@ -92,6 +95,7 @@ export default {
 	name: 'user',
 	data(){
 		return{
+			loading: true,
 			newUser: false,
 			modalTitle: "新增用户",
 			name: '',
@@ -115,7 +119,7 @@ export default {
 				value: 'client'
 			}],
 			search:'',
-			pageSize:5,
+			pageSize:10,
 			pageCurrent:1
 		}
 	},
@@ -140,6 +144,7 @@ export default {
 					this.users = res.data
 					this.userArr = res.data
 				}
+				this.loading = false
 			})
 		},
 		getClients(){

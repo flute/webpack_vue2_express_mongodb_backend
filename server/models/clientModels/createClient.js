@@ -5,9 +5,12 @@ const createClient = (req, callback) => {
 	let name = req.body.name,
 		phone = req.body.phone,
 		address = req.body.address,
-		user = req.body.user;
+		user = req.body.user,
+		endtime = req.body.endtime,
+		max = req.body.max,
+		status = req.body.status;
 
-	if( !name || !phone || !address || !user ){
+	if( !name || !phone || !address || !user || !endtime || !max || status==null){
 		callback({
 			status: 0,
 			msg: '参数错误'
@@ -21,6 +24,9 @@ const createClient = (req, callback) => {
 		phone: phone,
 		address: address,
 		user: user,
+		endtime: endtime,
+		max: max,
+		status: status,
 		flag: 1
 	})
 	.then((result) => {

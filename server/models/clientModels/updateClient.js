@@ -8,8 +8,11 @@ const updateClient = (req, callback) => {
 		phone = req.body.phone,
 		address = req.body.address,
 		user = req.body.user,
+		endtime = req.body.endtime,
+		max = req.body.max,
+		status = req.body.status,
 		admin = req.session.user._id;
-	if( !id || !name || !phone || !address || !user || !admin ){
+	if( !id || !name || !phone || !address || !user || !admin || !endtime || !max || status==null){
 		callback({
 			status: 0,
 			msg: '参数错误'
@@ -28,6 +31,9 @@ const updateClient = (req, callback) => {
 				phone: phone,
 				address: address,
 				user: user,
+				endtime: endtime,
+				max: max,
+				status: status,
 				flag: result.flag
 			}
 			if( result.user == admin ){

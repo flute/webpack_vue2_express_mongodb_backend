@@ -36,16 +36,19 @@
 						</template>
 						<p class="notip" v-show="roles.length==0">没有找到您搜索的角色~</p>
             		</Row>
-            		<div class="paginator">
-            			<Page 
-            			:total="roles.length" 
-            			:page-size="pageSize" 
-            			:current="pageCurrent" 
-            			@on-change="changepage"
-            			show-elevator></Page>
-            		</div>
-            		<!-- <pre>{{roles}}</pre> -->
             	</div>
+            	<Spin fix v-show="loading">
+	                <Icon type="load-c" size=36 class="demo-spin-icon-load"></Icon>
+	            </Spin>
+	            <div class="paginator">
+        			<Page 
+        			:total="roles.length" 
+        			:page-size="pageSize" 
+        			:current="pageCurrent" 
+        			@on-change="changepage"
+        			show-elevator></Page>
+        		</div>
+        		<!-- <pre>{{roles}}</pre> -->
             </div>
         </div>
         <Modal @on-ok="submit" @on-cancel="cancel"
@@ -75,6 +78,7 @@ export default {
 	name: 'role',
 	data(){
 		return{
+			loading: true,
 			newRole: false,
 			modalTitle: '新增角色',
 			name:'',
@@ -111,6 +115,7 @@ export default {
 				}else{
 					this.$Message.error({content: '请求数据出错，请稍后尝试！', duration: 3, closable: true});
 				}
+				this.loading = false
 			})
 		},
 		submit(){

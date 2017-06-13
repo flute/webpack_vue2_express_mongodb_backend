@@ -24,10 +24,11 @@ const createUser = (req, callback) => {
 	.then((result) => {
 		if( result ){
 			if( result.parents.indexOf( creator )>=0 ){
+				let password = result.pwd == pwd ? result.pwd : md5(pwd)
 				let data = {
 					account: account,
 					name: name,
-					pwd: md5(pwd),
+					pwd: password,
 					roles: roles,
 					parents: result.parents,
 					flag: result.flag
