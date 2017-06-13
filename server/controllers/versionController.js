@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 // models
-const getVersionList = require('../models/VersionModels/getVersionList'),
-	  createVersion = require('../models/VersionModels/createVersion'),
-	  updateVersion = require('../models/VersionModels/updateVersion'),
-	  removeVersion = require('../models/VersionModels/removeVersion'),
-	  publishVersion = require('../models/VersionModels/publishVersion');
+const getVersionList = require('../models/versionModels/getVersionList'),
+	  createVersion = require('../models/versionModels/createVersion'),
+	  updateVersion = require('../models/versionModels/updateVersion'),
+	  removeVersion = require('../models/versionModels/removeVersion'),
+	  publishVersion = require('../models/versionModels/publishVersion');
 
 router.get('/list', function(req, res) {
 	getVersionList(req, function(result){

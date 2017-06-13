@@ -14,6 +14,6 @@ module.exports = {
         use: ['css-loader'],
         fallback: 'vue-style-loader',
         publicPath:'../' 
-    }*/)
-  })
+    })
+  }*/)
 }

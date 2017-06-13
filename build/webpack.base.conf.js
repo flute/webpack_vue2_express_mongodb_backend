@@ -2,6 +2,7 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var cssPathResolver = require('./cssPathResolver')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -47,11 +48,23 @@ module.exports = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
+        //loader: 'url-loader',
+        loaders: [
+          {
+            loader: path.resolve(__dirname, 'cssPathResolver')
+          },
+          {
+            loader: 'url-loader',
+            query: {
+              limit: 10000,
+              name: utils.assetsPath('fonts/[name].[hash:7].[ext]'),
+            }
+          }
+        ]/*,
         options: {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
-        }
+        }*/
       }
     ]
   }
