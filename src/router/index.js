@@ -6,6 +6,7 @@ import Version from '@/components/Version'
 import Role from '@/components/Role'
 import Client from '@/components/Client'
 import User from '@/components/User'
+import Service from '@/components/Service'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
 	        path: '/user',
 	        name: 'user',
 	        component: User
+	    },
+	    {
+	    	path: '/client/service',
+	    	name: 'service',
+	    	component: Service
 	    }
     ]
 })

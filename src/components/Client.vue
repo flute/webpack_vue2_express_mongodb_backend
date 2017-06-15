@@ -23,9 +23,6 @@
             					<td>联系电话</td>
             					<td>联系地址</td>
             					<td>绑定用户</td>
-            					<td>服务开通状态</td>
-            					<td>截止时间</td>
-            					<td>最大使用人数</td>
             					<td>操作</td>
             				</tr>
             			</thead>
@@ -36,13 +33,7 @@
             					<td>{{client.phone}}</td>
             					<td>{{client.address}}</td>
             					<td>{{client.username}}</td>
-            					<td>{{client.status?'已开通':'未开通'}}</td>
-            					<td>{{changeTime(client.endtime)}}</td>
-            					<td>{{client.max}}</td>
-            					<td>
-            						<Button type="info" @click.stop="doedit(client._id)">编辑</Button>
-            						<Button type="error" @click.stop="remove(client._id)">删除</Button>
-            					</td>
+            					<td><Button type="info" @click.stop="showService(client._id)">服务信息</Button></td>
             				</tr>
             			</tbody>
             		</table>
@@ -59,7 +50,7 @@
         			@on-change="changepage"
         			show-elevator></Page>
         		</div>
-            	<!-- <pre>{{clients}}</pre> -->
+            	<pre>{{clients}}</pre>
             </div>
         </div>
         <Modal @on-ok="submit" @on-cancel="cancel"
@@ -84,23 +75,6 @@
 			    	<Option v-for="item in users" :value="item._id" :key="item">{{ item.name }}</Option>
 			    </Select>
 	        </p>
-
-	        <p>
-	        	<span class="input-label">服务开通状态</span>
-	        	<Select v-model="selectStatus" style="width:250px" filterable>
-			    	<Option v-for="item in status" :value="item.value" :key="item">{{ item.label }}</Option>
-			    </Select>
-	        </p>
-	        <p>
-	        	<span class="input-label">截止时间</span>
-	        	<!-- <Input v-model="endtime" placeholder="请选择截止时间" style="width: 250px"></Input> -->
-	        	<Date-picker v-model="endtime" type="date" placeholder="选择日期" style="width: 200px"></Date-picker>
-	        </p>
-	        <p>
-	        	<span class="input-label">使用人数上限</span>
-	        	
-	        	<Input-number :min="1" v-model="max" placeholder="请输入使用人数上限" style="width: 250px"></Input-number>
-	        </p>
 	        <div slot="footer">
 	            <Button @click="cancel()">取消</Button>
 	            <Button type="success" @click="submit()">确认</Button>
@@ -121,8 +95,6 @@ export default {
 			phone: '',
 			address: '',
 			selectUser: '',
-			endtime: '',
-			max: null,
 			users: [],
 			clients: [],
 			clientArr:[],
@@ -134,14 +106,6 @@ export default {
 			},{
 				label: '所属用户',
 				value: 'user'
-			}],
-			selectStatus: 0,
-			status: [{
-				label: '开通',
-				value: 1
-			},{
-				label: '未开通',
-				value: 0
 			}],
 			search:'',
 			pageSize:10,
@@ -174,7 +138,7 @@ export default {
 			})
 		},
 		submit(){
-			if( !this.name || !this.phone || !this.address || !this.selectUser || !this.endtime || !this.max){
+			if( !this.name || !this.phone || !this.address || !this.selectUser ){
 				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
 				return;
 			}
@@ -184,10 +148,7 @@ export default {
 					name: this.name, 
 					phone: this.phone, 
 					address: this.address, 
-					user: this.selectUser,
-					endtime: this.endtime,
-					max: this.max,
-					status: this.selectStatus})
+					user: this.selectUser})
 					.then( response => response.data )
 					.then( res => {
 						if(!this.checkLogin(res))return;
@@ -206,10 +167,7 @@ export default {
 					name: this.name, 
 					phone: this.phone, 
 					address: this.address, 
-					user: this.selectUser,
-					endtime: this.endtime,
-					max: this.max,
-					status: this.selectStatus})
+					user: this.selectUser})
 					.then( response => response.data )
 					.then( res => {
 						if(!this.checkLogin(res))return;
@@ -260,9 +218,6 @@ export default {
 					this.name = this.clients[i].name
 					this.phone = this.clients[i].phone
 					this.address = this.clients[i].address
-					this.endtime = this.clients[i].endtime
-					this.max = this.clients[i].max
-					this.selectStatus = this.clients[i].status
 					this.edit = this.clients[i]
 					// 遍历users，找出当前编辑的用户拥有的角色
 					for( let j=0;j<this.users.length;j++ ){
@@ -274,6 +229,12 @@ export default {
 				}
 			}
 		},
+		showService(id){
+			this.$router.push({
+				path: '/client/service', 
+				query: {id: id}
+			})
+		},
 		cancel(){
 			this.newClient = false
 			this.clear()
@@ -282,9 +243,6 @@ export default {
 			this.name = ''
 			this.phone = ''
 			this.address = ''
-			this.endtime = ''
-			this.max = null
-			this.selectStatus = ''
 			this.modalTitle = "新增客户"
 			this.selectUser = []
 			this.edit = null
