@@ -1,11 +1,12 @@
 const db = require('../../conf/db')
+const checkPermission = require('./checkPermission')
 
 const createService = (req, callback) => {
 
-	let clientId = req.body.clientid,
-		startTime = req.body.starttime,
-		endTime = req.body.endtime,
-		userNum = req.body.usernum;
+	let clientId = req.body.clientid
+		startTime = req.body.starttime
+		endTime = req.body.endtime
+		userNum = req.body.usernum
 
 	if( !clientId || !startTime || !endTime || !userNum){
 		callback({
@@ -22,35 +23,43 @@ const createService = (req, callback) => {
 	 * 3: 已变更
 	 * 4: 已关闭
 	 */
-	const client = db.get('t_client_service')
-	client.insert({
-		clientId: clientId,
-		startTime: startTime,
-		endTime: endTime,
-		userNum: userNum,
-		createAt: new Date(),
-		closeAt: null,
-		status: 0
-	})
-	.then((result) => {
-		if( result){
-			callback({
-				status: 1,
-				msg: 'success'
+	const service = db.get('t_client_service')
+
+	checkPermission(req, function(result){
+		if( result.status ){	
+			service.insert({
+				clientId: clientId,
+				startTime: startTime,
+				endTime: endTime,
+				userNum: userNum,
+				createAt: new Date(),
+				closeAt: null,
+				status: 0
+			})
+			.then((result) => {
+				if( result){
+					callback({
+						status: 1,
+						msg: 'success'
+					})
+				}else{
+					callback({
+						status: 0,
+						msg: '新增失败'
+					})
+				}
+			})
+			.catch((error) => {
+				callback({
+					status: 0,
+					msg: error
+				})
 			})
 		}else{
-			callback({
-				status: 0,
-				msg: '新增失败'
-			})
+			callback(result)
 		}
 	})
-	.catch((error) => {
-		callback({
-			status: 0,
-			msg: error
-		})
-	})
+	
 }
 
 module.exports = createService

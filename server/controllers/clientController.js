@@ -5,10 +5,6 @@ const getClientList = require('../models/clientModels/getClientList')
 	  createClient = require('../models/clientModels/createClient')
 	  updateClient = require('../models/clientModels/updateClient')
 	  removeClient = require('../models/clientModels/removeClient')
-	  getServiceList = require('../models/serviceModels/getServiceList')
-	  createService = require('../models/serviceModels/createService')
-	  updateService = require('../models/serviceModels/updateService')
-	  removeService = require('../models/serviceModels/removeService')
 
 
 router.get('/list', function(req, res) {
@@ -28,27 +24,6 @@ router.post('/update', function(req, res) {
 });
 router.post('/remove', function(req, res) {
 	removeClient(req, function(result){
-		res.json(result);
-	});
-});
-
-router.post('/service/list', function(req, res) {
-	getServiceList(req, function(result){
-		res.json(result)
-	});
-});
-router.post('/service/new', function(req, res) {
-	createService(req, function(result){
-		res.json(result);
-	});
-});
-router.post('/service/update', function(req, res) {
-	updateService(req, function(result){
-		res.json(result);
-	});
-});
-router.post('/service/remove', function(req, res) {
-	removeService(req, function(result){
 		res.json(result);
 	});
 });

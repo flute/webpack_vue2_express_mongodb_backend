@@ -33,7 +33,11 @@
             					<td>{{client.phone}}</td>
             					<td>{{client.address}}</td>
             					<td>{{client.username}}</td>
-            					<td><Button type="info" @click.stop="showService(client._id)">服务信息</Button></td>
+            					<td>
+            						<Button type="info" @click.stop="doedit(client._id)">编辑</Button>
+            						<Button type="error" @click.stop="remove(client._id)">删除</Button>
+            						<Button type="primary" icon="arrow-right-c" @click.stop="showService(client._id)">服务信息</Button>
+            					</td>
             				</tr>
             			</tbody>
             		</table>
@@ -50,7 +54,7 @@
         			@on-change="changepage"
         			show-elevator></Page>
         		</div>
-            	<pre>{{clients}}</pre>
+            	<!-- <pre>{{clients}}</pre> -->
             </div>
         </div>
         <Modal @on-ok="submit" @on-cancel="cancel"
@@ -108,8 +112,8 @@ export default {
 				value: 'user'
 			}],
 			search:'',
-			pageSize:10,
-			pageCurrent:1
+			pageSize:5,
+			pageCurrent: null
 		}
 	},
 	methods:{
@@ -232,7 +236,7 @@ export default {
 		showService(id){
 			this.$router.push({
 				path: '/client/service', 
-				query: {id: id}
+				query: {id: id, page: this.pageCurrent}
 			})
 		},
 		cancel(){
@@ -290,6 +294,10 @@ export default {
 			let permission = this.$store.state.permissions
 			return permission ? permission.dom.indexOf('client')>=0 : flase
 		},
+	},
+	created(){
+		this.pageCurrent = this.$route.query.page ? Number(this.$route.query.page) : 1
+
 	},
 	mounted(){
 		this.getusers()

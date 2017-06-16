@@ -1,15 +1,12 @@
 const db = require('../../conf/db')
 const checkPermission = require('./checkPermission')
 
-const updateService = (req, callback) => {
+const closeService = (req, callback) => {
 
 	let clientId = req.body.clientid
 		serviceId = req.body.serviceid
-		startTime = req.body.starttime
-		endTime = req.body.endtime
-		userNum = req.body.usernum
 
-	if( !clientId || !serviceId || !startTime || !endTime || !userNum ){
+	if( !clientId || !serviceId ){
 		callback({
 			status: 0,
 			msg: '参数错误'
@@ -18,7 +15,7 @@ const updateService = (req, callback) => {
 	}
 	/**
 	 * status
-	 * 0: 未开通 
+	 * 0: 未开通
 	 * 1: 已开通
 	 * 2: 已续接
 	 * 3: 已变更
@@ -31,15 +28,15 @@ const updateService = (req, callback) => {
 			service.findOne({_id: serviceId}, '-_id')
 			.then((result) => {
 				if( result ){
-					if( result.status === 0 ){
+					if( result.status === 1 ){
 						service.update({_id: serviceId},{
 							clientId : result.clientId,
-						    startTime : startTime,
-						    endTime : endTime,
-						    userNum : userNum,
+						    startTime : result.startTime,
+						    endTime : result.endTime,
+						    userNum : result.userNum,
 						    createAt : result.createAt,
-						    closeAt : null,
-						    status : 0
+						    closeAt : new Date(),
+						    status : 4
 						}).then((result) => {
 							if(result){
 								callback({
@@ -49,7 +46,7 @@ const updateService = (req, callback) => {
 							}else{
 								callback({
 									status: 0,
-									msg: '修改失败'
+									msg: '关闭失败'
 								})
 							}
 						}).catch((error) => {
@@ -61,7 +58,7 @@ const updateService = (req, callback) => {
 					}else{
 						callback({
 							status: 0,
-							msg: '当前服务无法执行修改操作！'
+							msg: '当前服务无法执行关闭操作！'
 						})
 					}
 				}else{
@@ -85,4 +82,4 @@ const updateService = (req, callback) => {
 	
 }
 
-module.exports = updateService
+module.exports = closeService

@@ -3,6 +3,7 @@ const versionController = require('../controllers/versionController')
 const roleController = require('../controllers/roleController')
 const clientController = require('../controllers/clientController')
 const userController = require('../controllers/userController')
+const serviceController = require('../controllers/serviceController')
 // services and models
 const RBAC = require('../services/rbac')
 const Islogin = require('../services/islogin')
@@ -15,6 +16,8 @@ module.exports = function(app){
 	app.use('/version', versionController)
 
 	app.use('/role', roleController)
+
+	app.use('/client/service', serviceController)
 
 	app.use('/client', clientController)
 

@@ -1,7 +1,7 @@
 const db = require('../../conf/db')
 const checkPermission = require('./checkPermission')
 
-const updateService = (req, callback) => {
+const changeService = (req, callback) => {
 
 	let clientId = req.body.clientid
 		serviceId = req.body.serviceid
@@ -31,25 +31,48 @@ const updateService = (req, callback) => {
 			service.findOne({_id: serviceId}, '-_id')
 			.then((result) => {
 				if( result ){
-					if( result.status === 0 ){
+					if( result.status === 1 ){
+						
 						service.update({_id: serviceId},{
 							clientId : result.clientId,
-						    startTime : startTime,
-						    endTime : endTime,
-						    userNum : userNum,
+						    startTime : result.startTime,
+						    endTime : result.endTime,
+						    userNum : result.userNum,
 						    createAt : result.createAt,
 						    closeAt : null,
-						    status : 0
+						    status : 3
 						}).then((result) => {
 							if(result){
-								callback({
-									status: 1,
-									msg: 'success'
+								service.insert({
+									clientId: clientId,
+									startTime: startTime,
+									endTime: endTime,
+									userNum: userNum,
+									createAt: new Date(),
+									closeAt: null,
+									status: 1
+								}).then((result) => {
+									if(result){
+										callback({
+											status: 1,
+											msg: 'success'
+										})
+									}else{
+										callback({
+											status: 0,
+											msg: '变更失败'
+										})
+									}
+								}).catch((error) => {
+									callback({
+										status: 0,
+										msg: error
+									})
 								})
 							}else{
 								callback({
 									status: 0,
-									msg: '修改失败'
+									msg: '变更失败'
 								})
 							}
 						}).catch((error) => {
@@ -85,4 +108,4 @@ const updateService = (req, callback) => {
 	
 }
 
-module.exports = updateService
+module.exports = changeService
