@@ -1,5 +1,5 @@
-const async = require('async');
-const db = require('../conf/db');
+const async = require('async')
+const db = require('../conf/db')
 
 const getPermission = (userinfo, callback) => {
 	let role = db.get('t_role'),
@@ -9,13 +9,13 @@ const getPermission = (userinfo, callback) => {
 			name: []
 		}; // 权限合集
 	// 获取角色的所有权限
-	async.eachSeries( userinfo.roles, function(item,cb){	console.log('role item', item)
-		role.findOne({_id: item}, '-_id').then((result) => {	console.log('findOne role：');console.log(result)
+	async.eachSeries( userinfo.roles, function(item,cb){	//console.log('role item', item)
+		role.findOne({_id: item}, '-_id').then((result) => {	//console.log('findOne role：');console.log(result)
 			if( result ){
 				let permission = db.get('t_permission')
 				// 获取权限的所有dom
 				async.eachSeries( result.permissions, function(item,cback){
-					permission.findOne({_id: item}, '-_id').then((presult) => {	console.log('findOne perssion：');console.log(presult)
+					permission.findOne({_id: item}, '-_id').then((presult) => {	//console.log('findOne perssion：');console.log(presult)
 						if( presult ){
 							perObj.dom = perObj.dom.concat( presult.dom )
 							perObj.path = perObj.path.concat( presult.path )

@@ -1,4 +1,5 @@
 const db = require('../../conf/db')
+const appNotice = require('../noticeModels/appNotice')
 
 const publishVersion = (req, callback) => {
 
@@ -46,6 +47,10 @@ const publishVersion = (req, callback) => {
 					msg: error
 				})
 			})
+			// notice
+			if( pubstatus === 1 ){
+				appNotice("App新版本发布通知："+result.description+":"+result.version)
+			}
 		}else{
 			callback({
 				status: 0,

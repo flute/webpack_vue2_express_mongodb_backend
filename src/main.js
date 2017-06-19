@@ -37,7 +37,8 @@ const store = new Vuex.Store({
 		apiUrl: 'http://127.0.0.1:3000',
 		isShowLogin: true,
 		userInfo: null,
-		permissions: null
+		permissions: null,
+		notice: null
 	},
 	mutations:{
 		showLogin(state, flag){
@@ -48,6 +49,9 @@ const store = new Vuex.Store({
 		},
 		updatePermission(state, data){
 			state.permissions = data
+		},
+		updateNotice(state, data){
+			state.notice = data
 		}
 	}
 }) 

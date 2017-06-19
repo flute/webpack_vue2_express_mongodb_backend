@@ -4,6 +4,9 @@
 		<Menu class="header-menu" mode="horizontal" active-name="1">
             <div class="layout-logo">运营管理平台</div>
             <div class="layout-ceiling-main">
+            	<Badge v-show="hasNotice" :count="noticeNum">
+			        <router-link class="notice-badge" to="/notice">消息</router-link>
+			    </Badge>
                 <Dropdown class="Dropdown" placement="bottom-end" trigger="click" @on-click="logout">
 			        <a href="javascript:void(0)">{{username}} <Icon type="arrow-down-b"></Icon></a>
 			        <Dropdown-menu slot="list">
@@ -24,7 +27,6 @@
 	            </i-col>
 	        </Row>
         </div>
-
 	</div>
 </template>
 
@@ -63,6 +65,9 @@ export default {
 						this.$store.commit('showLogin', false)
 						this.$store.commit('updateUserInfo', res.userinfo)
 						this.$store.commit('updatePermission', res.permission)
+						if( res.notice ){
+							this.$store.commit('updateNotice', res.notice)
+						}
 					}else{
 						// 未登录
 					}
@@ -75,6 +80,12 @@ export default {
 		},
 		isLogin(){
 			return this.$store.state.userInfo ? true : false
+		},
+		hasNotice(){
+			return this.$store.state.notice && this.$store.state.notice.length ? true : false
+		},
+		noticeNum(){
+			return this.$store.state.notice ? this.$store.state.notice.length : 0
 		}
 	},
 	components:{
@@ -270,5 +281,14 @@ table tbody tr:hover{
     height: 100px;
     position: relative;
     border: 1px solid #eee;
+}
+.notice-badge{
+    border-radius: 6px;
+    display: inline-block;
+    padding: 10px;
+    background: rgba(0,0,0,.65);
+}
+.ivu-badge-count{
+	box-shadow: none;
 }
 </style>

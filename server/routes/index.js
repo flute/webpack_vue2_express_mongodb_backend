@@ -8,6 +8,7 @@ const serviceController = require('../controllers/serviceController')
 const RBAC = require('../services/rbac')
 const Islogin = require('../services/islogin')
 const Login = require('../models/login')
+const HasRead = require('../models/hasread')
 
 module.exports = function(app){
 
@@ -40,6 +41,12 @@ module.exports = function(app){
 
 	app.post('/login', function(req, res, next){
 		Login(req, function(result){
+			res.json(result)
+		})
+	})
+
+	app.post('/hasread', function(req, res, next){
+		HasRead(req, function(result){
 			res.json(result)
 		})
 	})	

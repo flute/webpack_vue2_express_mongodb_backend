@@ -43,6 +43,9 @@ export default {
                         this.$store.commit('updateUserInfo', res.data)
                         this.$store.commit('updatePermission', res.permission)
                         this.$store.commit('showLogin', false)
+                        if( res.notice ){
+                            this.$store.commit('updateNotice', res.notice)
+                        }
                     }else{
                         //this.tips = res.error_msg
                         this.$Message.error({content: res.msg, duration: 3, closable: true});

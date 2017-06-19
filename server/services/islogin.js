@@ -5,7 +5,8 @@ const islogin = (req, callback) => {
 			status: 1,
 			msg: '已登录',
 			userinfo: req.session.user,
-			permission: req.session.permission
+			permission: req.session.permission,
+			notice: req.session.notice
 		})
 	}else{
 		callback({

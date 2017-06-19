@@ -8,20 +8,29 @@ const login = (req, callback) => {
 	let account = req.body.account,
 		pwd = req.body.pwd;
 
-	const user = db.get('t_user');
+	const user = db.get('t_user')
+	const notice = db.get('t_notice')
+
 	user.findOne({account: account}, '-flag').then((userinfo)=>{
 		if( userinfo ){
-			console.log('userinfo', userinfo)
+			console.log('userinfo:',userinfo)
 			if( md5(pwd) == userinfo.pwd ){
 				getAllPermission(userinfo, function(result){
-					console.log('Result：', result)
+					
 					if( !result.status ){
 						callback(result);
 					}else{
 						req.session.user = userinfo;
 						req.session.permission = result.permission;
-						console.info('session：',req.session)
-						callback(result);
+						// 获取通知信息
+						notice.find({userId: userinfo._id.toString(), haveRead: 0}, '-haveRead')
+						.then((notices) => { console.log('notices:',notices)
+							if( notices ){
+								req.session.notice = notices
+								result.notice = notices
+							}
+							callback(result);
+						})
 					}
 				})
 			}else{

@@ -65,7 +65,6 @@
 	        </p>
 	        <p>
 	        	<span class="input-label">服务人数</span>
-	        	
 	        	<Input-number :min="1" v-model="usernum" placeholder="请输入服务人数" style="width: 250px"></Input-number>
 	        </p> 
 	        <div slot="footer">

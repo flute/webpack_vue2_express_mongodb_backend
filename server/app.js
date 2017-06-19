@@ -5,6 +5,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var cors = require('cors');
+// 定时
+var schedule = require('node-schedule');
+var timing = require('./models/noticeModels/serviceNotice');
 var routes = require('./routes/index');
 
 var app = express();
@@ -33,6 +36,11 @@ app.use(session({
 }));
 
 routes(app)
+
+var task = schedule.scheduleJob('* * 2 * * *', function(){
+	console.info('定时任务：到期提醒');
+	timing()
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

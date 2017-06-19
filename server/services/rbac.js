@@ -1,8 +1,8 @@
 const rbac = (req, res, next) => {
 	// RBAC权限检验
-	console.log('RBAC-session：', req.session.user, req.session.permission)
-
-	const pathArr = ['/islogin','/logout','/login'];	// 无须授权的路由
+	//console.log('RBAC-session：', req.session.user, req.session.permission)
+	
+	const pathArr = ['/islogin','/logout','/login','/hasread'];	// 无须授权的路由
 
 	if( pathArr.indexOf(req.path)<0 ){
 		// 需授权的路由
