@@ -70,7 +70,7 @@ const serviceNotice = (content) => {
 					})
 					
 				}else{
-					console.info('无到期提醒日期')
+					console.info('无到期提醒')
 				}
 			})
 

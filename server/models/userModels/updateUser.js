@@ -30,6 +30,7 @@ const createUser = (req, callback) => {
 					name: name,
 					pwd: password,
 					roles: roles,
+					createAt: result.createAt,
 					parents: result.parents,
 					flag: result.flag
 				}

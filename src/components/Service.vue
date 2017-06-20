@@ -20,12 +20,12 @@
 			        					<td v-if="service.closeAt">关闭时间：<b>{{changeTime(service.closeAt)}}</b></td>
 			        					<td class="service-option">
 			        						<template v-if="service.status===0">
-			        							<Button type="success" @click.stop="open(service._id)">开通</Button>
+			        							<Button type="success" @click.stop="doopen(service._id)">开通</Button>
 			        							<Button type="info" @click.stop="doedit(service._id)">编辑</Button>
 			        							<Button type="error" @click.stop="del(service._id)">删除</Button>
 			        						</template>
 			        						<template v-if="service.status===1">
-			        							<Button type="success" @click.stop="renewal(service._id)">续借</Button>
+			        							<Button type="success" @click.stop="renewal(service._id)">续接</Button>
 			        							<Button type="info" @click.stop="change(service._id)">变更</Button>
 			        							<Button type="error" @click.stop="close(service._id)">关闭</Button>
 			        						</template>
@@ -55,22 +55,34 @@
 	        :title="modalTitle"
 	        v-model="newService"
 	        :mask-closable="false">
-	        <p>
-	        	<span class="input-label">开通时间</span>
-	        	<Date-picker v-model="starttime" type="date" :disabled="option==='renewal'" placeholder="选择开始日期" style="width: 200px"></Date-picker>
-	        </p>
-	        <p>
-	        	<span class="input-label">截止时间</span>
-	        	<Date-picker v-model="endtime" type="date" :options="timemin" placeholder="选择截止日期" style="width: 200px"></Date-picker>
-	        </p>
-	        <p>
-	        	<span class="input-label">服务人数</span>
-	        	<Input-number :min="1" v-model="usernum" placeholder="请输入服务人数" style="width: 250px"></Input-number>
-	        </p> 
+	        <div v-show="option=='admin' ">
+	        	<p>
+		        	<span class="input-label">管理员账号</span>
+		        	<Input v-model="account" placeholder="请输入账号"></Input>
+		        </p>
+		        <p>
+		        	<span class="input-label">初始密码</span>
+		        	<Input type="password" v-model="pwd" placeholder="请输入密码"></Input>
+		        </p>
+	        </div>
+	        <div v-show="option!='admin'">
+	        	<p>
+		        	<span class="input-label">开通时间</span>
+		        	<Date-picker v-model="starttime" type="date" :disabled="option==='renewal'" placeholder="选择开始日期" style="width: 200px"></Date-picker>
+		        </p>
+		        <p>
+		        	<span class="input-label">截止时间</span>
+		        	<Date-picker v-model="endtime" type="date" :options="timemin" placeholder="选择截止日期" style="width: 200px"></Date-picker>
+		        </p>
+		        <p>
+		        	<span class="input-label">服务人数</span>
+		        	<Input-number :min="1" v-model="usernum" placeholder="请输入服务人数" style="width: 250px"></Input-number>
+		        </p> 
+	        </div> 
 	        <div slot="footer">
 	            <Button @click="cancel()">取消</Button>
 	            <Button type="success" @click="submit()">确认</Button>
-	        </div>   
+	        </div>  
 	    </Modal>
 	</div>
 </template>
@@ -87,8 +99,11 @@ export default{
 			clientId: this.$route.query.id,
 			starttime: '',
 			endtime: '',
+			account: '',
+			pwd: '',
 			usernum: null,
 			services: [],
+			client: null,
 			pageSize:10,
 			pageCurrent:1,
 			status:['未开通','已开通','已续接','已变更','已关闭'],
@@ -122,12 +137,16 @@ export default{
 				if(!this.checkLogin(res))return;
 				if( res.status ){
 					this.services = res.data
+					this.client = res.client
 				}
 				this.loading = false
 			})
 		},
 		submit(){
-			if( !this.starttime || !this.endtime || !this.usernum ){
+			if( ( this.option!='admin'&&(!this.starttime || !this.endtime || !this.usernum) )
+				||
+				( this.option=='admin'&&(!this.account||!this.pwd) )
+			){
 				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
 				return;
 			}
@@ -206,19 +225,53 @@ export default{
 							this.$Message.error({content: '变更失败，请重新尝试！', duration: 3, closable: true});
 						}
 					})
+			}else if( this.option === 'admin' ){
+				this.axios.post(apiUrl+'/client/update', {id: this.client._id, account: this.account, pwd: this.pwd})
+				.then( response => response.data )
+				.then( res => {
+					if(!this.checkLogin(res))return;
+					if( res.status ){
+						this.newService = false
+						this.clear()
+						this.open()
+					}else{
+						this.$Message.error({content: '管理员账号创建失败，请稍后再试', duration: 3, closable: true});
+						return false
+					}
+				})
 			}
 		},
-		open(sid){
+		doopen(sid){
+			if( !this.client ){
+				this.$Message.error({content: '开通失败，请刷新页面再试', duration: 3, closable: true});
+				return false;
+			}
+			this.openid = sid
+
+			if( !this.client.adminAccount || !this.client.adminPwd ){
+				this.newService = true
+				this.modalTitle = '新建管理员账号'
+				this.option = 'admin'
+			}else{
+				this.open()
+			}
+		},
+		open(){
+			if( !this.openid ){
+				this.$Message.error({content: '开通失败，请刷新页面再试', duration: 3, closable: true});
+				return false;
+			}
+
 			let apiUrl = this.$store.state.apiUrl
-			this.axios.post(apiUrl+'/client/service/open', {clientid: this.clientId, serviceid: sid})
+			this.axios.post(apiUrl+'/client/service/open', {clientid: this.clientId, serviceid: this.openid})
 			.then( response => response.data )
 			.then( res => {
+				this.openid = null
 				if(!this.checkLogin(res))return;
 				if( res.status ){
 					this.$Message.success({content: '开通成功', duration: 3, closable: true});
 					this.getService()
 				}
-				this.loading = false
 			})
 		},
 		close(sid){
@@ -325,6 +378,8 @@ export default{
 			this.modalTitle = "新增服务"
 			this.edit = null
 			this.option = 'new'
+			this.account = ''
+			this.pwd = ''
 		},
 		turnback(){
 			this.$router.push({
@@ -350,6 +405,10 @@ export default{
 	display: inline-block;
 	width: 250px !important;
 }
+.ivu-input-type{
+	display: inline-block;
+    width: 250px;
+}
 .service-option .add{
 	margin-left: 10px;
 }
@@ -362,13 +421,9 @@ export default{
     border-radius: 5px;
 }
 .ivu-timeline .tr td{
-	/*flex: 1;*/
 	width: 200px;
 }
-/*.ivu-timeline .tr td.service-option{
-	flex: 2
-}
-*/.ivu-timeline p.time{
+.ivu-timeline p.time{
 	font-size: 14px;
     font-weight: bold;
     margin-bottom: 10px;

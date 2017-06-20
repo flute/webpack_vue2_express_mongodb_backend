@@ -6,10 +6,12 @@
             		<Button type="info" @click="newClient = true">新增客户</Button>
             		<div class="search">
             			<span class="span">按照</span>
-	            		<Select v-model="searchmode" style="width:100px">
+	            		<Select v-model="searchmode" style="width:100px" @on-change="changeSelect">
 					        <Option v-for="item in searchtype" :value="item.value" :key="item">{{ item.label }}</Option>
 					    </Select>
-					    <Input v-model="search" placeholder="请输入搜索词" style="width: 150px"></Input>
+					    <Input v-show="searchmode!=='starttime'&&searchmode!=='endtime'" v-model="search" placeholder="请输入搜索词" style="width: 150px"></Input>
+					    <Date-picker v-show="searchmode==='starttime'||searchmode==='endtime'"
+					    v-model="daterange" format="yyyy/MM/dd" type="daterange" placement="bottom-end" placeholder="选择日期" style="width: 200px;margin-right:10px"></Date-picker>
 					    <Button @click="dosearch()">查询</Button>
 					    <Button class="clear-search" type="dashed" icon="ios-close-outline" @click="clearSearch()"
 					    v-show="clients.length!=clientArr.length">清除</Button>
@@ -101,18 +103,26 @@ export default {
 			selectUser: '',
 			users: [],
 			clients: [],
-			clientArr:[],
+			clientArr: [],
+			services: null,
 			edit: null,
-			searchmode:'name',
-			searchtype:[{
+			searchmode: 'name',
+			searchtype: [{
 				label: '客户名称',
 				value: 'name'
 			},{
 				label: '所属用户',
 				value: 'user'
+			},{
+				label: '开设时间段',
+				value: 'starttime'
+			},{
+				label: '到期时间段',
+				value: 'endtime'
 			}],
-			search:'',
-			pageSize:5,
+			search: '',
+			daterange: null,
+			pageSize: 5,
 			pageCurrent: null
 		}
 	},
@@ -139,6 +149,21 @@ export default {
 					this.clientArr = res.data
 				}
 				this.loading = false
+			})
+		},
+		getServices(){
+			let clientid = this.clientArr.map(function(item){
+				return item._id
+			})
+			let apiUrl = this.$store.state.apiUrl
+			this.axios.post(apiUrl+'/client/service/list', {clientid: clientid, type: 'all'})
+			.then( response => response.data )
+			.then( res => {
+				if(!this.checkLogin(res))return;
+				if( res.status ){
+					this.services = res.data
+				}
+				//this.loading = false
 			})
 		},
 		submit(){
@@ -252,8 +277,11 @@ export default {
 			this.edit = null
 		},
 		dosearch(){
-			if( this.search === '' ){
-				this.$Message.warning({content: '请输入搜索词', duration: 3, closable: true});
+			if( ((this.searchmode != 'starttime'&&this.searchmode != 'endtime') && this.search === '') 
+				||
+				((this.searchmode=='starttime'||this.searchmode=='endtime') && (!this.daterange[0] || !this.daterange[1] ))
+			){
+				this.$Message.warning({content: '请输入搜索内容', duration: 3, closable: true});
 				return;
 			}
 			let clients = [];
@@ -278,8 +306,41 @@ export default {
 						}
 					}
 				}
+			}else if( this.searchmode === 'starttime' ){
+				let timeStart = new Date( this.daterange[0] ).valueOf()
+				let timeEnd = new Date( this.daterange[1] ).valueOf()
+				//console.log(timeStart, timeEnd)
+				for( let i=0;i<this.services.length;i++ ){
+					let stime = new Date(this.services[i].startTime).valueOf()
+					//console.log('stime', stime)
+					if( stime > timeStart && stime < timeEnd  ){
+						for( let j=0;j<this.clientArr.length;j++ ){
+							if( this.clientArr[j]._id == this.services[i].clientId ){
+								clients.push(this.clientArr[j])
+							}
+						}
+					}
+				}
+			}else if( this.searchmode === 'endtime' ){
+				let timeStart = new Date( this.daterange[0] ).valueOf()
+				let timeEnd = new Date( this.daterange[1] ).valueOf()
+				for( let i=0;i<this.services.length;i++ ){
+					let stime = new Date(this.services[i].endTime).valueOf()
+					if( stime > timeStart && stime < timeEnd  ){
+						for( let j=0;j<this.clientArr.length;j++ ){
+							if( this.clientArr[j]._id == this.services[i].clientId ){
+								clients.push(this.clientArr[j])
+							}
+						}
+					}
+				}
 			}
 			this.clients = clients;
+		},
+		changeSelect(e){
+			if( (e === 'starttime' || e === 'endtime') && !this.services ){
+				this.getServices();
+			}
 		},
 		changepage(num){
 			this.pageCurrent = num
@@ -287,6 +348,7 @@ export default {
 		clearSearch(){
 			this.clients = this.clientArr
 			this.search = ''
+			this.daterange = null
 		}
 	},
 	computed:{
@@ -306,9 +368,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.ivu-date-picker{
-	display: inline-block;
-	width: 250px !important;
-}
-</style>
+<style scoped></style>

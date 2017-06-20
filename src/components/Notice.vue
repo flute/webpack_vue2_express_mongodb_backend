@@ -2,10 +2,14 @@
 	<div class="notice">
 		<template v-for="item in getNotice">
 			<p class="notice-item">
-				<Icon type="android-notifications-none" size="12" color="red"></Icon> 
-				<span>{{item.content}}</span>
+				<!-- <Icon type="android-notifications-none" size="12" :color="item.haveRead?'green':'red'"></Icon> 
+				<span>{{item.content}}</span> -->
+				<Tag type="dot" :color="item.haveRead?'blue':'red'">{{item.content}}</Tag>
 			</p>
+			
+			
 		</template>
+		<p class="notip" v-show="!getNotice || getNotice.length==0">暂无消息~</p>
 		<!-- <pre>{{getNotice}}</pre> -->
 	</div>
 </template>
@@ -35,7 +39,7 @@ export default {
 	},
 	computed:{
 		getNotice(){
-			return this.$store.state.notice
+			return this.$store.state.notice?this.$store.state.notice.reverse():null
 		}
 	},
 	mounted(){
@@ -44,7 +48,11 @@ export default {
 		}
 	},
 	destroyed(){
-		this.$store.commit('updateNotice', null)
+		var notice = this.getNotice.map(function(item){
+			item.haveRead = 1
+			return item
+		})
+		this.$store.commit('updateNotice', notice)
 	}
 }
 </script>
@@ -52,13 +60,15 @@ export default {
 <style scoped>
 .notice-item{
 	padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f8f8f9;
     border-radius: 5px;
-    width: 90%;
+    width: 100%;
 }
 .notice-item span{
 	margin-left: 20px;
+}
+.notice-item div{
+	width: 90%;
+    background: #f8f8f9 !important;
 }
 .notice{
 	padding: 20px 10px;

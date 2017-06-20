@@ -9,7 +9,9 @@
 	            		<Select v-model="searchmode" style="width:100px">
 					        <Option v-for="item in searchtype" :value="item.value" :key="item">{{ item.label }}</Option>
 					    </Select>
-					    <Input v-model="search" placeholder="请输入搜索词" style="width: 150px"></Input>
+					    <Input v-show="searchmode!=='time'" v-model="search" placeholder="请输入搜索词" style="width:150px"></Input>
+					    <Date-picker v-show="searchmode === 'time'"
+					    v-model="daterange" format="yyyy/MM/dd" type="daterange" placement="bottom-end" placeholder="选择日期" style="width: 200px;margin-right:10px"></Date-picker>
 					    <Button @click="dosearch()">查询</Button>
 					    <Button class="clear-search" type="dashed" icon="ios-close-outline" @click="clearSearch()"
 					    v-show="users.length!=userArr.length">清除</Button>
@@ -57,7 +59,7 @@
         			@on-change="changepage"
         			show-elevator></Page>
         		</div>
-            	<!-- <pre>{{users}}</pre> -->
+            	<pre>{{users}}</pre>
             </div>
         </div>
         <Modal @on-ok="submit" @on-cancel="cancel"
@@ -117,8 +119,12 @@ export default {
 			},{
 				label: '拥有企业名',
 				value: 'client'
+			},{
+				label: '创建时间段',
+				value: 'time'
 			}],
 			search:'',
+			daterange: null,
 			pageSize:10,
 			pageCurrent:1
 		}
@@ -263,8 +269,11 @@ export default {
 			this.edit = null
 		},
 		dosearch(){
-			if( this.search === '' ){
-				this.$Message.warning({content: '请输入搜索词', duration: 3, closable: true});
+			if( (this.searchmode != 'time' && this.search === '') 
+				||
+				(this.searchmode == 'time' && ( !this.daterange[0] || !this.daterange[1] ) )
+			){
+				this.$Message.warning({content: '请输入搜索内容', duration: 3, closable: true});
 				return;
 			}
 			let users = [];
@@ -303,6 +312,17 @@ export default {
 						}
 					}
 				}
+			}else if( this.searchmode === 'time' ){
+				let timeStart = new Date( this.daterange[0] ).valueOf()
+				let timeEnd = new Date( this.daterange[1] ).valueOf()
+				
+				for( let i=0;i<this.userArr.length;i++ ){
+					let createAt = new Date(this.userArr[i].createAt).valueOf()
+					if( createAt > timeStart && createAt < timeEnd ){
+						users.push(this.userArr[i])
+					}
+				}
+
 			}
 			this.users = users;
 		},
@@ -312,6 +332,7 @@ export default {
 		clearSearch(){
 			this.users = this.userArr
 			this.search = ''
+			this.daterange = null
 		}
 	},
 	computed:{

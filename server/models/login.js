@@ -23,7 +23,7 @@ const login = (req, callback) => {
 						req.session.user = userinfo;
 						req.session.permission = result.permission;
 						// 获取通知信息
-						notice.find({userId: userinfo._id.toString(), haveRead: 0}, '-haveRead')
+						notice.find({userId: userinfo._id.toString()}, '-userId')
 						.then((notices) => { console.log('notices:',notices)
 							if( notices ){
 								req.session.notice = notices

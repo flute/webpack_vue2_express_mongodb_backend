@@ -37,6 +37,7 @@ const createUser = (req, callback) => {
 				account: account,
 				pwd: md5(pwd),
 				roles: roles,
+				createAt: new Date(),
 				parents: parents,
 				flag: 1
 			}).then((result)=>{

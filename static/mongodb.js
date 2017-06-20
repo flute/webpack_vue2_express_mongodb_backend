@@ -62,7 +62,15 @@
             "/client/list", 
             "/client/new", 
             "/client/remove", 
-            "/client/update"
+            "/client/update", 
+            "/client/service/list", 
+            "/client/service/new", 
+            "/client/service/update", 
+            "/client/service/remove", 
+            "/client/service/open", 
+            "/client/service/close", 
+            "/client/service/renewal", 
+            "/client/service/change"
         ],
         "dom" : [ 
             "client"

@@ -4,9 +4,18 @@
 		<Menu class="header-menu" mode="horizontal" active-name="1">
             <div class="layout-logo">运营管理平台</div>
             <div class="layout-ceiling-main">
-            	<Badge v-show="hasNotice" :count="noticeNum">
+            	<router-link class="notice-div" to="/notice">
+            		<Icon type="android-notifications" size="16" color="white"></Icon> 
+					<span>{{noticeNum}}</span>
+            	</router-link>
+
+            	<!-- <div class="notice-div">
+            		<Icon type="android-notifications" size="16" color="white"></Icon> 
+					<span>{{noticeNum}}</span>
+            	</div> -->
+            	<!-- <Badge v-show="!hasNotice" :count="noticeNum">
 			        <router-link class="notice-badge" to="/notice">消息</router-link>
-			    </Badge>
+			    </Badge> -->
                 <Dropdown class="Dropdown" placement="bottom-end" trigger="click" @on-click="logout">
 			        <a href="javascript:void(0)">{{username}} <Icon type="arrow-down-b"></Icon></a>
 			        <Dropdown-menu slot="list">
@@ -85,7 +94,16 @@ export default {
 			return this.$store.state.notice && this.$store.state.notice.length ? true : false
 		},
 		noticeNum(){
-			return this.$store.state.notice ? this.$store.state.notice.length : 0
+			let notice = this.$store.state.notice
+			let num = 0
+			if( notice ){
+				for( let i=0;i<notice.length;i++ ){
+					if( notice[i].haveRead === 0 ){
+						num = num + 1
+					}
+				}
+			}
+			return num
 		}
 	},
 	components:{
@@ -251,6 +269,9 @@ table tbody tr:hover{
     width: 100px;
 	font-size: 14px;
 }
+.ivu-select-item{
+	line-height: 24px;
+}
 .ivu-select-multiple .ivu-select-item-selected{
 	display: flex;
 	display: -ms-flexbox;
@@ -289,6 +310,24 @@ table tbody tr:hover{
     background: rgba(0,0,0,.65);
 }
 .ivu-badge-count{
-	box-shadow: none;
+	box-shadow: none !important;
+}
+.ivu-select-dropdown{
+	position: absolute!important;
+}
+.notice-div{
+	display: inline-block;
+    padding: 0 15px;
+    background-color: #333;
+    cursor: pointer;
+    /*border-left: 1px solid rgba(0,0,0,.65);
+    border-right: 1px solid rgba(0,0,0,.65);*/
+}
+.notice-div span{
+	color: #fff;
+    background: darkgoldenrod;
+    padding: 2px 5px;
+    margin-left: 5px;
+    border-radius: 3px;
 }
 </style>

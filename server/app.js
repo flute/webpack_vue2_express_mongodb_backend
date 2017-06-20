@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // cors允许跨域请求
 app.use(cors({
-	origin:['http://localhost:8080','http://localhost:8000'],
+	origin:['http://localhost:8080','http://localhost:8000','http://testapi.zxwave.com:9999','http://60.205.110.195:9999'],
 	methods:['OPTIONS','GET','POST'],
 	credentials: true
 }));

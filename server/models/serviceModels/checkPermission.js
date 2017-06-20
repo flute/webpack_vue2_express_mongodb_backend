@@ -8,13 +8,15 @@ const checkPermission = (req, callback) => {
 	const client = db.get('t_client')
 	const user = db.get('t_user')
 
-	client.findOne({_id: clientid, flag: 1},'-_id')
+	client.findOne({_id: clientid, flag: 1},'-flag')
 	.then((result) => {
 		if(result){
+			let client = result
 			if( result.user == adminid ){
 				callback({
 					status: 1,
-					msg: 'success'
+					msg: 'success',
+					client: client
 				})
 			}else{
 				user.findOne({_id: result.user}, '-_id')
@@ -22,7 +24,8 @@ const checkPermission = (req, callback) => {
 					if(result.parents.indexOf(adminid)>=0){
 						callback({
 							status: 1,
-							msg: 'success'
+							msg: 'success',
+							client: client
 						})
 					}else{
 						callback({
