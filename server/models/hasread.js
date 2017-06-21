@@ -14,7 +14,7 @@ const hasread = (req, callback) => {
 		})
 		return
 	}
-	//req.session.notice = null
+	
 	async.eachSeries(id, function(item, cb){
 		notice.findOne({_id: item}, '-_id')
 		.then((result) => {
@@ -32,19 +32,21 @@ const hasread = (req, callback) => {
 	},function(err, result){
 		// 获取通知信息
 		notice.find({userId: uid}, '-_id')
-		.then((notices) => { 
-			if( notices ){
+		.then((notices) => {
+			if( notices && notices.length ){
 				let n = notices.map(function(item){
 					item.haveRead = 1
 					return item
 				})
+
 				req.session.notice = n
 			}
+			callback({
+				status: 1,
+				msg: 'success'
+			})
 		})
-		callback({
-			status: 1,
-			msg: 'success'
-		})
+		
 	})
 	
 }

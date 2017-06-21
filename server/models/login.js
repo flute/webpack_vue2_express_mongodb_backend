@@ -13,7 +13,6 @@ const login = (req, callback) => {
 
 	user.findOne({account: account}, '-flag').then((userinfo)=>{
 		if( userinfo ){
-			console.log('userinfo:',userinfo)
 			if( md5(pwd) == userinfo.pwd ){
 				getAllPermission(userinfo, function(result){
 					
@@ -24,7 +23,7 @@ const login = (req, callback) => {
 						req.session.permission = result.permission;
 						// 获取通知信息
 						notice.find({userId: userinfo._id.toString()}, '-userId')
-						.then((notices) => { console.log('notices:',notices)
+						.then((notices) => {
 							if( notices ){
 								req.session.notice = notices
 								result.notice = notices

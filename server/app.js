@@ -32,7 +32,7 @@ app.use(session({
 		maxAge: 1000 * 60 * 60,
 	},// 1h
 	resave: true,
-	saveUninitialized: false,
+	saveUninitialized: true,
 }));
 
 routes(app)
