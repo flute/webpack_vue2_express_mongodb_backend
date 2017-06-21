@@ -57,7 +57,7 @@
 	        :mask-closable="false">
 	        <p>
 	        	<span class="input-label">角色名称：</span>
-	        	<Input v-model="name" placeholder="请输入角色名称" style="width: 250px"></Input>
+	        	<Input v-model="name" :maxlength="20" placeholder="请输入角色名称" style="width: 250px"></Input>
 	        </p>
 	        <p>
 	        	<span class="input-label">拥有权限：</span>
@@ -95,9 +95,9 @@ export default {
 				label: '拥有许可',
 				value: 'permission'
 			}],
-			search:'',
-			pageSize:5,
-			pageCurrent:1
+			search: '',
+			pageSize: 5,
+			pageCurrent: 1
 		}
 	},
 	methods:{
@@ -179,6 +179,12 @@ export default {
 						if( res.status ){
 							this.$Message.success({content: '删除成功', duration: 3, closable: true});
 			                this.getRoles();
+
+			                if( this.pageCurrent!=1 ){
+			                	if( this.clients.length-1 <= (this.pageCurrent-1) * this.pageSize ){
+			                		this.pageCurrent -= 1
+			                	} 
+			                }
 						}else{
 							this.$Message.error({content: '删除失败，请稍后尝试', duration: 3, closable: true});
 						}
@@ -230,7 +236,8 @@ export default {
 					}
 				}
 			}
-			this.roles = roles;
+			this.roles = roles
+			this.pageCurrent = 1
 			
 		},
 		cancel(){

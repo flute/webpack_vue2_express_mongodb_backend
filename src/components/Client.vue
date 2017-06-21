@@ -10,7 +10,7 @@
 					        <Option v-for="item in searchtype" :value="item.value" :key="item">{{ item.label }}</Option>
 					    </Select>
 					    <Input v-show="searchmode!=='starttime'&&searchmode!=='endtime'" v-model="search" placeholder="请输入搜索词" style="width: 150px"></Input>
-					    <Date-picker v-show="searchmode==='starttime'||searchmode==='endtime'"
+					    <Date-picker v-show="searchmode==='starttime'||searchmode==='endtime'" :editable="false"
 					    v-model="daterange" format="yyyy/MM/dd" type="daterange" placement="bottom-end" placeholder="选择日期" style="width: 200px;margin-right:10px"></Date-picker>
 					    <Button @click="dosearch()">查询</Button>
 					    <Button class="clear-search" type="dashed" icon="ios-close-outline" @click="clearSearch()"
@@ -65,15 +65,15 @@
 	        :mask-closable="false">
 	        <p>
 	        	<span class="input-label">客户名称</span>
-	        	<Input v-model="name" placeholder="请输入用户名" style="width: 250px"></Input>
+	        	<Input v-model="name" :maxlength="20" placeholder="请输入用户名" style="width: 250px"></Input>
 	        </p>
 	        <p>
 	        	<span class="input-label">联系电话</span>
-	        	<Input v-model="phone" placeholder="请输入账号" style="width: 250px"></Input>
+	        	<Input v-model="phone" :maxlength="11" placeholder="请输入账号" style="width: 250px"></Input>
 	        </p>
 	        <p>
 	        	<span class="input-label">联系地址</span>
-	        	<Input v-model="address" placeholder="请输入联系地址" style="width: 250px"></Input>
+	        	<Input v-model="address" :maxlength="30" placeholder="请输入联系地址" style="width: 250px"></Input>
 	        </p>
 	        <p>
 	        	<span class="input-label">绑定用户</span>
@@ -122,8 +122,8 @@ export default {
 			}],
 			search: '',
 			daterange: null,
-			pageSize: 5,
-			pageCurrent: null
+			pageSize: 10,
+			pageCurrent: 1
 		}
 	},
 	methods:{
@@ -226,6 +226,12 @@ export default {
 							if( res.status ){
 								this.$Message.success({content: '删除成功', duration: 3, closable: true});
 				                this.getclients();
+
+				                if( this.pageCurrent!=1 ){
+				                	if( this.clients.length-1 <= (this.pageCurrent-1) * this.pageSize ){
+				                		this.pageCurrent -= 1
+				                	} 
+				                }
 							}else{
 								this.$Message.error({content: '删除失败，请稍后尝试', duration: 3, closable: true});
 							}
@@ -335,7 +341,8 @@ export default {
 					}
 				}
 			}
-			this.clients = clients;
+			this.clients = clients
+			this.pageCurrent = 1
 		},
 		changeSelect(e){
 			if( (e === 'starttime' || e === 'endtime') && !this.services ){

@@ -58,25 +58,25 @@
 	        <div v-show="option=='admin' ">
 	        	<p>
 		        	<span class="input-label">管理员账号</span>
-		        	<Input v-model="account" placeholder="请输入账号"></Input>
+		        	<Input v-model="account" :maxlength="11" placeholder="请输入账号"></Input>
 		        </p>
 		        <p>
 		        	<span class="input-label">初始密码</span>
-		        	<Input type="password" v-model="pwd" placeholder="请输入密码"></Input>
+		        	<Input type="password" :maxlength="20" v-model="pwd" placeholder="请输入密码"></Input>
 		        </p>
 	        </div>
 	        <div v-show="option!='admin'">
 	        	<p>
 		        	<span class="input-label">开通时间</span>
-		        	<Date-picker v-model="starttime" type="date" :disabled="option==='renewal'" placeholder="选择开始日期" style="width: 200px"></Date-picker>
+		        	<Date-picker :editable="false" v-model="starttime" type="date" :disabled="option==='renewal'" placeholder="选择开始日期" style="width: 200px"></Date-picker>
 		        </p>
 		        <p>
 		        	<span class="input-label">截止时间</span>
-		        	<Date-picker v-model="endtime" type="date" :options="timemin" placeholder="选择截止日期" style="width: 200px"></Date-picker>
+		        	<Date-picker :editable="false" v-model="endtime" type="date" :options="timemin" placeholder="选择截止日期" style="width: 200px"></Date-picker>
 		        </p>
 		        <p>
 		        	<span class="input-label">服务人数</span>
-		        	<Input-number :min="1" v-model="usernum" placeholder="请输入服务人数" style="width: 250px"></Input-number>
+		        	<Input-number :min="1" :max="1000" v-model="usernum" placeholder="请输入服务人数" style="width: 250px"></Input-number>
 		        </p> 
 	        </div> 
 	        <div slot="footer">
@@ -309,6 +309,12 @@ export default{
 						if( res.status ){
 							this.$Message.success({content: '删除成功', duration: 3, closable: true});
 							this.getService()
+
+							if( this.pageCurrent!=1 ){
+			                	if( this.clients.length-1 <= (this.pageCurrent-1) * this.pageSize ){
+			                		this.pageCurrent -= 1
+			                	} 
+			                }
 						}
 						this.loading = false
 					})

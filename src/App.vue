@@ -8,14 +8,6 @@
             		<Icon type="android-notifications" size="16" color="white"></Icon> 
 					<span>{{noticeNum}}</span>
             	</router-link>
-
-            	<!-- <div class="notice-div">
-            		<Icon type="android-notifications" size="16" color="white"></Icon> 
-					<span>{{noticeNum}}</span>
-            	</div> -->
-            	<!-- <Badge v-show="!hasNotice" :count="noticeNum">
-			        <router-link class="notice-badge" to="/notice">消息</router-link>
-			    </Badge> -->
                 <Dropdown class="Dropdown" placement="bottom-end" trigger="click" @on-click="logout">
 			        <a href="javascript:void(0)">{{username}} <Icon type="arrow-down-b"></Icon></a>
 			        <Dropdown-menu slot="list">
@@ -88,7 +80,7 @@ export default {
 			return this.$store.state.userInfo ? this.$store.state.userInfo.name : '未登陆'
 		},
 		isLogin(){
-			return this.$store.state.userInfo ? true : false
+			return this.$store.state.isShowLogin ? false : true
 		},
 		hasNotice(){
 			return this.$store.state.notice && this.$store.state.notice.length ? true : false
@@ -143,6 +135,7 @@ export default {
 }
 .layout-contents{
 	flex: 1;
+	height: 100%;
 	overflow-y: auto;
 	padding: 10px;
 }
@@ -225,6 +218,10 @@ table tr{
 } 
 table tr td{
 	padding: 0 18px;
+    line-height: 16px;
+}
+table tr td.optiontr{
+	width: 300px;
 }
 thead tr{
 	height: 40px;
@@ -320,8 +317,6 @@ table tbody tr:hover{
     padding: 0 15px;
     background-color: #333;
     cursor: pointer;
-    /*border-left: 1px solid rgba(0,0,0,.65);
-    border-right: 1px solid rgba(0,0,0,.65);*/
 }
 .notice-div span{
 	color: #fff;

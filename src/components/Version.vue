@@ -25,7 +25,7 @@
             					<td>更新模式</td>
             					<td>更新地址</td>
             					<td>版本号</td>
-            					<td>操作</td>	
+            					<td class="optiontr">操作</td>	
             				</tr>
             			</thead>
             			<tbody>
@@ -57,7 +57,7 @@
             				</tr>
             			</tbody>
             		</table>
-            		<p class="notip" v-show="versions.length==0">没有找到您搜索的用户~</p>
+            		<p class="notip" v-show="versions.length==0">没有找到您搜索的版本~</p>
             	</div>
 	            <Spin fix v-show="loading">
 	                <Icon type="load-c" size=36 class="demo-spin-icon-load"></Icon>
@@ -81,11 +81,11 @@
 			:mask-closable="false">
 	        <p>
 	        	<span class="input-label">版本名称：</span>
-	        	<Input v-model="desc" placeholder="请输入版本名称" style="width:250px"></Input>
+	        	<Input v-model="desc" :maxlength="20" placeholder="请输入版本名称" style="width:250px"></Input>
 	        </p>
 	        <p>
 	        	<span class="input-label">产品名称：</span>
-	        	<Input v-model="name" placeholder="请输入产品名称" style="width:250px"></Input>
+	        	<Input v-model="name" :maxlength="20" placeholder="请输入产品名称" style="width:250px"></Input>
 	        </p>
 	        <p>
 	        	<span class="input-label">平台：</span>
@@ -101,11 +101,11 @@
 	        </p>
 			<p>
 	        	<span class="input-label">版本号：</span>
-	        	<Input v-model="number" placeholder="请输入版本号" style="width:250px"></Input>
+	        	<Input v-model="number" :maxlength="10" placeholder="请输入版本号" style="width:250px"></Input>
 	        </p>
 	        <p>
 	        	<span class="input-label">更新地址：</span>
-	        	<Input v-model="address" placeholder="请输入更新地址" style="width:250px"></Input>
+	        	<Input v-model="address" :maxlength="100" placeholder="请输入更新地址" style="width:250px"></Input>
 	        </p>
 	        <div slot="footer">
 	            <Button @click="cancel()">取消</Button>
@@ -157,9 +157,9 @@ export default {
 				label: '版本号',
 				value: 'number'
 			}],
-			search:'',
-			pageSize:10,
-			pageCurrent:1
+			search: '',
+			pageSize: 10,
+			pageCurrent: 1
 		}
 	},
 	methods:{
@@ -250,6 +250,12 @@ export default {
 						if( res.status ){
 							this.$Message.success({content: '删除成功', duration: 3, closable: true});
 			                this.getVersion();
+
+			                if( this.pageCurrent!=1 ){
+			                	if( this.clients.length-1 <= (this.pageCurrent-1) * this.pageSize ){
+			                		this.pageCurrent -= 1
+			                	} 
+			                }
 						}else{
 							this.$Message.error({content: '删除失败，请稍后尝试', duration: 3, closable: true});
 						}
@@ -317,7 +323,8 @@ export default {
 				}
 			}
 
-			this.versions = version;
+			this.versions = version
+			this.pageCurrent = 1
 			
 		},
 		cancel(){
@@ -355,11 +362,10 @@ export default {
 	computed:{
 		showVersion(){
 			let permission = this.$store.state.permissions
-			return permission ? permission.dom.indexOf('version')>=0 : flase
+			return permission ? permission.dom.indexOf('version')>=0 : false
 		}
 	},
 	mounted(){
-		console.log('role mounted')
 		this.getVersion();
 	}
 }

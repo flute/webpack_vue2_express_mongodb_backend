@@ -10,7 +10,7 @@
 					        <Option v-for="item in searchtype" :value="item.value" :key="item">{{ item.label }}</Option>
 					    </Select>
 					    <Input v-show="searchmode!=='time'" v-model="search" placeholder="请输入搜索词" style="width:150px"></Input>
-					    <Date-picker v-show="searchmode === 'time'"
+					    <Date-picker v-show="searchmode === 'time'" :editable="false"
 					    v-model="daterange" format="yyyy/MM/dd" type="daterange" placement="bottom-end" placeholder="选择日期" style="width: 200px;margin-right:10px"></Date-picker>
 					    <Button @click="dosearch()">查询</Button>
 					    <Button class="clear-search" type="dashed" icon="ios-close-outline" @click="clearSearch()"
@@ -29,7 +29,7 @@
             			</thead>
             			<tbody>
             				<tr v-for="(user,index) in users"
-            				v-if="index>=(pageCurrent-1)*pageSize && index<pageCurrent*pageSize">
+            				v-if="index>=(pageCurrent-1)*pageSize && index<pageCurrent*pageSize && user._id!=userInfo">
             					<td>{{user.name}}</td>
             					<td>{{user.account}}</td>
             					<td>
@@ -59,7 +59,7 @@
         			@on-change="changepage"
         			show-elevator></Page>
         		</div>
-            	<pre>{{users}}</pre>
+            	<!-- <pre>{{users}}</pre> -->
             </div>
         </div>
         <Modal @on-ok="submit" @on-cancel="cancel"
@@ -68,15 +68,15 @@
 	        :mask-closable="false">
 	        <p>
 	        	<span class="input-label">用户名</span>
-	        	<Input v-model="name" placeholder="请输入用户名" style="width: 250px"></Input>
+	        	<Input v-model="name" :maxlength="15" placeholder="请输入用户名" style="width: 250px"></Input>
 	        </p>
 	        <p>
 	        	<span class="input-label">账号</span>
-	        	<Input v-model="account" placeholder="请输入账号" style="width: 250px" :disabled="edit?true:false"></Input>
+	        	<Input v-model="account" :maxlength="11" placeholder="请输入账号" style="width: 250px" :disabled="edit?true:false"></Input>
 	        </p>
 	        <p>
 	        	<span class="input-label">密码</span>
-	        	<Input type="password" v-model="pwd" placeholder="请输入密码" style="width: 250px"></Input>
+	        	<Input type="password" :maxlength="20" v-model="pwd" placeholder="请输入密码" style="width: 250px"></Input>
 	        </p>
 	        <p>
 	        	<span class="input-label">角色</span>
@@ -125,8 +125,8 @@ export default {
 			}],
 			search:'',
 			daterange: null,
-			pageSize:10,
-			pageCurrent:1
+			pageSize: 10,
+			pageCurrent: 1
 		}
 	},
 	methods:{
@@ -166,6 +166,11 @@ export default {
 		submit(){
 			if( !this.name || !this.account || !this.pwd || !this.selectRole ){
 				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
+				return;
+			}
+
+			if( this.pwd.length<5 || this.pwd.length>20 ){
+				this.$Message.warning({content: '请输入6-20位的密码', duration: 3, closable: true});
 				return;
 			}
 			let apiUrl = this.$store.state.apiUrl
@@ -224,6 +229,12 @@ export default {
 							if( res.status ){
 								this.$Message.success({content: '删除成功', duration: 3, closable: true});
 				                this.getUsers();
+
+				                if( this.pageCurrent!=1 ){
+				                	if( this.clients.length-1 <= (this.pageCurrent-1) * this.pageSize ){
+				                		this.pageCurrent -= 1
+				                	} 
+				                }
 							}else{
 								this.$Message.error({content: '删除失败，请稍后尝试', duration: 3, closable: true});
 							}
@@ -324,7 +335,8 @@ export default {
 				}
 
 			}
-			this.users = users;
+			this.users = users
+			this.pageCurrent = 1
 		},
 		changepage(num){
 			this.pageCurrent = num
@@ -340,6 +352,9 @@ export default {
 			let permission = this.$store.state.permissions
 			return permission ? permission.dom.indexOf('user')>=0 : flase
 		},
+		userInfo(){
+			return this.$store.state.userInfo._id
+		}
 	},
 	mounted(){
 		this.getRoles()
