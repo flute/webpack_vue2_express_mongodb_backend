@@ -102,20 +102,10 @@ export default {
 		VAside,
 		VLogin
 	},
-	beforeCreate(){
-		console.log('beforeCreate', this.$store.state.isShowLogin)
-	},
 	created(){
-		console.log('created', this.$store.state.isShowLogin)
+		//console.log('created')
 		this.checkLogin();
-	},
-	beforeMount(){
-		console.log('beforeMount', this.$store.state.isShowLogin)
-	},
-	mounted(){
-		console.log('mounted', this.$store.state.isShowLogin)
-		
-	},
+	}
 }
 </script>
 

@@ -170,7 +170,7 @@ export default {
 			.then( res => {
 				if(!this.checkLogin(res))return;
 				if( res.status ){
-					console.log('Version', res)
+					//console.log('Version', res)
 					this.versions = res.data
 					this.versionArr = res.data
 				}else{
@@ -237,7 +237,6 @@ export default {
 			
 		},
 		remove(id){
-			console.log('remove:', id)
 			this.$Modal.confirm({
                 title: '确认删除',
                 content: '<p>确定删除该版本？</p>',
@@ -268,7 +267,6 @@ export default {
 			
 		},
 		doedit(id){
-			console.log('edit:', id)
 			this.modalTitle = "编辑版本"
 			this.newVersion = true
 			for( let i=0;i<this.versions.length;i++){
@@ -285,7 +283,6 @@ export default {
 		},
 		publish(id){
 			if(!id) return;
-			console.log('publish',id);
 			let apiUrl = this.$store.state.apiUrl
 			this.axios.post(apiUrl+'/version/publish', {id: id})
 			.then( response => response.data )

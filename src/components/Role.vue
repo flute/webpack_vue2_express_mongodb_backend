@@ -108,7 +108,7 @@ export default {
 			.then( res => {
 				if(!this.checkLogin(res))return;
 				if( res.status ){
-					console.log('roles', res)
+					//console.log('roles', res)
 					this.roles = res.data
 					this.roleArr = res.data
 					this.permissions = res.permissions
@@ -166,7 +166,6 @@ export default {
 			
 		},
 		remove(id){
-			console.log('remove:', id)
 			this.$Modal.confirm({
                 title: '确认删除',
                 content: '<p>确定删除该角色？</p>',
@@ -197,7 +196,6 @@ export default {
 			
 		},
 		doedit(id){
-			console.log('edit:', id)
 			this.modalTitle = "编辑角色"
 			this.newRole = true
 			// 遍历roles，找出当前编辑的角色
@@ -272,7 +270,6 @@ export default {
 		}
 	},
 	mounted(){
-		console.log('role mounted')
 		this.getRoles();
 	}
 }

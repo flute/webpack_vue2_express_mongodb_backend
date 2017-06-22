@@ -31,7 +31,7 @@ export default {
     },
     methods:{
         select(name){ // 点击菜单跳转
-            console.log('select name：'+name)
+            //console.log('select name：'+name)
             this.$router.push('/'+name)
         }
     },
