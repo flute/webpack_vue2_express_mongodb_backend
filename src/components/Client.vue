@@ -25,7 +25,7 @@
             					<td>联系电话</td>
             					<td>联系地址</td>
             					<td>绑定用户</td>
-            					<td>操作</td>
+            					<td class="optiontr">操作</td>
             				</tr>
             			</thead>
             			<tbody>

@@ -76,8 +76,8 @@
 		        </p>
 		        <p>
 		        	<span class="input-label">服务人数</span>
-		        	<Input-number :min="1" :max="1000" v-model="usernum" placeholder="请输入服务人数" style="width: 250px"></Input-number>
-		        </p> 
+		        	<Input v-model="usernum" placeholder="请输入服务人数" style="width:250px"></Input>
+		        </p>
 	        </div> 
 	        <div slot="footer">
 	            <Button @click="cancel()">取消</Button>
@@ -150,6 +150,33 @@ export default{
 				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
 				return;
 			}
+
+			if( this.account ){
+				if( /[^\d{6,11}]/.test(this.account) || this.account.length < 6 || this.account.length > 11 ){
+					this.$Message.warning({content: '请输入6-11位的纯数字账号', duration: 3, closable: true});
+					return;
+				}
+				if( this.pwd.length<5 || this.pwd.length>20 ){
+					this.$Message.warning({content: '请输入6-20位的密码', duration: 3, closable: true});
+					return;
+				}
+			}
+			if( this.usernum ){
+				let flag = false
+				let num = Number(this.usernum)
+				if( isNaN(this.usernum) ){
+					flag = true
+				}else{
+					if( num<1 || num>1000 || num%1 !== 0 ){
+						flag = true
+					}
+				}
+				if( flag ){
+					this.$Message.warning({content: '服务人数为1-1000的整数', duration: 3, closable: true});
+					return;
+				}
+			}
+
 			let apiUrl = this.$store.state.apiUrl
 			if( this.option === 'new' && !this.edit ){
 				this.axios.post(apiUrl+'/client/service/new', {

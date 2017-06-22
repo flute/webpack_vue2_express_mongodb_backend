@@ -24,7 +24,7 @@
             					<td>用户名</td>
             					<td>账号</td>
             					<td>角色</td>
-            					<td>操作</td>
+            					<td class="optiontr">操作</td>
             				</tr>
             			</thead>
             			<tbody>
@@ -168,7 +168,10 @@ export default {
 				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
 				return;
 			}
-
+			if( /[^\d{6,11}]/.test(this.account) || this.account.length < 6 || this.account.length > 11 ){
+				this.$Message.warning({content: '请输入6-11位的纯数字账号', duration: 3, closable: true});
+				return;
+			}
 			if( this.pwd.length<5 || this.pwd.length>20 ){
 				this.$Message.warning({content: '请输入6-20位的密码', duration: 3, closable: true});
 				return;
