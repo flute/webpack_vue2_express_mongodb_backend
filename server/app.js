@@ -4,6 +4,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
 var cors = require('cors');
 // 定时
 var schedule = require('node-schedule');
@@ -33,6 +34,11 @@ app.use(session({
 	},// 1h
 	resave: true,
 	saveUninitialized: true,
+	store: new RedisStore({
+		host: "127.0.0.1",
+		port: 6666,
+		pass: 'operate123...'
+	})
 }));
 
 routes(app)

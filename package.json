@@ -15,6 +15,7 @@
     "axios": "^0.16.1",
     "babel-polyfill": "^6.23.0",
     "body-parser": "~1.15.1",
+    "connect-redis": "^3.3.0",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.3",
     "debug": "~2.2.0",
