@@ -13,6 +13,7 @@
   "dependencies": {
     "async": "^2.1.4",
     "axios": "^0.16.1",
+    "babel-polyfill": "^6.23.0",
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.3",
