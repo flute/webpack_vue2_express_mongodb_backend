@@ -1,4 +1,5 @@
 const db = require('../../conf/db')
+const redis = require('../../conf/redis')
 
 const createClient = (req, callback) => {
 
@@ -29,6 +30,16 @@ const createClient = (req, callback) => {
 				status: 1,
 				msg: 'success'
 			})
+			// redis add client
+			redis.select('1', function(error){
+			    if(error){
+			        console.error('redis select failed:', error);
+			    }else{
+			        redis.set(result._id.toString(), 0, function(err, res){  
+				        console.log('redis add client:'+result._id.toString(), res); 
+				    });
+			    }
+			});
 		}else{
 			callback({
 				status: 0,

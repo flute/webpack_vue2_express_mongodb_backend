@@ -171,6 +171,10 @@ export default {
 				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
 				return;
 			}
+			if( /[^\d{6,11}]/.test(this.phone) || this.phone.length < 6 || this.phone.length > 11 ){
+				this.$Message.warning({content: '请输入正确的联系电话', duration: 3, closable: true});
+				return;
+			}
 			let apiUrl = this.$store.state.apiUrl
 			if( this.modalTitle === '新增客户' && !this.edit ){
 				this.axios.post(apiUrl+'/client/new', {

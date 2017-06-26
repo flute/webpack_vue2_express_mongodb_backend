@@ -1,5 +1,6 @@
 const async = require('async')
 const db = require('../../conf/db')
+const redis = require('../../conf/redis')
 
 const serviceNotice = (content) => {
 
@@ -45,6 +46,17 @@ const serviceNotice = (content) => {
 					.catch((error) => {
 						console.error("服务到期通知——查询客户出错:", error)
 					})
+					
+					// redis update client service status
+					redis.select('1', function(error){
+					    if(error){
+					        console.error('redis service expired failed:', error);
+					    }else{
+					        redis.set(item.clientId, 0, function(err, res){  
+						        console.log('redis service expired:'+clientId, res); 
+						    });
+					    }
+					});
 				}else{
 					callback()
 				}

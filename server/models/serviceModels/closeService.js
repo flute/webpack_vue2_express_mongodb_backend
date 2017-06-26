@@ -1,4 +1,5 @@
 const db = require('../../conf/db')
+const redis = require('../../conf/redis')
 const checkPermission = require('./checkPermission')
 
 const closeService = (req, callback) => {
@@ -43,6 +44,16 @@ const closeService = (req, callback) => {
 									status: 1,
 									msg: 'success'
 								})
+								// redis add client
+								redis.select('1', function(error){
+								    if(error){
+								        console.error('redis close service failed:', error);
+								    }else{
+								        redis.set(clientId, 0, function(err, res){  
+									        console.log('redis close client:'+clientId, res); 
+									    });
+								    }
+								});
 							}else{
 								callback({
 									status: 0,

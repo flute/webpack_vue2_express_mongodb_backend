@@ -43,7 +43,7 @@ app.use(session({
 
 routes(app)
 
-var task = schedule.scheduleJob('* * 2 * * *', function(){
+var task = schedule.scheduleJob('0 0 2 * * *', function(){
 	console.info('定时任务：到期提醒');
 	timing()
 });

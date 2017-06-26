@@ -1,4 +1,5 @@
 const db = require('../../conf/db')
+const redis = require('../../conf/redis')
 const checkPermission = require('./checkPermission')
 
 const openService = (req, callback) => {
@@ -43,6 +44,16 @@ const openService = (req, callback) => {
 									status: 1,
 									msg: 'success'
 								})
+								// redis add client
+								redis.select('1', function(error){
+								    if(error){
+								        console.error('redis open service failed:', error);
+								    }else{
+								        redis.set(clientId, 1, function(err, res){  
+									        console.log('redis open client:'+clientId, res);  
+									    });
+								    }
+								});
 							}else{
 								callback({
 									status: 0,
