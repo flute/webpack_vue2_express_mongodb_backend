@@ -360,6 +360,7 @@ export default {
 			this.clients = this.clientArr
 			this.search = ''
 			this.daterange = null
+			this.pageCurrent = 1
 		}
 	},
 	computed:{

@@ -42,11 +42,23 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
+        //loader: 'url-loader',
+        loaders: [
+          {
+            loader: path.resolve(__dirname, 'cssPathResolver')
+          },
+          {
+            loader: 'url-loader',
+            query: {
+              limit: 10000,
+              name: utils.assetsPath('img/[name].[hash:7].[ext]'),
+            }
+          }
+        ]
+        /*options: {
+          limit: 30000,
           name: utils.assetsPath('img/[name].[hash:7].[ext]')
-        }
+        }*/
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,

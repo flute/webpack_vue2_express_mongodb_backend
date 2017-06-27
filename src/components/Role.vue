@@ -261,6 +261,7 @@ export default {
 		clearSearch(){
 			this.roles = this.roleArr
 			this.search = ''
+			this.pageCurrent = 1
 		}
 	},
 	computed:{

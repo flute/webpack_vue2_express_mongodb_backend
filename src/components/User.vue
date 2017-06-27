@@ -348,6 +348,7 @@ export default {
 			this.users = this.userArr
 			this.search = ''
 			this.daterange = null
+			this.pageCurrent = 1
 		}
 	},
 	computed:{

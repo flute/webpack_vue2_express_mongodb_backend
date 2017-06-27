@@ -354,6 +354,7 @@ export default {
 		clearSearch(){
 			this.versions = this.versionArr
 			this.search = ''
+			this.pageCurrent = 1
 		}
 	},
 	computed:{
