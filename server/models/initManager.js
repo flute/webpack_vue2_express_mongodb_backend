@@ -227,6 +227,24 @@ module.exports = function(data, calls){
 			], function (err, result) {
 				if( err ){
 					console.error('mysql初始化失败！', err)
+					
+					// init failed, delete data has inserted
+					let delSql = [
+					"delete from t_admin where tenantId='"+data.clientid+"'",
+					"delete from t_sys_role where tenantId='"+data.clientid+"'",
+					"delete from t_config where tenantId='"+data.clientid+"'",
+					"delete from t_module where tenantId='"+data.clientid+"'",
+					"delete from t_info where tenantId='"+data.clientid+"'",
+					"delete from t_department where tenantId='"+data.clientid+"'",
+					]
+					async.eachSeries(delSql, function(sql, cb){
+						connection.query(sql,function(error, result){
+							cb(error, result)
+						})
+					},function(err, result){
+						console.info('delete finished:', error)
+					})
+
 					calls({
 						status: 0,
 						msg: err
