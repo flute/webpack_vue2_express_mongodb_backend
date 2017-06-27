@@ -81,7 +81,11 @@
 	        </div> 
 	        <div slot="footer">
 	            <Button @click="cancel()">取消</Button>
-	            <Button type="success" @click="submit()">确认</Button>
+	            <Button type="success" @click="submit()" :loading="issubmit" v-show="option=='admin' ">
+					<span v-if="!issubmit">确认</span>
+			        <span v-else>提交中...</span>
+	            </Button>
+				<Button type="success" @click="submit()"  v-show="option!='admin'">确认</Button>   
 	        </div>  
 	    </Modal>
 	</div>
@@ -93,6 +97,7 @@ export default{
 	data(){
 		return{
 			loading: true,
+			issubmit: false,
 			newService: false,
 			modalTitle: "新增服务",
 			returnPage: this.$route.query.page,
@@ -253,16 +258,24 @@ export default{
 						}
 					})
 			}else if( this.option === 'admin' ){
+				this.issubmit = true
 				this.axios.post(apiUrl+'/client/update', {id: this.client._id, account: this.account, pwd: this.pwd})
 				.then( response => response.data )
 				.then( res => {
 					if(!this.checkLogin(res))return;
-					if( res.status ){
+					if( res.status == 1 ){
 						this.newService = false
 						this.clear()
 						this.open()
+					}else if( res.status == 2 ){
+						this.newService = false
+						this.clear()
+						this.$Message.warning({content: res.msg, duration: 5, closable: true});
+						this.issubmit = false
+						return false
 					}else{
 						this.$Message.error({content: '管理员账号创建失败，请稍后再试', duration: 3, closable: true});
+						this.issubmit = false
 						return false
 					}
 				})
@@ -286,6 +299,7 @@ export default{
 		open(){
 			if( !this.openid ){
 				this.$Message.error({content: '开通失败，请刷新页面再试', duration: 3, closable: true});
+				this.issubmit = false
 				return false;
 			}
 
@@ -294,6 +308,7 @@ export default{
 			.then( response => response.data )
 			.then( res => {
 				this.openid = null
+				this.issubmit = false
 				if(!this.checkLogin(res))return;
 				if( res.status ){
 					this.$Message.success({content: '开通成功', duration: 3, closable: true});

@@ -1,5 +1,8 @@
 const db = require('../../conf/db')
-const md5 = text => crypto.createHash('md5').update(text).digest('hex')
+const initManager = require('../initManager')
+
+const client = db.get('t_client')
+const users = db.get('t_user')
 
 const updateClient = (req, callback) => {
 
@@ -20,25 +23,44 @@ const updateClient = (req, callback) => {
 		return;
 	}
 	
-	const client = db.get('t_client');
-	const users = db.get('t_user');
-	
 	client.findOne({_id: id}, '-_id')
 	.then((result) => {
 		if( result ){
-			let data = null
+			// 首次开通服务，绑定管理员，初始化 MySQL
 			if( account && pwd ){
-				data = {
-					name: result.name,
-					phone: result.phone,
-					address: result.address,
-					user: result.user,
-					flag: result.flag,
-					adminAccount: account,
-					adminPwd: pwd
+				let datas = {
+					clientid: id,
+					account: account,
+					pwd: pwd
 				}
+				initManager(datas, function(res){
+					console.log(res)
+					if( res.status == 0 ){
+						callback({
+							status: 0,
+							msg: '初始化失败'
+						})
+					}else if( res.status == 1 ){
+						let data = {
+							name: result.name,
+							phone: result.phone,
+							address: result.address,
+							user: result.user,
+							flag: result.flag,
+							adminAccount: account,
+							adminPwd: pwd
+						}
+						doUpdate(id, admin, result, data, callback)
+					}else if( res.status == 2 ){
+						callback({
+							status: 2,
+							msg: '客户信息已存在，开通失败'
+						})
+					}
+				})
+				
 			}else{
-				data = {
+				let data = {
 					name: name,
 					phone: phone,
 					address: address,
@@ -47,66 +69,7 @@ const updateClient = (req, callback) => {
 					adminAccount: result.adminAccount?result.adminAccount:null,
 					adminPwd: result.adminPwd?result.adminPwd:null
 				}
-			}
-			if( result.user == admin ){
-				client.update({_id: id}, data)
-				.then((result) => {
-					if( result ){
-						callback({
-							status: 1,
-							msg: 'success'
-						})
-					}else{
-						callback({
-							status: 0,
-							msg: '更新失败'
-						})
-					}
-				})
-				.catch((error) => {
-					callback({
-						status: 0,
-						msg: error
-					})
-				})
-			}else{
-				users.findOne({_id: result.user}, '-_id')
-				.then((result) => {
-					if( result ){
-						if( result.parents.indexOf(admin)>=0 ){
-							client.update({_id: id}, data)
-							.then((result) => {
-								if( result ){
-									callback({
-										status: 1,
-										msg: 'success'
-									})
-								}else{
-									callback({
-										status: 0,
-										msg: '更新失败'
-									})
-								}
-							})
-							.catch((error) => {
-								callback({
-									status: 0,
-									msg: error
-								})
-							})
-						}else{
-							callback({
-								status: 0,
-								msg: '没有权限'
-							})
-						}
-					}else{
-						callback({
-							status: 0,
-							msg: '未找到该客户绑定的用户'
-						})
-					}
-				})
+				doUpdate(id, admin, result, data, callback)
 			}
 		}else{
 			callback({
@@ -121,6 +84,71 @@ const updateClient = (req, callback) => {
 			msg: error
 		})
 	})
+}
+
+
+const doUpdate = (id, admin, result, data, callback) => {
+
+	if( result.user == admin ){
+		client.update({_id: id}, data)
+		.then((result) => {
+			if( result ){
+				callback({
+					status: 1,
+					msg: 'success'
+				})
+			}else{
+				callback({
+					status: 0,
+					msg: '更新失败'
+				})
+			}
+		})
+		.catch((error) => {
+			callback({
+				status: 0,
+				msg: error
+			})
+		})
+	}else{
+		users.findOne({_id: result.user}, '-_id')
+		.then((result) => {
+			if( result ){
+				if( result.parents.indexOf(admin)>=0 ){
+					client.update({_id: id}, data)
+					.then((result) => {
+						if( result ){
+							callback({
+								status: 1,
+								msg: 'success'
+							})
+						}else{
+							callback({
+								status: 0,
+								msg: '更新失败'
+							})
+						}
+					})
+					.catch((error) => {
+						callback({
+							status: 0,
+							msg: error
+						})
+					})
+				}else{
+					callback({
+						status: 0,
+						msg: '没有权限'
+					})
+				}
+			}else{
+				callback({
+					status: 0,
+					msg: '未找到该客户绑定的用户'
+				})
+			}
+		})
+	}
 }
 
 module.exports = updateClient

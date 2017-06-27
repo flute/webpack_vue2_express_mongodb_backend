@@ -26,6 +26,7 @@
     "moment": "^2.18.1",
     "monk": "^5.0.2",
     "morgan": "~1.7.0",
+    "mysql": "^2.13.0",
     "node-schedule": "^1.2.3",
     "redis": "^2.7.1",
     "transliteration": "^1.6.2",
