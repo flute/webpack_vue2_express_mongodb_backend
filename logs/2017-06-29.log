@@ -1,0 +1,89 @@
+[2017-06-29 10:52:36.294] [INFO] console - Express server listening on port 3000
+[2017-06-29 10:53:09.226] [INFO] console - version: [ { _id: 593e01f6c9a9796669b50989,
+    description: '新的版本',
+    name: '好氛围',
+    updateAddr: 'https://www.ldsun.com',
+    platform: 'ios',
+    updateType: 'choose',
+    version: '1.0.2',
+    createdAt: 2017-06-12T02:52:38.279Z,
+    updateAt: 2017-06-19T01:56:58.740Z,
+    pubStatus: 0 },
+  { _id: 593e34c3d2aaf36a5784a1f1,
+    description: '一家亲正式版',
+    name: '一家亲',
+    updateAddr: 'https://www.ldsun.com',
+    platform: 'android',
+    updateType: 'must',
+    version: '1.0.2',
+    createdAt: 2017-06-12T06:29:23.508Z,
+    updateAt: 2017-06-22T03:00:41.945Z,
+    pubStatus: 0 } ]
+[2017-06-29 10:53:09.311] [INFO] record - GET /version/list
+[2017-06-29 10:55:12.852] [INFO] console - Express server listening on port 3000
+[2017-06-29 10:55:25.727] [INFO] record - GET /role/list
+[2017-06-29 10:55:27.119] [INFO] record - GET /user/list
+[2017-06-29 10:55:27.133] [INFO] record - GET /client/list
+[2017-06-29 10:55:29.155] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 10:55:29.306] [INFO] record - POST /client/service/list
+[2017-06-29 10:55:31.899] [INFO] record - GET /user/list
+[2017-06-29 10:55:31.908] [INFO] record - GET /client/list
+[2017-06-29 10:57:55.826] [INFO] record - OPTIONS /client/new
+[2017-06-29 10:57:55.875] [INFO] record - POST /client/new
+[2017-06-29 10:57:55.877] [INFO] console - redis add client:59546cb3c2a13c7caf50f62f OK
+[2017-06-29 10:57:55.926] [INFO] record - GET /client/list
+[2017-06-29 10:58:08.466] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 10:58:08.497] [INFO] record - POST /client/service/list
+[2017-06-29 10:58:20.301] [INFO] record - OPTIONS /client/service/new
+[2017-06-29 10:58:20.340] [INFO] record - POST /client/service/new
+[2017-06-29 10:58:20.386] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 10:58:20.433] [INFO] record - POST /client/service/list
+[2017-06-29 10:58:28.942] [INFO] record - OPTIONS /client/update
+[2017-06-29 10:58:29.106] [INFO] console - check client is already inited: null []
+[2017-06-29 10:58:29.127] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 24,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 10:58:29.139] [INFO] console - select t_sys_menu finished: null
+[2017-06-29 10:58:29.145] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 670,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 10:58:29.157] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 166,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 10:58:29.176] [INFO] console - init t_module finished: null 20111
+[2017-06-29 10:58:29.188] [INFO] console - init t_info fineshed: null
+[2017-06-29 10:58:29.199] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10171,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 10:58:29.201] [INFO] console - mysql初始化完毕
+[2017-06-29 10:58:29.202] [INFO] console - { status: 1, mag: 'success' }
+[2017-06-29 10:58:29.239] [INFO] record - POST /client/update
+[2017-06-29 10:58:29.252] [INFO] record - OPTIONS /client/service/open
+[2017-06-29 10:58:29.276] [INFO] record - POST /client/service/open
+[2017-06-29 10:58:29.277] [INFO] console - redis open client:59546cb3c2a13c7caf50f62f OK
+[2017-06-29 10:58:29.295] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 10:58:29.314] [INFO] record - POST /client/service/list

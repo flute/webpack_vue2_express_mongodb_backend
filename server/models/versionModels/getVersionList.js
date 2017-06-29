@@ -6,7 +6,7 @@ const getVersionList = (req, callback) => {
 
 	version.find({flag: 1}, '-flag')
 	.then((result) => {
-		if( result ){	console.log('version:', result)
+		if( result ){
 			callback({
 				status: 1,
 				msg: 'success',

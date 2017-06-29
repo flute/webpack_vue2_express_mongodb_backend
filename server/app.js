@@ -10,8 +10,11 @@ var cors = require('cors');
 var schedule = require('node-schedule');
 var timing = require('./models/noticeModels/serviceNotice');
 var routes = require('./routes/index');
+// log4js
+var log4js = require("./conf/log.js");
 
 var app = express();
+log4js.use(app);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -44,7 +47,7 @@ app.use(session({
 routes(app)
 
 var task = schedule.scheduleJob('0 0 2 * * *', function(){
-	console.info('定时任务：到期提醒');
+	console.info('定时任务：到期提醒', new Date());
 	timing()
 });
 
