@@ -264,3 +264,188 @@
 [2017-06-29 15:57:38.091] [INFO] record - GET /client/list
 [2017-06-29 15:57:40.360] [INFO] record - GET /role/list
 [2017-06-29 15:57:41.779] [INFO] record - GET /version/list
+[2017-06-29 16:13:06.855] [INFO] console - Express server listening on port 3000
+[2017-06-29 16:34:47.759] [INFO] console - Express server listening on port 3000
+[2017-06-29 16:37:07.488] [INFO] record - GET /islogin
+[2017-06-29 16:37:09.683] [INFO] record - OPTIONS /login
+[2017-06-29 16:37:09.901] [INFO] record - POST /login
+[2017-06-29 16:37:10.071] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 16:37:10.209] [INFO] record - POST /client/service/list
+[2017-06-29 16:37:14.592] [INFO] record - GET /user/list
+[2017-06-29 16:37:14.684] [INFO] record - GET /client/list
+[2017-06-29 16:37:16.361] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 16:37:16.660] [INFO] record - POST /client/service/list
+[2017-06-29 16:37:23.214] [INFO] record - OPTIONS /client/service/new
+[2017-06-29 16:37:23.542] [INFO] record - POST /client/service/new
+[2017-06-29 16:37:23.617] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 16:37:23.694] [INFO] record - POST /client/service/list
+[2017-06-29 16:37:31.289] [INFO] record - OPTIONS /client/update
+[2017-06-29 16:37:31.492] [INFO] console - check client is already inited: null []
+[2017-06-29 16:37:31.523] [INFO] console - check account is already existed: null []
+[2017-06-29 16:37:31.539] [INFO] console - select t_sys_menu finished: null
+[2017-06-29 16:37:31.558] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 673,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 16:37:31.582] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 27,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 16:37:31.599] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 169,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 16:37:31.622] [INFO] console - init t_module finished: null 20126
+[2017-06-29 16:37:31.637] [INFO] console - update t_sys_role finished: { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,' at line 1
+    at Query.Sequence._packetToError (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)
+    --------------------
+    at Protocol._enqueue (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:208:25)
+    at Query._callback (/Users/ludis/Mac/projects/Vue/backend/server/models/initManager.js:183:27)
+    at Query.Sequence.end (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:86:24)
+    at Query._handleFinalResultPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:137:8)
+    at Query.EofPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:121:8)
+    at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-06-29 16:37:31.646] [ERROR] console - mysql初始化失败！ { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,' at line 1
+    at Query.Sequence._packetToError (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)
+    --------------------
+    at Protocol._enqueue (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:208:25)
+    at Query._callback (/Users/ludis/Mac/projects/Vue/backend/server/models/initManager.js:183:27)
+    at Query.Sequence.end (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:86:24)
+    at Query._handleFinalResultPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:137:8)
+    at Query.EofPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:121:8)
+    at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlState: '42000',
+  index: 0 }
+[2017-06-29 16:37:31.683] [INFO] console - { status: 0,
+  msg: 
+   { Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,' at line 1
+       at Query.Sequence._packetToError (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:52:14)
+       at Query.ErrorPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:77:18)
+       at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+       at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+       at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+       at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+       at emitOne (events.js:96:13)
+       at Socket.emit (events.js:188:7)
+       at readableAddChunk (_stream_readable.js:176:18)
+       at Socket.Readable.push (_stream_readable.js:134:10)
+       at TCP.onread (net.js:547:20)
+       --------------------
+       at Protocol._enqueue (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:141:48)
+       at PoolConnection.query (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:208:25)
+       at Query._callback (/Users/ludis/Mac/projects/Vue/backend/server/models/initManager.js:183:27)
+       at Query.Sequence.end (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:86:24)
+       at Query._handleFinalResultPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:137:8)
+       at Query.EofPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:121:8)
+       at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+       at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+       at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+       at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+     code: 'ER_PARSE_ERROR',
+     errno: 1064,
+     sqlState: '42000',
+     index: 0 } }
+[2017-06-29 16:37:31.721] [INFO] record - POST /client/update
+[2017-06-29 16:41:47.849] [INFO] console - Express server listening on port 3000
+[2017-06-29 16:41:50.856] [INFO] record - OPTIONS /client/update
+[2017-06-29 16:41:51.058] [INFO] console - check client is already inited: null []
+[2017-06-29 16:41:51.065] [INFO] console - check account is already existed: null []
+[2017-06-29 16:41:51.071] [INFO] console - select t_sys_menu finished: null
+[2017-06-29 16:41:51.075] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 674,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 16:41:51.082] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 28,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 16:41:51.085] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 170,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 16:41:51.101] [INFO] console - init t_module finished: null 20131 [ 20129, 20130, 20131, 20132, 20133 ]
+[2017-06-29 16:41:51.105] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' } ]
+[2017-06-29 16:41:51.108] [INFO] console - update t_sys_role finished: null
+[2017-06-29 16:41:51.124] [INFO] console - init t_info fineshed: null
+[2017-06-29 16:41:51.129] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10174,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 16:41:51.131] [INFO] console - mysql初始化完毕
+[2017-06-29 16:41:51.131] [INFO] console - { status: 1, mag: 'success' }
+[2017-06-29 16:41:51.196] [INFO] record - POST /client/update
+[2017-06-29 16:41:51.251] [INFO] record - OPTIONS /client/service/open
+[2017-06-29 16:41:51.380] [INFO] record - POST /client/service/open
+[2017-06-29 16:41:51.400] [INFO] console - redis open client:59546cb3c2a13c7caf50f62f OK
+[2017-06-29 16:41:51.448] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 16:41:51.515] [INFO] record - POST /client/service/list

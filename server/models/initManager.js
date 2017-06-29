@@ -150,26 +150,45 @@ module.exports = function(data, calls){
 			        	parentId: 10,
 			        	referenceUrl: null,
 			        	sort: 0,
-			        	status: 0,
+			        	status: 1,
 			        	code: '000',
 			        	del: 0,
 			        	type: 0
 			        }
 			        let moduleId = null
+			        let moduleArr = []
 			        async.eachSeries(modules, function(item, cb){
 			        	t_config.name = item.name
 			        	t_config.type = item.type
 			        	connection.query('insert into t_module set ?', t_config, function(error, result){
+			        		moduleArr.push(result.insertId)
 			        		if(item.name == '公司相册'){
 			        			moduleId = result.insertId
 			        		}
 			        		cb(error, result)
 			        	})
 			        },function(err, res){
-			        	console.info('init t_module finished:', err, moduleId)
-			        	callback(err, moduleId, adminId)
+			        	console.info('init t_module finished:', err, moduleId, moduleArr)
+			        	if( err ){
+			        		callback(err)
+			        	}else{
+			        		connection.query("select FMENU_PRIVILEGE from t_sys_role where tenantId='"+data.clientid+"'", function(err, result){
+			        			console.info('select t_sys_role finished:', err, result)
+				        		if( err ){
+				        			callback(err)
+				        		}else{
+				        			let arr = result[0].FMENU_PRIVILEGE
+				        			arr = arr.split(',')
+				        			arr = arr.concat(moduleArr)
+				        			arr = arr.join(',')
+				        			connection.query("update t_sys_role set FMENU_PRIVILEGE='"+arr+"' where tenantId='"+data.clientid+"'", function(err, result){
+				        				console.log('update t_sys_role finished:', err)
+				        				callback(err, moduleId, adminId)
+				        			})
+				        		}
+				        	})	
+			        	}
 			        })
-			        
 			    },
 			    // t_info
 			    function(moduleId, adminId, callback) {
@@ -256,7 +275,7 @@ module.exports = function(data, calls){
 							cb(error, result)
 						})
 					},function(err, result){
-						console.info('delete finished:', error)
+						console.info('delete finished:', err)
 					})
 
 					calls({
