@@ -87,3 +87,180 @@
 [2017-06-29 10:58:29.277] [INFO] console - redis open client:59546cb3c2a13c7caf50f62f OK
 [2017-06-29 10:58:29.295] [INFO] record - OPTIONS /client/service/list
 [2017-06-29 10:58:29.314] [INFO] record - POST /client/service/list
+[2017-06-29 11:00:51.482] [INFO] console - Express server listening on port 3000
+[2017-06-29 11:01:19.497] [INFO] record - GET /user/list
+[2017-06-29 11:01:19.561] [INFO] record - GET /client/list
+[2017-06-29 11:01:19.595] [INFO] record - GET /role/list
+[2017-06-29 15:31:42.404] [INFO] console - Express server listening on port 3000
+[2017-06-29 15:32:30.540] [INFO] record - GET /islogin
+[2017-06-29 15:32:35.950] [INFO] record - OPTIONS /login
+[2017-06-29 15:32:37.816] [INFO] record - POST /login
+[2017-06-29 15:32:38.332] [INFO] record - GET /user/list
+[2017-06-29 15:32:38.609] [INFO] record - GET /client/list
+[2017-06-29 15:32:38.643] [INFO] record - GET /role/list
+[2017-06-29 15:32:41.323] [INFO] record - GET /user/list
+[2017-06-29 15:32:41.355] [INFO] record - GET /client/list
+[2017-06-29 15:32:43.426] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 15:32:43.780] [INFO] record - POST /client/service/list
+[2017-06-29 15:32:56.005] [INFO] record - OPTIONS /client/service/new
+[2017-06-29 15:32:56.139] [INFO] record - POST /client/service/new
+[2017-06-29 15:32:56.205] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 15:32:56.308] [INFO] record - POST /client/service/list
+[2017-06-29 15:33:03.986] [INFO] record - OPTIONS /client/update
+[2017-06-29 15:33:04.223] [INFO] console - find user: [ RowDataPacket { id: 22 },
+  RowDataPacket { id: 23 },
+  RowDataPacket { id: 24 } ]
+[2017-06-29 15:33:04.230] [INFO] console - { status: 3, msg: 'account already exist!' }
+[2017-06-29 15:33:04.236] [INFO] record - POST /client/update
+[2017-06-29 15:33:10.890] [INFO] record - OPTIONS /client/update
+[2017-06-29 15:33:10.982] [INFO] console - find user: []
+[2017-06-29 15:33:10.987] [INFO] console - check client is already inited: null [ RowDataPacket { id: 23 } ]
+[2017-06-29 15:33:10.989] [INFO] console - { status: 2, msg: 'client already exist!' }
+[2017-06-29 15:33:10.996] [INFO] record - POST /client/update
+[2017-06-29 15:46:27.874] [INFO] console - Express server listening on port 3000
+[2017-06-29 15:46:33.002] [INFO] record - GET /islogin
+[2017-06-29 15:46:33.892] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 15:46:34.478] [INFO] record - POST /client/service/list
+[2017-06-29 15:47:20.909] [INFO] record - OPTIONS /client/update
+[2017-06-29 15:47:20.996] [INFO] console - check client is already inited: null []
+[2017-06-29 15:47:21.001] [INFO] console - check account is already existed: null []
+[2017-06-29 15:47:21.011] [INFO] console - select t_sys_menu finished: null
+[2017-06-29 15:47:21.029] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 671,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 15:47:21.040] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 25,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 15:47:21.048] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 167,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 15:47:21.081] [INFO] console - init t_module finished: null 20116
+[2017-06-29 15:47:21.099] [INFO] console - init t_info fineshed: null
+[2017-06-29 15:47:21.107] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10172,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 15:47:21.110] [INFO] console - mysql初始化完毕
+[2017-06-29 15:47:21.111] [INFO] console - { status: 1, mag: 'success' }
+[2017-06-29 15:47:21.186] [INFO] record - POST /client/update
+[2017-06-29 15:47:21.247] [INFO] record - OPTIONS /client/service/open
+[2017-06-29 15:47:21.278] [INFO] record - POST /client/service/open
+[2017-06-29 15:47:21.285] [INFO] console - redis open client:5954609c57916679fcd62f2d OK
+[2017-06-29 15:47:21.317] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 15:47:21.346] [INFO] record - POST /client/service/list
+[2017-06-29 15:48:06.548] [INFO] record - OPTIONS /client/service/close
+[2017-06-29 15:48:06.720] [INFO] record - POST /client/service/close
+[2017-06-29 15:48:06.722] [INFO] console - redis close client:5954609c57916679fcd62f2d OK
+[2017-06-29 15:48:06.749] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 15:48:06.789] [INFO] record - POST /client/service/list
+[2017-06-29 15:48:13.770] [INFO] record - OPTIONS /client/service/new
+[2017-06-29 15:48:13.866] [INFO] record - POST /client/service/new
+[2017-06-29 15:48:13.914] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 15:48:13.937] [INFO] record - POST /client/service/list
+[2017-06-29 15:48:20.884] [INFO] record - OPTIONS /client/update
+[2017-06-29 15:48:20.947] [INFO] console - check client is already inited: null [ RowDataPacket { id: 25 } ]
+[2017-06-29 15:48:20.950] [INFO] console - { status: 2, msg: 'client already exist!' }
+[2017-06-29 15:48:20.955] [INFO] record - POST /client/update
+[2017-06-29 15:48:49.459] [INFO] record - OPTIONS /client/update
+[2017-06-29 15:48:49.513] [INFO] console - check client is already inited: null []
+[2017-06-29 15:48:49.517] [INFO] console - check account is already existed: null [ RowDataPacket { id: 25 } ]
+[2017-06-29 15:48:49.517] [INFO] console - { status: 3, msg: 'account already exist!' }
+[2017-06-29 15:48:49.532] [INFO] record - POST /client/update
+[2017-06-29 15:48:53.753] [INFO] record - OPTIONS /client/update
+[2017-06-29 15:48:53.779] [INFO] console - check client is already inited: null []
+[2017-06-29 15:48:53.780] [INFO] console - check account is already existed: null []
+[2017-06-29 15:48:53.787] [INFO] console - select t_sys_menu finished: null
+[2017-06-29 15:48:53.797] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 672,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 15:48:53.801] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 26,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 15:48:53.806] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 168,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 15:48:53.830] [INFO] console - init t_module finished: null 20121
+[2017-06-29 15:48:53.862] [INFO] console - init t_info fineshed: null
+[2017-06-29 15:48:53.869] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10173,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-29 15:48:53.870] [INFO] console - mysql初始化完毕
+[2017-06-29 15:48:53.870] [INFO] console - { status: 1, mag: 'success' }
+[2017-06-29 15:48:53.876] [INFO] record - POST /client/update
+[2017-06-29 15:48:53.902] [INFO] record - OPTIONS /client/service/open
+[2017-06-29 15:48:53.961] [INFO] record - POST /client/service/open
+[2017-06-29 15:48:53.964] [INFO] console - redis open client:5954609c57916679fcd62f2d OK
+[2017-06-29 15:48:53.983] [INFO] record - OPTIONS /client/service/list
+[2017-06-29 15:48:54.014] [INFO] record - POST /client/service/list
+[2017-06-29 15:51:07.197] [INFO] record - GET /user/list
+[2017-06-29 15:51:07.205] [INFO] record - GET /client/list
+[2017-06-29 15:51:07.260] [INFO] record - GET /role/list
+[2017-06-29 15:55:16.645] [INFO] record - GET /user/list
+[2017-06-29 15:55:16.677] [INFO] record - GET /client/list
+[2017-06-29 15:55:16.692] [INFO] record - GET /role/list
+[2017-06-29 15:55:24.278] [INFO] console - Express server listening on port 3000
+[2017-06-29 15:55:33.274] [INFO] record - GET /islogin
+[2017-06-29 15:55:34.163] [INFO] record - GET /user/list
+[2017-06-29 15:55:34.265] [INFO] record - GET /client/list
+[2017-06-29 15:55:34.295] [INFO] record - GET /role/list
+[2017-06-29 15:55:46.085] [INFO] record - OPTIONS /user/new
+[2017-06-29 15:55:46.152] [INFO] record - POST /user/new
+[2017-06-29 15:55:52.491] [INFO] record - OPTIONS /user/new
+[2017-06-29 15:55:52.526] [INFO] record - POST /user/new
+[2017-06-29 15:56:03.572] [INFO] record - OPTIONS /user/new
+[2017-06-29 15:56:03.591] [INFO] record - POST /user/new
+[2017-06-29 15:56:46.966] [INFO] console - Express server listening on port 3000
+[2017-06-29 15:56:49.688] [INFO] record - OPTIONS /user/new
+[2017-06-29 15:56:49.842] [INFO] record - POST /user/new
+[2017-06-29 15:56:49.988] [INFO] record - GET /user/list
+[2017-06-29 15:57:38.009] [INFO] record - GET /user/list
+[2017-06-29 15:57:38.091] [INFO] record - GET /client/list
+[2017-06-29 15:57:40.360] [INFO] record - GET /role/list
+[2017-06-29 15:57:41.779] [INFO] record - GET /version/list

@@ -186,11 +186,19 @@ export default {
 					.then( response => response.data )
 					.then( res => {
 						if(!this.checkLogin(res))return;
-						if( res.status ){
+						if( res.status == 1 ){
 							this.newUser = false
 							this.clear()
 							this.$Message.success({content: '创建成功', duration: 3, closable: true});
 							this.getUsers()
+						}else if( res.status == 2 ){
+							this.newUser = false
+							this.clear()
+							this.$Message.warning({content: res.msg, duration: 5, closable: true});
+							return;
+						}else if( res.status == 3 ){
+							this.$Message.warning({content: res.msg, duration: 5, closable: true});
+							return;
 						}else{
 							this.$Message.error({content: '创建失败，请重新尝试！', duration: 3, closable: true});
 						}

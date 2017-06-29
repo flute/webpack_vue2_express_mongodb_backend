@@ -21,8 +21,65 @@ module.exports = function(data, calls){
 			return;
 		}else{
 			async.waterfall([
-				// t_admin
+				// t_sys_role
 			    function(callback) {
+			    	connection.query("select id from t_admin where tenantId='"+data.clientid+"'", function(err, res){
+			    		console.info('check client is already inited:', err, res)
+			    		if( err ){
+			    			callback(err)
+			    		}else{
+			    			if( res && res.length>0 ){
+			    				calls({
+				    				status: 2,
+				    				msg: 'client already exist!'
+				    			})
+				    			return;
+			    			}else{
+			    				connection.query("select id from t_admin where account='"+data.account+"'", function(err, result){
+						    		console.log('check account is already existed:',err, result)
+						    		if( err ){
+						    			callback(err)
+						    		}else if( result && result.length>0 ){
+						    			calls({
+						    				status: 3,
+						    				msg: 'account already exist!'
+						    			})
+						    			return;
+						    		}else{
+						    			connection.query('select id from t_sys_menu', function (error, results) {
+								        	console.info('select t_sys_menu finished:', error)
+											if( error ){
+												callback(error)
+											}else{
+												let arr = results.map(function(item){
+													return item.id
+												})
+												arr = arr.join(',')
+												let t_sys_role = {
+													createdAt: new Date(),
+													updatedAt: new Date(),
+													FDAT_SCOPE: 0,
+													FMENU_PRIVILEGE: arr,
+													FNAME: '管理员',
+													tenantId: data.clientid,
+													code: '000',
+													del: 0
+												}
+												connection.query('insert into t_sys_role set ?', t_sys_role, function (error, result) {
+													console.info('init t_sys_role finished:', error, result)
+													callback(error, result.insertId);
+												});
+											}
+										});
+
+						    		}
+						    	})
+			    			}	
+			    		}
+			    	})
+			    },
+				// t_admin
+			    function(roleId, callback) {
 			    	let t_admin = {
 			    		createdAt: new Date(),
 			    		tenantId: data.clientid,
@@ -36,57 +93,14 @@ module.exports = function(data, calls){
 			    		name: '管理员',
 			    		password: md5(data.pwd),
 			    		regionId: 3,
-			    		roleId: 1,
+			    		roleId: roleId,
 			    		status: 0,
 			    		code: '000',
 			    		del: 0
 			    	}
-			    	connection.query("select id from t_admin where tenantId='"+data.clientid+"'", function(err, res){
-			    		console.info('check client is already inited:', err, res)
-			    		if( err ){
-			    			callback(err)
-			    		}else{
-			    			if( res.length>0 ){
-			    				calls({
-				    				status: 2,
-				    				msg: 'client already exist!'
-				    			})
-				    			return;
-			    			}else{
-			    				connection.query('insert into t_admin set ?', t_admin, function (error, result) {
-						    		console.info('t_admin init finished:', error, result)
-									callback(error, result.insertId);
-								});
-			    			}	
-			    		}
-			    	})
-			    },
-			    // t_sys_role
-			    function(adminId, callback) {
-			        connection.query('select id from t_sys_menu', function (error, results) {
-			        	console.info('select t_sys_menu finished:', error)
-						if( error ){
-							callback(error)
-						}else{
-							let arr = results.map(function(item){
-								return item.id
-							})
-							arr = arr.join(',')
-							let t_sys_role = {
-								createdAt: new Date(),
-								updatedAt: new Date(),
-								FDAT_SCOPE: 0,
-								FMENU_PRIVILEGE: arr,
-								FNAME: '管理员',
-								tenantId: data.clientid,
-								code: '000',
-								del: 0
-							}
-							connection.query('insert into t_sys_role set ?', t_sys_role, function (error, result) {
-								console.info('init t_sys_role finished:', error, result)
-								callback(error, adminId);
-							});
-						}
+			    	connection.query('insert into t_admin set ?', t_admin, function (error, result) {
+			    		console.info('t_admin init finished:', error, result)
+						callback(error, result.insertId);
 					});
 			    },
 			    // t_config

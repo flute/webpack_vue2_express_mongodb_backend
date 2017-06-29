@@ -273,6 +273,12 @@ export default{
 						this.$Message.warning({content: res.msg, duration: 5, closable: true});
 						this.issubmit = false
 						return false
+					}else if( res.status == 3 ){
+						//this.newService = false
+						//this.clear()
+						this.$Message.warning({content: res.msg, duration: 5, closable: true});
+						this.issubmit = false
+						return false
 					}else{
 						this.$Message.error({content: '管理员账号创建失败，请稍后再试', duration: 3, closable: true});
 						this.issubmit = false

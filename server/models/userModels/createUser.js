@@ -24,36 +24,52 @@ const createUser = (req, callback) => {
 			// 代理级数控制
 			if( result.parents.length == 9 ){
 				callback({
-					status: 0,
+					status: 2,
 					msg: '最多为十级代理，如需开通，请联系管理人员'
 				})
 				return;
 			}
-			// 父级创建者记录
-			let parents = result.parents
-				parents.push(creator)
-			user.insert({
-				name: name,
-				account: account,
-				pwd: md5(pwd),
-				roles: roles,
-				createAt: new Date(),
-				parents: parents,
-				flag: 1
-			}).then((result)=>{
-				if( result ){
+			user.findOne({account: account}, '-_id')
+			.then((res) => {
+				if( res ){
 					callback({
-						status: 1,
-						msg: 'success'
+						status: 3,
+						msg: '账号已存在！请修改账号'
 					})
+					return;
 				}else{
-					callback({
-						status: 0,
-						msg: '新增失败'
+					// 父级创建者记录
+					let parents = result.parents
+						parents.push(creator)
+					user.insert({
+						name: name,
+						account: account,
+						pwd: md5(pwd),
+						roles: roles,
+						createAt: new Date(),
+						parents: parents,
+						flag: 1
+					}).then((result)=>{
+						if( result ){
+							callback({
+								status: 1,
+								msg: 'success'
+							})
+						}else{
+							callback({
+								status: 0,
+								msg: '新增失败'
+							})
+						}
+					}).then(() => db.close())
+					.catch((error) => {
+						callback({
+							status: 0,
+							msg: error
+						})
 					})
 				}
-			}).then(() => db.close())
-			.catch((error) => {
+			}).catch((error) => {
 				callback({
 					status: 0,
 					msg: error

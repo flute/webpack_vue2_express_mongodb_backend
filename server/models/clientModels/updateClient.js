@@ -56,6 +56,11 @@ const updateClient = (req, callback) => {
 							status: 2,
 							msg: '客户信息已存在，开通失败'
 						})
+					}else if( res.status == 3 ){
+						callback({
+							status: 3,
+							msg: '账号已存在，请输入其他账号'
+						})
 					}
 				})
 				
