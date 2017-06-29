@@ -31,6 +31,29 @@ const renewalService = (req, callback) => {
 			.then((result) => {
 				if( result ){
 					if( result.status === 1 ){
+						// 续期后的结束日期<当前时间，即为过期，修改redis状态
+						if( new Date(endTime).valueOf() < new Date().valueOf() ){
+							// redis add client
+							redis.select('1', function(error){
+							    if(error){
+							        console.error('renewal service redis close service failed:', error);
+							    }else{
+							        redis.set(clientId, 0, function(err, res){  
+								        console.log('renewal service redis close client:'+clientId, res); 
+								    });
+							    }
+							});
+						}else{
+							redis.select('1', function(error){
+							    if(error){
+							        console.error('renewal service redis open service failed:', error);
+							    }else{
+							        redis.set(clientId, 1, function(err, res){  
+								        console.log('renewal service redis open client:'+clientId, res); 
+								    });
+							    }
+							});
+						}
 						// 记录上条记录的截止时间，作为续接的开始时间
 						const renewalStartTime = result.endTime
 						

@@ -53,7 +53,7 @@ const serviceNotice = (content) => {
 					        console.error('redis service expired failed:', error);
 					    }else{
 					        redis.set(item.clientId, 0, function(err, res){  
-						        console.log('redis service expired:'+clientId, res); 
+						        console.log('redis service expired:'+item.clientId, res); 
 						    });
 					    }
 					});

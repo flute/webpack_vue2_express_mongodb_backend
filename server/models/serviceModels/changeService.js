@@ -1,4 +1,5 @@
 const db = require('../../conf/db')
+const redis = require('../../conf/redis')
 const checkPermission = require('./checkPermission')
 
 const changeService = (req, callback) => {
@@ -32,6 +33,29 @@ const changeService = (req, callback) => {
 			.then((result) => {
 				if( result ){
 					if( result.status === 1 ){
+						// 如果变更后的结束日期<当前时间，即为过期，修改redis状态
+						if( new Date(endTime).valueOf() < new Date().valueOf() ){
+							// redis add client
+							redis.select('1', function(error){
+							    if(error){
+							        console.error('change service redis close service failed:', error);
+							    }else{
+							        redis.set(clientId, 0, function(err, res){  
+								        console.log('change service redis close client:'+clientId, res); 
+								    });
+							    }
+							});
+						}else{
+							redis.select('1', function(error){
+							    if(error){
+							        console.error('change service redis open service failed:', error);
+							    }else{
+							        redis.set(clientId, 1, function(err, res){  
+								        console.log('change service redis open client:'+clientId, res); 
+								    });
+							    }
+							});
+						}
 						
 						service.update({_id: serviceId},{
 							clientId : result.clientId,
