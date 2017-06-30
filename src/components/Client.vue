@@ -6,7 +6,7 @@
             		<Button type="info" @click="newClient = true">新增客户</Button>
             		<div class="search">
             			<span class="span">按照</span>
-	            		<Select v-model="searchmode" style="width:100px" @on-change="changeSelect">
+	            		<Select v-model="searchmode" style="width:120px" @on-change="changeSelect">
 					        <Option v-for="item in searchtype" :value="item.value" :key="item">{{ item.label }}</Option>
 					    </Select>
 					    <Input v-show="searchmode!=='starttime'&&searchmode!=='endtime'" v-model="search" placeholder="请输入搜索词" style="width: 150px"></Input>
@@ -25,6 +25,7 @@
             					<td>联系电话</td>
             					<td>联系地址</td>
             					<td>绑定用户</td>
+            					<td>管理员账号</td>
             					<td class="optiontr">操作</td>
             				</tr>
             			</thead>
@@ -35,10 +36,11 @@
             					<td>{{client.phone}}</td>
             					<td>{{client.address}}</td>
             					<td>{{client.username}}</td>
+            					<td>{{client.adminAccount?client.adminAccount:''}}</td>
             					<td>
             						<Button type="info" @click.stop="doedit(client._id)">编辑</Button>
             						<Button type="error" @click.stop="remove(client._id)">删除</Button>
-            						<Button type="primary" icon="arrow-right-c" @click.stop="showService(client._id)">服务信息</Button>
+            						<Button type="primary" icon="arrow-right-c" @click.stop="showService(client._id,client.name)">服务信息</Button>
             					</td>
             				</tr>
             			</tbody>
@@ -119,6 +121,9 @@ export default {
 			},{
 				label: '到期时间段',
 				value: 'endtime'
+			},{
+				label: '管理平台账号',
+				value: 'admin'
 			}],
 			search: '',
 			daterange: null,
@@ -268,7 +273,7 @@ export default {
 				}
 			}
 		},
-		showService(id){
+		showService(id, name){
 			this.$router.push({
 				path: '/client/service', 
 				query: {id: id, page: this.pageCurrent}
@@ -342,6 +347,12 @@ export default {
 								clients.push(this.clientArr[j])
 							}
 						}
+					}
+				}
+			}else if( this.searchmode === 'admin' ){
+				for( let i=0;i<this.clientArr.length;i++ ){
+					if( this.clientArr[i].adminAccount && this.clientArr[i].adminAccount.indexOf(this.search)>=0 ){
+						clients.push(this.clientArr[i])
 					}
 				}
 			}

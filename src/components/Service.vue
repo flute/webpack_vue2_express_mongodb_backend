@@ -5,6 +5,7 @@
 				<div class="service-option options">
 					<Button type="primary" icon="arrow-left-c" @click="turnback">返回</Button>
             		<Button class="add" type="info" @click="newService = true" v-show="showNew()">新增服务</Button>
+            		<span class="client-name">{{client?client.name:''}}</span>
             	</div>
             	<div class="service-lists">
 				    <Timeline>
@@ -14,10 +15,12 @@
 		        				<p class="time">{{status[service.status]}}</p>
 		            			<p class="content">
 		            				<tr class="tr">
+		            					<td>操作时间：<b>{{changeTime(service.createAt)}}</b></td>
 			        					<td>服务开始时间：<b>{{changeTime(service.startTime)}}</b></td>
 			        					<td>服务截止时间：<b>{{changeTime(service.endTime)}}</b></td>
 			        					<td>服务人数：<b>{{service.userNum}}</b> 人</td>
-			        					<td v-if="service.closeAt">关闭时间：<b>{{changeTime(service.closeAt)}}</b></td>
+			        					
+			        					<!-- <td v-if="service.closeAt">关闭时间：<b>{{changeTime(service.closeAt)}}</b></td> -->
 			        					<td class="service-option">
 			        						<template v-if="service.status===0">
 			        							<Button type="success" @click.stop="doopen(service._id)">开通</Button>
@@ -29,11 +32,13 @@
 			        							<Button type="info" @click.stop="change(service._id)">变更</Button>
 			        							<Button type="error" @click.stop="close(service._id)">关闭</Button>
 			        						</template>
+			        						<Button type="info" 
+			        							v-if="client.adminAccount&&(service.status==0||service.status==1)"
+			        							@click.stop="resetPwd()"
+			        						>重置密码</Button>
 			        					</td>
 			        				</tr>
-			        				<tr class="first-tip" v-show="first">
-			        					<td>管理平台账号：<b>{{first}}</b></td>
-			        				</tr>
+			        				
 		            			</p>
 		        			</Timeline-item>
 				    	</template>
@@ -68,7 +73,7 @@
 		        	<Input type="password" :maxlength="20" v-model="pwd" placeholder="请输入密码"></Input>
 		        </p>
 	        </div>
-	        <div v-show="option!='admin'">
+	        <div v-show="option!='admin'&&option!='reset'">
 	        	<p>
 		        	<span class="input-label">开通时间</span>
 		        	<Date-picker :editable="false" v-model="starttime" type="date" :disabled="option==='renewal'" placeholder="选择开始日期" style="width: 200px"></Date-picker>
@@ -80,6 +85,12 @@
 		        <p>
 		        	<span class="input-label">服务人数</span>
 		        	<Input v-model="usernum" placeholder="请输入服务人数" style="width:250px"></Input>
+		        </p>
+	        </div>
+	        <div v-show="option=='reset'">
+	        	<p>
+		        	<span class="input-label">新密码</span>
+		        	<Input type="password" :maxlength="20" v-model="pwd" placeholder="请输入密码"></Input>
 		        </p>
 	        </div> 
 	        <div slot="footer">
@@ -118,7 +129,6 @@ export default{
 			colors:['yellow','green','blue','blue','red'],
 			edit: null,
 			option: 'new',
-			first: null,
 			timemin:{
 				disabledDate:(date)=>{
 					return date && date.valueOf() < new Date(this.starttime).valueOf() + 86400;
@@ -152,19 +162,27 @@ export default{
 			})
 		},
 		submit(){
-			if( ( this.option!='admin'&&(!this.starttime || !this.endtime || !this.usernum) )
+			if( ( this.option!='admin'&&this.option!='reset'&&(!this.starttime || !this.endtime || !this.usernum) )
 				||
 				( this.option=='admin'&&(!this.account||!this.pwd) )
+				||
+				( this.option=='reset'&&!this.pwd )
 			){
 				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
 				return;
 			}
 
 			if( this.account ){
-				if( /[^\d{6,11}]/.test(this.account) || this.account.length < 6 || this.account.length > 11 ){
-					this.$Message.warning({content: '请输入6-11位的纯数字账号', duration: 3, closable: true});
+				if( !/^[0-9a-zA-Z][0-9a-zA-Z_]{0,}$/.test(this.account) || this.account.length<6 || this.account>11 ){
+					this.$Message.warning({content: '请输入6-11位的数字、字母、下划线组成的账号', duration: 3, closable: true});
 					return;
 				}
+				if( this.pwd.length<5 || this.pwd.length>20 ){
+					this.$Message.warning({content: '请输入6-20位的密码', duration: 3, closable: true});
+					return;
+				}
+			}
+			if( !this.account && this.pwd ){
 				if( this.pwd.length<5 || this.pwd.length>20 ){
 					this.$Message.warning({content: '请输入6-20位的密码', duration: 3, closable: true});
 					return;
@@ -269,7 +287,6 @@ export default{
 					if(!this.checkLogin(res))return;
 					if( res.status == 1 ){
 						this.newService = false
-						this.first = this.account
 						this.clear()
 						this.open()
 					}else if( res.status == 2 ){
@@ -290,7 +307,28 @@ export default{
 						return false
 					}
 				})
+			}else if( this.option === 'reset' ){
+				this.axios.post(apiUrl+'/client/update', {
+					id: this.clientId,
+					resetpwd: this.pwd})
+					.then( response => response.data )
+					.then( res => {
+						if(!this.checkLogin(res))return;
+						if( res.status ){
+							this.newService = false
+							this.clear()
+							this.$Message.success({content: '重置成功', duration: 3, closable: true});
+							//this.getService()
+						}else{
+							this.$Message.error({content: '重置失败，请重新尝试！', duration: 3, closable: true});
+						}
+					})
 			}
+		},
+		resetPwd(){
+			this.newService = true
+			this.modalTitle = '重置管理员账号密码'
+			this.option = 'reset'
 		},
 		doopen(sid){
 			if( !this.client ){
@@ -468,6 +506,9 @@ export default{
 	display: inline-block;
     width: 250px;
 }
+.service-option{
+	position: relative;
+}
 .service-option .add{
 	margin-left: 10px;
 }
@@ -480,7 +521,7 @@ export default{
     border-radius: 5px;
 }
 .ivu-timeline .tr td{
-	width: 200px;
+	width: 180px;
 }
 .ivu-timeline p.time{
 	font-size: 14px;
@@ -490,14 +531,16 @@ export default{
 .ivu-timeline{
 	padding: 0 20px;
 }
-.service-option{
+.ivu-timeline .tr td.service-option{
 	border-radius: 5px;
+	width: 280px;
 }
-.first-tip{
-	width: 100%;
-    background-color: #f8f8f9;
-    padding: 10px;
-    border-radius: 5px;
+.client-name{
+	position: absolute;
+    font-size: 14px;
+    line-height: 36px;
+    left: 45%;
     display: inline-block;
+    text-align: center;
 }
 </style>

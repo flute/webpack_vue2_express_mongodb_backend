@@ -515,3 +515,183 @@
 [2017-06-30 13:33:00.018] [INFO] console - 定时任务：到期提醒 2017-06-30T05:33:00.018Z
 [2017-06-30 13:33:00.039] [INFO] console - 服务到期通知——服务遍历结束 []
 [2017-06-30 13:33:00.049] [INFO] console - 无到期提醒
+[2017-06-30 14:55:28.047] [INFO] console - Express server listening on port 3000
+[2017-06-30 14:55:30.268] [INFO] record - GET /islogin
+[2017-06-30 14:55:43.528] [INFO] record - OPTIONS /login
+[2017-06-30 14:55:43.692] [INFO] record - POST /login
+[2017-06-30 14:55:45.713] [INFO] record - GET /user/list
+[2017-06-30 14:55:45.818] [INFO] record - GET /client/list
+[2017-06-30 14:56:38.363] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 14:56:38.503] [INFO] record - POST /client/service/list
+[2017-06-30 14:56:55.263] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 14:56:55.692] [INFO] record - GET /user/list
+[2017-06-30 14:56:55.765] [INFO] record - GET /client/list
+[2017-06-30 14:56:55.784] [INFO] record - POST /client/service/list
+[2017-06-30 14:56:55.796] [INFO] record - GET /role/list
+[2017-06-30 14:57:22.777] [INFO] record - OPTIONS /user/new
+[2017-06-30 14:57:22.839] [INFO] record - POST /user/new
+[2017-06-30 14:57:22.884] [INFO] record - GET /user/list
+[2017-06-30 14:57:54.090] [INFO] record - GET /user/list
+[2017-06-30 14:57:54.136] [INFO] record - GET /client/list
+[2017-06-30 14:57:54.196] [INFO] record - GET /role/list
+[2017-06-30 15:06:02.599] [INFO] record - GET /user/list
+[2017-06-30 15:06:02.633] [INFO] record - GET /client/list
+[2017-06-30 15:06:02.659] [INFO] record - GET /role/list
+[2017-06-30 15:06:13.583] [INFO] record - GET /islogin
+[2017-06-30 15:06:14.298] [INFO] record - GET /user/list
+[2017-06-30 15:06:14.330] [INFO] record - GET /client/list
+[2017-06-30 15:06:14.394] [INFO] record - GET /role/list
+[2017-06-30 15:07:21.241] [INFO] record - OPTIONS /user/new
+[2017-06-30 15:07:21.291] [INFO] record - POST /user/new
+[2017-06-30 15:07:21.324] [INFO] record - GET /user/list
+[2017-06-30 15:10:32.169] [INFO] record - GET /user/list
+[2017-06-30 15:10:32.188] [INFO] record - GET /client/list
+[2017-06-30 15:10:50.550] [INFO] record - OPTIONS /client/new
+[2017-06-30 15:10:50.570] [INFO] record - POST /client/new
+[2017-06-30 15:10:50.574] [INFO] console - redis add client:5955f97aac26979742850c77 OK
+[2017-06-30 15:10:50.627] [INFO] record - GET /client/list
+[2017-06-30 15:17:10.655] [INFO] record - GET /user/list
+[2017-06-30 15:17:10.683] [INFO] record - GET /client/list
+[2017-06-30 15:19:45.745] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 15:19:45.851] [INFO] record - POST /client/service/list
+[2017-06-30 15:25:12.106] [INFO] record - GET /islogin
+[2017-06-30 15:25:12.685] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 15:25:12.859] [INFO] record - POST /client/service/list
+[2017-06-30 15:31:32.767] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 15:31:32.859] [INFO] record - POST /client/service/list
+[2017-06-30 15:35:31.959] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 15:35:32.036] [INFO] record - POST /client/service/list
+[2017-06-30 15:36:09.923] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 15:36:10.102] [INFO] record - POST /client/service/list
+[2017-06-30 15:38:15.659] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 15:38:15.786] [INFO] record - POST /client/service/list
+[2017-06-30 15:38:20.668] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 15:38:20.759] [INFO] record - POST /client/service/list
+[2017-06-30 15:42:17.472] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 15:42:17.593] [INFO] record - POST /client/service/list
+[2017-06-30 15:50:21.798] [INFO] console - Express server listening on port 3000
+[2017-06-30 15:50:25.561] [INFO] record - GET /islogin
+[2017-06-30 15:50:26.224] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 15:50:26.482] [INFO] record - POST /client/service/list
+[2017-06-30 15:51:27.413] [INFO] record - OPTIONS /client/update
+[2017-06-30 15:51:27.447] [INFO] record - POST /client/update
+[2017-06-30 15:52:32.176] [INFO] console - Express server listening on port 3000
+[2017-06-30 15:52:34.895] [INFO] record - OPTIONS /client/update
+[2017-06-30 15:52:35.071] [INFO] record - POST /client/update
+[2017-06-30 15:53:13.961] [INFO] console - Express server listening on port 3000
+[2017-06-30 15:53:17.003] [INFO] record - OPTIONS /client/update
+[2017-06-30 15:53:17.226] [INFO] record - POST /client/update
+[2017-06-30 15:55:03.728] [INFO] console - Express server listening on port 3000
+[2017-06-30 15:55:31.972] [INFO] record - OPTIONS /client/update
+[2017-06-30 15:55:32.183] [INFO] record - POST /client/update
+[2017-06-30 15:59:35.712] [INFO] record - GET /user/list
+[2017-06-30 15:59:35.728] [INFO] record - GET /client/list
+[2017-06-30 15:59:37.676] [INFO] record - OPTIONS /login
+[2017-06-30 15:59:37.778] [INFO] record - POST /login
+[2017-06-30 15:59:37.981] [INFO] record - GET /user/list
+[2017-06-30 15:59:38.138] [INFO] record - GET /client/list
+[2017-06-30 16:00:29.058] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:00:29.133] [INFO] record - POST /client/service/list
+[2017-06-30 16:01:10.802] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:01:11.091] [INFO] record - POST /client/service/list
+[2017-06-30 16:09:30.587] [INFO] record - GET /islogin
+[2017-06-30 16:09:31.085] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:09:31.231] [INFO] record - POST /client/service/list
+[2017-06-30 16:09:37.577] [INFO] record - GET /user/list
+[2017-06-30 16:09:37.598] [INFO] record - GET /client/list
+[2017-06-30 16:09:39.754] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:09:39.779] [INFO] record - POST /client/service/list
+[2017-06-30 16:09:41.598] [INFO] record - GET /user/list
+[2017-06-30 16:09:41.616] [INFO] record - GET /client/list
+[2017-06-30 16:09:42.843] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:09:42.868] [INFO] record - POST /client/service/list
+[2017-06-30 16:09:46.238] [INFO] record - GET /user/list
+[2017-06-30 16:09:46.250] [INFO] record - GET /client/list
+[2017-06-30 16:09:47.427] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:09:47.452] [INFO] record - POST /client/service/list
+[2017-06-30 16:12:01.338] [INFO] record - GET /islogin
+[2017-06-30 16:12:02.067] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:12:02.216] [INFO] record - POST /client/service/list
+[2017-06-30 16:12:21.625] [INFO] record - GET /islogin
+[2017-06-30 16:12:22.191] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:12:22.332] [INFO] record - POST /client/service/list
+[2017-06-30 16:12:41.738] [INFO] record - GET /islogin
+[2017-06-30 16:12:42.362] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:12:42.551] [INFO] record - POST /client/service/list
+[2017-06-30 16:13:19.582] [INFO] record - GET /islogin
+[2017-06-30 16:13:20.508] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:13:20.685] [INFO] record - POST /client/service/list
+[2017-06-30 16:13:21.648] [INFO] record - GET /user/list
+[2017-06-30 16:13:21.649] [INFO] record - GET /client/list
+[2017-06-30 16:13:23.334] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:13:23.376] [INFO] record - POST /client/service/list
+[2017-06-30 16:13:40.946] [INFO] record - GET /user/list
+[2017-06-30 16:13:40.951] [INFO] record - GET /client/list
+[2017-06-30 16:13:40.968] [INFO] record - GET /role/list
+[2017-06-30 16:13:44.739] [INFO] record - GET /user/list
+[2017-06-30 16:13:44.749] [INFO] record - GET /client/list
+[2017-06-30 16:13:53.771] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:13:53.790] [INFO] record - POST /client/service/list
+[2017-06-30 16:14:01.957] [INFO] record - GET /islogin
+[2017-06-30 16:14:02.562] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:14:02.652] [INFO] record - POST /client/service/list
+[2017-06-30 16:16:00.119] [INFO] record - OPTIONS /client/service/new
+[2017-06-30 16:16:00.201] [INFO] record - POST /client/service/new
+[2017-06-30 16:16:00.285] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:16:00.360] [INFO] record - POST /client/service/list
+[2017-06-30 16:16:30.583] [INFO] record - OPTIONS /client/update
+[2017-06-30 16:16:30.651] [INFO] console - check client is already inited: null []
+[2017-06-30 16:16:30.664] [INFO] console - check account is already existed: null []
+[2017-06-30 16:16:30.681] [INFO] console - select t_sys_menu finished: null
+[2017-06-30 16:16:30.700] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 676,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-30 16:16:30.736] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 30,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-30 16:16:30.750] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 172,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-30 16:16:30.793] [INFO] console - init t_module finished: null 20141 [ 20139, 20140, 20141, 20142, 20143 ]
+[2017-06-30 16:16:30.812] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' } ]
+[2017-06-30 16:16:30.815] [INFO] console - update t_sys_role finished: null
+[2017-06-30 16:16:30.836] [INFO] console - init t_info fineshed: null
+[2017-06-30 16:16:30.851] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10176,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-06-30 16:16:30.852] [INFO] console - mysql初始化完毕
+[2017-06-30 16:16:30.853] [INFO] console - { status: 1, mag: 'success' }
+[2017-06-30 16:16:30.876] [INFO] record - POST /client/update
+[2017-06-30 16:16:30.932] [INFO] record - OPTIONS /client/service/open
+[2017-06-30 16:16:30.978] [INFO] record - POST /client/service/open
+[2017-06-30 16:16:30.980] [INFO] console - redis open client:5955f97aac26979742850c77 OK
+[2017-06-30 16:16:31.008] [INFO] record - OPTIONS /client/service/list
+[2017-06-30 16:16:31.035] [INFO] record - POST /client/service/list
+[2017-06-30 16:16:36.467] [INFO] record - GET /user/list
+[2017-06-30 16:16:36.483] [INFO] record - GET /client/list
+[2017-06-30 16:16:58.272] [INFO] record - GET /role/list

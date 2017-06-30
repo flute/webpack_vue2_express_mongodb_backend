@@ -1,6 +1,13 @@
 const db = require('../../conf/db')
 const initManager = require('../initManager')
 
+const mysql = require('mysql')
+const conf = require('../../conf/mysql')
+const pool = mysql.createPool( conf.mysql )
+
+const crypto = require('crypto')
+const md5 = text => crypto.createHash('md5').update(text).digest('hex')
+
 const client = db.get('t_client')
 const users = db.get('t_user')
 
@@ -13,9 +20,10 @@ const updateClient = (req, callback) => {
 		user = req.body.user,
 		account = req.body.account,
 		pwd = req.body.pwd,
-		admin = req.session.user._id;
+		admin = req.session.user._id,
+		resetpwd = req.body.resetpwd;
 
-	if( (!account && !pwd) && (!id || !name || !phone || !address || !user || !admin) ){
+	if( (!account && !pwd) && (!resetpwd) && (!id || !name || !phone || !address || !user || !admin) ){
 		callback({
 			status: 0,
 			msg: '参数错误'
@@ -60,6 +68,40 @@ const updateClient = (req, callback) => {
 						callback({
 							status: 3,
 							msg: '账号已存在，请输入其他账号'
+						})
+					}
+				})
+				
+			}else if( resetpwd ){
+
+				let data = {
+					name: result.name,
+					phone: result.phone,
+					address: result.address,
+					user: result.user,
+					flag: result.flag,
+					adminAccount: result.adminAccount,
+					adminPwd: resetpwd
+				}
+				pool.getConnection(function(err, connection){
+					if( err ){
+						console.error('mysql connected error:', err)
+						callback({
+							status: 0,
+							msg: 'mysql connected failed'
+						})
+						// 连接失败
+						return;
+					}else{
+						connection.query("update t_admin set password='"+md5(resetpwd)+"' where tenantId='"+id+"'", function(err, res){
+							if( err ){
+								callback({
+									status: 0,
+									msg: 'mysql update password failed'
+								})
+							}else{
+								doUpdate(id, admin, result, data, callback)
+							}
 						})
 					}
 				})
