@@ -34,8 +34,8 @@ router.afterEach((to, from, next) => {
 
 const store = new Vuex.Store({
 	state:{
-		//apiUrl: 'http://127.0.0.1:3000',
-		apiUrl: 'http://60.205.110.195:3600',
+		apiUrl: 'http://127.0.0.1:3000',
+		//apiUrl: 'http://60.205.110.195:3600',
 		isShowLogin: true,
 		userInfo: null,
 		permissions: null,

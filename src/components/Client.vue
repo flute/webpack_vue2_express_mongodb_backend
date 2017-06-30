@@ -9,7 +9,10 @@
 	            		<Select v-model="searchmode" style="width:120px" @on-change="changeSelect">
 					        <Option v-for="item in searchtype" :value="item.value" :key="item">{{ item.label }}</Option>
 					    </Select>
-					    <Input v-show="searchmode!=='starttime'&&searchmode!=='endtime'" v-model="search" placeholder="请输入搜索词" style="width: 150px"></Input>
+					    <Select v-model="searchstatus" style="width:120px;margin:0 5px" v-show="searchmode==='status'">
+					        <Option v-for="item in status" :value="item.value" :key="item">{{ item.label }}</Option>
+					    </Select>
+					    <Input v-show="searchmode!=='starttime'&&searchmode!=='endtime'&&searchmode!=='status'" v-model="search" placeholder="请输入搜索词" style="width: 150px"></Input>
 					    <Date-picker v-show="searchmode==='starttime'||searchmode==='endtime'" :editable="false"
 					    v-model="daterange" format="yyyy/MM/dd" type="daterange" placement="bottom-end" placeholder="选择日期" style="width: 200px;margin-right:10px"></Date-picker>
 					    <Button @click="dosearch()">查询</Button>
@@ -26,6 +29,7 @@
             					<td>联系地址</td>
             					<td>绑定用户</td>
             					<td>管理员账号</td>
+            					<td>到期时间</td>
             					<td class="optiontr">操作</td>
             				</tr>
             			</thead>
@@ -37,6 +41,7 @@
             					<td>{{client.address}}</td>
             					<td>{{client.username}}</td>
             					<td>{{client.adminAccount?client.adminAccount:''}}</td>
+            					<td>{{client.endTime?changeTime(client.endTime):''}}</td>
             					<td>
             						<Button type="info" @click.stop="doedit(client._id)">编辑</Button>
             						<Button type="error" @click.stop="remove(client._id)">删除</Button>
@@ -124,6 +129,26 @@ export default {
 			},{
 				label: '管理平台账号',
 				value: 'admin'
+			},{
+				label: '服务状态',
+				value: 'status'
+			}],
+			searchstatus: null,
+			status: [{
+				label: '未开通',
+				value: 0
+			},{
+				label: '已开通',
+				value: 1
+			},{
+				label: '已续接',
+				value: 2
+			},{
+				label: '已变更',
+				value: 3
+			},{
+				label: '已关闭',
+				value: 4
 			}],
 			search: '',
 			daterange: null,
@@ -292,9 +317,11 @@ export default {
 			this.edit = null
 		},
 		dosearch(){
-			if( ((this.searchmode != 'starttime'&&this.searchmode != 'endtime') && this.search === '') 
+			if( ((this.searchmode != 'starttime'&&this.searchmode != 'endtime'&&this.searchmode!='status') && this.search === '') 
 				||
 				((this.searchmode=='starttime'||this.searchmode=='endtime') && (!this.daterange[0] || !this.daterange[1] ))
+				||
+				(this.searchmode=='status'&&!this.searchstatus)
 			){
 				this.$Message.warning({content: '请输入搜索内容', duration: 3, closable: true});
 				return;
@@ -355,12 +382,21 @@ export default {
 						clients.push(this.clientArr[i])
 					}
 				}
+			}else if( this.searchmode === 'status' ){
+				for( let i=0;i<this.clientArr.length;i++ ){	
+					for( let j=0;j<this.services.length;j++ ){
+						if( this.services[j].clientId == this.clientArr[i]._id && this.services[j].status == this.searchstatus ){
+							clients.push(this.clientArr[i])
+							return;
+						}
+					}
+				}
 			}
 			this.clients = clients
 			this.pageCurrent = 1
 		},
 		changeSelect(e){
-			if( (e === 'starttime' || e === 'endtime') && !this.services ){
+			if( (e === 'starttime' || e === 'endtime' || e === 'status') && !this.services ){
 				this.getServices();
 			}
 		},

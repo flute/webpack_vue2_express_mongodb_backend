@@ -256,7 +256,7 @@ table tbody tr:hover{
     width: 100px;
 	font-size: 14px;
 }
-.ivu-select-item{
+.ivu-select-multiple .ivu-select-item{
 	line-height: 24px;
 }
 .ivu-select-multiple .ivu-select-item-selected{

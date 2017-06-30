@@ -1,10 +1,13 @@
 const async = require('async')
 const db = require('../../conf/db')
 
+const client = db.get('t_client')
+const user = db.get('t_user')
+const service = db.get('t_client_service')
+
 const getClientList = (req, callback) => {
 
-	const client = db.get('t_client');
-	const user = db.get('t_user');
+	
 	const admin = req.session.user._id;
 
 	client.find({flag: 1}, '-flag')
@@ -15,8 +18,14 @@ const getClientList = (req, callback) => {
 				// 本人是客户的管理员
 				if( item.user == admin ){ 
 					item.username = req.session.user.name
-					datas.push( item )
-					cback()
+					getClientExpriedTime(item._id.toString(), function(res){
+						if( res.status ){
+							item.endTime = res.endTime
+						}
+						datas.push( item )
+						cback()
+					})
+					
 				}else{
 					user.findOne({_id: item.user}, '-_id')
 					.then((result) => {
@@ -24,10 +33,15 @@ const getClientList = (req, callback) => {
 							if( result.parents.indexOf( admin )>=0 ){
 								// 如果是 客户绑定的管理员 的父级，有权查看
 								item.username = result.name
-								datas.push( item )
+								getClientExpriedTime(item._id.toString(), function(res){
+									if( res.status ){
+										item.endTime = res.endTime
+									}
+									datas.push( item )
+									cback()
+								})
 							}
 						}
-						cback()
 					})
 					.catch((err) => {
 						cback(err)
@@ -62,4 +76,25 @@ const getClientList = (req, callback) => {
 	})
 }
 
+const getClientExpriedTime = (clientid, callback) => {
+	service.find({clientId: clientid}, '-_id')
+	.then((result) => {
+		if( result && result.length>0 ){
+			let endTime = result[result.length-1].endTime
+			callback({
+				status: 1,
+				endTime: endTime
+			})
+		}else{
+			callback({
+				status: 0
+			})
+		}
+	})
+	.catch((error) => {
+		callback({
+			status: 0
+		})
+	})
+}
 module.exports = getClientList

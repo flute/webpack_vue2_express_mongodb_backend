@@ -331,6 +331,17 @@ export default{
 			this.option = 'reset'
 		},
 		doopen(sid){
+			let flag = false
+			for( let i=0;i<this.services.length;i++ ){
+				if( this.services[i].status == 1 ){
+					this.$Message.warning({content: '不能同时开通两个服务', duration: 3, closable: true});
+					flag = true
+					return;
+				}
+			}
+			if( flag ){
+				return false;
+			}
 			if( !this.client ){
 				this.$Message.error({content: '开通失败，请刷新页面再试', duration: 3, closable: true});
 				return false;
