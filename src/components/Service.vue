@@ -31,6 +31,9 @@
 			        						</template>
 			        					</td>
 			        				</tr>
+			        				<tr class="first-tip" v-show="first">
+			        					<td>管理平台账号：<b>{{first}}</b></td>
+			        				</tr>
 		            			</p>
 		        			</Timeline-item>
 				    	</template>
@@ -115,6 +118,7 @@ export default{
 			colors:['yellow','green','blue','blue','red'],
 			edit: null,
 			option: 'new',
+			first: null,
 			timemin:{
 				disabledDate:(date)=>{
 					return date && date.valueOf() < new Date(this.starttime).valueOf() + 86400;
@@ -125,7 +129,7 @@ export default{
 	methods:{
 		showNew(){
 			if( this.services.length > 0 ){
-				if( this.services[this.services.length-1].status !== 1 ){
+				if( this.services[0].status !== 1 ){
 					return true;
 				}else{
 					return false;
@@ -265,6 +269,7 @@ export default{
 					if(!this.checkLogin(res))return;
 					if( res.status == 1 ){
 						this.newService = false
+						this.first = this.account
 						this.clear()
 						this.open()
 					}else if( res.status == 2 ){
@@ -487,5 +492,12 @@ export default{
 }
 .service-option{
 	border-radius: 5px;
+}
+.first-tip{
+	width: 100%;
+    background-color: #f8f8f9;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
 }
 </style>

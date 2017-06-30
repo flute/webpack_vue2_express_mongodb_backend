@@ -56,7 +56,7 @@ const updateVersion = (req, callback) => {
 			})
 			// notice
 			if( result.pubStatus === 1 ){
-				appNotice("App版本修改通知："+result.description+":"+result.version)
+				appNotice("好氛围在Android/iOS平台修改了版本（"+result.version+"），地址（"+result.updateAddr+"）")
 			}
 		}else{
 			callback({

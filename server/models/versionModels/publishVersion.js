@@ -49,7 +49,8 @@ const publishVersion = (req, callback) => {
 			})
 			// notice
 			if( pubstatus === 1 ){
-				appNotice("App新版本发布通知："+result.description+":"+result.version)
+				
+				appNotice("好氛围在Android/iOS平台发布了新版本（"+result.version+"），地址（"+result.updateAddr+"）")
 			}
 		}else{
 			callback({
