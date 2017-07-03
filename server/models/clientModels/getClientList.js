@@ -20,7 +20,7 @@ const getClientList = (req, callback) => {
 					item.username = req.session.user.name
 					getClientExpriedTime(item._id.toString(), function(res){
 						if( res.status ){
-							item.endTime = res.endTime
+							item.service = res.service
 						}
 						datas.push( item )
 						cback()
@@ -35,11 +35,13 @@ const getClientList = (req, callback) => {
 								item.username = result.name
 								getClientExpriedTime(item._id.toString(), function(res){
 									if( res.status ){
-										item.endTime = res.endTime
+										item.service = res.service
 									}
 									datas.push( item )
 									cback()
 								})
+							}else{
+								cback()
 							}
 						}
 					})
@@ -80,10 +82,12 @@ const getClientExpriedTime = (clientid, callback) => {
 	service.find({clientId: clientid}, '-_id')
 	.then((result) => {
 		if( result && result.length>0 ){
-			let endTime = result[result.length-1].endTime
+			//let endTime = result[result.length-1].endTime
+			let service = result[result.length-1]
 			callback({
 				status: 1,
-				endTime: endTime
+				//endTime: endTime
+				service: service
 			})
 		}else{
 			callback({

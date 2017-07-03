@@ -5,7 +5,7 @@ const checkPermission = require('./checkPermission')
 const getServiceList = (req, callback) => {
 
 	let clientid = req.body.clientid
-		type = req.body.type
+		//type = req.body.type
 		adminid = req.session.user._id
 
 
@@ -19,7 +19,7 @@ const getServiceList = (req, callback) => {
 
 	const service = db.get('t_client_service')
 
-	if( !type ){
+	//if( !type ){
 		// 获取指定客户的服务
 		checkPermission(req, function(result){
 			if( result.status ){
@@ -50,7 +50,7 @@ const getServiceList = (req, callback) => {
 				callback(result)
 			}
 		})
-	}else if( type === 'all' ){
+	/*}else if( type === 'all' ){
 		// 获取多个客户的服务
 		let services = []
 		async.eachSeries(clientid, function(item, cb){
@@ -75,7 +75,7 @@ const getServiceList = (req, callback) => {
 			})
 		})
 
-	}
+	}*/
 			
 }
 

@@ -3,10 +3,10 @@
         <div class="contents">
             <div class="layout-content-main">
             	<div class="client-option options">
-            		<Button type="info" @click="newClient = true">新增客户</Button>
+            		<Button type="info" @click="newClient = true" v-show="canAddClient">新增客户</Button>
             		<div class="search">
             			<span class="span">按照</span>
-	            		<Select v-model="searchmode" style="width:120px" @on-change="changeSelect">
+	            		<Select v-model="searchmode" style="width:120px">
 					        <Option v-for="item in searchtype" :value="item.value" :key="item">{{ item.label }}</Option>
 					    </Select>
 					    <Select v-model="searchstatus" style="width:120px;margin:0 5px" v-show="searchmode==='status'">
@@ -25,27 +25,43 @@
             			<thead>
             				<tr>
             					<td>客户名称</td>
-            					<td>联系电话</td>
-            					<td>联系地址</td>
-            					<td>绑定用户</td>
-            					<td>管理员账号</td>
+            					<td>所属代理</td>
+            					<td>客户平台账号</td>
+            					<td>服务状态</td>
+            					<td>开通时间</td>
             					<td>到期时间</td>
+            					<td>服务人数</td>
             					<td class="optiontr">操作</td>
             				</tr>
             			</thead>
             			<tbody>
             				<tr v-for="(client,index) in clients"
             				v-if="index>=(pageCurrent-1)*pageSize && index<pageCurrent*pageSize">
-            					<td>{{client.name}}</td>
-            					<td>{{client.phone}}</td>
-            					<td>{{client.address}}</td>
+            					<td>
+            						<Poptip placement="right">
+									    <a>{{client.name}}</a>
+									    <div class="api" slot="content">
+									    	<p><b>联系电话：</b>{{client.phone}}</p>
+									    	<p><b>联系地址：</b>{{client.address}}</p>
+									        
+									    </div>
+									</Poptip>
+            					</td>
             					<td>{{client.username}}</td>
             					<td>{{client.adminAccount?client.adminAccount:''}}</td>
-            					<td>{{client.endTime?changeTime(client.endTime):''}}</td>
-            					<td>
+            					<td>{{client.service?status[client.service.status].label:''}}</td>
+								<td>{{client.service?changeTime(client.service.startTime):''}}</td>
+            					<td>{{client.service?changeTime(client.service.endTime):''}}</td>
+            					<td>{{client.service?client.service.userNum:''}}</td>
+            					<td class="client-options">
             						<Button type="info" @click.stop="doedit(client._id)">编辑</Button>
-            						<Button type="error" @click.stop="remove(client._id)">删除</Button>
-            						<Button type="primary" icon="arrow-right-c" @click.stop="showService(client._id,client.name)">服务信息</Button>
+            						<Button type="error" @click.stop="remove(client._id)" 
+            								:disabled="client.service&&client.service.status==1">删除</Button>
+            						<Button type="primary" icon="arrow-right-c" 
+            								@click.stop="showService(client._id,client.name)">服务信息</Button>
+            						<Button type="info" 
+			        						v-if="client.service&&(client.service.status==0||client.service.status==1)"
+			        						@click.stop="resetPwd(client._id)">重置密码</Button>
             					</td>
             				</tr>
             			</tbody>
@@ -70,24 +86,32 @@
 	        :title="modalTitle"
 	        v-model="newClient"
 	        :mask-closable="false">
-	        <p>
-	        	<span class="input-label">客户名称</span>
-	        	<Input v-model="name" :maxlength="20" placeholder="请输入用户名" style="width: 250px"></Input>
-	        </p>
-	        <p>
-	        	<span class="input-label">联系电话</span>
-	        	<Input v-model="phone" :maxlength="11" placeholder="请输入账号" style="width: 250px"></Input>
-	        </p>
-	        <p>
-	        	<span class="input-label">联系地址</span>
-	        	<Input v-model="address" :maxlength="30" placeholder="请输入联系地址" style="width: 250px"></Input>
-	        </p>
-	        <p>
-	        	<span class="input-label">绑定用户</span>
-		        <Select v-model="selectUser" style="width:250px" filterable>
-			    	<Option v-for="item in users" :value="item._id" :key="item">{{ item.name }}</Option>
-			    </Select>
-	        </p>
+	        <div v-show="option!='reset' ">
+		        <p>
+		        	<span class="input-label">客户名称</span>
+		        	<Input v-model="name" :maxlength="20" placeholder="请输入用户名" style="width: 250px"></Input>
+		        </p>
+		        <p>
+		        	<span class="input-label">联系电话</span>
+		        	<Input v-model="phone" :maxlength="11" placeholder="请输入账号" style="width: 250px"></Input>
+		        </p>
+		        <p>
+		        	<span class="input-label">联系地址</span>
+		        	<Input v-model="address" :maxlength="30" placeholder="请输入联系地址" style="width: 250px"></Input>
+		        </p>
+		        <p>
+		        	<span class="input-label">绑定代理</span>
+			        <Select v-model="selectUser" style="width:250px" filterable>
+				    	<Option v-for="item in users" :value="item._id" :key="item">{{ item.name }}</Option>
+				    </Select>
+		        </p>
+		    </div>
+		    <div v-show="option=='reset'">
+		    	<p>
+		        	<span class="input-label">新密码</span>
+		        	<Input type="password" :maxlength="20" v-model="pwd" placeholder="请输入密码" style="width: 250px"></Input>
+		        </p>
+		    </div>
 	        <div slot="footer">
 	            <Button @click="cancel()">取消</Button>
 	            <Button type="success" @click="submit()">确认</Button>
@@ -108,6 +132,7 @@ export default {
 			phone: '',
 			address: '',
 			selectUser: '',
+			pwd: '',
 			users: [],
 			clients: [],
 			clientArr: [],
@@ -118,8 +143,11 @@ export default {
 				label: '客户名称',
 				value: 'name'
 			},{
-				label: '所属用户',
+				label: '所属代理',
 				value: 'user'
+			},{
+				label: '服务状态',
+				value: 'status'
 			},{
 				label: '开设时间段',
 				value: 'starttime'
@@ -127,11 +155,8 @@ export default {
 				label: '到期时间段',
 				value: 'endtime'
 			},{
-				label: '管理平台账号',
+				label: '客户管理员账号',
 				value: 'admin'
-			},{
-				label: '服务状态',
-				value: 'status'
 			}],
 			searchstatus: 1,
 			status: [{
@@ -153,7 +178,9 @@ export default {
 			search: '',
 			daterange: null,
 			pageSize: 10,
-			pageCurrent: 1
+			pageCurrent: 1,
+			option: 'new',
+			clientid: null
 		}
 	},
 	methods:{
@@ -177,14 +204,14 @@ export default {
 				if( res.status ){
 					this.clients = res.data
 					this.clientArr = res.data
-					if( this.services ){
+					/*if( this.services ){
 						this.getServices()
-					} 
+					} */
 				}
 				this.loading = false
 			})
 		},
-		getServices(){
+		/*getServices(){
 			let clientid = this.clientArr.map(function(item){
 				return item._id
 			})
@@ -198,18 +225,33 @@ export default {
 				}
 				//this.loading = false
 			})
-		},
+		},*/
 		submit(){
-			if( !this.name || !this.phone || !this.address || !this.selectUser ){
+			/*if( !this.name || !this.phone || !this.address || !this.selectUser ){
+				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
+				return;
+			}*/
+			if( ( this.option!='reset'&&(!this.name || !this.phone || !this.address || !this.selectUser) )
+				||
+				( this.option=='reset'&&(!this.pwd) )
+			){
 				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
 				return;
 			}
-			if( /[^\d{6,11}]/.test(this.phone) || this.phone.length < 6 || this.phone.length > 11 ){
+
+			if( this.option!='reset' && (/[^\d{6,11}]/.test(this.phone) || this.phone.length<6 || this.phone.length>11) ){
 				this.$Message.warning({content: '请输入正确的联系电话', duration: 3, closable: true});
 				return;
 			}
+			if( this.pwd ){
+				if( this.pwd.length<5 || this.pwd.length>20 ){
+					this.$Message.warning({content: '请输入6-20位的密码', duration: 3, closable: true});
+					return;
+				}
+			}
+
 			let apiUrl = this.$store.state.apiUrl
-			if( this.modalTitle === '新增客户' && !this.edit ){
+			if( this.option === 'new' ){
 				this.axios.post(apiUrl+'/client/new', {
 					name: this.name, 
 					phone: this.phone, 
@@ -227,7 +269,7 @@ export default {
 							this.$Message.error({content: '创建失败，请重新尝试！', duration: 3, closable: true});
 						}
 					})
-			}else{
+			}else if( this.option === 'edit' ){
 				this.axios.post(apiUrl+'/client/update', {
 					id: this.edit._id,
 					name: this.name, 
@@ -246,8 +288,30 @@ export default {
 							this.$Message.error({content: '更新失败，请重新尝试！', duration: 3, closable: true});
 						}
 					})
+			}else if( this.option === 'reset' ){
+				this.axios.post(apiUrl+'/client/update', {
+					id: this.clientid,
+					resetpwd: this.pwd})
+					.then( response => response.data )
+					.then( res => {
+						if(!this.checkLogin(res))return;
+						if( res.status ){
+							this.newClient = false
+							this.clear()
+							this.$Message.success({content: '重置成功', duration: 3, closable: true});
+							//this.getService()
+						}else{
+							this.$Message.error({content: '重置失败，请重新尝试！', duration: 3, closable: true});
+						}
+					})
 			}
 			
+		},
+		resetPwd(clientid){
+			this.newClient = true
+			this.modalTitle = '重置管理员账号密码'
+			this.option = 'reset'
+			this.clientid = clientid
 		},
 		remove(id){
 			if( !id ) return;
@@ -283,6 +347,7 @@ export default {
 			if( !id ) return;
 			this.modalTitle = "编辑客户"
 			this.newClient = true
+			this.option = 'edit'
 			// 遍历clients，找出当前编辑的用户
 			for( let i=0;i<this.clients.length;i++ ){
 				if( this.clients[i]._id === id ){
@@ -318,6 +383,8 @@ export default {
 			this.modalTitle = "新增客户"
 			this.selectUser = []
 			this.edit = null
+			this.option = 'new'
+			this.clientid = null
 		},
 		dosearch(){
 			if( ((this.searchmode != 'starttime'&&this.searchmode != 'endtime'&&this.searchmode!='status') && this.search === '') 
@@ -355,27 +422,23 @@ export default {
 				let timeStart = new Date( this.daterange[0] ).valueOf()
 				let timeEnd = new Date( this.daterange[1] ).valueOf()
 				//console.log(timeStart, timeEnd)
-				for( let i=0;i<this.services.length;i++ ){
-					let stime = new Date(this.services[i].startTime).valueOf()
-					//console.log('stime', stime)
-					if( stime > timeStart && stime < timeEnd  ){
-						for( let j=0;j<this.clientArr.length;j++ ){
-							if( this.clientArr[j]._id == this.services[i].clientId ){
-								clients.push(this.clientArr[j])
-							}
+				for( let i=0;i<this.clientArr.length;i++ ){
+					if( this.clientArr[i].service ){
+						let stime = new Date(this.clientArr[i].service.startTime).valueOf()
+						//console.log('stime', stime)
+						if( stime > timeStart && stime < timeEnd  ){
+							clients.push(this.clientArr[i])
 						}
 					}
 				}
 			}else if( this.searchmode === 'endtime' ){
 				let timeStart = new Date( this.daterange[0] ).valueOf()
 				let timeEnd = new Date( this.daterange[1] ).valueOf()
-				for( let i=0;i<this.services.length;i++ ){
-					let stime = new Date(this.services[i].endTime).valueOf()
-					if( stime > timeStart && stime < timeEnd  ){
-						for( let j=0;j<this.clientArr.length;j++ ){
-							if( this.clientArr[j]._id == this.services[i].clientId ){
-								clients.push(this.clientArr[j])
-							}
+				for( let i=0;i<this.clientArr.length;i++ ){
+					if( this.clientArr[i].service ){
+						let stime = new Date(this.clientArr[i].service.endTime).valueOf()
+						if( stime > timeStart && stime < timeEnd  ){
+							clients.push(this.clientArr[i])
 						}
 					}
 				}
@@ -388,15 +451,13 @@ export default {
 			}else if( this.searchmode === 'status' ){
 				for( let i=0;i<this.clientArr.length;i++ ){
 					let flag = false
-					for( let j=0;j<this.services.length;j++ ){
-						if( this.services[j].clientId == this.clientArr[i]._id ){
-							flag = true
-						}
-						if( (this.services[j].clientId == this.clientArr[i]._id) && (this.services[j].status == this.searchstatus) ){
+					if( this.clientArr[i].service ){
+						flag = true
+						if( this.clientArr[i].service.status == this.searchstatus ){
 							clients.push(this.clientArr[i])
-							break;
 						}
 					}
+					
 					// 暂未创建服务的客户
 					if( this.searchstatus == 0 && !flag ){
 						clients.push(this.clientArr[i])
@@ -406,11 +467,11 @@ export default {
 			this.clients = clients
 			this.pageCurrent = 1
 		},
-		changeSelect(e){
+		/*changeSelect(e){
 			if( (e === 'starttime' || e === 'endtime' || e === 'status') && !this.services ){
 				this.getServices();
 			}
-		},
+		},*/
 		changepage(num){
 			this.pageCurrent = num
 		},
@@ -426,6 +487,10 @@ export default {
 			let permission = this.$store.state.permissions
 			return permission ? permission.dom.indexOf('client')>=0 : flase
 		},
+		canAddClient(){
+			let permission = this.$store.state.permissions
+			return permission && permission.dom && permission.dom.indexOf('add-client')>=0
+		}
 	},
 	created(){
 		this.pageCurrent = this.$route.query.page ? Number(this.$route.query.page) : 1
@@ -438,4 +503,6 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.client-options{width: 350px}
+</style>

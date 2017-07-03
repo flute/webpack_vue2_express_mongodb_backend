@@ -32,10 +32,10 @@
 			        							<Button type="info" @click.stop="change(service._id)">变更</Button>
 			        							<Button type="error" @click.stop="close(service._id)">关闭</Button>
 			        						</template>
-			        						<Button type="info" 
+			        						<!-- <Button type="info" 
 			        							v-if="client.adminAccount&&(service.status==0||service.status==1)"
 			        							@click.stop="resetPwd()"
-			        						>重置密码</Button>
+			        						>重置密码</Button> -->
 			        					</td>
 			        				</tr>
 			        				
@@ -165,8 +165,8 @@ export default{
 			if( ( this.option!='admin'&&this.option!='reset'&&(!this.starttime || !this.endtime || !this.usernum) )
 				||
 				( this.option=='admin'&&(!this.account||!this.pwd) )
-				||
-				( this.option=='reset'&&!this.pwd )
+				/*||
+				( this.option=='reset'&&!this.pwd )*/
 			){
 				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
 				return;
@@ -182,12 +182,12 @@ export default{
 					return;
 				}
 			}
-			if( !this.account && this.pwd ){
+			/*if( !this.account && this.pwd ){
 				if( this.pwd.length<5 || this.pwd.length>20 ){
 					this.$Message.warning({content: '请输入6-20位的密码', duration: 3, closable: true});
 					return;
 				}
-			}
+			}*/
 			if( this.usernum ){
 				let flag = false
 				let num = Number(this.usernum)
@@ -307,7 +307,7 @@ export default{
 						return false
 					}
 				})
-			}else if( this.option === 'reset' ){
+			}/*else if( this.option === 'reset' ){
 				this.axios.post(apiUrl+'/client/update', {
 					id: this.clientId,
 					resetpwd: this.pwd})
@@ -323,13 +323,13 @@ export default{
 							this.$Message.error({content: '重置失败，请重新尝试！', duration: 3, closable: true});
 						}
 					})
-			}
+			}*/
 		},
-		resetPwd(){
+		/*resetPwd(){
 			this.newService = true
 			this.modalTitle = '重置管理员账号密码'
 			this.option = 'reset'
-		},
+		},*/
 		doopen(sid){
 			let flag = false
 			for( let i=0;i<this.services.length;i++ ){
