@@ -133,7 +133,7 @@ export default {
 				label: '服务状态',
 				value: 'status'
 			}],
-			searchstatus: null,
+			searchstatus: 1,
 			status: [{
 				label: '未开通',
 				value: 0
@@ -177,6 +177,9 @@ export default {
 				if( res.status ){
 					this.clients = res.data
 					this.clientArr = res.data
+					if( this.services ){
+						this.getServices()
+					} 
 				}
 				this.loading = false
 			})
@@ -320,8 +323,8 @@ export default {
 			if( ((this.searchmode != 'starttime'&&this.searchmode != 'endtime'&&this.searchmode!='status') && this.search === '') 
 				||
 				((this.searchmode=='starttime'||this.searchmode=='endtime') && (!this.daterange[0] || !this.daterange[1] ))
-				||
-				(this.searchmode=='status'&&!this.searchstatus)
+				/*||
+				(this.searchmode=='status'&&!this.searchstatus)*/
 			){
 				this.$Message.warning({content: '请输入搜索内容', duration: 3, closable: true});
 				return;
@@ -383,12 +386,20 @@ export default {
 					}
 				}
 			}else if( this.searchmode === 'status' ){
-				for( let i=0;i<this.clientArr.length;i++ ){	
+				for( let i=0;i<this.clientArr.length;i++ ){
+					let flag = false
 					for( let j=0;j<this.services.length;j++ ){
-						if( this.services[j].clientId == this.clientArr[i]._id && this.services[j].status == this.searchstatus ){
-							clients.push(this.clientArr[i])
-							return;
+						if( this.services[j].clientId == this.clientArr[i]._id ){
+							flag = true
 						}
+						if( (this.services[j].clientId == this.clientArr[i]._id) && (this.services[j].status == this.searchstatus) ){
+							clients.push(this.clientArr[i])
+							break;
+						}
+					}
+					// 暂未创建服务的客户
+					if( this.searchstatus == 0 && !flag ){
+						clients.push(this.clientArr[i])
 					}
 				}
 			}

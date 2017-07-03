@@ -54,8 +54,8 @@ const getServiceList = (req, callback) => {
 		// 获取多个客户的服务
 		let services = []
 		async.eachSeries(clientid, function(item, cb){
-
-			service.find({clientId: item}, {fields: { _id: 0 },sort: {createAt: -1}})
+			//service.find({clientId: item}, {fields: { _id: 0 },sort: {createAt: -1}})
+			service.find({clientId: item}, '-_id')
 			.then((result) => {
 				if( result && result.length>0 ){
 					if( result.length > 0 ){
