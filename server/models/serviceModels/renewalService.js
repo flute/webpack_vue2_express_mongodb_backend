@@ -64,7 +64,8 @@ const renewalService = (req, callback) => {
 						    userNum : result.userNum,
 						    createAt : result.createAt,
 						    closeAt : null,
-						    status : 2
+						    status : 2,
+						    first: result.first
 						}).then((result) => {
 							if(result){
 								service.insert({

@@ -173,7 +173,7 @@ export default{
 			}
 
 			if( this.account ){
-				if( !/^[0-9a-zA-Z][0-9a-zA-Z_]{0,}$/.test(this.account) || this.account.length<6 || this.account>11 ){
+				if( !/^[0-9a-zA-Z][0-9a-zA-Z_]{0,}$/.test(this.account) || this.account.length<6 || this.account.length>11 ){
 					this.$Message.warning({content: '请输入6-11位的数字、字母、下划线组成的账号', duration: 3, closable: true});
 					return;
 				}

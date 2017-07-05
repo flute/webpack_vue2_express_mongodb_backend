@@ -194,31 +194,31 @@ export default {
 	font-weight: bold;
 	color: rgb(44, 62, 80);
 }
-table{
+table.mytable {
 	width: 100%;
     text-align: left;
     border-collapse: collapse;
     border:1px solid #dddee1; 
     margin: 10px 0;
 } 
-table tr{
+table.mytable  tr{
 	border-bottom: 1px solid #e9eaec;
 	height: 48px;
 	line-height: 48px;
 } 
-table tr td{
+table.mytable  tr td{
 	padding: 0 18px;
     line-height: 16px;
 }
-table tr td.optiontr{
+table.mytable  tr td.optiontr{
 	width: 300px;
 }
-thead tr{
+.mytable thead tr{
 	height: 40px;
 	line-height: 40px;
 	background-color: #f8f8f9
 }
-table tbody tr:hover{
+table.mytable  tbody tr:hover{
 	background-color: #ebf7ff;
 }
 .search{

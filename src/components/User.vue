@@ -18,7 +18,7 @@
             		</div>
             	</div>
             	<div class="user-lists">
-            		<table>
+            		<table class="mytable">
             			<thead>
             				<tr>
             					<td>用户名</td>

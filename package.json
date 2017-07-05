@@ -19,6 +19,7 @@
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.3",
     "debug": "~2.2.0",
+    "excel-export": "^0.5.1",
     "express": "~4.13.4",
     "express-session": "latest",
     "formidable": "^1.1.1",

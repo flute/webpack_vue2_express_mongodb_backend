@@ -21,7 +21,7 @@
             		</div>
             	</div>
             	<div class="client-lists">
-            		<table>
+            		<table class="mytable">
             			<thead>
             				<tr>
             					<td>客户名称</td>

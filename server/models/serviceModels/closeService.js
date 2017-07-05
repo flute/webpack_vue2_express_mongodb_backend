@@ -37,7 +37,8 @@ const closeService = (req, callback) => {
 						    userNum : result.userNum,
 						    createAt : result.createAt,
 						    closeAt : new Date(),
-						    status : 4
+						    status : 4,
+						    first: result.first
 						}).then((result) => {
 							if(result){
 								callback({

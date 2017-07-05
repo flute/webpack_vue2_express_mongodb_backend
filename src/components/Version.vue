@@ -16,7 +16,7 @@
             		</div>
             	</div>
             	<div class="role-list">
-            		<table>
+            		<table class="mytable">
             			<thead>
             				<tr>
             					<td>版本名称</td>

@@ -6,12 +6,17 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
 var cors = require('cors');
-// 定时
-var schedule = require('node-schedule');
-var timing = require('./models/noticeModels/serviceNotice');
-var routes = require('./routes/index');
 // log4js
 var log4js = require("./conf/log.js");
+// 定时
+var schedule = require('node-schedule');
+// 提醒通知
+var timing = require('./models/noticeModels/serviceNotice');
+// 每月账单
+var bill = require('./models/billModels/bill');
+// routes
+var routes = require('./routes/index');
+
 
 var app = express();
 log4js.use(app);
@@ -49,6 +54,10 @@ routes(app)
 var task = schedule.scheduleJob('0 0 2 * * *', function(){
 	console.info('定时任务：到期提醒', new Date());
 	timing()
+});
+var task = schedule.scheduleJob('* * * 1 * *', function(){
+	console.info('定时任务：月账单', new Date());
+	bill()
 });
 
 // catch 404 and forward to error handler

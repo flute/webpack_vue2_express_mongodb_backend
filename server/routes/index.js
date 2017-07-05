@@ -4,6 +4,7 @@ const roleController = require('../controllers/roleController')
 const clientController = require('../controllers/clientController')
 const userController = require('../controllers/userController')
 const serviceController = require('../controllers/serviceController')
+const billController = require('../controllers/billController')
 // services and models
 const RBAC = require('../services/rbac')
 const Islogin = require('../services/islogin')
@@ -23,6 +24,8 @@ module.exports = function(app){
 	app.use('/client', clientController)
 
 	app.use('/user', userController)
+
+	app.use('/bill', billController)
 
 	app.get('/islogin', function(req, res, next){
 		Islogin(req, function(result){

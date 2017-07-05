@@ -8,6 +8,7 @@ import Client from '@/components/Client'
 import User from '@/components/User'
 import Service from '@/components/Service'
 import Notice from '@/components/Notice'
+import Bill from '@/components/Bill'
 
 Vue.use(Router)
 
@@ -48,6 +49,11 @@ export default new Router({
 	    	path: '/notice',
 	    	name: 'notice',
 	    	component: Notice
+	    },
+	    {
+	    	path: '/bill',
+	    	name: 'bill',
+	    	component: Bill
 	    }
     ]
 })

@@ -17,6 +17,10 @@
                 <span class="icon-cell"><Icon type="person"></Icon></span>
                 <span class="layout-text">用户管理</span>
             </Menu-item>
+            <Menu-item name="bill" v-show="showBill">
+                <span class="icon-cell"><Icon type="social-yen"></Icon></span>
+                <span class="layout-text">账单</span>
+            </Menu-item>
         </Menu>
     </div>
 </template>
@@ -51,6 +55,10 @@ export default {
         showUser(){
             let permissions = this.$store.state.permissions
             return permissions ? permissions.dom.indexOf('user')>=0 : 'false'
+        },
+        showBill(){
+            let permissions = this.$store.state.permissions
+            return permissions ? permissions.dom.indexOf('bill')>=0 : 'false'
         }
     },
     mounted(){

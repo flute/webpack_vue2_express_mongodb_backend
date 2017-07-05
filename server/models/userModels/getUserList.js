@@ -14,7 +14,7 @@ const getUserList = (req, callback) => {
 				if( result[i].parents.indexOf(admin)>=0 || result[i]._id.toString() === req.session.user._id.toString() ){
 					data.push(result[i])
 				}
-			}\
+			}
 			callback({
 				status: 1,
 				msg: 'success',

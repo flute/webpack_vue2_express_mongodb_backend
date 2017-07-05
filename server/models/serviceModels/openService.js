@@ -2,6 +2,9 @@ const db = require('../../conf/db')
 const redis = require('../../conf/redis')
 const checkPermission = require('./checkPermission')
 
+const Bill = require('../../conf/config')
+const getMonth = require('../../services/getMonth')
+
 const openService = (req, callback) => {
 
 	let clientId = req.body.clientid
@@ -30,6 +33,17 @@ const openService = (req, callback) => {
 			.then((result) => {
 				if( result ){
 					if( result.status === 0 ){
+
+						let userNum = Number(result.userNum)
+						let settle = 0
+
+						if( userNum < Bill.limit ){
+							settle = Bill.minPrice
+						}else{
+							let month = getMonth(result.startTime, result.endTime)
+							settle = month * Bill.price * userNum
+						}
+
 						service.update({_id: serviceId},{
 							clientId : result.clientId,
 						    startTime : result.startTime,
@@ -37,9 +51,13 @@ const openService = (req, callback) => {
 						    userNum : result.userNum,
 						    createAt : result.createAt,
 						    closeAt : result.closeAt,
-						    status : 1
+						    status : 1,
+						    settle: settle,
+						    difference: 0,
+						    differenceWith: null,
+						    first: true
 						}).then((result) => {
-							if(result){
+							if(result){ 
 								callback({
 									status: 1,
 									msg: 'success'
