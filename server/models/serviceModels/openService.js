@@ -42,6 +42,7 @@ const openService = (req, callback) => {
 						}else{
 							let month = getMonth(result.startTime, result.endTime)
 							settle = month * Bill.price * userNum
+							settle = settle<Bill.minPrice? Bill.minPrice : settle
 						}
 
 						service.update({_id: serviceId},{

@@ -204,33 +204,11 @@ export default {
 				if( res.status ){
 					this.clients = res.data
 					this.clientArr = res.data
-					/*if( this.services ){
-						this.getServices()
-					} */
 				}
 				this.loading = false
 			})
 		},
-		/*getServices(){
-			let clientid = this.clientArr.map(function(item){
-				return item._id
-			})
-			let apiUrl = this.$store.state.apiUrl
-			this.axios.post(apiUrl+'/client/service/list', {clientid: clientid, type: 'all'})
-			.then( response => response.data )
-			.then( res => {
-				if(!this.checkLogin(res))return;
-				if( res.status ){
-					this.services = res.data
-				}
-				//this.loading = false
-			})
-		},*/
 		submit(){
-			/*if( !this.name || !this.phone || !this.address || !this.selectUser ){
-				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
-				return;
-			}*/
 			if( ( this.option!='reset'&&(!this.name || !this.phone || !this.address || !this.selectUser) )
 				||
 				( this.option=='reset'&&(!this.pwd) )
@@ -299,7 +277,6 @@ export default {
 							this.newClient = false
 							this.clear()
 							this.$Message.success({content: '重置成功', duration: 3, closable: true});
-							//this.getService()
 						}else{
 							this.$Message.error({content: '重置失败，请重新尝试！', duration: 3, closable: true});
 						}
@@ -467,11 +444,6 @@ export default {
 			this.clients = clients
 			this.pageCurrent = 1
 		},
-		/*changeSelect(e){
-			if( (e === 'starttime' || e === 'endtime' || e === 'status') && !this.services ){
-				this.getServices();
-			}
-		},*/
 		changepage(num){
 			this.pageCurrent = num
 		},

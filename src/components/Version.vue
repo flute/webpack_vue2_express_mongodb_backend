@@ -233,8 +233,6 @@ export default {
 						})
 				}
 			}
-			
-			
 		},
 		remove(id){
 			this.$Modal.confirm({

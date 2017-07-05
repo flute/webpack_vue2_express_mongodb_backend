@@ -78,6 +78,7 @@ const changeService = (req, callback) => {
 							}else{
 								let month = getMonth(startTime, endTime)
 								settle = month * Bill.price * userNum
+								settle = settle<Bill.minPrice? Bill.minPrice : settle
 							}
 							difference = settle - result.settle
 							

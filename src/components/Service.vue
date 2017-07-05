@@ -19,8 +19,6 @@
 			        					<td>服务开始时间：<b>{{changeTime(service.startTime)}}</b></td>
 			        					<td>服务截止时间：<b>{{changeTime(service.endTime)}}</b></td>
 			        					<td>服务人数：<b>{{service.userNum}}</b> 人</td>
-			        					
-			        					<!-- <td v-if="service.closeAt">关闭时间：<b>{{changeTime(service.closeAt)}}</b></td> -->
 			        					<td class="service-option">
 			        						<template v-if="service.status===0">
 			        							<Button type="success" @click.stop="doopen(service._id)">开通</Button>
@@ -32,13 +30,8 @@
 			        							<Button type="info" @click.stop="change(service._id)">变更</Button>
 			        							<Button type="error" @click.stop="close(service._id)">关闭</Button>
 			        						</template>
-			        						<!-- <Button type="info" 
-			        							v-if="client.adminAccount&&(service.status==0||service.status==1)"
-			        							@click.stop="resetPwd()"
-			        						>重置密码</Button> -->
 			        					</td>
 			        				</tr>
-			        				
 		            			</p>
 		        			</Timeline-item>
 				    	</template>
@@ -76,7 +69,7 @@
 	        <div v-show="option!='admin'&&option!='reset'">
 	        	<p>
 		        	<span class="input-label">开通时间</span>
-		        	<Date-picker :editable="false" v-model="starttime" type="date" :disabled="option==='renewal'" placeholder="选择开始日期" style="width: 200px"></Date-picker>
+		        	<Date-picker :editable="false" v-model="starttime" type="date" :options="startmin" :disabled="option==='renewal'||disabled" placeholder="选择开始日期" style="width: 200px"></Date-picker>
 		        </p>
 		        <p>
 		        	<span class="input-label">截止时间</span>
@@ -87,12 +80,6 @@
 		        	<Input v-model="usernum" placeholder="请输入服务人数" style="width:250px"></Input>
 		        </p>
 	        </div>
-	        <div v-show="option=='reset'">
-	        	<p>
-		        	<span class="input-label">新密码</span>
-		        	<Input type="password" :maxlength="20" v-model="pwd" placeholder="请输入密码"></Input>
-		        </p>
-	        </div> 
 	        <div slot="footer">
 	            <Button @click="cancel()">取消</Button>
 	            <Button type="success" @click="submit()" :loading="issubmit" v-show="option=='admin' ">
@@ -134,6 +121,12 @@ export default{
 					return date && date.valueOf() < new Date(this.starttime).valueOf() + 86400;
 				}
 			},
+			startmin:{
+				disabledDate:(date)=>{
+					return date && date.valueOf() < new Date().valueOf() - 86400*1000;
+				}
+			},
+			disabled: false
 		}
 	},
 	methods:{
@@ -165,8 +158,6 @@ export default{
 			if( ( this.option!='admin'&&this.option!='reset'&&(!this.starttime || !this.endtime || !this.usernum) )
 				||
 				( this.option=='admin'&&(!this.account||!this.pwd) )
-				/*||
-				( this.option=='reset'&&!this.pwd )*/
 			){
 				this.$Message.warning({content: '请填写完整信息', duration: 3, closable: true});
 				return;
@@ -182,12 +173,6 @@ export default{
 					return;
 				}
 			}
-			/*if( !this.account && this.pwd ){
-				if( this.pwd.length<5 || this.pwd.length>20 ){
-					this.$Message.warning({content: '请输入6-20位的密码', duration: 3, closable: true});
-					return;
-				}
-			}*/
 			if( this.usernum ){
 				let flag = false
 				let num = Number(this.usernum)
@@ -296,8 +281,6 @@ export default{
 						this.issubmit = false
 						return false
 					}else if( res.status == 3 ){
-						//this.newService = false
-						//this.clear()
 						this.$Message.warning({content: res.msg, duration: 5, closable: true});
 						this.issubmit = false
 						return false
@@ -307,29 +290,8 @@ export default{
 						return false
 					}
 				})
-			}/*else if( this.option === 'reset' ){
-				this.axios.post(apiUrl+'/client/update', {
-					id: this.clientId,
-					resetpwd: this.pwd})
-					.then( response => response.data )
-					.then( res => {
-						if(!this.checkLogin(res))return;
-						if( res.status ){
-							this.newService = false
-							this.clear()
-							this.$Message.success({content: '重置成功', duration: 3, closable: true});
-							//this.getService()
-						}else{
-							this.$Message.error({content: '重置失败，请重新尝试！', duration: 3, closable: true});
-						}
-					})
-			}*/
+			}
 		},
-		/*resetPwd(){
-			this.newService = true
-			this.modalTitle = '重置管理员账号密码'
-			this.option = 'reset'
-		},*/
 		doopen(sid){
 			let flag = false
 			for( let i=0;i<this.services.length;i++ ){
@@ -465,10 +427,22 @@ export default{
 			// 遍历services，找出当前编辑的用户
 			for( let i=0;i<this.services.length;i++ ){
 				if( this.services[i]._id === sid ){
+					
 					this.starttime = this.services[i].startTime
 					this.endtime = this.services[i].endTime
 					this.usernum = this.services[i].userNum
 					this.edit = this.services[i]
+
+					// 服务已经开始，不可变动开始时间，结束时间不可小于当前时间
+					if( new Date(this.starttime).valueOf() < new Date().valueOf() ){
+						this.disabled = true
+						this.timemin = {
+							disabledDate:(date)=>{
+								return date && date.valueOf() < new Date().valueOf() + 86400;
+							}
+						}
+					}
+					
 				}
 			}
 		},
@@ -488,6 +462,12 @@ export default{
 			this.option = 'new'
 			this.account = ''
 			this.pwd = ''
+			this.disabled = false
+			this.timemin = {
+				disabledDate:(date)=>{
+					return date && date.valueOf() < new Date(this.starttime).valueOf() + 86400;
+				}
+			}
 		},
 		turnback(){
 			this.$router.push({

@@ -12,7 +12,6 @@
 					    v-show="bills.length!=billArr.length">清除</Button>
             		</div>
             		<Button type="primary" @click="exportBill()" class="export">导出账单</Button>
-            		<a :href="exportUrl" target="_blank"></a>
         		</div>
         		<div class="bill-lists">
             		<Table border size="small" :columns="columns" :data="showbill" @on-selection-change="selectChange"></Table>
@@ -28,7 +27,7 @@
         			@on-change="changepage"
         			show-elevator></Page>
         		</div>
-        		<pre>{{bills}}</pre>
+        		<!-- <pre>{{bills}}</pre> -->
         	</div>
         </div>
     </div>
@@ -73,7 +72,6 @@ export default {
 			date: null,
 			pageSize: 10,
 			pageCurrent: 1,
-			exportUrl:'',
 			selected: null,
 			pageSize: 15,
 			pageCurrent: 1,
@@ -159,7 +157,6 @@ export default {
 			this.selected = selection.map(function(item){
 				return item._id
 			})
-			console.log(this.selected)
 		}
 	},
 	computed:{

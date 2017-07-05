@@ -317,3 +317,1926 @@
 [2017-07-05 11:14:46.904] [INFO] record - GET /role/list
 [2017-07-05 11:14:46.925] [INFO] record - GET /client/list
 [2017-07-05 11:14:47.521] [INFO] record - GET /bill/list
+[2017-07-05 11:16:57.688] [INFO] console - Express server listening on port 3000
+[2017-07-05 11:17:22.207] [INFO] record - GET /bill/list
+[2017-07-05 11:17:33.274] [INFO] console - Express server listening on port 3000
+[2017-07-05 11:17:47.224] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb9' ]
+[2017-07-05 11:17:47.390] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb9
+[2017-07-05 11:18:38.525] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb9
+[2017-07-05 11:18:38.813] [INFO] record - GET /favicon.ico
+[2017-07-05 11:18:38.880] [INFO] record - GET /favicon.ico
+[2017-07-05 11:18:44.813] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb9
+[2017-07-05 11:18:54.913] [INFO] record - GET /islogin
+[2017-07-05 11:18:56.866] [INFO] record - OPTIONS /login
+[2017-07-05 11:18:56.913] [INFO] record - POST /login
+[2017-07-05 11:19:01.759] [INFO] record - OPTIONS /login
+[2017-07-05 11:19:01.799] [INFO] record - POST /login
+[2017-07-05 11:19:02.082] [INFO] record - GET /bill/list
+[2017-07-05 11:19:07.196] [INFO] record - GET /user/list
+[2017-07-05 11:19:07.211] [INFO] record - GET /client/list
+[2017-07-05 11:19:07.226] [INFO] record - GET /role/list
+[2017-07-05 11:19:08.200] [INFO] record - GET /user/list
+[2017-07-05 11:19:08.219] [INFO] record - GET /client/list
+[2017-07-05 11:19:11.648] [INFO] record - GET /user/list
+[2017-07-05 11:19:11.679] [INFO] record - GET /client/list
+[2017-07-05 11:19:11.686] [INFO] record - GET /role/list
+[2017-07-05 11:19:12.469] [INFO] record - GET /bill/list
+[2017-07-05 11:19:15.069] [INFO] record - GET /user/list
+[2017-07-05 11:19:15.081] [INFO] record - GET /client/list
+[2017-07-05 11:19:15.082] [INFO] record - GET /role/list
+[2017-07-05 11:19:16.607] [INFO] record - GET /user/list
+[2017-07-05 11:19:16.616] [INFO] record - GET /client/list
+[2017-07-05 11:19:19.127] [INFO] record - GET /logout
+[2017-07-05 11:19:22.918] [INFO] record - OPTIONS /login
+[2017-07-05 11:19:22.931] [INFO] record - POST /login
+[2017-07-05 11:19:23.133] [INFO] record - GET /user/list
+[2017-07-05 11:19:23.173] [INFO] record - GET /client/list
+[2017-07-05 11:19:25.072] [INFO] record - GET /bill/list
+[2017-07-05 11:19:29.832] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 11:19:29.907] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 11:19:53.859] [INFO] record - GET /user/list
+[2017-07-05 11:19:53.898] [INFO] record - GET /role/list
+[2017-07-05 11:19:53.898] [INFO] record - GET /client/list
+[2017-07-05 11:19:57.213] [INFO] record - GET /user/list
+[2017-07-05 11:19:57.232] [INFO] record - GET /client/list
+[2017-07-05 11:20:01.363] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 11:20:01.391] [INFO] record - POST /client/service/list
+[2017-07-05 11:20:03.562] [INFO] record - GET /user/list
+[2017-07-05 11:20:03.616] [INFO] record - GET /client/list
+[2017-07-05 11:20:11.234] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 11:20:11.251] [INFO] record - POST /client/service/list
+[2017-07-05 11:20:12.898] [INFO] record - GET /user/list
+[2017-07-05 11:20:12.915] [INFO] record - GET /client/list
+[2017-07-05 11:20:14.508] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 11:20:14.520] [INFO] record - POST /client/service/list
+[2017-07-05 11:20:15.836] [INFO] record - GET /user/list
+[2017-07-05 11:20:15.849] [INFO] record - GET /client/list
+[2017-07-05 11:20:17.536] [INFO] record - GET /user/list
+[2017-07-05 11:20:17.562] [INFO] record - GET /role/list
+[2017-07-05 11:20:17.576] [INFO] record - GET /client/list
+[2017-07-05 11:20:24.601] [INFO] record - GET /user/list
+[2017-07-05 11:20:24.621] [INFO] record - GET /client/list
+[2017-07-05 11:20:45.486] [INFO] record - GET /role/list
+[2017-07-05 11:20:48.310] [INFO] record - GET /version/list
+[2017-07-05 11:20:51.969] [INFO] record - GET /bill/list
+[2017-07-05 11:21:33.795] [INFO] record - GET /user/list
+[2017-07-05 11:21:33.832] [INFO] record - GET /client/list
+[2017-07-05 11:21:33.839] [INFO] record - GET /role/list
+[2017-07-05 11:21:35.886] [INFO] record - GET /user/list
+[2017-07-05 11:21:35.905] [INFO] record - GET /client/list
+[2017-07-05 11:21:37.954] [INFO] record - GET /role/list
+[2017-07-05 11:21:39.986] [INFO] record - GET /version/list
+[2017-07-05 11:22:09.986] [INFO] record - GET /bill/list
+[2017-07-05 11:24:20.937] [INFO] record - GET /user/list
+[2017-07-05 11:24:20.966] [INFO] record - GET /client/list
+[2017-07-05 11:24:23.310] [INFO] record - GET /bill/list
+[2017-07-05 11:24:27.627] [INFO] record - GET /user/list
+[2017-07-05 11:24:27.646] [INFO] record - GET /role/list
+[2017-07-05 11:24:27.670] [INFO] record - GET /client/list
+[2017-07-05 11:24:28.557] [INFO] record - GET /user/list
+[2017-07-05 11:24:28.587] [INFO] record - GET /client/list
+[2017-07-05 11:24:37.678] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 11:24:37.711] [INFO] record - POST /client/service/list
+[2017-07-05 11:59:42.672] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 11:59:42.762] [INFO] record - POST /client/service/list
+[2017-07-05 13:28:12.549] [INFO] record - OPTIONS /login
+[2017-07-05 13:28:12.692] [INFO] record - POST /login
+[2017-07-05 13:28:12.797] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 13:28:12.858] [INFO] record - POST /client/service/list
+[2017-07-05 13:28:16.539] [INFO] record - GET /user/list
+[2017-07-05 13:28:16.559] [INFO] record - GET /client/list
+[2017-07-05 13:28:19.151] [INFO] record - GET /user/list
+[2017-07-05 13:28:19.170] [INFO] record - GET /role/list
+[2017-07-05 13:28:19.233] [INFO] record - GET /client/list
+[2017-07-05 13:28:28.092] [INFO] record - GET /bill/list
+[2017-07-05 13:28:55.040] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 13:28:55.099] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 13:38:20.546] [INFO] record - GET /user/list
+[2017-07-05 13:38:20.601] [INFO] record - GET /role/list
+[2017-07-05 13:38:20.620] [INFO] record - GET /client/list
+[2017-07-05 13:38:23.510] [INFO] record - GET /bill/list
+[2017-07-05 13:38:24.775] [INFO] record - GET /user/list
+[2017-07-05 13:38:24.805] [INFO] record - GET /role/list
+[2017-07-05 13:38:24.813] [INFO] record - GET /client/list
+[2017-07-05 13:38:25.579] [INFO] record - GET /user/list
+[2017-07-05 13:38:25.598] [INFO] record - GET /client/list
+[2017-07-05 13:38:26.423] [INFO] record - GET /role/list
+[2017-07-05 13:38:27.462] [INFO] record - GET /version/list
+[2017-07-05 13:38:28.506] [INFO] record - GET /role/list
+[2017-07-05 13:38:29.299] [INFO] record - GET /user/list
+[2017-07-05 13:38:29.336] [INFO] record - GET /client/list
+[2017-07-05 13:38:29.938] [INFO] record - GET /user/list
+[2017-07-05 13:38:29.990] [INFO] record - GET /role/list
+[2017-07-05 13:38:29.999] [INFO] record - GET /client/list
+[2017-07-05 13:38:30.460] [INFO] record - GET /bill/list
+[2017-07-05 13:58:50.772] [INFO] record - GET /user/list
+[2017-07-05 13:58:50.822] [INFO] record - GET /client/list
+[2017-07-05 13:58:54.329] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 13:58:54.351] [INFO] record - POST /client/service/list
+[2017-07-05 13:59:02.320] [INFO] record - GET /islogin
+[2017-07-05 13:59:02.948] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 13:59:03.081] [INFO] record - POST /client/service/list
+[2017-07-05 14:04:01.930] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:04:02.096] [INFO] record - POST /client/service/list
+[2017-07-05 14:04:06.476] [INFO] record - GET /islogin
+[2017-07-05 14:04:07.124] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:04:07.245] [INFO] record - POST /client/service/list
+[2017-07-05 14:12:02.396] [INFO] record - GET /user/list
+[2017-07-05 14:12:02.474] [INFO] record - GET /client/list
+[2017-07-05 14:12:05.087] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:12:05.116] [INFO] record - POST /client/service/list
+[2017-07-05 14:12:11.229] [INFO] record - GET /user/list
+[2017-07-05 14:12:11.249] [INFO] record - GET /client/list
+[2017-07-05 14:12:17.546] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:12:17.589] [INFO] record - POST /client/service/list
+[2017-07-05 14:12:28.476] [INFO] record - OPTIONS /client/service/new
+[2017-07-05 14:12:28.612] [INFO] record - POST /client/service/new
+[2017-07-05 14:12:28.654] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:12:28.681] [INFO] record - POST /client/service/list
+[2017-07-05 14:12:38.850] [INFO] record - OPTIONS /client/update
+[2017-07-05 14:12:39.099] [INFO] console - check client is already inited: null []
+[2017-07-05 14:12:39.105] [INFO] console - check account is already existed: null []
+[2017-07-05 14:12:39.129] [INFO] console - select t_sys_menu finished: null
+[2017-07-05 14:12:39.148] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 693,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 14:12:39.171] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 47,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 14:12:39.178] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 189,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 14:12:39.193] [INFO] console - init t_module finished: null 20226 [ 20224, 20225, 20226, 20227, 20228 ]
+[2017-07-05 14:12:39.196] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20134,20135,20136,20137,20138,20179,20180,20181,20182,20183,20204,20205,20206,20207,20208' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20134,20135,20136,20137,20138,20179,20180,20181,20182,20183,20204,20205,20206,20207,20208' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20134,20135,20136,20137,20138,20179,20180,20181,20182,20183,20204,20205,20206,20207,20208' } ]
+[2017-07-05 14:12:39.204] [INFO] console - update t_sys_role finished: null
+[2017-07-05 14:12:39.215] [INFO] console - init t_info fineshed: null
+[2017-07-05 14:12:39.221] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10192,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 14:12:39.223] [INFO] console - mysql初始化完毕
+[2017-07-05 14:12:39.224] [INFO] console - { status: 1, mag: 'success' }
+[2017-07-05 14:12:39.287] [INFO] record - POST /client/update
+[2017-07-05 14:12:39.304] [INFO] record - OPTIONS /client/service/open
+[2017-07-05 14:12:39.337] [INFO] record - POST /client/service/open
+[2017-07-05 14:12:39.348] [INFO] console - redis open client:5954c8cbd773c88b29b79b0d OK
+[2017-07-05 14:12:39.356] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:12:39.375] [INFO] record - POST /client/service/list
+[2017-07-05 14:16:52.510] [INFO] record - GET /user/list
+[2017-07-05 14:16:52.564] [INFO] record - GET /role/list
+[2017-07-05 14:16:52.573] [INFO] record - GET /client/list
+[2017-07-05 14:16:56.645] [INFO] record - GET /user/list
+[2017-07-05 14:16:56.664] [INFO] record - GET /client/list
+[2017-07-05 14:17:45.588] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:17:45.677] [INFO] record - POST /client/service/list
+[2017-07-05 14:22:05.162] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:22:05.194] [INFO] record - POST /client/service/list
+[2017-07-05 14:22:23.207] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:22:23.241] [INFO] record - POST /client/service/list
+[2017-07-05 14:25:32.179] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:25:32.235] [INFO] record - POST /client/service/list
+[2017-07-05 14:26:22.470] [INFO] record - GET /islogin
+[2017-07-05 14:26:23.036] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:26:23.162] [INFO] record - POST /client/service/list
+[2017-07-05 14:26:52.418] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 14:26:52.459] [INFO] record - POST /client/service/list
+[2017-07-05 14:29:58.975] [INFO] record - GET /role/list
+[2017-07-05 14:29:58.983] [INFO] record - GET /client/list
+[2017-07-05 14:29:58.994] [INFO] record - GET /user/list
+[2017-07-05 14:30:04.368] [INFO] record - OPTIONS /login
+[2017-07-05 14:30:04.402] [INFO] record - POST /login
+[2017-07-05 14:30:04.567] [INFO] record - GET /user/list
+[2017-07-05 14:30:04.609] [INFO] record - GET /role/list
+[2017-07-05 14:30:04.626] [INFO] record - GET /client/list
+[2017-07-05 14:30:06.037] [INFO] record - GET /bill/list
+[2017-07-05 14:30:15.971] [INFO] record - GET /version/list
+[2017-07-05 14:30:17.326] [INFO] record - GET /role/list
+[2017-07-05 14:30:18.502] [INFO] record - GET /user/list
+[2017-07-05 14:30:18.543] [INFO] record - GET /client/list
+[2017-07-05 14:30:19.290] [INFO] record - GET /user/list
+[2017-07-05 14:30:19.319] [INFO] record - GET /role/list
+[2017-07-05 14:30:19.329] [INFO] record - GET /client/list
+[2017-07-05 14:30:20.269] [INFO] record - GET /bill/list
+[2017-07-05 14:30:23.957] [INFO] record - GET /bill/list
+[2017-07-05 14:30:47.895] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:30:48.030] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 14:32:50.320] [INFO] record - GET /islogin
+[2017-07-05 14:32:54.225] [INFO] record - OPTIONS /login
+[2017-07-05 14:32:54.234] [INFO] record - POST /login
+[2017-07-05 14:32:59.653] [INFO] record - OPTIONS /login
+[2017-07-05 14:32:59.671] [INFO] record - POST /login
+[2017-07-05 14:33:03.690] [INFO] record - GET /version/list
+[2017-07-05 14:33:05.446] [INFO] record - GET /role/list
+[2017-07-05 14:33:07.268] [INFO] record - GET /user/list
+[2017-07-05 14:33:07.280] [INFO] record - GET /client/list
+[2017-07-05 14:33:24.893] [INFO] record - GET /user/list
+[2017-07-05 14:33:24.908] [INFO] record - GET /client/list
+[2017-07-05 14:33:24.911] [INFO] record - GET /role/list
+[2017-07-05 14:33:26.830] [INFO] record - GET /user/list
+[2017-07-05 14:33:26.863] [INFO] record - GET /client/list
+[2017-07-05 14:33:30.795] [INFO] record - GET /bill/list
+[2017-07-05 14:34:06.266] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:34:06.303] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 14:35:03.902] [INFO] console - Express server listening on port 3000
+[2017-07-05 14:35:08.578] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:35:08.738] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 14:35:16.431] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:35:16.512] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 14:41:10.201] [INFO] console - Express server listening on port 3000
+[2017-07-05 14:41:16.840] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:41:17.010] [ERROR] console - (node:22640) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: The header content contains invalid characters
+[2017-07-05 14:42:23.511] [INFO] console - Express server listening on port 3000
+[2017-07-05 14:42:27.241] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:42:27.416] [ERROR] console - (node:22696) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): ReferenceError: response is not defined
+[2017-07-05 14:43:03.194] [INFO] console - Express server listening on port 3000
+[2017-07-05 14:43:11.935] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:43:12.077] [ERROR] console - (node:22719) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): ReferenceError: response is not defined
+[2017-07-05 14:43:42.957] [INFO] console - Express server listening on port 3000
+[2017-07-05 14:43:49.336] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:43:49.469] [ERROR] console - (node:22734) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): ReferenceError: response is not defined
+[2017-07-05 14:44:13.243] [INFO] console - Express server listening on port 3000
+[2017-07-05 14:44:17.276] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:44:17.413] [ERROR] console - (node:22748) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): ReferenceError: response is not defined
+[2017-07-05 14:45:00.493] [INFO] console - Express server listening on port 3000
+[2017-07-05 14:45:08.300] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:45:08.431] [ERROR] console - (node:22768) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: filename.getBytes is not a function
+[2017-07-05 14:45:23.953] [INFO] console - Express server listening on port 3000
+[2017-07-05 14:45:28.781] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:45:28.938] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 14:47:23.264] [INFO] console - Express server listening on port 3000
+[2017-07-05 14:47:31.557] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:47:31.699] [ERROR] console - (node:22851) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: res.setCharacterEncoding is not a function
+[2017-07-05 14:47:58.591] [INFO] console - Express server listening on port 3000
+[2017-07-05 14:48:01.645] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:48:01.785] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 14:59:44.997] [INFO] console - Express server listening on port 3000
+[2017-07-05 14:59:51.551] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 14:59:51.756] [ERROR] console - (node:23131) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'user-agent' of undefined
+[2017-07-05 15:00:29.451] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:00:37.008] [INFO] record - GET /islogin
+[2017-07-05 15:00:37.992] [INFO] record - GET /bill/list
+[2017-07-05 15:00:41.197] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:00:41.382] [ERROR] console - (node:23147) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'user-agent' of undefined
+[2017-07-05 15:01:25.453] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:01:30.107] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:01:30.330] [ERROR] console - (node:23205) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'user-agent' of undefined
+[2017-07-05 15:02:01.719] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:02:04.724] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:02:04.860] [INFO] console - undefined
+[2017-07-05 15:02:04.867] [ERROR] console - (node:23263) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'user-agent' of undefined
+[2017-07-05 15:02:17.897] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:02:21.477] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:02:21.611] [INFO] console - ServerResponse {
+  domain: null,
+  _events: 
+   { finish: [ [Function: resOnFinish], [Function], [Function: onevent] ],
+     end: [Function: onevent] },
+  _eventsCount: 2,
+  _maxListeners: undefined,
+  output: [],
+  outputEncodings: [],
+  outputCallbacks: [],
+  outputSize: 0,
+  writable: true,
+  _last: false,
+  upgrading: false,
+  chunkedEncoding: false,
+  shouldKeepAlive: true,
+  useChunkedEncodingByDefault: true,
+  sendDate: true,
+  _removedHeader: {},
+  _contentLength: null,
+  _hasBody: true,
+  _trailer: '',
+  finished: false,
+  _headerSent: false,
+  socket: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 624,
+        _externalStream: {},
+        fd: 20,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function],
+        error: [Object],
+        close: [Object],
+        data: [Function: socketOnData],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 4,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        _connectionKey: '6::::3000' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 4,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        _connectionKey: '6::::3000' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 4937,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Object],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: [Circular],
+     _peername: { address: '::ffff:127.0.0.1', family: 'IPv6', port: 49997 } },
+  connection: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 624,
+        _externalStream: {},
+        fd: 20,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function],
+        error: [Object],
+        close: [Object],
+        data: [Function: socketOnData],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 4,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        _connectionKey: '6::::3000' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 4,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        _connectionKey: '6::::3000' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 4937,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Object],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: [Circular],
+     _peername: { address: '::ffff:127.0.0.1', family: 'IPv6', port: 49997 } },
+  _header: null,
+  _headers: 
+   { 'x-powered-by': 'Express',
+     vary: 'Origin',
+     'access-control-allow-credentials': 'true' },
+  _headerNames: 
+   { 'x-powered-by': 'X-Powered-By',
+     vary: 'Vary',
+     'access-control-allow-credentials': 'Access-Control-Allow-Credentials' },
+  _onPendingData: [Function: updateOutgoingData],
+  req: 
+   IncomingMessage {
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: null,
+        ended: true,
+        endEmitted: false,
+        reading: false,
+        sync: true,
+        needReadable: false,
+        emittedReadable: true,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: true,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: {},
+     _eventsCount: 0,
+     _maxListeners: undefined,
+     socket: 
+      Socket {
+        connecting: false,
+        _hadError: false,
+        _handle: [Object],
+        _parent: null,
+        _host: null,
+        _readableState: [Object],
+        readable: true,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 10,
+        _maxListeners: undefined,
+        _writableState: [Object],
+        writable: true,
+        allowHalfOpen: true,
+        destroyed: false,
+        _bytesDispatched: 0,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: [Object],
+        _server: [Object],
+        _idleTimeout: 120000,
+        _idleNext: [Object],
+        _idlePrev: [Object],
+        _idleStart: 4937,
+        parser: [Object],
+        on: [Function: socketOnWrap],
+        _paused: false,
+        read: [Function],
+        _consuming: true,
+        _httpMessage: [Circular],
+        _peername: [Object] },
+     connection: 
+      Socket {
+        connecting: false,
+        _hadError: false,
+        _handle: [Object],
+        _parent: null,
+        _host: null,
+        _readableState: [Object],
+        readable: true,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 10,
+        _maxListeners: undefined,
+        _writableState: [Object],
+        writable: true,
+        allowHalfOpen: true,
+        destroyed: false,
+        _bytesDispatched: 0,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: [Object],
+        _server: [Object],
+        _idleTimeout: 120000,
+        _idleNext: [Object],
+        _idlePrev: [Object],
+        _idleStart: 4937,
+        parser: [Object],
+        on: [Function: socketOnWrap],
+        _paused: false,
+        read: [Function],
+        _consuming: true,
+        _httpMessage: [Circular],
+        _peername: [Object] },
+     httpVersionMajor: 1,
+     httpVersionMinor: 1,
+     httpVersion: '1.1',
+     complete: true,
+     headers: 
+      { host: '127.0.0.1:3000',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:53.0) Gecko/20100101 Firefox/53.0',
+        accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'accept-language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+        'accept-encoding': 'gzip, deflate',
+        referer: 'http://localhost:8080/',
+        cookie: 'operate=s%3AbUuoi-P48n-WMJecoAdd790g5bytFxg9.s7Yi74nl%2BU2jao6%2FNHEVjYqyv6Z57p6m%2FlOPPtIMm1I',
+        connection: 'keep-alive',
+        'upgrade-insecure-requests': '1' },
+     rawHeaders: 
+      [ 'Host',
+        '127.0.0.1:3000',
+        'User-Agent',
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:53.0) Gecko/20100101 Firefox/53.0',
+        'Accept',
+        'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language',
+        'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+        'Accept-Encoding',
+        'gzip, deflate',
+        'Referer',
+        'http://localhost:8080/',
+        'Cookie',
+        'operate=s%3AbUuoi-P48n-WMJecoAdd790g5bytFxg9.s7Yi74nl%2BU2jao6%2FNHEVjYqyv6Z57p6m%2FlOPPtIMm1I',
+        'Connection',
+        'keep-alive',
+        'Upgrade-Insecure-Requests',
+        '1' ],
+     trailers: {},
+     rawTrailers: [],
+     upgrade: false,
+     url: '/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc',
+     method: 'GET',
+     statusCode: null,
+     statusMessage: null,
+     client: 
+      Socket {
+        connecting: false,
+        _hadError: false,
+        _handle: [Object],
+        _parent: null,
+        _host: null,
+        _readableState: [Object],
+        readable: true,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 10,
+        _maxListeners: undefined,
+        _writableState: [Object],
+        writable: true,
+        allowHalfOpen: true,
+        destroyed: false,
+        _bytesDispatched: 0,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: [Object],
+        _server: [Object],
+        _idleTimeout: 120000,
+        _idleNext: [Object],
+        _idlePrev: [Object],
+        _idleStart: 4937,
+        parser: [Object],
+        on: [Function: socketOnWrap],
+        _paused: false,
+        read: [Function],
+        _consuming: true,
+        _httpMessage: [Circular],
+        _peername: [Object] },
+     _consuming: false,
+     _dumped: false,
+     next: [Function: next],
+     baseUrl: '/bill',
+     originalUrl: '/bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc',
+     _parsedUrl: 
+      Url {
+        protocol: null,
+        slashes: null,
+        auth: null,
+        host: null,
+        port: null,
+        hostname: null,
+        hash: null,
+        search: '?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc',
+        query: 'p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc',
+        pathname: '/export',
+        path: '/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc',
+        href: '/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc',
+        _raw: '/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc' },
+     params: {},
+     query: { p: '595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc' },
+     res: [Circular],
+     _logging: true,
+     _startAt: [ 156744, 32020390 ],
+     _startTime: 2017-07-05T07:02:21.461Z,
+     _remoteAddress: '::ffff:127.0.0.1',
+     body: {},
+     secret: undefined,
+     cookies: { operate: 's:bUuoi-P48n-WMJecoAdd790g5bytFxg9.s7Yi74nl+U2jao6/NHEVjYqyv6Z57p6m/lOPPtIMm1I' },
+     signedCookies: {},
+     _parsedOriginalUrl: 
+      Url {
+        protocol: null,
+        slashes: null,
+        auth: null,
+        host: null,
+        port: null,
+        hostname: null,
+        hash: null,
+        search: '?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc',
+        query: 'p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc',
+        pathname: '/bill/export',
+        path: '/bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc',
+        href: '/bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc',
+        _raw: '/bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc' },
+     sessionStore: 
+      RedisStore {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        prefix: 'sess:',
+        scanCount: 100,
+        serializer: {},
+        client: [Object],
+        ttl: undefined,
+        disableTTL: undefined,
+        generate: [Function] },
+     sessionID: 'bUuoi-P48n-WMJecoAdd790g5bytFxg9',
+     session: 
+      Session {
+        cookie: [Object],
+        user: [Object],
+        permission: [Object],
+        notice: [] },
+     route: Route { path: '/export', stack: [Object], methods: [Object] } },
+  locals: {},
+  writeHead: [Function: writeHead],
+  _startAt: undefined,
+  _startTime: undefined,
+  __onFinished: { [Function: listener] queue: [ [Function: logRequest] ] },
+  end: [Function: end] }
+[2017-07-05 15:02:21.677] [ERROR] console - (node:23292) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'user-agent' of undefined
+[2017-07-05 15:03:23.322] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:03:28.446] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:03:28.619] [INFO] console - undefined
+[2017-07-05 15:03:28.623] [ERROR] console - (node:23322) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'user-agent' of undefined
+[2017-07-05 15:05:28.467] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:05:28.561] [INFO] console - undefined
+[2017-07-05 15:05:28.568] [ERROR] console - (node:23322) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 2): TypeError: Cannot read property 'user-agent' of undefined
+[2017-07-05 15:05:39.664] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:05:44.242] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:05:44.643] [INFO] console - undefined undefined
+[2017-07-05 15:05:44.648] [ERROR] console - (node:23365) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'user-agent' of undefined
+[2017-07-05 15:06:30.418] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:06:36.876] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:06:37.006] [INFO] console - undefined undefined undefined
+[2017-07-05 15:06:37.010] [ERROR] console - (node:23443) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'user-agent' of undefined
+[2017-07-05 15:06:56.439] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:07:00.583] [INFO] console - { host: '127.0.0.1:3000',
+  'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:53.0) Gecko/20100101 Firefox/53.0',
+  accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'accept-language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+  'accept-encoding': 'gzip, deflate',
+  referer: 'http://localhost:8080/',
+  cookie: 'operate=s%3AbUuoi-P48n-WMJecoAdd790g5bytFxg9.s7Yi74nl%2BU2jao6%2FNHEVjYqyv6Z57p6m%2FlOPPtIMm1I',
+  connection: 'keep-alive',
+  'upgrade-insecure-requests': '1' } [ 'Host',
+  '127.0.0.1:3000',
+  'User-Agent',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:53.0) Gecko/20100101 Firefox/53.0',
+  'Accept',
+  'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+  'Accept-Language',
+  'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3',
+  'Accept-Encoding',
+  'gzip, deflate',
+  'Referer',
+  'http://localhost:8080/',
+  'Cookie',
+  'operate=s%3AbUuoi-P48n-WMJecoAdd790g5bytFxg9.s7Yi74nl%2BU2jao6%2FNHEVjYqyv6Z57p6m%2FlOPPtIMm1I',
+  'Connection',
+  'keep-alive',
+  'Upgrade-Insecure-Requests',
+  '1' ] { p: '595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc' }
+[2017-07-05 15:07:00.591] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:07:00.766] [INFO] console - undefined undefined undefined
+[2017-07-05 15:07:00.772] [ERROR] console - (node:23469) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'user-agent' of undefined
+[2017-07-05 15:08:35.550] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:08:39.282] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:08:39.414] [ERROR] console - (node:23493) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'set' of undefined
+[2017-07-05 15:09:07.308] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:09:12.059] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:09:12.196] [ERROR] console - (node:23512) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: Cannot read property 'setHeader' of undefined
+[2017-07-05 15:09:49.298] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:09:54.577] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:09:54.757] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 15:10:21.737] [INFO] console - Express server listening on port 3000
+[2017-07-05 15:10:25.878] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:10:26.030] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 15:10:37.857] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:10:37.947] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 15:11:09.456] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:11:09.588] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 15:11:14.211] [INFO] console - 导出账单 [ '595b4dd0c5fbc044bf2e0bb8',
+  '595b4dd0c5fbc044bf2e0bb9',
+  '595b4dd0c5fbc044bf2e0bba',
+  '595b4dd0c5fbc044bf2e0bbb',
+  '595b4dd0c5fbc044bf2e0bbc' ]
+[2017-07-05 15:11:14.287] [INFO] record - GET /bill/export?p=595b4dd0c5fbc044bf2e0bb8,595b4dd0c5fbc044bf2e0bb9,595b4dd0c5fbc044bf2e0bba,595b4dd0c5fbc044bf2e0bbb,595b4dd0c5fbc044bf2e0bbc
+[2017-07-05 16:10:11.189] [INFO] console - Express server listening on port 3000
+[2017-07-05 16:11:00.017] [INFO] console - 定时任务：月账单 2017-07-05T08:11:00.017Z
+[2017-07-05 16:11:00.118] [INFO] console - clients: [ { _id: 595b3cfab672033f0aaafe71,
+    clientId: '5954609c57916679fcd62f2d',
+    startTime: '2017-06-30T16:00:00.000Z',
+    endTime: '2017-07-12T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-04T07:00:10.608Z,
+    closeAt: null,
+    settle: 180,
+    difference: 0,
+    differenceWith: null },
+  { _id: 595b3d2bb672033f0aaafe72,
+    clientId: '5954609c57916679fcd62f2d',
+    startTime: '2017-06-30T16:00:00.000Z',
+    endTime: '2017-07-21T16:00:00.000Z',
+    userNum: 20,
+    createAt: 2017-07-04T07:00:59.507Z,
+    closeAt: null,
+    settle: 210,
+    difference: 30,
+    differenceWith: '595b3cfab672033f0aaafe71' } ]
+[2017-07-05 16:11:00.132] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:11:00.134] [INFO] console - clients: [ { _id: 595b3dbcfd05f93f25df7bba,
+    clientId: '59546cb3c2a13c7caf50f62f',
+    startTime: '2017-07-03T16:00:00.000Z',
+    endTime: '2017-07-27T16:00:00.000Z',
+    userNum: '15',
+    createAt: 2017-07-04T07:03:24.579Z,
+    closeAt: null,
+    settle: 180,
+    difference: 0,
+    differenceWith: null,
+    first: true },
+  { _id: 595b3dcefd05f93f25df7bbb,
+    clientId: '59546cb3c2a13c7caf50f62f',
+    startTime: '2017-07-03T16:00:00.000Z',
+    endTime: '2017-07-27T16:00:00.000Z',
+    userNum: 19,
+    createAt: 2017-07-04T07:03:42.515Z,
+    closeAt: null,
+    settle: 228,
+    difference: 48,
+    differenceWith: '595b3dbcfd05f93f25df7bba' } ]
+[2017-07-05 16:11:00.144] [INFO] console - clients: [ { _id: 595c834c40b90a517fa0d072,
+    clientId: '5954c8cbd773c88b29b79b0d',
+    startTime: '2017-07-07T16:00:00.000Z',
+    endTime: '2017-08-25T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-05T06:12:28.519Z,
+    closeAt: null,
+    settle: 720,
+    difference: 0,
+    differenceWith: null,
+    first: true } ]
+[2017-07-05 16:11:00.182] [INFO] console - clients: []
+[2017-07-05 16:11:00.186] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:11:00.188] [INFO] console - clients: []
+[2017-07-05 16:11:00.198] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:11:00.199] [INFO] console - 遍历客户结束 [ { clientId: '5954609c57916679fcd62f2d',
+    clientName: '诺克萨斯',
+    month: 7,
+    settle: 0 },
+  { clientId: '59546cb3c2a13c7caf50f62f',
+    clientName: '德玛西亚',
+    month: 7,
+    settle: 228 },
+  { clientId: '5954c8cbd773c88b29b79b0d',
+    clientName: '哈撒该',
+    month: 7,
+    settle: 720 },
+  { clientId: '59599f4fac10e21dfddec175',
+    clientName: '大军师司马懿',
+    month: 7,
+    settle: 0 },
+  { clientId: '5959a9d2e29d341e2a6abf70',
+    clientName: '青青草原',
+    month: 7,
+    settle: 0 } ]
+[2017-07-05 16:11:00.253] [INFO] console - 客户：诺克萨斯-7月账单插入成功（0元）
+[2017-07-05 16:11:00.258] [INFO] console - 客户：德玛西亚-7月账单插入成功（228元）
+[2017-07-05 16:11:00.261] [INFO] console - 客户：哈撒该-7月账单插入成功（720元）
+[2017-07-05 16:11:00.262] [INFO] console - 客户：大军师司马懿-7月账单插入成功（0元）
+[2017-07-05 16:11:00.278] [INFO] console - 客户：青青草原-7月账单插入成功（0元）
+[2017-07-05 16:11:00.278] [INFO] console - 账单插入完成
+[2017-07-05 16:12:00.017] [INFO] console - 定时任务：月账单 2017-07-05T08:12:00.017Z
+[2017-07-05 16:12:00.027] [INFO] console - clients: [ { _id: 595b3cfab672033f0aaafe71,
+    clientId: '5954609c57916679fcd62f2d',
+    startTime: '2017-06-30T16:00:00.000Z',
+    endTime: '2017-07-12T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-04T07:00:10.608Z,
+    closeAt: null,
+    settle: 180,
+    difference: 0,
+    differenceWith: null },
+  { _id: 595b3d2bb672033f0aaafe72,
+    clientId: '5954609c57916679fcd62f2d',
+    startTime: '2017-06-30T16:00:00.000Z',
+    endTime: '2017-07-21T16:00:00.000Z',
+    userNum: 20,
+    createAt: 2017-07-04T07:00:59.507Z,
+    closeAt: null,
+    settle: 210,
+    difference: 30,
+    differenceWith: '595b3cfab672033f0aaafe71' } ]
+[2017-07-05 16:12:00.030] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:12:00.032] [INFO] console - clients: [ { _id: 595b3dbcfd05f93f25df7bba,
+    clientId: '59546cb3c2a13c7caf50f62f',
+    startTime: '2017-07-03T16:00:00.000Z',
+    endTime: '2017-07-27T16:00:00.000Z',
+    userNum: '15',
+    createAt: 2017-07-04T07:03:24.579Z,
+    closeAt: null,
+    settle: 180,
+    difference: 0,
+    differenceWith: null,
+    first: true },
+  { _id: 595b3dcefd05f93f25df7bbb,
+    clientId: '59546cb3c2a13c7caf50f62f',
+    startTime: '2017-07-03T16:00:00.000Z',
+    endTime: '2017-07-27T16:00:00.000Z',
+    userNum: 19,
+    createAt: 2017-07-04T07:03:42.515Z,
+    closeAt: null,
+    settle: 228,
+    difference: 48,
+    differenceWith: '595b3dbcfd05f93f25df7bba' } ]
+[2017-07-05 16:12:00.038] [INFO] console - clients: [ { _id: 595c834c40b90a517fa0d072,
+    clientId: '5954c8cbd773c88b29b79b0d',
+    startTime: '2017-07-07T16:00:00.000Z',
+    endTime: '2017-08-25T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-05T06:12:28.519Z,
+    closeAt: null,
+    settle: 720,
+    difference: 0,
+    differenceWith: null,
+    first: true } ]
+[2017-07-05 16:12:00.042] [INFO] console - clients: []
+[2017-07-05 16:12:00.044] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:12:00.049] [INFO] console - clients: []
+[2017-07-05 16:12:00.054] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:12:00.055] [INFO] console - 遍历客户结束 [ { clientId: '5954609c57916679fcd62f2d',
+    clientName: '诺克萨斯',
+    month: 7,
+    settle: 0 },
+  { clientId: '59546cb3c2a13c7caf50f62f',
+    clientName: '德玛西亚',
+    month: 7,
+    settle: 228 },
+  { clientId: '5954c8cbd773c88b29b79b0d',
+    clientName: '哈撒该',
+    month: 7,
+    settle: 720 },
+  { clientId: '59599f4fac10e21dfddec175',
+    clientName: '大军师司马懿',
+    month: 7,
+    settle: 0 },
+  { clientId: '5959a9d2e29d341e2a6abf70',
+    clientName: '青青草原',
+    month: 7,
+    settle: 0 } ]
+[2017-07-05 16:12:00.064] [INFO] console - 客户：诺克萨斯-7月账单插入成功（0元）
+[2017-07-05 16:12:00.066] [INFO] console - 客户：德玛西亚-7月账单插入成功（228元）
+[2017-07-05 16:12:00.069] [INFO] console - 客户：哈撒该-7月账单插入成功（720元）
+[2017-07-05 16:12:00.077] [INFO] console - 客户：大军师司马懿-7月账单插入成功（0元）
+[2017-07-05 16:12:00.082] [INFO] console - 客户：青青草原-7月账单插入成功（0元）
+[2017-07-05 16:12:00.082] [INFO] console - 账单插入完成
+[2017-07-05 16:13:00.006] [INFO] console - 定时任务：月账单 2017-07-05T08:13:00.006Z
+[2017-07-05 16:13:00.023] [INFO] console - clients: [ { _id: 595b3cfab672033f0aaafe71,
+    clientId: '5954609c57916679fcd62f2d',
+    startTime: '2017-06-30T16:00:00.000Z',
+    endTime: '2017-07-12T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-04T07:00:10.608Z,
+    closeAt: null,
+    settle: 180,
+    difference: 0,
+    differenceWith: null },
+  { _id: 595b3d2bb672033f0aaafe72,
+    clientId: '5954609c57916679fcd62f2d',
+    startTime: '2017-06-30T16:00:00.000Z',
+    endTime: '2017-07-21T16:00:00.000Z',
+    userNum: 20,
+    createAt: 2017-07-04T07:00:59.507Z,
+    closeAt: null,
+    settle: 210,
+    difference: 30,
+    differenceWith: '595b3cfab672033f0aaafe71' } ]
+[2017-07-05 16:13:00.027] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:13:00.028] [INFO] console - clients: [ { _id: 595b3dbcfd05f93f25df7bba,
+    clientId: '59546cb3c2a13c7caf50f62f',
+    startTime: '2017-07-03T16:00:00.000Z',
+    endTime: '2017-07-27T16:00:00.000Z',
+    userNum: '15',
+    createAt: 2017-07-04T07:03:24.579Z,
+    closeAt: null,
+    settle: 180,
+    difference: 0,
+    differenceWith: null,
+    first: true },
+  { _id: 595b3dcefd05f93f25df7bbb,
+    clientId: '59546cb3c2a13c7caf50f62f',
+    startTime: '2017-07-03T16:00:00.000Z',
+    endTime: '2017-07-27T16:00:00.000Z',
+    userNum: 19,
+    createAt: 2017-07-04T07:03:42.515Z,
+    closeAt: null,
+    settle: 228,
+    difference: 48,
+    differenceWith: '595b3dbcfd05f93f25df7bba' } ]
+[2017-07-05 16:13:00.035] [INFO] console - clients: [ { _id: 595c834c40b90a517fa0d072,
+    clientId: '5954c8cbd773c88b29b79b0d',
+    startTime: '2017-07-07T16:00:00.000Z',
+    endTime: '2017-08-25T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-05T06:12:28.519Z,
+    closeAt: null,
+    settle: 720,
+    difference: 0,
+    differenceWith: null,
+    first: true } ]
+[2017-07-05 16:13:00.043] [INFO] console - clients: []
+[2017-07-05 16:13:00.044] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:13:00.046] [INFO] console - clients: []
+[2017-07-05 16:13:00.049] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:13:00.049] [INFO] console - 遍历客户结束 [ { clientId: '5954609c57916679fcd62f2d',
+    clientName: '诺克萨斯',
+    month: 7,
+    settle: 0 },
+  { clientId: '59546cb3c2a13c7caf50f62f',
+    clientName: '德玛西亚',
+    month: 7,
+    settle: 228 },
+  { clientId: '5954c8cbd773c88b29b79b0d',
+    clientName: '哈撒该',
+    month: 7,
+    settle: 720 },
+  { clientId: '59599f4fac10e21dfddec175',
+    clientName: '大军师司马懿',
+    month: 7,
+    settle: 0 },
+  { clientId: '5959a9d2e29d341e2a6abf70',
+    clientName: '青青草原',
+    month: 7,
+    settle: 0 } ]
+[2017-07-05 16:13:00.054] [INFO] console - 客户：诺克萨斯-7月账单插入成功（0元）
+[2017-07-05 16:13:00.056] [INFO] console - 客户：德玛西亚-7月账单插入成功（228元）
+[2017-07-05 16:13:00.058] [INFO] console - 客户：哈撒该-7月账单插入成功（720元）
+[2017-07-05 16:13:00.059] [INFO] console - 客户：大军师司马懿-7月账单插入成功（0元）
+[2017-07-05 16:13:00.060] [INFO] console - 客户：青青草原-7月账单插入成功（0元）
+[2017-07-05 16:13:00.061] [INFO] console - 账单插入完成
+[2017-07-05 16:14:00.011] [INFO] console - 定时任务：月账单 2017-07-05T08:14:00.011Z
+[2017-07-05 16:14:00.021] [INFO] console - clients: [ { _id: 595b3cfab672033f0aaafe71,
+    clientId: '5954609c57916679fcd62f2d',
+    startTime: '2017-06-30T16:00:00.000Z',
+    endTime: '2017-07-12T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-04T07:00:10.608Z,
+    closeAt: null,
+    settle: 180,
+    difference: 0,
+    differenceWith: null },
+  { _id: 595b3d2bb672033f0aaafe72,
+    clientId: '5954609c57916679fcd62f2d',
+    startTime: '2017-06-30T16:00:00.000Z',
+    endTime: '2017-07-21T16:00:00.000Z',
+    userNum: 20,
+    createAt: 2017-07-04T07:00:59.507Z,
+    closeAt: null,
+    settle: 210,
+    difference: 30,
+    differenceWith: '595b3cfab672033f0aaafe71' } ]
+[2017-07-05 16:14:00.023] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:14:00.025] [INFO] console - clients: [ { _id: 595b3dbcfd05f93f25df7bba,
+    clientId: '59546cb3c2a13c7caf50f62f',
+    startTime: '2017-07-03T16:00:00.000Z',
+    endTime: '2017-07-27T16:00:00.000Z',
+    userNum: '15',
+    createAt: 2017-07-04T07:03:24.579Z,
+    closeAt: null,
+    settle: 180,
+    difference: 0,
+    differenceWith: null,
+    first: true },
+  { _id: 595b3dcefd05f93f25df7bbb,
+    clientId: '59546cb3c2a13c7caf50f62f',
+    startTime: '2017-07-03T16:00:00.000Z',
+    endTime: '2017-07-27T16:00:00.000Z',
+    userNum: 19,
+    createAt: 2017-07-04T07:03:42.515Z,
+    closeAt: null,
+    settle: 228,
+    difference: 48,
+    differenceWith: '595b3dbcfd05f93f25df7bba' } ]
+[2017-07-05 16:14:00.030] [INFO] console - clients: [ { _id: 595c834c40b90a517fa0d072,
+    clientId: '5954c8cbd773c88b29b79b0d',
+    startTime: '2017-07-07T16:00:00.000Z',
+    endTime: '2017-08-25T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-05T06:12:28.519Z,
+    closeAt: null,
+    settle: 720,
+    difference: 0,
+    differenceWith: null,
+    first: true } ]
+[2017-07-05 16:14:00.034] [INFO] console - clients: []
+[2017-07-05 16:14:00.037] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:14:00.039] [INFO] console - clients: []
+[2017-07-05 16:14:00.041] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:14:00.041] [INFO] console - 遍历客户结束 [ { clientId: '5954609c57916679fcd62f2d',
+    clientName: '诺克萨斯',
+    month: 7,
+    settle: 0 },
+  { clientId: '59546cb3c2a13c7caf50f62f',
+    clientName: '德玛西亚',
+    month: 7,
+    settle: 228 },
+  { clientId: '5954c8cbd773c88b29b79b0d',
+    clientName: '哈撒该',
+    month: 7,
+    settle: 720 },
+  { clientId: '59599f4fac10e21dfddec175',
+    clientName: '大军师司马懿',
+    month: 7,
+    settle: 0 },
+  { clientId: '5959a9d2e29d341e2a6abf70',
+    clientName: '青青草原',
+    month: 7,
+    settle: 0 } ]
+[2017-07-05 16:14:00.045] [INFO] console - 客户：诺克萨斯-7月账单插入成功（0元）
+[2017-07-05 16:14:00.046] [INFO] console - 客户：德玛西亚-7月账单插入成功（228元）
+[2017-07-05 16:14:00.047] [INFO] console - 客户：哈撒该-7月账单插入成功（720元）
+[2017-07-05 16:14:00.049] [INFO] console - 客户：大军师司马懿-7月账单插入成功（0元）
+[2017-07-05 16:14:00.050] [INFO] console - 客户：青青草原-7月账单插入成功（0元）
+[2017-07-05 16:14:00.050] [INFO] console - 账单插入完成
+[2017-07-05 16:15:00.006] [INFO] console - 定时任务：月账单 2017-07-05T08:15:00.005Z
+[2017-07-05 16:15:00.011] [INFO] console - clients: [ { _id: 595b3cfab672033f0aaafe71,
+    clientId: '5954609c57916679fcd62f2d',
+    startTime: '2017-06-30T16:00:00.000Z',
+    endTime: '2017-07-12T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-04T07:00:10.608Z,
+    closeAt: null,
+    settle: 180,
+    difference: 0,
+    differenceWith: null },
+  { _id: 595b3d2bb672033f0aaafe72,
+    clientId: '5954609c57916679fcd62f2d',
+    startTime: '2017-06-30T16:00:00.000Z',
+    endTime: '2017-07-21T16:00:00.000Z',
+    userNum: 20,
+    createAt: 2017-07-04T07:00:59.507Z,
+    closeAt: null,
+    settle: 210,
+    difference: 30,
+    differenceWith: '595b3cfab672033f0aaafe71' } ]
+[2017-07-05 16:15:00.014] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:15:00.016] [INFO] console - clients: [ { _id: 595b3dbcfd05f93f25df7bba,
+    clientId: '59546cb3c2a13c7caf50f62f',
+    startTime: '2017-07-03T16:00:00.000Z',
+    endTime: '2017-07-27T16:00:00.000Z',
+    userNum: '15',
+    createAt: 2017-07-04T07:03:24.579Z,
+    closeAt: null,
+    settle: 180,
+    difference: 0,
+    differenceWith: null,
+    first: true },
+  { _id: 595b3dcefd05f93f25df7bbb,
+    clientId: '59546cb3c2a13c7caf50f62f',
+    startTime: '2017-07-03T16:00:00.000Z',
+    endTime: '2017-07-27T16:00:00.000Z',
+    userNum: 19,
+    createAt: 2017-07-04T07:03:42.515Z,
+    closeAt: null,
+    settle: 228,
+    difference: 48,
+    differenceWith: '595b3dbcfd05f93f25df7bba' } ]
+[2017-07-05 16:15:00.023] [INFO] console - clients: [ { _id: 595c834c40b90a517fa0d072,
+    clientId: '5954c8cbd773c88b29b79b0d',
+    startTime: '2017-07-07T16:00:00.000Z',
+    endTime: '2017-08-25T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-05T06:12:28.519Z,
+    closeAt: null,
+    settle: 720,
+    difference: 0,
+    differenceWith: null,
+    first: true } ]
+[2017-07-05 16:15:00.026] [INFO] console - clients: []
+[2017-07-05 16:15:00.028] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:15:00.029] [INFO] console - clients: []
+[2017-07-05 16:15:00.032] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-05 16:15:00.032] [INFO] console - 遍历客户结束 [ { clientId: '5954609c57916679fcd62f2d',
+    clientName: '诺克萨斯',
+    month: 7,
+    settle: 0 },
+  { clientId: '59546cb3c2a13c7caf50f62f',
+    clientName: '德玛西亚',
+    month: 7,
+    settle: 228 },
+  { clientId: '5954c8cbd773c88b29b79b0d',
+    clientName: '哈撒该',
+    month: 7,
+    settle: 720 },
+  { clientId: '59599f4fac10e21dfddec175',
+    clientName: '大军师司马懿',
+    month: 7,
+    settle: 0 },
+  { clientId: '5959a9d2e29d341e2a6abf70',
+    clientName: '青青草原',
+    month: 7,
+    settle: 0 } ]
+[2017-07-05 16:15:00.036] [INFO] console - 客户：诺克萨斯-7月账单插入成功（0元）
+[2017-07-05 16:15:00.038] [INFO] console - 客户：德玛西亚-7月账单插入成功（228元）
+[2017-07-05 16:15:00.039] [INFO] console - 客户：哈撒该-7月账单插入成功（720元）
+[2017-07-05 16:15:00.041] [INFO] console - 客户：大军师司马懿-7月账单插入成功（0元）
+[2017-07-05 16:15:00.042] [INFO] console - 客户：青青草原-7月账单插入成功（0元）
+[2017-07-05 16:15:00.042] [INFO] console - 账单插入完成
+[2017-07-05 16:16:12.648] [INFO] console - Express server listening on port 3000
+[2017-07-05 16:16:13.351] [INFO] record - GET /logout
+[2017-07-05 16:16:17.025] [INFO] record - GET /islogin
+[2017-07-05 16:16:19.553] [INFO] record - OPTIONS /login
+[2017-07-05 16:16:19.673] [INFO] record - POST /login
+[2017-07-05 16:16:19.930] [INFO] record - GET /bill/list
+[2017-07-05 16:16:28.374] [INFO] record - GET /version/list
+[2017-07-05 16:16:29.419] [INFO] record - GET /role/list
+[2017-07-05 16:16:30.499] [INFO] record - GET /user/list
+[2017-07-05 16:16:30.601] [INFO] record - GET /role/list
+[2017-07-05 16:16:30.636] [INFO] record - GET /client/list
+[2017-07-05 16:16:31.647] [INFO] record - GET /user/list
+[2017-07-05 16:16:31.673] [INFO] record - GET /client/list
+[2017-07-05 16:17:22.980] [INFO] record - GET /logout
+[2017-07-05 16:17:24.678] [INFO] record - OPTIONS /login
+[2017-07-05 16:17:24.708] [INFO] record - POST /login
+[2017-07-05 16:17:24.907] [INFO] record - GET /user/list
+[2017-07-05 16:17:24.939] [INFO] record - GET /client/list
+[2017-07-05 16:17:26.560] [INFO] record - GET /bill/list
+[2017-07-05 16:17:51.395] [INFO] record - GET /user/list
+[2017-07-05 16:17:51.439] [INFO] record - GET /client/list
+[2017-07-05 16:20:07.920] [INFO] console - Express server listening on port 3000
+[2017-07-05 16:20:27.458] [INFO] record - GET /bill/list
+[2017-07-05 16:20:28.663] [INFO] record - GET /role/list
+[2017-07-05 16:20:36.914] [INFO] record - OPTIONS /role/update
+[2017-07-05 16:20:37.018] [INFO] record - POST /role/update
+[2017-07-05 16:20:37.186] [INFO] record - GET /role/list
+[2017-07-05 16:20:39.089] [INFO] record - GET /user/list
+[2017-07-05 16:20:39.350] [INFO] record - GET /client/list
+[2017-07-05 16:20:41.729] [INFO] record - GET /user/list
+[2017-07-05 16:20:41.747] [INFO] record - GET /client/list
+[2017-07-05 16:20:41.771] [INFO] record - GET /role/list
+[2017-07-05 16:20:42.918] [INFO] record - GET /bill/list
+[2017-07-05 16:21:00.063] [INFO] record - GET /user/list
+[2017-07-05 16:21:00.144] [INFO] record - GET /role/list
+[2017-07-05 16:21:00.147] [INFO] record - GET /client/list
+[2017-07-05 16:21:01.150] [INFO] record - GET /bill/list
+[2017-07-05 16:21:04.083] [INFO] record - GET /user/list
+[2017-07-05 16:21:04.127] [INFO] record - GET /client/list
+[2017-07-05 16:21:05.365] [INFO] record - GET /role/list
+[2017-07-05 16:21:06.850] [INFO] record - GET /version/list
+[2017-07-05 16:21:07.744] [INFO] record - GET /user/list
+[2017-07-05 16:21:07.851] [INFO] record - GET /client/list
+[2017-07-05 16:25:11.097] [INFO] record - GET /islogin
+[2017-07-05 16:25:12.435] [INFO] record - GET /user/list
+[2017-07-05 16:25:12.535] [INFO] record - GET /client/list
+[2017-07-05 16:25:14.858] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:25:15.175] [INFO] record - POST /client/service/list
+[2017-07-05 16:25:27.169] [INFO] record - OPTIONS /client/service/new
+[2017-07-05 16:25:27.218] [INFO] record - POST /client/service/new
+[2017-07-05 16:25:27.324] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:25:27.384] [INFO] record - POST /client/service/list
+[2017-07-05 16:25:35.217] [INFO] record - OPTIONS /client/update
+[2017-07-05 16:25:35.300] [INFO] console - check client is already inited: null []
+[2017-07-05 16:25:35.305] [INFO] console - check account is already existed: null []
+[2017-07-05 16:25:35.315] [INFO] console - select t_sys_menu finished: null
+[2017-07-05 16:25:35.334] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 694,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:25:35.341] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 48,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:25:35.356] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 190,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:25:35.381] [INFO] console - init t_module finished: null 20231 [ 20229, 20230, 20231, 20232, 20233 ]
+[2017-07-05 16:25:35.385] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20214,20215,20216,20217,20218' } ]
+[2017-07-05 16:25:35.393] [INFO] console - update t_sys_role finished: null
+[2017-07-05 16:25:35.424] [INFO] console - init t_info fineshed: null
+[2017-07-05 16:25:35.432] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10193,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:25:35.434] [INFO] console - mysql初始化完毕
+[2017-07-05 16:25:35.435] [INFO] console - { status: 1, mag: 'success' }
+[2017-07-05 16:25:35.445] [INFO] record - POST /client/update
+[2017-07-05 16:25:35.488] [INFO] record - OPTIONS /client/service/open
+[2017-07-05 16:25:35.520] [INFO] record - POST /client/service/open
+[2017-07-05 16:25:35.525] [INFO] console - redis open client:5954609c57916679fcd62f2d OK
+[2017-07-05 16:25:35.588] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:25:35.599] [INFO] record - POST /client/service/list
+[2017-07-05 16:26:06.699] [INFO] record - OPTIONS /client/service/change
+[2017-07-05 16:26:06.747] [INFO] console - change service redis open client:5954609c57916679fcd62f2d OK
+[2017-07-05 16:26:06.750] [INFO] record - POST /client/service/change
+[2017-07-05 16:26:06.822] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:26:06.857] [INFO] record - POST /client/service/list
+[2017-07-05 16:40:08.152] [INFO] console - Express server listening on port 3000
+[2017-07-05 16:41:14.101] [INFO] record - GET /user/list
+[2017-07-05 16:41:14.214] [INFO] record - GET /client/list
+[2017-07-05 16:41:16.338] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:41:16.722] [INFO] record - POST /client/service/list
+[2017-07-05 16:41:25.802] [INFO] record - OPTIONS /client/service/new
+[2017-07-05 16:41:25.831] [INFO] record - POST /client/service/new
+[2017-07-05 16:41:25.869] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:41:25.904] [INFO] record - POST /client/service/list
+[2017-07-05 16:41:32.947] [INFO] record - OPTIONS /client/update
+[2017-07-05 16:41:33.014] [INFO] console - check client is already inited: null []
+[2017-07-05 16:41:33.029] [INFO] console - check account is already existed: null []
+[2017-07-05 16:41:33.041] [INFO] console - select t_sys_menu finished: null
+[2017-07-05 16:41:33.050] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 695,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:41:33.059] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 49,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:41:33.070] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 191,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:41:33.091] [INFO] console - init t_module finished: null 20236 [ 20234, 20235, 20236, 20237, 20238 ]
+[2017-07-05 16:41:33.096] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20229,20230,20231,20232,20233' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20229,20230,20231,20232,20233' } ]
+[2017-07-05 16:41:33.105] [INFO] console - update t_sys_role finished: null
+[2017-07-05 16:41:33.118] [INFO] console - init t_info fineshed: null
+[2017-07-05 16:41:33.122] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10194,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:41:33.123] [INFO] console - mysql初始化完毕
+[2017-07-05 16:41:33.123] [INFO] console - { status: 1, mag: 'success' }
+[2017-07-05 16:41:33.134] [INFO] record - POST /client/update
+[2017-07-05 16:41:33.167] [INFO] record - OPTIONS /client/service/open
+[2017-07-05 16:41:33.211] [INFO] record - POST /client/service/open
+[2017-07-05 16:41:33.214] [INFO] console - redis open client:5954609c57916679fcd62f2d OK
+[2017-07-05 16:41:33.254] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:41:33.283] [INFO] record - POST /client/service/list
+[2017-07-05 16:42:01.798] [INFO] record - OPTIONS /client/service/change
+[2017-07-05 16:42:01.835] [INFO] console - change service redis open client:5954609c57916679fcd62f2d OK
+[2017-07-05 16:42:01.841] [INFO] record - POST /client/service/change
+[2017-07-05 16:42:01.881] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:42:01.931] [INFO] record - POST /client/service/list
+[2017-07-05 16:42:13.928] [INFO] record - GET /user/list
+[2017-07-05 16:42:13.978] [INFO] record - GET /client/list
+[2017-07-05 16:42:17.045] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:42:17.151] [INFO] record - POST /client/service/list
+[2017-07-05 16:42:30.596] [INFO] record - OPTIONS /client/service/new
+[2017-07-05 16:42:30.622] [INFO] record - POST /client/service/new
+[2017-07-05 16:42:30.666] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:42:30.705] [INFO] record - POST /client/service/list
+[2017-07-05 16:42:39.079] [INFO] record - OPTIONS /client/update
+[2017-07-05 16:42:39.100] [INFO] console - check client is already inited: null []
+[2017-07-05 16:42:39.101] [INFO] console - check account is already existed: null []
+[2017-07-05 16:42:39.102] [INFO] console - select t_sys_menu finished: null
+[2017-07-05 16:42:39.103] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 696,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:42:39.107] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 50,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:42:39.115] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 192,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:42:39.126] [INFO] console - init t_module finished: null 20241 [ 20239, 20240, 20241, 20242, 20243 ]
+[2017-07-05 16:42:39.130] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20149,20150,20151,20152,20153,20164,20165,20166,20167,20168,20174,20175,20176,20177,20178,20199,20200,20201,20202,20203,20219,20220,20221,20222,20223' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20149,20150,20151,20152,20153,20164,20165,20166,20167,20168,20174,20175,20176,20177,20178,20199,20200,20201,20202,20203,20219,20220,20221,20222,20223' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20149,20150,20151,20152,20153,20164,20165,20166,20167,20168,20174,20175,20176,20177,20178,20199,20200,20201,20202,20203,20219,20220,20221,20222,20223' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20149,20150,20151,20152,20153,20164,20165,20166,20167,20168,20174,20175,20176,20177,20178,20199,20200,20201,20202,20203,20219,20220,20221,20222,20223' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20149,20150,20151,20152,20153,20164,20165,20166,20167,20168,20174,20175,20176,20177,20178,20199,20200,20201,20202,20203,20219,20220,20221,20222,20223' },
+  RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002,20149,20150,20151,20152,20153,20164,20165,20166,20167,20168,20174,20175,20176,20177,20178,20199,20200,20201,20202,20203,20219,20220,20221,20222,20223' } ]
+[2017-07-05 16:42:39.141] [INFO] console - update t_sys_role finished: { Error: ER_DATA_TOO_LONG: Data too long for column 'FMENU_PRIVILEGE' at row 37
+    at Query.Sequence._packetToError (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)
+    --------------------
+    at Protocol._enqueue (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:208:25)
+    at Query._callback (/Users/ludis/Mac/projects/Vue/backend/server/models/initManager.js:184:27)
+    at Query.Sequence.end (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:86:24)
+    at Query._handleFinalResultPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:137:8)
+    at Query.EofPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:121:8)
+    at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+  code: 'ER_DATA_TOO_LONG',
+  errno: 1406,
+  sqlState: '22001',
+  index: 0 }
+[2017-07-05 16:42:39.151] [ERROR] console - mysql初始化失败！ { Error: ER_DATA_TOO_LONG: Data too long for column 'FMENU_PRIVILEGE' at row 37
+    at Query.Sequence._packetToError (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+    at emitOne (events.js:96:13)
+    at Socket.emit (events.js:188:7)
+    at readableAddChunk (_stream_readable.js:176:18)
+    at Socket.Readable.push (_stream_readable.js:134:10)
+    at TCP.onread (net.js:547:20)
+    --------------------
+    at Protocol._enqueue (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:141:48)
+    at PoolConnection.query (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:208:25)
+    at Query._callback (/Users/ludis/Mac/projects/Vue/backend/server/models/initManager.js:184:27)
+    at Query.Sequence.end (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:86:24)
+    at Query._handleFinalResultPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:137:8)
+    at Query.EofPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:121:8)
+    at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+    at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+    at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+  code: 'ER_DATA_TOO_LONG',
+  errno: 1406,
+  sqlState: '22001',
+  index: 0 }
+[2017-07-05 16:42:39.152] [INFO] console - { status: 0,
+  msg: 
+   { Error: ER_DATA_TOO_LONG: Data too long for column 'FMENU_PRIVILEGE' at row 37
+       at Query.Sequence._packetToError (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:52:14)
+       at Query.ErrorPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:77:18)
+       at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+       at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+       at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+       at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+       at emitOne (events.js:96:13)
+       at Socket.emit (events.js:188:7)
+       at readableAddChunk (_stream_readable.js:176:18)
+       at Socket.Readable.push (_stream_readable.js:134:10)
+       at TCP.onread (net.js:547:20)
+       --------------------
+       at Protocol._enqueue (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:141:48)
+       at PoolConnection.query (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:208:25)
+       at Query._callback (/Users/ludis/Mac/projects/Vue/backend/server/models/initManager.js:184:27)
+       at Query.Sequence.end (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Sequence.js:86:24)
+       at Query._handleFinalResultPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:137:8)
+       at Query.EofPacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/sequences/Query.js:121:8)
+       at Protocol._parsePacket (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:280:23)
+       at Parser.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Parser.js:75:12)
+       at Protocol.write (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/protocol/Protocol.js:39:16)
+       at Socket.<anonymous> (/Users/ludis/Mac/projects/Vue/backend/node_modules/._mysql@2.13.0@mysql/lib/Connection.js:103:28)
+     code: 'ER_DATA_TOO_LONG',
+     errno: 1406,
+     sqlState: '22001',
+     index: 0 } }
+[2017-07-05 16:42:39.155] [INFO] record - POST /client/update
+[2017-07-05 16:42:39.196] [INFO] console - delete finished: null
+[2017-07-05 16:42:46.698] [INFO] record - OPTIONS /client/update
+[2017-07-05 16:42:46.717] [INFO] console - check client is already inited: null []
+[2017-07-05 16:42:46.719] [INFO] console - check account is already existed: null []
+[2017-07-05 16:42:46.721] [INFO] console - select t_sys_menu finished: null
+[2017-07-05 16:42:46.722] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 697,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:42:46.726] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 51,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:42:46.728] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 193,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:42:46.737] [INFO] console - init t_module finished: null 20246 [ 20244, 20245, 20246, 20247, 20248 ]
+[2017-07-05 16:42:46.739] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' } ]
+[2017-07-05 16:42:46.743] [INFO] console - update t_sys_role finished: null
+[2017-07-05 16:42:46.752] [INFO] console - init t_info fineshed: null
+[2017-07-05 16:42:46.755] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10195,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-05 16:42:46.755] [INFO] console - mysql初始化完毕
+[2017-07-05 16:42:46.756] [INFO] console - { status: 1, mag: 'success' }
+[2017-07-05 16:42:46.759] [INFO] record - POST /client/update
+[2017-07-05 16:42:46.788] [INFO] record - OPTIONS /client/service/open
+[2017-07-05 16:42:46.815] [INFO] record - POST /client/service/open
+[2017-07-05 16:42:46.825] [INFO] console - redis open client:59546cb3c2a13c7caf50f62f OK
+[2017-07-05 16:42:46.852] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:42:46.875] [INFO] record - POST /client/service/list
+[2017-07-05 16:42:55.757] [INFO] record - GET /bill/list
+[2017-07-05 16:43:27.937] [INFO] record - GET /user/list
+[2017-07-05 16:43:28.042] [INFO] record - GET /client/list
+[2017-07-05 16:43:30.550] [INFO] record - OPTIONS /client/service/list
+[2017-07-05 16:43:30.706] [INFO] record - POST /client/service/list
+[2017-07-05 16:43:33.967] [INFO] record - GET /user/list
+[2017-07-05 16:43:34.081] [INFO] record - GET /client/list
+[2017-07-05 16:43:36.277] [INFO] record - GET /bill/list
+[2017-07-05 16:43:38.509] [INFO] record - GET /user/list
+[2017-07-05 16:43:38.535] [INFO] record - GET /role/list
+[2017-07-05 16:43:38.570] [INFO] record - GET /client/list
+[2017-07-05 16:43:40.078] [INFO] record - GET /bill/list
+[2017-07-05 17:03:53.028] [INFO] console - Express server listening on port 3000
+[2017-07-05 17:03:54.664] [INFO] record - OPTIONS /login
+[2017-07-05 17:03:54.790] [INFO] record - POST /login
+[2017-07-05 17:03:55.011] [INFO] record - GET /bill/list
+[2017-07-05 17:03:57.454] [INFO] record - GET /islogin
+[2017-07-05 17:03:58.187] [INFO] record - GET /bill/list
+[2017-07-05 17:03:59.070] [INFO] record - GET /user/list
+[2017-07-05 17:03:59.156] [INFO] record - GET /role/list
+[2017-07-05 17:03:59.174] [INFO] record - GET /client/list
+[2017-07-05 17:04:00.302] [INFO] record - GET /user/list
+[2017-07-05 17:04:00.313] [INFO] record - GET /client/list
+[2017-07-05 17:04:32.299] [INFO] record - GET /client/list
+[2017-07-05 17:04:32.301] [INFO] record - GET /user/list
+[2017-07-05 17:04:32.333] [INFO] record - GET /role/list
+[2017-07-05 17:04:33.443] [INFO] record - GET /user/list
+[2017-07-05 17:04:33.457] [INFO] record - GET /client/list
+[2017-07-05 17:04:43.522] [INFO] record - OPTIONS /client/new
+[2017-07-05 17:04:43.577] [INFO] record - POST /client/new
+[2017-07-05 17:04:43.582] [INFO] console - redis add client:595cababf8e42a6301f8cae5 OK
+[2017-07-05 17:04:43.692] [INFO] record - GET /client/list
+[2017-07-05 17:05:08.279] [INFO] record - OPTIONS /client/new
+[2017-07-05 17:05:08.313] [INFO] record - POST /client/new
+[2017-07-05 17:05:08.314] [INFO] console - redis add client:595cabc4f8e42a6301f8cae6 OK
+[2017-07-05 17:05:08.373] [INFO] record - GET /client/list
+[2017-07-05 17:34:45.389] [INFO] console - Express server listening on port 3000

@@ -2,12 +2,8 @@
 	<div class="notice">
 		<template v-for="item in getNotice">
 			<p class="notice-item">
-				<!-- <Icon type="android-notifications-none" size="12" :color="item.haveRead?'green':'red'"></Icon> 
-				<span>{{item.content}}</span> -->
 				<Tag type="dot" :color="item.haveRead?'blue':'red'">{{item.content}}</Tag>
 			</p>
-			
-			
 		</template>
 		<p class="notip" v-show="!getNotice || getNotice.length==0">暂无消息~</p>
 		<!-- <pre>{{getNotice}}</pre> -->
@@ -71,6 +67,6 @@ export default {
     background: #f8f8f9 !important;
 }
 .notice{
-	padding: 20px 10px;
+	padding: 10px 10px;
 }
 </style>

@@ -55,7 +55,7 @@ var task = schedule.scheduleJob('0 0 2 * * *', function(){
 	console.info('定时任务：到期提醒', new Date());
 	timing()
 });
-var task = schedule.scheduleJob('* * * 1 * *', function(){
+var task = schedule.scheduleJob('0 0 0 1 * *', function(){
 	console.info('定时任务：月账单', new Date());
 	bill()
 });
