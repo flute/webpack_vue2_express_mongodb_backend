@@ -70,10 +70,14 @@
             "/client/service/open", 
             "/client/service/close", 
             "/client/service/renewal", 
-            "/client/service/change"
+            "/client/service/change", 
+            "/bill/list", 
+            "/bill/export"
         ],
         "dom" : [ 
-            "client"
+            "client", 
+            "add-client", 
+            "bill"
         ],
         "flag" : 1
     }
@@ -96,6 +100,30 @@
         "flag" : 1
     }
 
+    /* 5 */
+    {
+        "_id" : ObjectId("595ca0101a3041e05f7519ff"),
+        "name" : "客户管理(代理)",
+        "path" : [ 
+            "/user/list", 
+            "/client/list", 
+            "/client/new", 
+            "/client/remove", 
+            "/client/update", 
+            "/client/service/list", 
+            "/client/service/update", 
+            "/client/service/remove", 
+            "/client/service/open", 
+            "/client/service/close", 
+            "/client/service/renewal", 
+            "/client/service/change"
+        ],
+        "dom" : [ 
+            "client"
+        ],
+        "flag" : 1
+    }
+
 /* t_role */
 
     /* 1 */
@@ -107,6 +135,27 @@
             "59361c698862e097ef9797f3", 
             "59361c698862e097ef9797f4", 
             "59361c698862e097ef9797f5"
+        ],
+        "flag" : 1
+    }
+
+    /* 2 */
+    {
+        "_id" : ObjectId("593e4182551ddd6af6d5f13c"),
+        "name" : "管理员",
+        "permissions" : [ 
+            "59361c698862e097ef9797f4", 
+            "59361c698862e097ef9797f5"
+        ],
+        "flag" : 1
+    }
+
+    /* 3 */
+    {
+        "_id" : ObjectId("593e41ac551ddd6af6d5f13d"),
+        "name" : "代理",
+        "permissions" : [ 
+            "595ca0101a3041e05f7519ff"
         ],
         "flag" : 1
     }

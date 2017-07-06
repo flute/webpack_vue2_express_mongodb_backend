@@ -7,7 +7,6 @@ const service = db.get('t_client_service')
 
 const getClientList = (req, callback) => {
 
-	
 	const admin = req.session.user._id;
 
 	client.find({flag: 1}, '-flag')
@@ -18,7 +17,7 @@ const getClientList = (req, callback) => {
 				// 本人是客户的管理员
 				if( item.user == admin ){ 
 					item.username = req.session.user.name
-					getClientExpriedTime(item._id.toString(), function(res){
+					getClientLastService(item._id.toString(), function(res){
 						if( res.status ){
 							item.service = res.service
 						}
@@ -33,7 +32,7 @@ const getClientList = (req, callback) => {
 							if( result.parents.indexOf( admin )>=0 ){
 								// 如果是 客户绑定的管理员 的父级，有权查看
 								item.username = result.name
-								getClientExpriedTime(item._id.toString(), function(res){
+								getClientLastService(item._id.toString(), function(res){
 									if( res.status ){
 										item.service = res.service
 									}
@@ -78,7 +77,7 @@ const getClientList = (req, callback) => {
 	})
 }
 
-const getClientExpriedTime = (clientid, callback) => {
+const getClientLastService = (clientid, callback) => {
 	service.find({clientId: clientid}, '-_id')
 	.then((result) => {
 		if( result && result.length>0 ){

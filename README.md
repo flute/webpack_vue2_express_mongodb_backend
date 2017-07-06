@@ -4,7 +4,7 @@
 
 前端: vue-cli + vue2 + vuex + vue-router + axios + iview + ES6
 
-后端: express-generator + express + mongndb + monk
+后端: express-generator + express + redis + mongndb + monk
 
 ### install
 
@@ -21,7 +21,7 @@ cnpm run server
 # 编译vue
 npm run build
 ```
-1. 创建 mongodb 数据库，初始化数据表位于 `static/mongodb.js`，配置数据库连接 `server/conf/db.js`
+1. 创建 mongodb 数据库，初始化数据表位于 `static/mongodb.js`，配置数据库连接 `[server/conf/db.js]`,`[server/conf/redis.js]`,`[server/conf/mysql.js]`
 2. 然后同时启动 vue 服务和 node 服务即可，分别运行与 8080 和 3000 端口。
 
 ### 项目目录
@@ -68,5 +68,7 @@ npm run build
 * 角色管理（角色、许可多对多）
 * 客户管理（代理分级、数据权限）
 * 用户管理（用户、角色多对多）
-
+* 服务管理（客户服务的开通、关闭、修改、续接...）
+* 消息通知（定时通知）
+* 结算系统（每月定时结算，账单导出）
 
