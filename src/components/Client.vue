@@ -49,7 +49,7 @@
             					</td>
             					<td>{{client.username}}</td>
             					<td>{{client.adminAccount?client.adminAccount:''}}</td>
-            					<td>{{client.service?status[client.service.status].label:''}}</td>
+            					<td>{{client.service?status[client.service.status].label:'未开通'}}</td>
 								<td>{{client.service?changeTime(client.service.startTime):''}}</td>
             					<td>{{client.service?changeTime(client.service.endTime):''}}</td>
             					<td>{{client.service?client.service.userNum:''}}</td>

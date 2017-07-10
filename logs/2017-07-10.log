@@ -64,3 +64,454 @@
 [2017-07-10 10:56:11.022] [INFO] record - GET /client/list
 [2017-07-10 10:56:11.049] [INFO] record - GET /role/list
 [2017-07-10 13:45:52.492] [INFO] console - Express server listening on port 3000
+[2017-07-10 16:04:38.357] [INFO] console - Express server listening on port 3000
+[2017-07-10 16:04:49.862] [INFO] record - GET /islogin
+[2017-07-10 16:04:51.413] [INFO] record - OPTIONS /login
+[2017-07-10 16:04:51.586] [INFO] record - POST /login
+[2017-07-10 16:04:53.588] [INFO] record - GET /user/list
+[2017-07-10 16:04:53.630] [INFO] record - GET /client/list
+[2017-07-10 16:05:04.920] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:05:05.000] [INFO] record - POST /client/service/list
+[2017-07-10 16:05:15.004] [INFO] record - GET /bill/list
+[2017-07-10 16:06:54.596] [INFO] record - GET /user/list
+[2017-07-10 16:06:54.610] [INFO] record - GET /client/list
+[2017-07-10 16:07:16.318] [INFO] record - OPTIONS /client/new
+[2017-07-10 16:07:16.384] [INFO] record - POST /client/new
+[2017-07-10 16:07:16.386] [INFO] console - redis add client:596335b49e64f32013adad44 OK
+[2017-07-10 16:07:16.467] [INFO] record - GET /client/list
+[2017-07-10 16:07:40.762] [INFO] record - GET /islogin
+[2017-07-10 16:07:41.229] [INFO] record - GET /user/list
+[2017-07-10 16:07:41.255] [INFO] record - GET /client/list
+[2017-07-10 16:07:58.786] [INFO] record - OPTIONS /client/new
+[2017-07-10 16:07:58.806] [INFO] record - POST /client/new
+[2017-07-10 16:07:58.807] [INFO] console - redis add client:596335de9e64f32013adad45 OK
+[2017-07-10 16:07:58.888] [INFO] record - GET /client/list
+[2017-07-10 16:08:01.737] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:08:01.770] [INFO] record - POST /client/service/list
+[2017-07-10 16:08:18.362] [INFO] record - OPTIONS /client/service/new
+[2017-07-10 16:08:18.401] [INFO] record - POST /client/service/new
+[2017-07-10 16:08:18.440] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:08:18.486] [INFO] record - POST /client/service/list
+[2017-07-10 16:08:28.607] [INFO] record - OPTIONS /client/update
+[2017-07-10 16:08:28.837] [INFO] console - check client is already inited: null []
+[2017-07-10 16:08:28.844] [INFO] console - check account is already existed: null [ RowDataPacket { id: 49 } ]
+[2017-07-10 16:08:28.850] [INFO] console - { status: 3, msg: 'account already exist!' }
+[2017-07-10 16:08:28.853] [INFO] record - POST /client/update
+[2017-07-10 16:08:32.331] [INFO] console - check client is already inited: null []
+[2017-07-10 16:08:32.333] [INFO] console - check account is already existed: null [ RowDataPacket { id: 51 } ]
+[2017-07-10 16:08:32.334] [INFO] console - { status: 3, msg: 'account already exist!' }
+[2017-07-10 16:08:32.337] [INFO] record - POST /client/update
+[2017-07-10 16:09:07.938] [INFO] record - OPTIONS /client/update
+[2017-07-10 16:09:08.018] [INFO] console - check client is already inited: null []
+[2017-07-10 16:09:08.025] [INFO] console - check account is already existed: null []
+[2017-07-10 16:09:08.028] [INFO] console - select t_sys_menu finished: null
+[2017-07-10 16:09:08.039] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 698,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:09:08.053] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 52,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:09:08.057] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 194,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:09:08.067] [INFO] console - init t_module finished: null 20251 [ 20249, 20250, 20251, 20252, 20253 ]
+[2017-07-10 16:09:08.073] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' } ]
+[2017-07-10 16:09:08.077] [INFO] console - update t_sys_role finished: null
+[2017-07-10 16:09:08.087] [INFO] console - init t_info fineshed: null
+[2017-07-10 16:09:08.092] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10196,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:09:08.094] [INFO] console - mysql初始化完毕
+[2017-07-10 16:09:08.094] [INFO] console - { status: 1, mag: 'success' }
+[2017-07-10 16:09:08.173] [INFO] record - POST /client/update
+[2017-07-10 16:09:08.204] [INFO] record - OPTIONS /client/service/open
+[2017-07-10 16:09:08.283] [INFO] record - POST /client/service/open
+[2017-07-10 16:09:08.288] [INFO] console - redis open client:595cababf8e42a6301f8cae5 OK
+[2017-07-10 16:09:08.307] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:09:08.337] [INFO] record - POST /client/service/list
+[2017-07-10 16:09:23.457] [INFO] record - OPTIONS /client/service/change
+[2017-07-10 16:09:23.485] [INFO] record - POST /client/service/change
+[2017-07-10 16:09:23.486] [INFO] console - change service redis open client:595cababf8e42a6301f8cae5 OK
+[2017-07-10 16:09:23.534] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:09:23.551] [INFO] record - POST /client/service/list
+[2017-07-10 16:09:57.180] [INFO] record - OPTIONS /client/service/change
+[2017-07-10 16:09:57.206] [INFO] console - change service redis open client:595cababf8e42a6301f8cae5 OK
+[2017-07-10 16:09:57.211] [INFO] record - POST /client/service/change
+[2017-07-10 16:09:57.239] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:09:57.272] [INFO] record - POST /client/service/list
+[2017-07-10 16:14:37.225] [INFO] console - Express server listening on port 3000
+[2017-07-10 16:14:43.518] [INFO] record - GET /user/list
+[2017-07-10 16:14:43.570] [INFO] record - GET /client/list
+[2017-07-10 16:14:46.901] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:14:46.983] [INFO] record - POST /client/service/list
+[2017-07-10 16:15:06.592] [INFO] record - OPTIONS /client/service/new
+[2017-07-10 16:15:06.633] [INFO] record - POST /client/service/new
+[2017-07-10 16:15:06.673] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:15:06.704] [INFO] record - POST /client/service/list
+[2017-07-10 16:15:16.782] [INFO] record - OPTIONS /client/update
+[2017-07-10 16:15:16.837] [INFO] console - check client is already inited: null []
+[2017-07-10 16:15:16.842] [INFO] console - check account is already existed: null []
+[2017-07-10 16:15:16.845] [INFO] console - select t_sys_menu finished: null
+[2017-07-10 16:15:16.849] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 699,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:15:16.857] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 53,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:15:16.863] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 195,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:15:16.873] [INFO] console - init t_module finished: null 20256 [ 20254, 20255, 20256, 20257, 20258 ]
+[2017-07-10 16:15:16.876] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' } ]
+[2017-07-10 16:15:16.879] [INFO] console - update t_sys_role finished: null
+[2017-07-10 16:15:16.885] [INFO] console - init t_info fineshed: null
+[2017-07-10 16:15:16.887] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10197,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:15:16.888] [INFO] console - mysql初始化完毕
+[2017-07-10 16:15:16.889] [INFO] console - { status: 1, mag: 'success' }
+[2017-07-10 16:15:16.901] [INFO] record - POST /client/update
+[2017-07-10 16:15:16.918] [INFO] record - OPTIONS /client/service/open
+[2017-07-10 16:15:16.950] [INFO] record - POST /client/service/open
+[2017-07-10 16:15:16.954] [INFO] console - redis open client:595cabc4f8e42a6301f8cae6 OK
+[2017-07-10 16:15:16.978] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:15:17.006] [INFO] record - POST /client/service/list
+[2017-07-10 16:15:59.017] [INFO] record - OPTIONS /client/service/change
+[2017-07-10 16:15:59.036] [INFO] console - change service redis open client:595cabc4f8e42a6301f8cae6 OK
+[2017-07-10 16:15:59.039] [INFO] record - POST /client/service/change
+[2017-07-10 16:15:59.079] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:15:59.110] [INFO] record - POST /client/service/list
+[2017-07-10 16:16:47.578] [INFO] record - GET /user/list
+[2017-07-10 16:16:47.631] [INFO] record - GET /client/list
+[2017-07-10 16:16:49.866] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:16:49.901] [INFO] record - POST /client/service/list
+[2017-07-10 16:17:12.251] [INFO] record - OPTIONS /client/service/new
+[2017-07-10 16:17:12.270] [INFO] record - POST /client/service/new
+[2017-07-10 16:17:12.304] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:17:12.328] [INFO] record - POST /client/service/list
+[2017-07-10 16:17:20.395] [INFO] record - OPTIONS /client/update
+[2017-07-10 16:17:20.415] [INFO] console - check client is already inited: null []
+[2017-07-10 16:17:20.417] [INFO] console - check account is already existed: null []
+[2017-07-10 16:17:20.419] [INFO] console - select t_sys_menu finished: null
+[2017-07-10 16:17:20.420] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 700,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:17:20.427] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 54,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:17:20.431] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 196,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:17:20.441] [INFO] console - init t_module finished: null 20261 [ 20259, 20260, 20261, 20262, 20263 ]
+[2017-07-10 16:17:20.443] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' } ]
+[2017-07-10 16:17:20.445] [INFO] console - update t_sys_role finished: null
+[2017-07-10 16:17:20.450] [INFO] console - init t_info fineshed: null
+[2017-07-10 16:17:20.454] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10198,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-10 16:17:20.455] [INFO] console - mysql初始化完毕
+[2017-07-10 16:17:20.455] [INFO] console - { status: 1, mag: 'success' }
+[2017-07-10 16:17:20.461] [INFO] record - POST /client/update
+[2017-07-10 16:17:20.478] [INFO] record - OPTIONS /client/service/open
+[2017-07-10 16:17:20.509] [INFO] record - POST /client/service/open
+[2017-07-10 16:17:20.511] [INFO] console - redis open client:596335b49e64f32013adad44 OK
+[2017-07-10 16:17:20.529] [INFO] record - OPTIONS /client/service/list
+[2017-07-10 16:17:20.549] [INFO] record - POST /client/service/list
+[2017-07-10 16:18:12.522] [INFO] console - Express server listening on port 3000
+[2017-07-10 16:19:00.009] [INFO] console - 定时任务：月账单 2017-07-10T08:19:00.009Z
+[2017-07-10 16:19:00.037] [INFO] console - clients: [ { _id: 596335f29e64f32013adad46,
+    clientId: '595cababf8e42a6301f8cae5',
+    startTime: '2017-07-09T16:00:00.000Z',
+    endTime: '2017-07-13T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-10T08:08:18.379Z,
+    closeAt: null,
+    settle: 2000,
+    difference: 0,
+    differenceWith: null,
+    first: true },
+  { _id: 596336339e64f32013adad47,
+    clientId: '595cababf8e42a6301f8cae5',
+    startTime: '2017-07-09T16:00:00.000Z',
+    endTime: '2017-11-16T16:00:00.000Z',
+    userNum: 30,
+    createAt: 2017-07-10T08:09:23.479Z,
+    closeAt: null,
+    settle: 2191.5,
+    difference: 191.5,
+    differenceWith: '596335f29e64f32013adad46' },
+  { _id: 596336559e64f32013adad48,
+    clientId: '595cababf8e42a6301f8cae5',
+    startTime: '2017-07-09T16:00:00.000Z',
+    endTime: '2018-07-09T16:00:00.000Z',
+    userNum: 40,
+    createAt: 2017-07-10T08:09:57.208Z,
+    closeAt: null,
+    settle: 7200,
+    difference: 5008.5,
+    differenceWith: '596336339e64f32013adad47' } ]
+[2017-07-10 16:19:00.048] [INFO] console - clients: [ { _id: 5963378a39c870207072f4e5,
+    clientId: '595cabc4f8e42a6301f8cae6',
+    startTime: '2017-07-23T16:00:00.000Z',
+    endTime: '2018-07-06T16:00:00.000Z',
+    userNum: '40',
+    createAt: 2017-07-10T08:15:06.615Z,
+    closeAt: null,
+    settle: 7200,
+    difference: 0,
+    differenceWith: null,
+    first: true },
+  { _id: 596337bf39c870207072f4e6,
+    clientId: '595cabc4f8e42a6301f8cae6',
+    startTime: '2017-07-23T16:00:00.000Z',
+    endTime: '2018-04-23T16:00:00.000Z',
+    userNum: 40,
+    createAt: 2017-07-10T08:15:59.034Z,
+    closeAt: null,
+    settle: 5742,
+    difference: -1458,
+    differenceWith: '5963378a39c870207072f4e5' } ]
+[2017-07-10 16:19:00.063] [INFO] console - clients: [ { _id: 5963380839c870207072f4e7,
+    clientId: '596335b49e64f32013adad44',
+    startTime: '2017-07-14T16:00:00.000Z',
+    endTime: '2017-12-29T16:00:00.000Z',
+    userNum: '50',
+    createAt: 2017-07-10T08:17:12.268Z,
+    closeAt: null,
+    settle: 4087.5,
+    difference: 0,
+    differenceWith: null,
+    first: true } ]
+[2017-07-10 16:19:00.088] [INFO] console - clients: []
+[2017-07-10 16:19:00.095] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-10 16:19:00.098] [INFO] console - 遍历客户结束 [ { clientId: '595cababf8e42a6301f8cae5',
+    clientName: '大神大神的',
+    month: 7,
+    settle: 7200 },
+  { clientId: '595cabc4f8e42a6301f8cae6',
+    clientName: '额2饿13人',
+    month: 7,
+    settle: 5742 },
+  { clientId: '596335b49e64f32013adad44',
+    clientName: '埃里巴巴',
+    month: 7,
+    settle: 4087.5 },
+  { clientId: '596335de9e64f32013adad45',
+    clientName: '发而无法去潍坊',
+    month: 7,
+    settle: 0 } ]
+[2017-07-10 16:19:00.132] [INFO] console - 客户：大神大神的-7月账单插入成功（7200元）
+[2017-07-10 16:19:00.136] [INFO] console - 客户：额2饿13人-7月账单插入成功（5742元）
+[2017-07-10 16:19:00.142] [INFO] console - 客户：埃里巴巴-7月账单插入成功（4087.5元）
+[2017-07-10 16:19:00.151] [INFO] console - 客户：发而无法去潍坊-7月账单插入成功（0元）
+[2017-07-10 16:19:00.152] [INFO] console - 账单插入完成
+[2017-07-10 16:19:38.020] [INFO] console - Express server listening on port 3000
+[2017-07-10 16:19:41.215] [INFO] record - GET /bill/list
+[2017-07-10 16:20:00.824] [INFO] record - GET /user/list
+[2017-07-10 16:20:00.873] [INFO] record - GET /client/list
+[2017-07-10 16:20:00.907] [INFO] record - GET /role/list
+[2017-07-10 16:20:02.713] [INFO] record - GET /bill/list
+[2017-07-10 16:21:57.939] [INFO] record - GET /user/list
+[2017-07-10 16:21:57.964] [INFO] record - GET /client/list
+[2017-07-10 16:26:11.744] [INFO] record - GET /bill/list
+[2017-07-10 16:30:32.138] [INFO] record - GET /bill/list
+[2017-07-10 16:31:46.568] [INFO] record - GET /bill/list
+[2017-07-10 16:32:07.080] [INFO] record - GET /bill/list
+[2017-07-10 16:33:01.429] [INFO] record - GET /bill/list
+[2017-07-10 16:33:08.416] [INFO] record - GET /bill/list
+[2017-07-10 16:33:26.338] [INFO] record - GET /bill/list
+[2017-07-10 16:33:35.002] [INFO] record - GET /bill/list
+[2017-07-10 16:37:43.802] [INFO] record - GET /bill/list
+[2017-07-10 16:40:05.332] [INFO] record - GET /bill/list
+[2017-07-10 16:47:37.137] [INFO] record - GET /islogin
+[2017-07-10 16:47:37.963] [INFO] record - GET /bill/list
+[2017-07-10 16:48:06.784] [INFO] record - GET /islogin
+[2017-07-10 16:48:07.367] [INFO] record - GET /bill/list
+[2017-07-10 16:49:33.575] [INFO] record - GET /islogin
+[2017-07-10 16:49:34.200] [INFO] record - GET /bill/list
+[2017-07-10 16:49:55.418] [INFO] record - GET /islogin
+[2017-07-10 16:49:56.122] [INFO] record - GET /islogin
+[2017-07-10 16:49:56.218] [INFO] record - GET /bill/list
+[2017-07-10 16:49:57.313] [INFO] record - GET /user/list
+[2017-07-10 16:49:57.314] [INFO] record - GET /role/list
+[2017-07-10 16:49:57.331] [INFO] record - GET /client/list
+[2017-07-10 16:50:55.183] [INFO] record - GET /bill/list
+[2017-07-10 16:51:22.194] [INFO] record - GET /bill/list
+[2017-07-10 16:51:29.845] [INFO] record - GET /bill/list
+[2017-07-10 16:51:32.830] [INFO] record - GET /bill/list
+[2017-07-10 16:51:35.582] [INFO] record - GET /bill/list
+[2017-07-10 16:51:39.686] [INFO] record - GET /bill/list
+[2017-07-10 16:51:43.105] [INFO] record - GET /bill/list
+[2017-07-10 17:24:42.206] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:24:42.436] [INFO] record - POST /bill/detail
+[2017-07-10 17:24:55.537] [INFO] record - OPTIONS /login
+[2017-07-10 17:24:55.633] [INFO] record - POST /login
+[2017-07-10 17:24:55.666] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:24:55.696] [INFO] record - POST /bill/detail
+[2017-07-10 17:24:55.699] [ERROR] console - Error: No default engine was specified and no extension was provided.
+    at new View (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/view.js:62:11)
+    at EventEmitter.render (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/application.js:569:12)
+    at ServerResponse.render (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/response.js:961:7)
+    at /Users/ludis/Mac/projects/Vue/backend/server/app.js:79:6
+    at Layer.handle_error (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/layer.js:71:5)
+    at trim_prefix (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:310:13)
+    at /Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:280:7
+    at Function.process_params (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:330:12)
+    at next (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:271:10)
+    at /Users/ludis/Mac/projects/Vue/backend/server/app.js:68:2
+[2017-07-10 17:25:49.187] [INFO] console - Express server listening on port 3000
+[2017-07-10 17:25:55.744] [INFO] record - GET /islogin
+[2017-07-10 17:25:56.196] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:25:56.423] [INFO] record - POST /bill/detail
+[2017-07-10 17:25:56.426] [ERROR] console - Error: No default engine was specified and no extension was provided.
+    at new View (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/view.js:62:11)
+    at EventEmitter.render (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/application.js:569:12)
+    at ServerResponse.render (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/response.js:961:7)
+    at /Users/ludis/Mac/projects/Vue/backend/server/app.js:79:6
+    at Layer.handle_error (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/layer.js:71:5)
+    at trim_prefix (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:310:13)
+    at /Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:280:7
+    at Function.process_params (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:330:12)
+    at next (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:271:10)
+    at Layer.handle_error (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/layer.js:67:12)
+[2017-07-10 17:27:16.313] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:27:16.380] [ERROR] console - Error: No default engine was specified and no extension was provided.
+    at new View (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/view.js:62:11)
+    at EventEmitter.render (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/application.js:569:12)
+    at ServerResponse.render (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/response.js:961:7)
+    at /Users/ludis/Mac/projects/Vue/backend/server/app.js:79:6
+    at Layer.handle_error (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/layer.js:71:5)
+    at trim_prefix (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:310:13)
+    at /Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:280:7
+    at Function.process_params (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:330:12)
+    at next (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/index.js:271:10)
+    at Layer.handle_error (/Users/ludis/Mac/projects/Vue/backend/node_modules/._express@4.13.4@express/lib/router/layer.js:67:12)
+[2017-07-10 17:27:16.387] [INFO] record - POST /bill/detail
+[2017-07-10 17:27:33.911] [INFO] console - Express server listening on port 3000
+[2017-07-10 17:27:40.175] [INFO] record - GET /islogin
+[2017-07-10 17:27:40.676] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:27:40.944] [INFO] record - POST /bill/detail
+[2017-07-10 17:31:45.169] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:31:45.253] [INFO] record - POST /bill/detail
+[2017-07-10 17:38:41.544] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:38:41.588] [INFO] record - POST /bill/detail
+[2017-07-10 17:38:49.946] [INFO] console - Express server listening on port 3000
+[2017-07-10 17:39:18.709] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:39:18.902] [INFO] record - POST /bill/detail
+[2017-07-10 17:40:57.735] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:40:57.761] [INFO] record - POST /bill/detail
+[2017-07-10 17:41:09.981] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:41:10.056] [INFO] record - POST /bill/detail
+[2017-07-10 17:41:36.597] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:41:36.652] [INFO] record - POST /bill/detail
+[2017-07-10 17:41:45.892] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:41:45.917] [INFO] record - POST /bill/detail
+[2017-07-10 17:42:02.819] [INFO] record - GET /islogin
+[2017-07-10 17:42:03.358] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:42:03.489] [INFO] record - POST /bill/detail
+[2017-07-10 17:42:05.567] [INFO] record - GET /bill/list
+[2017-07-10 17:42:07.644] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:42:07.678] [INFO] record - POST /bill/detail
+[2017-07-10 17:43:20.488] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:43:20.575] [INFO] record - POST /bill/detail
+[2017-07-10 17:43:38.210] [INFO] record - GET /bill/list
+[2017-07-10 17:43:39.832] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 17:43:39.868] [INFO] record - POST /bill/detail
+[2017-07-10 18:01:32.668] [INFO] record - GET /bill/list
+[2017-07-10 18:01:34.706] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 18:01:34.767] [INFO] record - POST /bill/detail
+[2017-07-10 18:01:41.962] [INFO] record - GET /bill/list
+[2017-07-10 18:01:43.420] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 18:01:43.446] [INFO] record - POST /bill/detail
+[2017-07-10 18:01:58.803] [INFO] record - GET /bill/list
+[2017-07-10 18:02:01.498] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 18:02:01.534] [INFO] record - POST /bill/detail
+[2017-07-10 18:49:48.210] [INFO] record - GET /role/list
+[2017-07-10 18:49:48.221] [INFO] record - GET /client/list
+[2017-07-10 18:49:48.223] [INFO] record - GET /user/list
+[2017-07-10 18:51:11.474] [INFO] record - OPTIONS /login
+[2017-07-10 18:51:11.539] [INFO] record - POST /login
+[2017-07-10 18:51:11.769] [INFO] record - GET /client/list
+[2017-07-10 18:51:11.815] [INFO] record - GET /user/list
+[2017-07-10 18:51:11.838] [INFO] record - GET /role/list
+[2017-07-10 18:59:40.035] [INFO] record - GET /bill/list
+[2017-07-10 18:59:43.804] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 18:59:43.833] [INFO] record - POST /bill/detail
+[2017-07-10 18:59:45.899] [INFO] record - GET /bill/list
+[2017-07-10 18:59:47.035] [INFO] record - OPTIONS /bill/detail
+[2017-07-10 18:59:47.062] [INFO] record - POST /bill/detail

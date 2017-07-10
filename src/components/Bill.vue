@@ -55,7 +55,36 @@ export default {
                 },
                 {
                     title: '账单金额',
-                    key: 'settle'
+                    key: 'settle',
+                    render: (h, params) => {
+                        return h('div', [
+                            h('Icon', {
+                                props: {
+                                    type: 'social-yen'
+                                },
+                                style: {
+                                    marginRight: '3px'
+                                },
+                            }),
+                            h('strong', params.row.settle+' 元'),
+                            h('Button', {
+                                props: {
+                                    type: 'primary',
+                                    size: 'small',
+                                    icon: "arrow-right-c"
+                                },
+                                style: {
+                                	float: 'right'
+                                    //marginLeft: '15px'
+                                },
+                                on: {
+                                    click: () => {
+                                        this.showBillDetail(params.row._id)
+                                    }
+                                }
+                            }, '账单明细'),
+                        ]);
+                    }
                 }
             ],
 			bills: [],
@@ -107,6 +136,12 @@ export default {
 			window.open(apiUrl)
 			
 			//window.location = apiUrl+'/bill/export'
+		},
+		showBillDetail(id){
+			this.$router.push({
+				path: '/bill/detail', 
+				query: {id: id}
+			})
 		},
 		changepage(num){
 			this.pageCurrent = num

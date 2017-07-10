@@ -86,7 +86,7 @@ module.exports = function(data, calls){
 			    		updatedAt: new Date(),
 			    		account: data.account,
 			    		cellPhone: null,
-			    		deptId: 1,
+			    		//deptId: 1,
 			    		email: null,
 			    		gender: 1,
 			    		icon: null,
