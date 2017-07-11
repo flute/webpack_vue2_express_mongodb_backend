@@ -19,14 +19,14 @@ const getBillDetail = (req, callback) => {
 			let clientId = result.clientId
 			let month = result.month
 
-			service.find({clientId: clientId}, '-status')
+			service.find({clientId: clientId}, {fields: { _id: 0 },sort: {createAt: -1}})
 			.then((results) => {
 				if(results){
 					let bills = []
 					results.forEach(function(item, index){
 						let m = new Date(item.startTime).getMonth()
 						if( month-1 == m ){
-							item.month = month
+							item.billMonth = month
 							bills.push(item)
 						}
 					})

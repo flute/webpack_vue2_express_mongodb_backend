@@ -2,6 +2,9 @@ const db = require('../../conf/db')
 const redis = require('../../conf/redis')
 const checkPermission = require('./checkPermission')
 
+const Bill = require('../../conf/config')
+const getMonth = require('../../services/getMonth')
+
 const closeService = (req, callback) => {
 
 	let clientId = req.body.clientid
@@ -29,6 +32,34 @@ const closeService = (req, callback) => {
 			service.findOne({_id: serviceId}, '-_id')
 			.then((result) => {
 				if( result ){
+
+					// settle
+					let settle = 0
+					let difference = 0
+					let month = 0
+					let endTime = new Date()
+
+					if( new Date(result.startTime).valueOf()>=endTime.valueOf() ){
+					// 服务未开始
+						month = 0
+						settle = 0
+						difference = 0
+					}else{
+						userNum = Number(result.userNum)
+
+						if( userNum < Bill.limit ){
+							settle = Bill.minPrice
+						}else{
+							month = getMonth(result.startTime, endTime)
+							settle = month * Bill.price * userNum
+							settle = settle<Bill.minPrice? Bill.minPrice : settle
+						}
+						
+						difference = Number( (settle - result.settle).toFixed(2) )
+					}
+
+					
+
 					if( result.status === 1 ){
 						service.update({_id: serviceId},{
 							clientId : result.clientId,
@@ -38,7 +69,11 @@ const closeService = (req, callback) => {
 						    createAt : result.createAt,
 						    closeAt : new Date(),
 						    status : 4,
-						    first: result.first
+						    first: result.first,
+						    month: month,
+						    settle: settle,
+						    difference: difference,
+						    differenceWith: result.differenceWith
 						}).then((result) => {
 							if(result){
 								callback({

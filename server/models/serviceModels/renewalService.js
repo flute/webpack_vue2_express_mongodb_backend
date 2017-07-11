@@ -1,5 +1,9 @@
 const db = require('../../conf/db')
+const redis = require('../../conf/redis')
 const checkPermission = require('./checkPermission')
+
+const Bill = require('../../conf/config')
+const getMonth = require('../../services/getMonth')
 
 const renewalService = (req, callback) => {
 
@@ -39,7 +43,7 @@ const renewalService = (req, callback) => {
 							        console.error('renewal service redis close service failed:', error);
 							    }else{
 							        redis.set(clientId, 0, function(err, res){  
-								        console.log('renewal service redis close client:'+clientId, res); 
+								        console.log('renewal service redis close client:'+clientId, err, res); 
 								    });
 							    }
 							});
@@ -49,13 +53,31 @@ const renewalService = (req, callback) => {
 							        console.error('renewal service redis open service failed:', error);
 							    }else{
 							        redis.set(clientId, 1, function(err, res){  
-								        console.log('renewal service redis open client:'+clientId, res); 
+								        console.log('renewal service redis open client:'+clientId, err, res); 
 								    });
 							    }
 							});
 						}
+
 						// 记录上条记录的截止时间，作为续接的开始时间
 						const renewalStartTime = result.endTime
+
+						// settle
+						let settle = 0
+						let difference = 0
+						let month = 0
+
+						userNum = Number(userNum)
+						
+						if( userNum < Bill.limit ){
+							settle = Bill.minPrice
+						}else{
+							month = getMonth(result.startTime, endTime)
+							settle = month * Bill.price * userNum
+							settle = settle<Bill.minPrice? Bill.minPrice : settle
+						}
+
+						difference = Number( (settle - result.settle).toFixed(2) )
 						
 						service.update({_id: serviceId},{
 							clientId : result.clientId,
@@ -65,7 +87,11 @@ const renewalService = (req, callback) => {
 						    createAt : result.createAt,
 						    closeAt : null,
 						    status : 2,
-						    first: result.first
+						    first: result.first,
+						    month: result.month,
+						    settle: result.settle,
+						    difference: result.difference,
+						    differenceWith: result.differenceWith
 						}).then((result) => {
 							if(result){
 								service.insert({
@@ -75,7 +101,11 @@ const renewalService = (req, callback) => {
 									userNum: userNum,
 									createAt: new Date(),
 									closeAt: null,
-									status: 1
+									status: 1,
+									month: month,
+									settle: settle,
+									difference: difference,
+									differenceWith: serviceId
 								}).then((result) => {
 									if(result){
 										callback({

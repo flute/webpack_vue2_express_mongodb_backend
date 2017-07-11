@@ -19,6 +19,7 @@
 			        					<td>服务开始时间：<b>{{changeTime(service.startTime)}}</b></td>
 			        					<td>服务截止时间：<b>{{changeTime(service.endTime)}}</b></td>
 			        					<td>服务人数：<b>{{service.userNum}}</b> 人</td>
+			        					<td v-if="service.month==0||service.month">服务月数：<b>{{service.month}}</b> 月</td>
 			        					<td class="service-option">
 			        						<template v-if="service.status===0">
 			        							<Button type="success" @click.stop="doopen(service._id)">开通</Button>
@@ -463,6 +464,7 @@ export default{
 			this.account = ''
 			this.pwd = ''
 			this.disabled = false
+			this.issubmit = false
 			this.timemin = {
 				disabledDate:(date)=>{
 					return date && date.valueOf() < new Date(this.starttime).valueOf() + 86400;

@@ -358,11 +358,10 @@ export default {
 			this.phone = ''
 			this.address = ''
 			this.modalTitle = "新增客户"
-			this.selectUser = []
+			this.selectUser = ''
 			this.edit = null
 			this.option = 'new'
 			this.clientid = null
-			this.users = []
 		},
 		dosearch(){
 			if( ((this.searchmode != 'starttime'&&this.searchmode != 'endtime'&&this.searchmode!='status') && this.search === '') 
