@@ -36,12 +36,12 @@ const closeService = (req, callback) => {
 					// settle
 					let settle = 0
 					let difference = 0
-					let month = 0
+					let monthday = null
 					let endTime = new Date()
 
 					if( new Date(result.startTime).valueOf()>=endTime.valueOf() ){
 					// 服务未开始
-						month = 0
+						monthday = [0, 0]
 						settle = 0
 						difference = 0
 					}else{
@@ -50,8 +50,11 @@ const closeService = (req, callback) => {
 						if( userNum < Bill.limit ){
 							settle = Bill.minPrice
 						}else{
-							month = getMonth(result.startTime, endTime)
+							let allMonth = getMonth(result.startTime, endTime)
+							let month = allMonth.month
+							monthday = allMonth.monthday
 							settle = month * Bill.price * userNum
+							settle = Number(settle.toFixed(2))
 							settle = settle<Bill.minPrice? Bill.minPrice : settle
 						}
 						
@@ -70,7 +73,7 @@ const closeService = (req, callback) => {
 						    closeAt : new Date(),
 						    status : 4,
 						    first: result.first,
-						    month: month,
+						    month: monthday,
 						    settle: settle,
 						    difference: difference,
 						    differenceWith: result.differenceWith

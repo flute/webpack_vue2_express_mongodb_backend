@@ -70,15 +70,18 @@ const changeService = (req, callback) => {
 							// settle
 							let settle = 0
 							let difference = 0
-							let month = 0
+							let monthday = null
 
 							userNum = Number(userNum)
 								
 							if( userNum < Bill.limit ){
 								settle = Bill.minPrice
 							}else{
-								month = getMonth(startTime, endTime)
+								let allMonth = getMonth(startTime, endTime)
+								let month = allMonth.month
+								monthday = allMonth.monthday
 								settle = month * Bill.price * userNum
+								settle = Number(settle.toFixed(2))
 								settle = settle<Bill.minPrice? Bill.minPrice : settle
 							}
 							difference = Number( (settle - result.settle).toFixed(2) )
@@ -107,7 +110,7 @@ const changeService = (req, callback) => {
 										createAt: new Date(),
 										closeAt: null,
 										status: 1,
-										month: month,
+										month: monthday,
 										settle: settle,
 										difference: difference,
 										differenceWith: serviceId

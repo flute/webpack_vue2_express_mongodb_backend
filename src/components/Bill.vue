@@ -140,7 +140,7 @@ export default {
 		showBillDetail(id){
 			this.$router.push({
 				path: '/bill/detail', 
-				query: {id: id}
+				query: {id: id, page: this.pageCurrent}
 			})
 		},
 		changepage(num){
@@ -199,6 +199,9 @@ export default {
 			let permission = this.$store.state.permissions
 			return permission ? permission.dom.indexOf('bill')>=0 : flase
 		}
+	},
+	created(){
+		this.pageCurrent = this.$route.query.page ? Number(this.$route.query.page) : 1
 	},
 	mounted(){
 		this.getBills()

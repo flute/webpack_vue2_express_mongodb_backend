@@ -19,7 +19,11 @@
 			        					<td>服务开始时间：<b>{{changeTime(service.startTime)}}</b></td>
 			        					<td>服务截止时间：<b>{{changeTime(service.endTime)}}</b></td>
 			        					<td>服务人数：<b>{{service.userNum}}</b> 人</td>
-			        					<td v-if="service.month==0||service.month">服务月数：<b>{{service.month}}</b> 月</td>
+			        					<td v-if="service.month==0||service.month">服务时长：<b>
+			        					{{service.month[0]?service.month[0]:''}}<span v-if="service.month[0]">月</span>
+			        					{{service.month[1]?service.month[1]:''}}<span v-if="service.month[1]">天</span>
+			        					<span v-if="!service.month[0]&&!service.month[1]">0</span>
+			        					</b></td>
 			        					<td class="service-option">
 			        						<template v-if="service.status===0">
 			        							<Button type="success" @click.stop="doopen(service._id)">开通</Button>

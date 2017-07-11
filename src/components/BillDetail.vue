@@ -2,6 +2,10 @@
     <div class="billdetail" v-show="showBill">
         <div class="contents">
         	<div class="layout-content-main">
+        		<div class="service-option options">
+					<Button type="primary" icon="arrow-left-c" @click="turnback">返回</Button>
+            		<span class="client-name">{{details&&details.length>0?details[0].clientName:''}}</span>
+            	</div>
         		<div class="bill-lists">
             		<!-- <Table border size="small" :columns="columns" :data="details"></Table> -->
             		<Timeline>
@@ -11,11 +15,15 @@
 		            			<p class="content">
 		            				<tr class="tr">
 		            					<td>操作时间：<b>{{changeTime(service.createAt)}}</b></td>
-			        					<td>服务开始时间：<b>{{changeTime(service.startTime)}}</b></td>
-			        					<td>服务截止时间：<b>{{changeTime(service.endTime)}}</b></td>
-			        					<td>服务人数：<b>{{service.userNum}}</b> 人</td>
-			        					<td v-if="service.month==0||service.month">服务月数：<b>{{service.month}}</b> 月</td>
-			        					<td>服务金额：<b>{{service.first?service.settle:service.difference?(service.difference>0?'+'+service.difference:service.difference):0}}</b> 元</td>
+			        					<td>开始时间：<b>{{changeTime(service.startTime)}}</b></td>
+			        					<td>截止时间：<b>{{changeTime(service.endTime)}}</b></td>
+			        					<td>人数：<b>{{service.userNum}}</b> 人</td>
+			        					<td v-if="service.month==0||service.month">时长：<b>
+			        					{{service.month[0]?service.month[0]:''}}<span v-if="service.month[0]">月</span>
+			        					{{service.month[1]?service.month[1]:''}}<span v-if="service.month[1]">天</span>
+			        					</b></td>
+			        					<td>金额：<b>{{service.settle}}</b> 元</td>
+			        					<td>变更差额：<b>{{service.first?0:service.difference?(service.difference>0?'+'+service.difference:service.difference):0}}</b> 元</td>
 			        				</tr>
 		            			</p>
 		        			</Timeline-item>
@@ -39,6 +47,7 @@ export default {
 			loading: true,
 			details: [],
 			billId: this.$route.query.id,
+			returnPage: this.$route.query.page,
 			status:['未开通','已开通','已续接','已变更','已关闭'],
 			colors:['yellow','green','blue','blue','red'],
 			columns:[
@@ -87,6 +96,12 @@ export default {
 				}
 				this.loading = false
 			})
+		},
+		turnback(){
+			this.$router.push({
+				path: '/bill', 
+				query: {page: this.returnPage}
+			})
 		}
 	},
 	computed:{
@@ -124,5 +139,13 @@ export default {
 .ivu-timeline .tr td.service-option{
 	border-radius: 5px;
 	width: 280px;
+}
+.client-name{
+    position: absolute;
+    font-size: 14px;
+    line-height: 36px;
+    left: 45%;
+    display: inline-block;
+    text-align: center;
 }
 </style>

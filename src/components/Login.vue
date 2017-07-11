@@ -1,7 +1,7 @@
 <template>
     <div class="login" v-show="isShowLogin">
         <div class="login-box">
-            <p class="login-title">好氛围管理中心</p>
+            <p class="login-title">好氛围运营平台</p>
             <div class="login-form">
                 <p class="account"><input placeholder="请输入账号"  v-model="account"></p>
                 <p class="pwd"><input placeholder="请输入密码" type="password" v-model="pwd"></p>

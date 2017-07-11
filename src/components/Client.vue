@@ -466,7 +466,6 @@ export default {
 	},
 	created(){
 		this.pageCurrent = this.$route.query.page ? Number(this.$route.query.page) : 1
-
 	},
 	mounted(){
 		this.getusers()
