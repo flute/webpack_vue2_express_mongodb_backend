@@ -209,7 +209,7 @@ export default {
 			})
 		},
 		submit(){
-			if( ( this.option!='reset'&&(!this.name || !this.phone || !this.address || !this.selectUser) )
+			if( ( this.option!='reset'&&(!this.name || !this.selectUser) )
 				||
 				( this.option=='reset'&&(!this.pwd) )
 			){
@@ -217,7 +217,7 @@ export default {
 				return;
 			}
 
-			if( this.option!='reset' && (/[^\d{6,11}]/.test(this.phone) || this.phone.length<6 || this.phone.length>11) ){
+			if( this.option!='reset' && this.phone && (/[^\d{6,11}]/.test(this.phone) || this.phone.length<6 || this.phone.length>11) ){
 				this.$Message.warning({content: '请输入正确的联系电话', duration: 3, closable: true});
 				return;
 			}

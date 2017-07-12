@@ -99,9 +99,9 @@ const changeService = (req, callback) => {
 							    settle: result.settle,
 							    difference: result.difference,
 							    differenceWith: result.differenceWith,
-							    first: result.first
-							}).then((result) => {
-								if(result){
+							    first: result.first,
+							}).then((res) => {
+								if(res){
 									service.insert({
 										clientId: clientId,
 										startTime: startTime,
@@ -113,7 +113,8 @@ const changeService = (req, callback) => {
 										month: monthday,
 										settle: settle,
 										difference: difference,
-										differenceWith: serviceId
+										differenceWith: serviceId,
+										pauseResume: result.pauseResume
 									}).then((result) => {
 										if(result){
 											callback({

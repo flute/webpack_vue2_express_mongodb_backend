@@ -2,10 +2,7 @@ const db = require('../../conf/db')
 const redis = require('../../conf/redis')
 const checkPermission = require('./checkPermission')
 
-const Bill = require('../../conf/config')
-const getMonth = require('../../services/getMonth')
-
-const closeService = (req, callback) => {
+const pauseresumeService = (req, callback) => {
 
 	let clientId = req.body.clientid
 		serviceId = req.body.serviceid
@@ -30,56 +27,52 @@ const closeService = (req, callback) => {
 	checkPermission(req, function(result){
 		if( result.status ){
 			service.findOne({_id: serviceId}, '-_id')
-			.then((result) => {
+			.then((result) => {console.log(result)
 				if( result ){
-
-					// settle
-					let settle = 0
-					let difference = 0
-					let monthday = null
-					let endTime = new Date()
-
-					if( new Date(result.startTime).valueOf()>=endTime.valueOf() ){
-					// 服务未开始
-						monthday = [0, 0]
-						settle = 0
-						difference = 0
-					}else{
-						userNum = Number(result.userNum)
-
-						if( userNum < Bill.limit ){
-							settle = Bill.minPrice
-						}else{
-							let allMonth = getMonth(result.startTime, endTime)
-							let month = allMonth.month
-							monthday = allMonth.monthday
-							settle = month * Bill.price * userNum
-							settle = Number(settle.toFixed(2))
-							settle = settle<Bill.minPrice? Bill.minPrice : settle
-						}
-						
-						difference = Number( (settle - result.settle).toFixed(2) )
-					}
-
-					
-
 					if( result.status === 1 ){
+
+						// 1:暂停，0:正常
+						let pauseResume = null
+						let status = null
+
+						if( result.pauseResume ){
+							pauseResume = result.pauseResume
+							pauseResume.status = pauseResume.status?0:1
+							let option = pauseResume.status?'pause':'resume'
+							pauseResume.record.push({
+								createAt: new Date(),
+								option: option
+							})
+							// redis status
+							status = pauseResume.status?0:1
+						}else{
+							pauseResume = {}
+							pauseResume.status = 1
+							pauseResume.record = []
+							pauseResume.record.push({
+								createAt: new Date(),
+								option: 'pause'
+							})
+							// redis status
+							status = 0
+						}
+
 						service.update({_id: serviceId},{
 							clientId : result.clientId,
 						    startTime : result.startTime,
 						    endTime : result.endTime,
 						    userNum : result.userNum,
 						    createAt : result.createAt,
-						    closeAt : new Date(),
-						    status : 4,
-						    first: result.first,
-						    month: monthday,
-						    settle: settle,
-						    difference: difference,
+						    closeAt : result.closeAt,
+						    status : result.status,
+						    month: result.month,
+						    settle: result.settle,
+						    difference: result.difference,
 						    differenceWith: result.differenceWith,
-						    pauseResume: result.pauseResume
+						    first: result.first,
+						    pauseResume: pauseResume
 						}).then((result) => {
-							if(result){
+							if(result){ 
 								callback({
 									status: 1,
 									msg: 'success'
@@ -87,17 +80,17 @@ const closeService = (req, callback) => {
 								// redis add client
 								redis.select('1', function(error){
 								    if(error){
-								        console.error('redis close service failed:', error);
+								        console.error('redis pauseResume service failed:', error);
 								    }else{
-								        redis.set(clientId, 0, function(err, res){  
-									        console.log('redis close client:'+clientId, res); 
+								        redis.set(clientId, status, function(err, res){  
+									        console.log('redis pauseResume client:'+clientId, res);  
 									    });
 								    }
 								});
 							}else{
 								callback({
 									status: 0,
-									msg: '关闭失败'
+									msg: '开通失败'
 								})
 							}
 						}).catch((error) => {
@@ -109,7 +102,7 @@ const closeService = (req, callback) => {
 					}else{
 						callback({
 							status: 0,
-							msg: '当前服务无法执行关闭操作！'
+							msg: '当前服务无法暂停/恢复开通操作！'
 						})
 					}
 				}else{
@@ -133,4 +126,4 @@ const closeService = (req, callback) => {
 	
 }
 
-module.exports = closeService
+module.exports = pauseresumeService

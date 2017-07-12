@@ -122,6 +122,8 @@ export default {
 .layout-menu-right{
 	display: flex;
 	flex-direction: column;
+	height: 100%;
+    overflow-y: auto;
 }
 .layout-contents{
 	flex: 1;

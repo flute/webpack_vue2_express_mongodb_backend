@@ -31,9 +31,16 @@
 			        							<Button type="error" @click.stop="del(service._id)">删除</Button>
 			        						</template>
 			        						<template v-if="service.status===1">
-			        							<Button type="success" @click.stop="renewal(service._id)">续接</Button>
+			        							<Button type="success" @click.stop="renewal(service._id)">续费</Button>
 			        							<Button type="info" @click.stop="change(service._id)">变更</Button>
 			        							<Button type="error" @click.stop="close(service._id)">关闭</Button>
+			        							<Button type="warning" @click.stop="pauseResume(service._id)" 
+			        							icon="ios-play"
+			        							v-if="service.pauseResume && service.pauseResume.status">恢复</Button>
+			        							<Button v-else type="warning" icon="ios-pause"
+			        							@click.stop="pauseResume(service._id)">
+			        								暂停
+			        							</Button>
 			        						</template>
 			        					</td>
 			        				</tr>
@@ -76,9 +83,15 @@
 		        	<span class="input-label">开通时间</span>
 		        	<Date-picker :editable="false" v-model="starttime" type="date" :options="startmin" :disabled="option==='renewal'||disabled" placeholder="选择开始日期" style="width: 200px"></Date-picker>
 		        </p>
-		        <p>
+		        <!-- <p>
 		        	<span class="input-label">截止时间</span>
 		        	<Date-picker :editable="false" v-model="endtime" type="date" :options="timemin" placeholder="选择截止日期" style="width: 200px"></Date-picker>
+		        </p> -->
+		        <p>
+		        	<span class="input-label">服务时间</span>
+		        	<Input v-model="year" style="display:inline-table" placeholder="服务时间">
+		        		<span slot="append" style="width:30px;display:inline-block;">年</span>
+		        	</Input>
 		        </p>
 		        <p>
 		        	<span class="input-label">服务人数</span>
@@ -110,6 +123,7 @@ export default{
 			clientId: this.$route.query.id,
 			starttime: '',
 			endtime: '',
+			year: '',
 			account: '',
 			pwd: '',
 			usernum: null,
@@ -160,7 +174,7 @@ export default{
 			})
 		},
 		submit(){
-			if( ( this.option!='admin'&&this.option!='reset'&&(!this.starttime || !this.endtime || !this.usernum) )
+			if( ( this.option!='admin'&&this.option!='reset'&&(!this.starttime || !this.year || !this.usernum) )
 				||
 				( this.option=='admin'&&(!this.account||!this.pwd) )
 			){
@@ -177,6 +191,18 @@ export default{
 					this.$Message.warning({content: '请输入6-20位的密码', duration: 3, closable: true});
 					return;
 				}
+			}
+			if( this.year ){
+				let year = Number(this.year)
+				if( !/^[0-9]{0,3}$/.test(this.year) || year<=0 || year>100){
+					this.$Message.warning({content: '服务时间为0-100的正整数', duration: 3, closable: true});
+					return;
+				}
+				let date = new Date(this.starttime)
+				let endtime = (date.getFullYear()+year)+'-'+(date.getMonth()+1)+'-'+date.getDate()
+				console.log('endtime:', endtime)
+				endtime = new Date(endtime)
+				this.endtime = endtime
 			}
 			if( this.usernum ){
 				let flag = false
@@ -393,6 +419,20 @@ export default{
                 }
             })
 		},
+		pauseResume(sid){
+			let apiUrl = this.$store.state.apiUrl
+			this.axios.post(apiUrl+'/client/service/pauseresume', {clientid: this.clientId, serviceid: sid})
+			.then( response => response.data )
+			.then( res => {
+				if(!this.checkLogin(res))return;
+				if( res.status ){
+					this.$Message.success({content: '操作成功', duration: 3, closable: true});
+					this.getService()
+				}else{
+					this.$Message.error({content: '操作失败，请重新尝试', duration: 3, closable: true});
+				}
+			})
+		},
 		doedit(sid){
 			if( !sid ) return;
 			this.modalTitle = "编辑服务"
@@ -435,6 +475,7 @@ export default{
 					
 					this.starttime = this.services[i].startTime
 					this.endtime = this.services[i].endTime
+					this.year = this.services[i].year
 					this.usernum = this.services[i].userNum
 					this.edit = this.services[i]
 

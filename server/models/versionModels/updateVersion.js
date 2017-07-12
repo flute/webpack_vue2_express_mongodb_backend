@@ -25,7 +25,7 @@ const updateVersion = (req, callback) => {
 	version.findOne({_id: id}, '-_id')
 	.then((result) => {
 		if( result ){
-			version.update({_id: id}, {
+			let data = {
 				description: desc,
 				name: name,
 				updateAddr: address,
@@ -36,7 +36,10 @@ const updateVersion = (req, callback) => {
 				updateAt: time,
 				pubStatus: result.pubStatus,
 				flag: result.flag,
-			}).then((result) => {
+			}
+
+			version.update({_id: id}, data)
+			.then((result) => {
 				if( result ){
 					callback({
 						status: 1,
@@ -54,9 +57,28 @@ const updateVersion = (req, callback) => {
 					msg: error
 				})
 			})
-			// notice
+			
+			let key = result.platform=='ios'?'version-asistant-ios':'version-asistant-android'
 			if( result.pubStatus === 1 ){
+				// notice
 				appNotice("好氛围在Android/iOS平台修改了版本（"+result.version+"），地址（"+result.updateAddr+"）")
+				// redis
+				redis.select('2', function(error){
+				    if(error){
+				        console.error('redis update version failed:', error);
+				    }else{
+				        redis.get(key, function(err, reply){
+				    		reply = JSON.parse(reply)
+				    		if( reply && reply._id==result._id.toString() ){
+				    			redis.set(key, JSON.stringify(data), function(err, res){  
+							        console.log('redis update :'+key+'——'+result.description, res);  
+							    });
+				    		}else{
+				    			// do nothing...
+				    		}
+				    	})
+				    }
+				});
 			}
 		}else{
 			callback({

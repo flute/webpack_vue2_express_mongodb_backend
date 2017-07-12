@@ -1,0 +1,754 @@
+[2017-07-12 15:13:49.313] [INFO] console - Express server listening on port 3000
+[2017-07-12 15:48:07.230] [INFO] console - Express server listening on port 3000
+[2017-07-12 15:48:14.143] [INFO] record - GET /islogin
+[2017-07-12 15:48:17.922] [INFO] record - OPTIONS /login
+[2017-07-12 15:48:18.126] [INFO] record - POST /login
+[2017-07-12 15:48:19.567] [INFO] record - GET /version/list
+[2017-07-12 15:48:29.085] [INFO] record - OPTIONS /version/publish
+[2017-07-12 15:49:01.748] [INFO] console - Express server listening on port 3000
+[2017-07-12 15:49:16.871] [INFO] record - OPTIONS /version/publish
+[2017-07-12 15:49:17.000] [INFO] console - 通知操作
+[2017-07-12 15:49:17.055] [WARN] console - node_redis: Deprecated: The SET command contains a argument of type Object.
+This is converted to "[object Object]" by using .toString() now and will return an error from v.3.0 on.
+Please handle this in your code to make sure everything works as you intended it to.
+[2017-07-12 15:49:17.055] [INFO] console - redis update version:新的版本 OK
+[2017-07-12 15:49:17.061] [INFO] record - POST /version/publish
+[2017-07-12 15:49:17.287] [INFO] record - GET /version/list
+[2017-07-12 15:49:17.308] [INFO] console - App版本更新通知成功
+[2017-07-12 15:50:39.178] [INFO] record - OPTIONS /version/publish
+[2017-07-12 15:50:39.202] [INFO] console - 通知操作
+[2017-07-12 15:50:39.205] [WARN] console - node_redis: Deprecated: The SET command contains a argument of type Object.
+This is converted to "[object Object]" by using .toString() now and will return an error from v.3.0 on.
+Please handle this in your code to make sure everything works as you intended it to.
+[2017-07-12 15:50:39.205] [INFO] console - redis update version:一家亲正式版 OK
+[2017-07-12 15:50:39.217] [INFO] record - POST /version/publish
+[2017-07-12 15:50:39.261] [INFO] console - App版本更新通知成功
+[2017-07-12 15:50:39.303] [INFO] record - GET /version/list
+[2017-07-12 15:51:59.857] [INFO] console - Express server listening on port 3000
+[2017-07-12 15:52:32.854] [INFO] console - Express server listening on port 3000
+[2017-07-12 15:52:35.480] [INFO] record - GET /islogin
+[2017-07-12 15:52:36.083] [INFO] record - GET /version/list
+[2017-07-12 15:52:46.264] [INFO] record - OPTIONS /version/publish
+[2017-07-12 15:52:46.327] [INFO] console - 通知操作
+[2017-07-12 15:52:46.338] [INFO] console - result { _id: 593e01f6c9a9796669b50989,
+  description: '新的版本',
+  name: '好氛围',
+  updateAddr: 'https://www.ldsun.com',
+  platform: 'ios',
+  updateType: 'choose',
+  version: '1.0.2',
+  createdAt: 2017-06-12T02:52:38.279Z,
+  updateAt: 2017-06-19T01:56:58.740Z,
+  flag: 1 }
+[2017-07-12 15:52:46.352] [WARN] console - node_redis: Deprecated: The SET command contains a argument of type Object.
+This is converted to "[object Object]" by using .toString() now and will return an error from v.3.0 on.
+Please handle this in your code to make sure everything works as you intended it to.
+[2017-07-12 15:52:46.354] [INFO] console - redis update version:新的版本 OK
+[2017-07-12 15:52:46.356] [INFO] record - POST /version/publish
+[2017-07-12 15:52:46.443] [INFO] record - GET /version/list
+[2017-07-12 15:52:46.512] [INFO] console - App版本更新通知成功
+[2017-07-12 15:52:55.299] [INFO] record - GET /role/list
+[2017-07-12 15:52:56.290] [INFO] record - GET /version/list
+[2017-07-12 15:53:27.524] [INFO] console - Express server listening on port 3000
+[2017-07-12 15:53:39.169] [INFO] record - GET /role/list
+[2017-07-12 15:53:40.285] [INFO] record - GET /version/list
+[2017-07-12 15:53:41.656] [INFO] record - OPTIONS /version/publish
+[2017-07-12 15:53:41.784] [INFO] console - reply: [object Object]
+[2017-07-12 15:53:41.792] [INFO] record - POST /version/publish
+[2017-07-12 15:53:41.847] [INFO] record - GET /version/list
+[2017-07-12 15:54:52.440] [INFO] console - Express server listening on port 3000
+[2017-07-12 15:54:57.236] [INFO] record - OPTIONS /version/publish
+[2017-07-12 15:54:57.486] [INFO] console - version-asistant-android reply: [object Object]
+[2017-07-12 15:54:57.493] [INFO] record - POST /version/publish
+[2017-07-12 15:54:57.547] [INFO] record - GET /version/list
+[2017-07-12 15:55:26.538] [INFO] record - OPTIONS /version/publish
+[2017-07-12 15:55:26.570] [INFO] console - 通知操作
+[2017-07-12 15:55:26.613] [INFO] console - result { _id: 593e34c3d2aaf36a5784a1f1,
+  description: '一家亲正式版',
+  name: '一家亲',
+  updateAddr: 'https://www.ldsun.com',
+  platform: 'android',
+  updateType: 'must',
+  version: '1.0.2',
+  createdAt: 2017-06-12T06:29:23.508Z,
+  updateAt: 2017-06-22T03:00:41.945Z,
+  pubStatus: 0,
+  flag: 1 }
+[2017-07-12 15:55:26.621] [WARN] console - node_redis: Deprecated: The SET command contains a argument of type Object.
+This is converted to "[object Object]" by using .toString() now and will return an error from v.3.0 on.
+Please handle this in your code to make sure everything works as you intended it to.
+[2017-07-12 15:55:26.631] [INFO] record - POST /version/publish
+[2017-07-12 15:55:26.669] [INFO] console - redis update version:一家亲正式版 OK
+[2017-07-12 15:55:26.760] [INFO] record - GET /version/list
+[2017-07-12 15:55:26.794] [INFO] console - App版本更新通知成功
+[2017-07-12 15:58:38.371] [INFO] console - Express server listening on port 3000
+[2017-07-12 15:58:50.303] [INFO] record - OPTIONS /version/publish
+[2017-07-12 15:58:50.404] [INFO] console - 通知操作
+[2017-07-12 15:58:50.428] [INFO] console - result { _id: 593e01f6c9a9796669b50989,
+  description: '新的版本',
+  name: '好氛围',
+  updateAddr: 'https://www.ldsun.com',
+  platform: 'ios',
+  updateType: 'choose',
+  version: '1.0.2',
+  createdAt: 2017-06-12T02:52:38.279Z,
+  updateAt: 2017-06-19T01:56:58.740Z,
+  pubStatus: 0,
+  flag: 1 }
+[2017-07-12 15:58:50.437] [INFO] record - POST /version/publish
+[2017-07-12 15:58:50.440] [INFO] console - redis update version:新的版本 OK
+[2017-07-12 15:58:50.556] [INFO] console - App版本更新通知成功
+[2017-07-12 15:58:50.584] [INFO] record - GET /version/list
+[2017-07-12 15:59:27.619] [INFO] record - OPTIONS /version/publish
+[2017-07-12 15:59:27.644] [INFO] console - version-asistant-ios reply: {"_id":"593e01f6c9a9796669b50989","description":"新的版本","name":"好氛围","updateAddr":"https://www.ldsun.com","platform":"ios","updateType":"choose","version":"1.0.2","createdAt":"2017-06-12T02:52:38.279Z","updateAt":"2017-06-19T01:56:58.740Z","pubStatus":0,"flag":1}
+[2017-07-12 15:59:27.648] [INFO] record - POST /version/publish
+[2017-07-12 15:59:27.689] [INFO] record - GET /version/list
+[2017-07-12 15:59:33.586] [INFO] record - OPTIONS /version/publish
+[2017-07-12 15:59:33.607] [INFO] console - version-asistant-android reply: [object Object]
+[2017-07-12 15:59:33.610] [INFO] record - POST /version/publish
+[2017-07-12 15:59:33.635] [INFO] record - GET /version/list
+[2017-07-12 15:59:37.555] [INFO] console - 通知操作
+[2017-07-12 15:59:37.558] [INFO] console - result { _id: 593e34c3d2aaf36a5784a1f1,
+  description: '一家亲正式版',
+  name: '一家亲',
+  updateAddr: 'https://www.ldsun.com',
+  platform: 'android',
+  updateType: 'must',
+  version: '1.0.2',
+  createdAt: 2017-06-12T06:29:23.508Z,
+  updateAt: 2017-06-22T03:00:41.945Z,
+  pubStatus: 0,
+  flag: 1 }
+[2017-07-12 15:59:37.560] [INFO] console - redis update version:一家亲正式版 OK
+[2017-07-12 15:59:37.566] [INFO] record - POST /version/publish
+[2017-07-12 15:59:37.595] [INFO] console - App版本更新通知成功
+[2017-07-12 15:59:37.608] [INFO] record - GET /version/list
+[2017-07-12 15:59:38.394] [INFO] console - 通知操作
+[2017-07-12 15:59:38.396] [INFO] console - result { _id: 593e01f6c9a9796669b50989,
+  description: '新的版本',
+  name: '好氛围',
+  updateAddr: 'https://www.ldsun.com',
+  platform: 'ios',
+  updateType: 'choose',
+  version: '1.0.2',
+  createdAt: 2017-06-12T02:52:38.279Z,
+  updateAt: 2017-06-19T01:56:58.740Z,
+  pubStatus: 0,
+  flag: 1 }
+[2017-07-12 15:59:38.401] [INFO] console - redis update version:新的版本 OK
+[2017-07-12 15:59:38.403] [INFO] record - POST /version/publish
+[2017-07-12 15:59:38.427] [INFO] console - App版本更新通知成功
+[2017-07-12 15:59:38.429] [INFO] record - GET /version/list
+[2017-07-12 16:00:14.995] [INFO] record - OPTIONS /version/publish
+[2017-07-12 16:00:15.013] [INFO] console - version-asistant-ios reply: {"_id":"593e01f6c9a9796669b50989","description":"新的版本","name":"好氛围","updateAddr":"https://www.ldsun.com","platform":"ios","updateType":"choose","version":"1.0.2","createdAt":"2017-06-12T02:52:38.279Z","updateAt":"2017-06-19T01:56:58.740Z","pubStatus":0,"flag":1}
+[2017-07-12 16:00:15.016] [INFO] record - POST /version/publish
+[2017-07-12 16:00:15.038] [INFO] record - GET /version/list
+[2017-07-12 16:01:03.315] [INFO] console - Express server listening on port 3000
+[2017-07-12 16:01:15.998] [INFO] record - OPTIONS /version/publish
+[2017-07-12 16:01:16.125] [INFO] console - version-asistant-android reply: {"_id":"593e34c3d2aaf36a5784a1f1","description":"一家亲正式版","name":"一家亲","updateAddr":"https://www.ldsun.com","platform":"android","updateType":"must","version":"1.0.2","createdAt":"2017-06-12T06:29:23.508Z","updateAt":"2017-06-22T03:00:41.945Z","pubStatus":0,"flag":1} undefined
+[2017-07-12 16:01:16.128] [INFO] record - POST /version/publish
+[2017-07-12 16:01:16.183] [INFO] record - GET /version/list
+[2017-07-12 16:02:11.918] [INFO] console - Express server listening on port 3000
+[2017-07-12 16:02:14.860] [INFO] record - OPTIONS /version/publish
+[2017-07-12 16:02:14.942] [INFO] console - 通知操作
+[2017-07-12 16:02:14.965] [INFO] console - result { _id: 593e01f6c9a9796669b50989,
+  description: '新的版本',
+  name: '好氛围',
+  updateAddr: 'https://www.ldsun.com',
+  platform: 'ios',
+  updateType: 'choose',
+  version: '1.0.2',
+  createdAt: 2017-06-12T02:52:38.279Z,
+  updateAt: 2017-06-19T01:56:58.740Z,
+  pubStatus: 0,
+  flag: 1 }
+[2017-07-12 16:02:14.975] [INFO] record - POST /version/publish
+[2017-07-12 16:02:14.977] [INFO] console - redis update version:新的版本 OK
+[2017-07-12 16:02:15.100] [INFO] record - GET /version/list
+[2017-07-12 16:02:15.115] [INFO] console - App版本更新通知成功
+[2017-07-12 16:02:18.945] [INFO] console - 593e01f6c9a9796669b50989
+[2017-07-12 16:02:18.949] [INFO] console - redis delete version:新的版本 1
+[2017-07-12 16:02:18.950] [INFO] record - POST /version/publish
+[2017-07-12 16:02:18.973] [INFO] record - GET /version/list
+[2017-07-12 16:05:05.722] [INFO] record - GET /role/list
+[2017-07-12 16:05:06.535] [INFO] record - GET /version/list
+[2017-07-12 16:05:39.964] [INFO] record - GET /role/list
+[2017-07-12 16:05:40.795] [INFO] record - GET /version/list
+[2017-07-12 16:06:09.507] [INFO] record - OPTIONS /version/new
+[2017-07-12 16:06:09.543] [INFO] record - POST /version/new
+[2017-07-12 16:06:09.619] [INFO] record - GET /version/list
+[2017-07-12 16:06:27.044] [INFO] record - OPTIONS /version/publish
+[2017-07-12 16:06:27.076] [INFO] console - 通知操作
+[2017-07-12 16:06:27.079] [INFO] console - result { _id: 593e01f6c9a9796669b50989,
+  description: '新的版本',
+  name: '好氛围',
+  updateAddr: 'https://www.ldsun.com',
+  platform: 'ios',
+  updateType: 'choose',
+  version: '1.0.2',
+  createdAt: 2017-06-12T02:52:38.279Z,
+  updateAt: 2017-06-19T01:56:58.740Z,
+  pubStatus: 0,
+  flag: 1 }
+[2017-07-12 16:06:27.085] [INFO] console - redis update version:新的版本 OK
+[2017-07-12 16:06:27.086] [INFO] record - POST /version/publish
+[2017-07-12 16:06:27.116] [INFO] record - GET /version/list
+[2017-07-12 16:06:27.128] [INFO] console - App版本更新通知成功
+[2017-07-12 16:06:39.980] [INFO] record - OPTIONS /version/publish
+[2017-07-12 16:06:40.002] [INFO] console - 通知操作
+[2017-07-12 16:06:40.006] [INFO] console - result { _id: 5965d871c7588773901611c4,
+  description: '哇咔咔',
+  name: '好氛围',
+  updateAddr: 'https://a.top',
+  updateType: 'choose',
+  platform: 'ios',
+  pubStatus: 0,
+  createdAt: 2017-07-12T08:06:09.535Z,
+  updateAt: 2017-07-12T08:06:09.535Z,
+  version: '2.3.1',
+  flag: 1 }
+[2017-07-12 16:06:40.013] [INFO] console - redis update version:哇咔咔 OK
+[2017-07-12 16:06:40.014] [INFO] record - POST /version/publish
+[2017-07-12 16:06:40.044] [INFO] console - App版本更新通知成功
+[2017-07-12 16:06:40.045] [INFO] record - GET /version/list
+[2017-07-12 16:06:56.438] [INFO] record - OPTIONS /version/publish
+[2017-07-12 16:06:56.456] [INFO] console - 5965d871c7588773901611c4
+[2017-07-12 16:06:56.459] [INFO] record - POST /version/publish
+[2017-07-12 16:06:56.476] [INFO] record - GET /version/list
+[2017-07-12 16:07:04.712] [INFO] record - OPTIONS /version/publish
+[2017-07-12 16:07:04.723] [INFO] console - 通知操作
+[2017-07-12 16:07:04.725] [INFO] console - result { _id: 593e34c3d2aaf36a5784a1f1,
+  description: '一家亲正式版',
+  name: '一家亲',
+  updateAddr: 'https://www.ldsun.com',
+  platform: 'android',
+  updateType: 'must',
+  version: '1.0.2',
+  createdAt: 2017-06-12T06:29:23.508Z,
+  updateAt: 2017-06-22T03:00:41.945Z,
+  pubStatus: 0,
+  flag: 1 }
+[2017-07-12 16:07:04.728] [INFO] console - redis update version:一家亲正式版 OK
+[2017-07-12 16:07:04.733] [INFO] record - POST /version/publish
+[2017-07-12 16:07:04.751] [INFO] console - App版本更新通知成功
+[2017-07-12 16:07:04.757] [INFO] record - GET /version/list
+[2017-07-12 16:21:08.314] [INFO] record - GET /user/list
+[2017-07-12 16:21:08.404] [INFO] record - GET /client/list
+[2017-07-12 16:22:00.112] [INFO] record - GET /user/list
+[2017-07-12 16:22:00.138] [INFO] record - GET /client/list
+[2017-07-12 16:22:57.072] [INFO] record - GET /user/list
+[2017-07-12 16:22:57.109] [INFO] record - GET /client/list
+[2017-07-12 16:24:11.843] [INFO] record - OPTIONS /client/new
+[2017-07-12 16:24:11.874] [INFO] record - POST /client/new
+[2017-07-12 16:24:32.088] [INFO] record - OPTIONS /client/new
+[2017-07-12 16:24:32.121] [INFO] record - POST /client/new
+[2017-07-12 16:25:56.754] [INFO] console - Express server listening on port 3000
+[2017-07-12 16:26:02.904] [INFO] record - OPTIONS /client/new
+[2017-07-12 16:26:03.086] [INFO] record - POST /client/new
+[2017-07-12 16:26:03.090] [INFO] console - redis add client:5965dd1a876b9176a4c31f51 OK
+[2017-07-12 16:26:03.366] [INFO] record - GET /client/list
+[2017-07-12 16:29:09.970] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 16:29:10.100] [INFO] record - POST /client/service/list
+[2017-07-12 16:29:17.774] [INFO] record - GET /user/list
+[2017-07-12 16:29:17.860] [INFO] record - GET /client/list
+[2017-07-12 16:29:19.224] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 16:29:19.320] [INFO] record - POST /client/service/list
+[2017-07-12 16:41:51.494] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 16:41:51.597] [INFO] record - POST /client/service/list
+[2017-07-12 16:43:06.484] [INFO] record - GET /islogin
+[2017-07-12 16:43:07.234] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 16:43:07.380] [INFO] record - POST /client/service/list
+[2017-07-12 16:51:48.619] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 16:51:48.726] [INFO] record - POST /client/service/list
+[2017-07-12 16:51:50.911] [INFO] record - OPTIONS /login
+[2017-07-12 16:51:50.983] [INFO] record - POST /login
+[2017-07-12 16:51:51.106] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 16:51:51.127] [INFO] record - POST /client/service/list
+[2017-07-12 16:52:09.390] [INFO] record - OPTIONS /client/service/new
+[2017-07-12 16:52:09.882] [INFO] record - POST /client/service/new
+[2017-07-12 16:52:10.051] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 16:52:10.139] [INFO] record - POST /client/service/list
+[2017-07-12 17:03:37.405] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:03:39.226] [INFO] record - GET /islogin
+[2017-07-12 17:03:39.764] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:03:39.976] [INFO] record - POST /client/service/list
+[2017-07-12 17:04:14.176] [INFO] record - OPTIONS /client/service/new
+[2017-07-12 17:04:14.242] [INFO] record - POST /client/service/new
+[2017-07-12 17:04:58.834] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:04:58.929] [INFO] record - POST /client/service/list
+[2017-07-12 17:05:06.316] [INFO] record - OPTIONS /client/service/new
+[2017-07-12 17:05:06.349] [INFO] record - POST /client/service/new
+[2017-07-12 17:05:49.772] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:05:49.803] [INFO] record - POST /client/service/list
+[2017-07-12 17:05:55.575] [INFO] record - OPTIONS /client/service/new
+[2017-07-12 17:05:55.648] [INFO] record - POST /client/service/new
+[2017-07-12 17:06:18.775] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:06:18.844] [INFO] record - POST /client/service/list
+[2017-07-12 17:06:26.366] [INFO] record - OPTIONS /client/service/new
+[2017-07-12 17:06:26.390] [INFO] record - POST /client/service/new
+[2017-07-12 17:07:08.520] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:07:08.566] [INFO] record - POST /client/service/list
+[2017-07-12 17:07:32.192] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:07:32.248] [INFO] record - POST /client/service/list
+[2017-07-12 17:07:41.197] [INFO] record - OPTIONS /client/service/new
+[2017-07-12 17:07:41.276] [INFO] record - POST /client/service/new
+[2017-07-12 17:07:56.008] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:07:56.038] [INFO] record - POST /client/service/list
+[2017-07-12 17:08:07.949] [INFO] record - OPTIONS /client/service/new
+[2017-07-12 17:08:07.991] [INFO] record - POST /client/service/new
+[2017-07-12 17:09:13.121] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:09:13.175] [INFO] record - POST /client/service/list
+[2017-07-12 17:09:33.007] [INFO] record - OPTIONS /client/service/new
+[2017-07-12 17:09:33.056] [INFO] record - POST /client/service/new
+[2017-07-12 17:09:56.123] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:09:56.189] [INFO] record - POST /client/service/list
+[2017-07-12 17:10:03.307] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:10:03.368] [INFO] record - POST /client/service/list
+[2017-07-12 17:10:13.867] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:10:13.988] [INFO] record - POST /client/service/list
+[2017-07-12 17:10:20.453] [INFO] record - OPTIONS /client/service/new
+[2017-07-12 17:10:20.544] [INFO] record - POST /client/service/new
+[2017-07-12 17:10:20.601] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:10:20.638] [INFO] record - POST /client/service/list
+[2017-07-12 17:10:33.747] [INFO] record - OPTIONS /client/update
+[2017-07-12 17:10:34.118] [INFO] console - check client is already inited: null []
+[2017-07-12 17:10:34.138] [INFO] console - check account is already existed: null []
+[2017-07-12 17:10:34.173] [INFO] console - select t_sys_menu finished: null
+[2017-07-12 17:10:34.192] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 716,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-12 17:10:34.216] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 69,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-12 17:10:34.240] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 211,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-12 17:10:34.271] [INFO] console - init t_module finished: null 20336 [ 20334, 20335, 20336, 20337, 20338 ]
+[2017-07-12 17:10:34.279] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' } ]
+[2017-07-12 17:10:34.288] [INFO] console - update t_sys_role finished: null
+[2017-07-12 17:10:34.316] [INFO] console - init t_info fineshed: null
+[2017-07-12 17:10:34.328] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10213,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-12 17:10:34.329] [INFO] console - mysql初始化完毕
+[2017-07-12 17:10:34.334] [INFO] console - { status: 1, mag: 'success' }
+[2017-07-12 17:10:34.380] [INFO] record - POST /client/update
+[2017-07-12 17:10:34.410] [INFO] record - OPTIONS /client/service/open
+[2017-07-12 17:10:34.442] [INFO] console - 12 [ 12 ]
+[2017-07-12 17:10:34.469] [INFO] record - POST /client/service/open
+[2017-07-12 17:10:34.471] [INFO] console - redis open client:596494959fe043545fc102ef OK
+[2017-07-12 17:10:34.488] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:10:34.510] [INFO] record - POST /client/service/list
+[2017-07-12 17:10:52.388] [INFO] record - OPTIONS /hasread
+[2017-07-12 17:10:52.568] [INFO] record - POST /hasread
+[2017-07-12 17:10:56.601] [INFO] record - GET /user/list
+[2017-07-12 17:10:56.718] [INFO] record - GET /role/list
+[2017-07-12 17:10:56.747] [INFO] record - GET /client/list
+[2017-07-12 17:10:57.321] [INFO] record - GET /user/list
+[2017-07-12 17:10:57.354] [INFO] record - GET /client/list
+[2017-07-12 17:10:59.227] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:10:59.263] [INFO] record - POST /client/service/list
+[2017-07-12 17:11:01.932] [INFO] record - GET /user/list
+[2017-07-12 17:11:01.971] [INFO] record - GET /client/list
+[2017-07-12 17:11:08.315] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:11:08.403] [INFO] record - POST /client/service/list
+[2017-07-12 17:11:10.219] [INFO] record - GET /user/list
+[2017-07-12 17:11:10.240] [INFO] record - GET /client/list
+[2017-07-12 17:11:11.976] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:11:12.035] [INFO] record - POST /client/service/list
+[2017-07-12 17:11:13.971] [INFO] record - GET /user/list
+[2017-07-12 17:11:14.021] [INFO] record - GET /client/list
+[2017-07-12 17:11:15.690] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:11:15.718] [INFO] record - POST /client/service/list
+[2017-07-12 17:11:17.872] [INFO] record - GET /user/list
+[2017-07-12 17:11:17.918] [INFO] record - GET /client/list
+[2017-07-12 17:11:19.125] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:11:19.157] [INFO] record - POST /client/service/list
+[2017-07-12 17:11:20.524] [INFO] record - GET /user/list
+[2017-07-12 17:11:20.570] [INFO] record - GET /client/list
+[2017-07-12 17:11:21.503] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:11:21.534] [INFO] record - POST /client/service/list
+[2017-07-12 17:11:33.173] [INFO] record - GET /user/list
+[2017-07-12 17:11:33.206] [INFO] record - GET /client/list
+[2017-07-12 17:11:35.496] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:11:35.528] [INFO] record - POST /client/service/list
+[2017-07-12 17:18:43.632] [INFO] record - GET /user/list
+[2017-07-12 17:18:43.646] [INFO] record - GET /client/list
+[2017-07-12 17:18:45.163] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:18:45.253] [INFO] record - POST /client/service/list
+[2017-07-12 17:22:05.621] [INFO] record - GET /bill/list
+[2017-07-12 17:22:08.192] [INFO] record - GET /user/list
+[2017-07-12 17:22:08.193] [INFO] record - GET /client/list
+[2017-07-12 17:22:08.204] [INFO] record - GET /role/list
+[2017-07-12 17:22:11.449] [INFO] record - GET /role/list
+[2017-07-12 17:22:12.576] [INFO] record - GET /user/list
+[2017-07-12 17:22:12.631] [INFO] record - GET /client/list
+[2017-07-12 17:22:15.004] [INFO] record - GET /role/list
+[2017-07-12 17:22:16.665] [INFO] record - GET /version/list
+[2017-07-12 17:22:18.927] [INFO] record - GET /bill/list
+[2017-07-12 17:22:19.789] [INFO] record - GET /user/list
+[2017-07-12 17:22:19.829] [INFO] record - GET /role/list
+[2017-07-12 17:22:19.839] [INFO] record - GET /client/list
+[2017-07-12 17:22:39.471] [INFO] record - GET /user/list
+[2017-07-12 17:22:39.504] [INFO] record - GET /client/list
+[2017-07-12 17:22:47.417] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:22:47.450] [INFO] record - POST /client/service/list
+[2017-07-12 17:22:50.145] [INFO] record - GET /user/list
+[2017-07-12 17:22:50.169] [INFO] record - GET /client/list
+[2017-07-12 17:22:51.711] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:22:51.755] [INFO] record - POST /client/service/list
+[2017-07-12 17:24:30.131] [INFO] record - GET /user/list
+[2017-07-12 17:24:30.207] [INFO] record - GET /client/list
+[2017-07-12 17:24:41.522] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:24:41.562] [INFO] record - POST /client/service/list
+[2017-07-12 17:24:44.266] [INFO] record - GET /user/list
+[2017-07-12 17:24:44.297] [INFO] record - GET /client/list
+[2017-07-12 17:24:45.456] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:24:45.506] [INFO] record - POST /client/service/list
+[2017-07-12 17:24:47.608] [INFO] record - GET /user/list
+[2017-07-12 17:24:47.614] [INFO] record - GET /client/list
+[2017-07-12 17:24:48.823] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:24:48.850] [INFO] record - POST /client/service/list
+[2017-07-12 17:24:50.394] [INFO] record - GET /user/list
+[2017-07-12 17:24:50.423] [INFO] record - GET /client/list
+[2017-07-12 17:24:51.501] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:24:51.540] [INFO] record - POST /client/service/list
+[2017-07-12 17:25:03.056] [INFO] record - GET /user/list
+[2017-07-12 17:25:03.075] [INFO] record - GET /role/list
+[2017-07-12 17:25:03.097] [INFO] record - GET /client/list
+[2017-07-12 17:25:04.874] [INFO] record - GET /role/list
+[2017-07-12 17:25:06.315] [INFO] record - GET /version/list
+[2017-07-12 17:25:07.356] [INFO] record - GET /user/list
+[2017-07-12 17:25:07.384] [INFO] record - GET /client/list
+[2017-07-12 17:25:12.508] [INFO] record - GET /bill/list
+[2017-07-12 17:25:18.000] [INFO] record - GET /user/list
+[2017-07-12 17:25:18.027] [INFO] record - GET /role/list
+[2017-07-12 17:25:18.058] [INFO] record - GET /client/list
+[2017-07-12 17:25:19.542] [INFO] record - GET /user/list
+[2017-07-12 17:25:19.576] [INFO] record - GET /client/list
+[2017-07-12 17:25:25.639] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:25:25.685] [INFO] record - POST /client/service/list
+[2017-07-12 17:29:28.962] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:29:28.995] [INFO] record - POST /client/service/list
+[2017-07-12 17:40:21.733] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:40:22.017] [INFO] record - POST /client/service/list
+[2017-07-12 17:41:43.500] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:41:43.573] [INFO] record - POST /client/service/list
+[2017-07-12 17:41:58.607] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 17:41:58.634] [INFO] record - POST /client/service/list
+[2017-07-12 19:19:24.292] [INFO] console - Express server listening on port 3000
+[2017-07-12 19:19:38.456] [INFO] record - GET /user/list
+[2017-07-12 19:19:38.471] [INFO] record - GET /client/list
+[2017-07-12 19:19:40.521] [INFO] record - OPTIONS /login
+[2017-07-12 19:19:40.670] [INFO] record - POST /login
+[2017-07-12 19:19:45.000] [INFO] record - OPTIONS /login
+[2017-07-12 19:19:45.034] [INFO] record - POST /login
+[2017-07-12 19:19:59.330] [INFO] record - OPTIONS /login
+[2017-07-12 19:19:59.430] [INFO] record - POST /login
+[2017-07-12 19:19:59.666] [INFO] record - GET /user/list
+[2017-07-12 19:19:59.793] [INFO] record - GET /client/list
+[2017-07-12 19:20:02.055] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 19:20:02.301] [INFO] record - POST /client/service/list
+[2017-07-12 19:20:04.113] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 19:20:04.170] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 19:22:09.213] [INFO] console - Express server listening on port 3000
+[2017-07-12 19:22:14.220] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 19:22:14.356] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5' }
+[2017-07-12 19:22:14.411] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 19:22:14.416] [INFO] console - redis open client:596494099fe043545fc102ec OK
+[2017-07-12 19:22:14.489] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 19:22:14.566] [INFO] record - POST /client/service/list
+[2017-07-12 19:23:03.789] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 19:23:03.829] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null,
+  pauseResume: { status: 1, record: [ [Object] ] } }
+[2017-07-12 19:23:03.849] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 19:23:03.855] [INFO] console - redis open client:596494099fe043545fc102ec OK
+[2017-07-12 19:23:03.927] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 19:23:03.963] [INFO] record - POST /client/service/list
+[2017-07-12 19:23:25.363] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 19:23:25.508] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null,
+  pauseResume: { status: 0, record: [ [Object], [Object] ] } }
+[2017-07-12 19:23:25.595] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 19:23:25.634] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 19:23:25.658] [INFO] console - redis open client:596494099fe043545fc102ec OK
+[2017-07-12 19:23:25.701] [INFO] record - POST /client/service/list
+[2017-07-12 19:24:24.246] [INFO] console - Express server listening on port 3000
+[2017-07-12 19:24:51.150] [INFO] record - GET /islogin
+[2017-07-12 19:24:52.095] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 19:24:52.433] [INFO] record - POST /client/service/list
+[2017-07-12 19:24:57.029] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 19:24:57.116] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null }
+[2017-07-12 19:24:57.233] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 19:24:57.240] [INFO] console - redis open client:596494099fe043545fc102ec OK
+[2017-07-12 19:24:57.299] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 19:24:57.440] [INFO] record - POST /client/service/list
+[2017-07-12 19:25:00.152] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 19:25:00.209] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null,
+  pauseResume: { status: 1, record: [ [Object] ] } }
+[2017-07-12 19:25:00.286] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 19:25:00.289] [INFO] console - redis open client:596494099fe043545fc102ec OK
+[2017-07-12 19:25:00.375] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 19:25:00.431] [INFO] record - POST /client/service/list
+[2017-07-12 19:25:13.410] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 19:25:13.559] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null,
+  pauseResume: { status: 0, record: [ [Object], [Object] ] } }
+[2017-07-12 19:25:13.648] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 19:25:13.651] [INFO] console - redis open client:596494099fe043545fc102ec OK
+[2017-07-12 19:25:13.688] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 19:25:13.764] [INFO] record - POST /client/service/list
+[2017-07-12 20:02:52.075] [INFO] console - Express server listening on port 3000
+[2017-07-12 20:03:20.151] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 20:03:20.368] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null,
+  pauseResume: { status: 1, record: [ [Object], [Object], [Object] ] } }
+[2017-07-12 20:03:20.430] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 20:03:20.497] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:03:20.503] [INFO] console - redis pauseResume client:596494099fe043545fc102ec OK
+[2017-07-12 20:03:20.603] [INFO] record - POST /client/service/list
+[2017-07-12 20:03:55.154] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 20:03:55.243] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null,
+  pauseResume: 
+   { status: 0,
+     record: [ [Object], [Object], [Object], [Object] ] } }
+[2017-07-12 20:03:55.267] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 20:03:55.270] [INFO] console - redis pauseResume client:596494099fe043545fc102ec OK
+[2017-07-12 20:03:55.302] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:03:55.347] [INFO] record - POST /client/service/list
+[2017-07-12 20:05:39.657] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 20:05:39.832] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null,
+  pauseResume: 
+   { status: 1,
+     record: [ [Object], [Object], [Object], [Object], [Object] ] } }
+[2017-07-12 20:05:39.858] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 20:05:39.860] [INFO] console - redis pauseResume client:596494099fe043545fc102ec OK
+[2017-07-12 20:05:39.908] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:05:39.948] [INFO] record - POST /client/service/list
+[2017-07-12 20:06:37.828] [INFO] console - Express server listening on port 3000
+[2017-07-12 20:06:56.823] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 20:06:56.965] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null,
+  pauseResume: 
+   { status: 0,
+     record: [ [Object], [Object], [Object], [Object], [Object], [Object] ] } }
+[2017-07-12 20:06:56.990] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 20:06:56.992] [INFO] console - redis pauseResume client:596494099fe043545fc102ec OK
+[2017-07-12 20:06:57.042] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:06:57.146] [INFO] record - POST /client/service/list
+[2017-07-12 20:07:08.947] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 20:07:08.998] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null,
+  pauseResume: 
+   { status: 1,
+     record: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ] } }
+[2017-07-12 20:07:09.029] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 20:07:09.031] [INFO] console - redis pauseResume client:596494099fe043545fc102ec OK
+[2017-07-12 20:07:09.067] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:07:09.119] [INFO] record - POST /client/service/list
+[2017-07-12 20:10:03.702] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 20:10:03.738] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null,
+  pauseResume: 
+   { status: 0,
+     record: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ] } }
+[2017-07-12 20:10:03.804] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 20:10:03.805] [INFO] console - redis pauseResume client:596494099fe043545fc102ec OK
+[2017-07-12 20:10:03.831] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:10:03.975] [INFO] record - POST /client/service/list
+[2017-07-12 20:10:08.022] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 20:10:08.056] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-01-09T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-11T09:12:18.306Z,
+  closeAt: null,
+  status: 1,
+  month: [ 5, 26 ],
+  settle: 4380,
+  difference: 2380,
+  differenceWith: '5964965fc129e65588b9bfa5',
+  first: null,
+  pauseResume: 
+   { status: 1,
+     record: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ] } }
+[2017-07-12 20:10:08.104] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 20:10:08.119] [INFO] console - redis pauseResume client:596494099fe043545fc102ec OK
+[2017-07-12 20:10:08.144] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:10:08.261] [INFO] record - POST /client/service/list
+[2017-07-12 20:11:48.046] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:11:48.158] [INFO] record - POST /client/service/list

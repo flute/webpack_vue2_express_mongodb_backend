@@ -4,11 +4,11 @@ const redis = require('../../conf/redis')
 const createClient = (req, callback) => {
 
 	let name = req.body.name,
-		phone = req.body.phone,
-		address = req.body.address,
+		phone = req.body.phone||'',
+		address = req.body.address||'',
 		user = req.body.user;
 
-	if( !name || !phone || !address || !user){
+	if( !name || !user){
 		callback({
 			status: 0,
 			msg: '参数错误'

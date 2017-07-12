@@ -9,6 +9,7 @@ const getServiceList = require('../models/serviceModels/getServiceList')
 	  closeService = require('../models/serviceModels/closeService')
 	  changeService = require('../models/serviceModels/changeService')
 	  renewalService = require('../models/serviceModels/renewalService')
+	  pauseresumeService = require('../models/serviceModels/pauseresumeService')
 
 router.post('/list', function(req, res) {
 	getServiceList(req, function(result){
@@ -47,6 +48,11 @@ router.post('/renewal', function(req, res) {
 });
 router.post('/change', function(req, res) {
 	changeService(req, function(result){
+		res.json(result);
+	});
+});
+router.post('/pauseresume', function(req, res) {
+	pauseresumeService(req, function(result){
 		res.json(result);
 	});
 });

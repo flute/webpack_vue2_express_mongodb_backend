@@ -59,7 +59,7 @@ const openService = (req, callback) => {
 						    status : 1,
 						    month: monthday,
 						    settle: settle,
-						    difference: 0,
+						    difference: settle,
 						    differenceWith: null,
 						    first: true
 						}).then((result) => {

@@ -95,8 +95,8 @@ const renewalService = (req, callback) => {
 						    settle: result.settle,
 						    difference: result.difference,
 						    differenceWith: result.differenceWith
-						}).then((result) => {
-							if(result){
+						}).then((res) => {
+							if(res){
 								service.insert({
 									clientId: clientId,
 									startTime: renewalStartTime,
@@ -108,7 +108,8 @@ const renewalService = (req, callback) => {
 									month: monthday,
 									settle: settle,
 									difference: difference,
-									differenceWith: serviceId
+									differenceWith: serviceId,
+									pauseResume: result.pauseResume
 								}).then((result) => {
 									if(result){
 										callback({

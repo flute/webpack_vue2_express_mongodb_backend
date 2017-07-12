@@ -1,4 +1,5 @@
 const db = require('../../conf/db')
+const redis = require('../../conf/redis')
 const appNotice = require('../noticeModels/appNotice')
 
 const publishVersion = (req, callback) => {
@@ -15,7 +16,7 @@ const publishVersion = (req, callback) => {
 
 	const version = db.get('t_version');
 
-	version.findOne({_id: id}, '-_id').then((result) => {
+	version.findOne({_id: id}, '-id').then((result) => {
 		if(result){
 			let pubstatus = result.pubStatus ? 0 : 1
 			version.update({_id: id}, {
@@ -47,10 +48,38 @@ const publishVersion = (req, callback) => {
 					msg: error
 				})
 			})
-			// notice
+			
+			let key = result.platform=='ios'?'version-asistant-ios':'version-asistant-android'
 			if( pubstatus === 1 ){
-				
+				// notice
 				appNotice("好氛围在Android/iOS平台发布了新版本（"+result.version+"），地址（"+result.updateAddr+"）")
+				// redis
+				redis.select('2', function(error){
+				    if(error){
+				        console.error('redis update version failed:', error);
+				    }else{
+				        redis.set(key, JSON.stringify(result), function(err, res){  
+					        console.log('redis update :'+key+'——'+result.description, res);  
+					    });
+				    }
+				});
+			}else{
+				redis.select('2', function(error){
+				    if(error){
+				        console.error('redis update version failed:', error);
+				    }else{
+				    	redis.get(key, function(err, reply){
+				    		reply = JSON.parse(reply)
+				    		if( reply && reply._id==result._id.toString() ){
+				    			redis.del(key, function(err, res){  
+							        console.log('redis delete :'+key+'——'+result.description, res);  
+							    });
+				    		}else{
+				    			// do nothing
+				    		}
+				    	})
+				    }
+				});
 			}
 		}else{
 			callback({

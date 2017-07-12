@@ -15,15 +15,15 @@ const updateClient = (req, callback) => {
 
 	let id = req.body.id,
 		name = req.body.name,
-		phone = req.body.phone,
-		address = req.body.address,
+		phone = req.body.phone||'',
+		address = req.body.address||'',
 		user = req.body.user,
 		account = req.body.account,
 		pwd = req.body.pwd,
 		admin = req.session.user._id,
 		resetpwd = req.body.resetpwd;
 
-	if( (!account && !pwd) && (!resetpwd) && (!id || !name || !phone || !address || !user || !admin) ){
+	if( (!account && !pwd) && (!resetpwd) && (!id || !name || !user || !admin) ){
 		callback({
 			status: 0,
 			msg: '参数错误'

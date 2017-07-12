@@ -23,7 +23,7 @@
 			        					{{service.month[1]?service.month[1]:''}}<span v-if="service.month[1]">天</span>
 			        					</b></td>
 			        					<td>金额：<b>{{service.settle}}</b> 元</td>
-			        					<td>变更差额：<b>{{service.first?0:service.difference?(service.difference>0?'+'+service.difference:service.difference):0}}</b> 元</td>
+			        					<td>变更差额：<b>{{service.difference?(service.difference>0?'+'+service.difference:service.difference):0}}</b> 元</td>
 			        				</tr>
 		            			</p>
 		        			</Timeline-item>

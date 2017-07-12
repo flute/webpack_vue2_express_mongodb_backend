@@ -45,6 +45,27 @@ const removeVersion = (req, callback) => {
 					msg: error
 				})
 			})
+
+			let key = result.platform=='ios'?'version-asistant-ios':'version-asistant-android'
+			if( result.pubStatus === 1 ){
+				// redis
+				redis.select('2', function(error){
+				    if(error){
+				        console.error('redis update version failed:', error);
+				    }else{
+				        redis.get(key, function(err, reply){
+				    		reply = JSON.parse(reply)
+				    		if( reply && reply._id==result._id.toString() ){
+				    			redis.del(key, function(err, res){  
+							        console.log('redis delete :'+key+'——'+result.description, res);  
+							    });
+				    		}else{
+				    			// do nothing...
+				    		}
+				    	})
+				    }
+				});
+			}
 		}else{
 			callback({
 				status: 0,
