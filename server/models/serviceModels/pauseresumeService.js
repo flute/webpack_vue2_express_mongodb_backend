@@ -27,7 +27,7 @@ const pauseresumeService = (req, callback) => {
 	checkPermission(req, function(result){
 		if( result.status ){
 			service.findOne({_id: serviceId}, '-_id')
-			.then((result) => {console.log(result)
+			.then((result) => {
 				if( result ){
 					if( result.status === 1 ){
 

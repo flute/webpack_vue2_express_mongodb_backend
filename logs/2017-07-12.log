@@ -752,3 +752,120 @@ Please handle this in your code to make sure everything works as you intended it
 [2017-07-12 20:10:08.261] [INFO] record - POST /client/service/list
 [2017-07-12 20:11:48.046] [INFO] record - OPTIONS /client/service/list
 [2017-07-12 20:11:48.158] [INFO] record - POST /client/service/list
+[2017-07-12 20:23:11.634] [INFO] console - Express server listening on port 3000
+[2017-07-12 20:23:15.966] [INFO] record - GET /islogin
+[2017-07-12 20:23:22.529] [INFO] record - OPTIONS /login
+[2017-07-12 20:23:22.821] [INFO] record - POST /login
+[2017-07-12 20:23:23.036] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:23:23.119] [INFO] record - POST /client/service/list
+[2017-07-12 20:35:33.929] [INFO] record - GET /islogin
+[2017-07-12 20:35:34.552] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:35:34.663] [INFO] record - POST /client/service/list
+[2017-07-12 20:36:34.213] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:36:34.325] [INFO] record - POST /client/service/list
+[2017-07-12 20:38:02.852] [INFO] record - OPTIONS /client/service/change
+[2017-07-12 20:38:02.903] [INFO] console - 12 [ 12 ]
+[2017-07-12 20:38:02.923] [INFO] console - change service redis open client:596494099fe043545fc102ec OK
+[2017-07-12 20:38:03.002] [INFO] record - POST /client/service/change
+[2017-07-12 20:38:03.050] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:38:03.078] [INFO] record - POST /client/service/list
+[2017-07-12 20:38:08.553] [INFO] record - OPTIONS /client/service/change
+[2017-07-12 20:38:08.577] [INFO] record - POST /client/service/change
+[2017-07-12 20:38:08.616] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:38:08.639] [INFO] record - POST /client/service/list
+[2017-07-12 20:38:13.558] [INFO] record - OPTIONS /client/service/change
+[2017-07-12 20:38:13.596] [INFO] record - POST /client/service/change
+[2017-07-12 20:38:13.631] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 20:38:13.696] [INFO] record - POST /client/service/list
+[2017-07-12 21:02:07.359] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 21:02:07.487] [INFO] record - POST /client/service/list
+[2017-07-12 21:02:24.048] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 21:02:24.077] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-07-14T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-12T12:38:02.967Z,
+  closeAt: null,
+  status: 1,
+  month: [ 12 ],
+  settle: 9000,
+  difference: 4620,
+  differenceWith: '59649672c129e65588b9bfa6',
+  pauseResume: 
+   { status: 0,
+     record: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ] } }
+[2017-07-12 21:02:24.177] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 21:02:24.179] [INFO] console - redis pauseResume client:596494099fe043545fc102ec OK
+[2017-07-12 21:02:24.200] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 21:02:24.239] [INFO] record - POST /client/service/list
+[2017-07-12 21:02:27.889] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-12 21:02:27.918] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-07-14T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-12T12:38:02.967Z,
+  closeAt: null,
+  status: 1,
+  month: [ 12 ],
+  settle: 9000,
+  difference: 4620,
+  differenceWith: '59649672c129e65588b9bfa6',
+  first: null,
+  pauseResume: 
+   { status: 1,
+     record: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ] } }
+[2017-07-12 21:02:27.930] [INFO] record - POST /client/service/pauseresume
+[2017-07-12 21:02:27.931] [INFO] console - redis pauseResume client:596494099fe043545fc102ec OK
+[2017-07-12 21:02:27.953] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 21:02:27.981] [INFO] record - POST /client/service/list
+[2017-07-12 21:02:54.269] [INFO] record - GET /bill/list
+[2017-07-12 21:02:56.459] [INFO] record - OPTIONS /bill/detail
+[2017-07-12 21:02:56.523] [INFO] record - POST /bill/detail
+[2017-07-12 21:03:00.123] [INFO] record - GET /user/list
+[2017-07-12 21:03:00.243] [INFO] record - GET /role/list
+[2017-07-12 21:03:00.274] [INFO] record - GET /client/list
+[2017-07-12 21:03:03.192] [INFO] record - GET /user/list
+[2017-07-12 21:03:03.220] [INFO] record - GET /client/list
+[2017-07-12 21:03:10.441] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 21:03:10.461] [INFO] record - POST /client/service/list
+[2017-07-12 21:03:12.044] [INFO] record - GET /user/list
+[2017-07-12 21:03:12.070] [INFO] record - GET /client/list
+[2017-07-12 21:03:13.200] [INFO] record - GET /role/list
+[2017-07-12 21:03:24.490] [INFO] record - GET /version/list
+[2017-07-12 21:03:31.748] [INFO] record - GET /role/list
+[2017-07-12 21:03:33.459] [INFO] record - GET /user/list
+[2017-07-12 21:03:33.500] [INFO] record - GET /client/list
+[2017-07-12 21:03:35.071] [INFO] record - GET /user/list
+[2017-07-12 21:03:35.114] [INFO] record - GET /role/list
+[2017-07-12 21:03:35.128] [INFO] record - GET /client/list
+[2017-07-12 21:03:38.585] [INFO] record - GET /bill/list
+[2017-07-12 21:03:43.120] [INFO] record - OPTIONS /bill/detail
+[2017-07-12 21:03:43.201] [INFO] record - POST /bill/detail
+[2017-07-12 21:03:48.880] [INFO] record - GET /islogin
+[2017-07-12 21:03:49.403] [INFO] record - OPTIONS /bill/detail
+[2017-07-12 21:03:49.544] [INFO] record - POST /bill/detail
+[2017-07-12 21:04:24.882] [INFO] record - GET /user/list
+[2017-07-12 21:04:24.922] [INFO] record - GET /client/list
+[2017-07-12 21:04:27.572] [INFO] record - OPTIONS /client/service/list
+[2017-07-12 21:04:27.609] [INFO] record - POST /client/service/list

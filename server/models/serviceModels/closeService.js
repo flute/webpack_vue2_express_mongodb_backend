@@ -61,8 +61,6 @@ const closeService = (req, callback) => {
 						difference = Number( (settle - result.settle).toFixed(2) )
 					}
 
-					
-
 					if( result.status === 1 ){
 						service.update({_id: serviceId},{
 							clientId : result.clientId,
@@ -125,12 +123,10 @@ const closeService = (req, callback) => {
 					msg: error
 				})
 			})
-			
 		}else{
 			callback(result)
 		}
 	})
-	
 }
 
 module.exports = closeService

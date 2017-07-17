@@ -1,0 +1,605 @@
+[2017-07-13 09:21:54.238] [INFO] record - GET /user/list
+[2017-07-13 09:21:54.275] [INFO] record - GET /client/list
+[2017-07-13 09:21:56.509] [INFO] record - OPTIONS /login
+[2017-07-13 09:21:56.689] [INFO] record - POST /login
+[2017-07-13 09:22:01.574] [INFO] record - OPTIONS /login
+[2017-07-13 09:22:01.692] [INFO] record - POST /login
+[2017-07-13 09:22:01.881] [INFO] record - GET /user/list
+[2017-07-13 09:22:01.942] [INFO] record - GET /client/list
+[2017-07-13 09:55:42.076] [INFO] record - OPTIONS /client/new
+[2017-07-13 09:55:42.511] [INFO] record - POST /client/new
+[2017-07-13 09:55:42.514] [INFO] console - redis add client:5966d31e03ba9d86555e9785 OK
+[2017-07-13 09:55:42.769] [INFO] record - GET /client/list
+[2017-07-13 09:56:16.075] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 09:56:16.397] [INFO] record - POST /client/service/list
+[2017-07-13 09:56:38.782] [INFO] record - OPTIONS /client/service/new
+[2017-07-13 09:56:38.851] [INFO] record - POST /client/service/new
+[2017-07-13 09:56:38.904] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 09:56:39.015] [INFO] record - POST /client/service/list
+[2017-07-13 09:56:50.607] [INFO] record - OPTIONS /client/service/update
+[2017-07-13 09:56:50.704] [INFO] record - POST /client/service/update
+[2017-07-13 09:56:50.743] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 09:56:50.774] [INFO] record - POST /client/service/list
+[2017-07-13 09:58:44.241] [INFO] record - GET /islogin
+[2017-07-13 09:58:44.889] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 09:58:49.821] [INFO] record - POST /client/service/list
+[2017-07-13 09:59:02.284] [INFO] record - OPTIONS /client/service/update
+[2017-07-13 09:59:02.753] [INFO] record - POST /client/service/update
+[2017-07-13 09:59:02.883] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 09:59:02.978] [INFO] record - POST /client/service/list
+[2017-07-13 09:59:14.086] [INFO] record - OPTIONS /client/service/update
+[2017-07-13 09:59:14.200] [INFO] record - POST /client/service/update
+[2017-07-13 09:59:14.269] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 09:59:14.342] [INFO] record - POST /client/service/list
+[2017-07-13 09:59:20.120] [INFO] record - OPTIONS /client/service/update
+[2017-07-13 09:59:20.315] [INFO] record - POST /client/service/update
+[2017-07-13 09:59:20.520] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 09:59:20.564] [INFO] record - POST /client/service/list
+[2017-07-13 09:59:31.895] [INFO] record - OPTIONS /client/update
+[2017-07-13 09:59:32.334] [INFO] console - check client is already inited: null []
+[2017-07-13 09:59:32.345] [INFO] console - check account is already existed: null [ RowDataPacket { id: 66 } ]
+[2017-07-13 09:59:32.347] [INFO] console - { status: 3, msg: 'account already exist!' }
+[2017-07-13 09:59:32.351] [INFO] record - POST /client/update
+[2017-07-13 09:59:38.307] [INFO] record - OPTIONS /client/update
+[2017-07-13 09:59:38.441] [INFO] console - check client is already inited: null []
+[2017-07-13 09:59:38.445] [INFO] console - check account is already existed: null []
+[2017-07-13 09:59:38.475] [INFO] console - select t_sys_menu finished: null
+[2017-07-13 09:59:38.506] [INFO] console - init t_sys_role finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 717,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-13 09:59:38.571] [INFO] console - t_admin init finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 70,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-13 09:59:38.584] [INFO] console - init t_config finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 212,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-13 09:59:38.633] [INFO] console - init t_module finished: null 20341 [ 20339, 20340, 20341, 20342, 20343 ]
+[2017-07-13 09:59:38.641] [INFO] console - select t_sys_role finished: null [ RowDataPacket {
+    FMENU_PRIVILEGE: '1,2,10,11,12,13,33,34,35,36,37,38,39,41,42,43,49,51,52,53,54,55,60,61,100,102,103,10001,10002' } ]
+[2017-07-13 09:59:38.650] [INFO] console - update t_sys_role finished: null
+[2017-07-13 09:59:38.702] [INFO] console - init t_info fineshed: null
+[2017-07-13 09:59:38.723] [INFO] console - init t_department finished: null OkPacket {
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 10214,
+  serverStatus: 2,
+  warningCount: 0,
+  message: '',
+  protocol41: true,
+  changedRows: 0 }
+[2017-07-13 09:59:38.725] [INFO] console - mysql初始化完毕
+[2017-07-13 09:59:38.726] [INFO] console - { status: 1, mag: 'success' }
+[2017-07-13 09:59:38.772] [INFO] record - POST /client/update
+[2017-07-13 09:59:38.882] [INFO] record - OPTIONS /client/service/open
+[2017-07-13 09:59:38.946] [INFO] console - 12 [ 12 ]
+[2017-07-13 09:59:38.965] [INFO] record - POST /client/service/open
+[2017-07-13 09:59:38.967] [INFO] console - redis open client:5966d31e03ba9d86555e9785 OK
+[2017-07-13 09:59:39.030] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 09:59:39.100] [INFO] record - POST /client/service/list
+[2017-07-13 09:59:50.155] [INFO] record - OPTIONS /client/service/change
+[2017-07-13 09:59:50.290] [INFO] console - 24 [ 24 ]
+[2017-07-13 09:59:50.377] [INFO] console - change service redis open client:5966d31e03ba9d86555e9785 OK
+[2017-07-13 09:59:50.502] [INFO] record - POST /client/service/change
+[2017-07-13 09:59:50.580] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 09:59:50.629] [INFO] record - POST /client/service/list
+[2017-07-13 10:00:10.140] [INFO] record - OPTIONS /client/service/change
+[2017-07-13 10:00:10.200] [INFO] console - 12 [ 12 ]
+[2017-07-13 10:00:10.205] [INFO] console - change service redis open client:5966d31e03ba9d86555e9785 OK
+[2017-07-13 10:00:10.225] [INFO] record - POST /client/service/change
+[2017-07-13 10:00:10.283] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:00:10.327] [INFO] record - POST /client/service/list
+[2017-07-13 10:00:13.595] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-13 10:00:13.650] [INFO] console - { clientId: '5966d31e03ba9d86555e9785',
+  startTime: '2017-07-12T16:00:00.000Z',
+  endTime: '2018-07-12T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-13T02:00:10.205Z,
+  closeAt: null,
+  status: 1,
+  month: [ 12 ],
+  settle: 9000,
+  difference: -12600,
+  differenceWith: '5966d41603ba9d86555e9787',
+  pauseResume: null }
+[2017-07-13 10:00:13.669] [INFO] record - POST /client/service/pauseresume
+[2017-07-13 10:00:13.672] [INFO] console - redis pauseResume client:5966d31e03ba9d86555e9785 OK
+[2017-07-13 10:00:13.708] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:00:13.748] [INFO] record - POST /client/service/list
+[2017-07-13 10:00:17.260] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-13 10:00:17.280] [INFO] console - { clientId: '5966d31e03ba9d86555e9785',
+  startTime: '2017-07-12T16:00:00.000Z',
+  endTime: '2018-07-12T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-13T02:00:10.205Z,
+  closeAt: null,
+  status: 1,
+  month: [ 12 ],
+  settle: 9000,
+  difference: -12600,
+  differenceWith: '5966d41603ba9d86555e9787',
+  first: null,
+  pauseResume: { status: 1, record: [ [Object] ] } }
+[2017-07-13 10:00:17.287] [INFO] record - POST /client/service/pauseresume
+[2017-07-13 10:00:17.289] [INFO] console - redis pauseResume client:5966d31e03ba9d86555e9785 OK
+[2017-07-13 10:00:17.311] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:00:17.331] [INFO] record - POST /client/service/list
+[2017-07-13 10:00:37.461] [INFO] record - OPTIONS /client/service/renewal
+[2017-07-13 10:00:37.556] [INFO] console - 24 [ 24 ]
+[2017-07-13 10:00:37.565] [INFO] console - renewal service redis open client:5966d31e03ba9d86555e9785 null OK
+[2017-07-13 10:00:37.568] [INFO] record - POST /client/service/renewal
+[2017-07-13 10:00:37.623] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:00:37.661] [INFO] record - POST /client/service/list
+[2017-07-13 10:05:42.688] [INFO] record - GET /bill/list
+[2017-07-13 10:05:45.510] [INFO] record - OPTIONS /bill/detail
+[2017-07-13 10:05:45.570] [INFO] record - POST /bill/detail
+[2017-07-13 10:05:50.072] [INFO] record - GET /bill/list
+[2017-07-13 10:05:52.255] [INFO] record - GET /user/list
+[2017-07-13 10:05:52.299] [INFO] record - GET /client/list
+[2017-07-13 10:06:52.768] [INFO] console - Express server listening on port 3000
+[2017-07-13 10:07:00.013] [INFO] console - 定时任务：月账单 2017-07-13T02:07:00.013Z
+[2017-07-13 10:07:00.042] [INFO] console - clients: [ { _id: 5964965fc129e65588b9bfa5,
+    clientId: '596494099fe043545fc102ec',
+    startTime: '2017-07-14T16:00:00.000Z',
+    endTime: '2017-07-29T16:00:00.000Z',
+    userNum: '50',
+    createAt: 2017-07-11T09:11:59.706Z,
+    closeAt: null,
+    month: [ 0, 15 ],
+    settle: 2000,
+    difference: 0,
+    differenceWith: null,
+    first: true },
+  { _id: 59649672c129e65588b9bfa6,
+    clientId: '596494099fe043545fc102ec',
+    startTime: '2017-07-14T16:00:00.000Z',
+    endTime: '2018-01-09T16:00:00.000Z',
+    userNum: 50,
+    createAt: 2017-07-11T09:12:18.306Z,
+    closeAt: null,
+    month: [ 5, 26 ],
+    settle: 4380,
+    difference: 2380,
+    differenceWith: '5964965fc129e65588b9bfa5',
+    first: null },
+  { _id: 5966182a03ba9d86555e9784,
+    clientId: '596494099fe043545fc102ec',
+    startTime: '2017-07-14T16:00:00.000Z',
+    endTime: '2018-07-14T16:00:00.000Z',
+    userNum: 50,
+    createAt: 2017-07-12T12:38:02.967Z,
+    closeAt: null,
+    month: [ 12 ],
+    settle: 9000,
+    difference: 4620,
+    differenceWith: '59649672c129e65588b9bfa6',
+    first: null,
+    pauseResume: { status: 0, record: [Object] } } ]
+[2017-07-13 10:07:00.074] [INFO] console - clients: [ { _id: 59649683c129e65588b9bfa7,
+    clientId: '596494179fe043545fc102ed',
+    startTime: '2017-07-19T16:00:00.000Z',
+    endTime: '2018-07-19T16:00:00.000Z',
+    userNum: '40',
+    createAt: 2017-07-11T09:12:35.326Z,
+    closeAt: null,
+    month: [ 12 ],
+    settle: 7200,
+    difference: 0,
+    differenceWith: null,
+    first: true },
+  { _id: 5964969cc129e65588b9bfa8,
+    clientId: '596494179fe043545fc102ed',
+    startTime: '2017-07-19T16:00:00.000Z',
+    endTime: '2017-12-31T16:00:00.000Z',
+    userNum: 40,
+    createAt: 2017-07-11T09:13:00.830Z,
+    closeAt: null,
+    month: [ 5, 12 ],
+    settle: 3234,
+    difference: -3966,
+    differenceWith: '59649683c129e65588b9bfa7' } ]
+[2017-07-13 10:07:00.081] [INFO] console - clients: [ { _id: 596496acc129e65588b9bfa9,
+    clientId: '596494289fe043545fc102ee',
+    startTime: '2017-07-11T16:00:00.000Z',
+    endTime: '2017-11-09T16:00:00.000Z',
+    userNum: '44',
+    createAt: 2017-07-11T09:13:16.661Z,
+    closeAt: null,
+    month: [ 3, 29 ],
+    settle: 2600.4,
+    difference: 0,
+    differenceWith: null,
+    first: true } ]
+[2017-07-13 10:07:00.089] [INFO] console - clients: [ { _id: 5965e339876b9176a4c31f52,
+    clientId: '596494959fe043545fc102ef',
+    startTime: '2017-07-11T16:00:00.000Z',
+    endTime: '2017-07-20T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-12T08:52:09.472Z,
+    closeAt: null },
+  { _id: 5965e77c876b9176a4c31f53,
+    clientId: '596494959fe043545fc102ef',
+    startTime: '2017-07-11T16:00:00.000Z',
+    endTime: '2018-07-11T16:00:00.000Z',
+    userNum: '30',
+    createAt: 2017-07-12T09:10:20.535Z,
+    closeAt: null,
+    month: [ 12 ],
+    settle: 5400,
+    difference: 5400,
+    differenceWith: null,
+    first: true } ]
+[2017-07-13 10:07:00.095] [INFO] console - clients: []
+[2017-07-13 10:07:00.097] [INFO] console - 账单结算：遍历客户的首次开通服务为空
+[2017-07-13 10:07:00.100] [INFO] console - clients: [ { _id: 5966d35603ba9d86555e9786,
+    clientId: '5966d31e03ba9d86555e9785',
+    startTime: '2017-07-12T16:00:00.000Z',
+    endTime: '2018-07-12T16:00:00.000Z',
+    userNum: '60',
+    createAt: 2017-07-13T01:56:38.831Z,
+    closeAt: null,
+    month: [ 12 ],
+    settle: 10800,
+    difference: 10800,
+    differenceWith: null,
+    first: true },
+  { _id: 5966d41603ba9d86555e9787,
+    clientId: '5966d31e03ba9d86555e9785',
+    startTime: '2017-07-12T16:00:00.000Z',
+    endTime: '2019-07-12T16:00:00.000Z',
+    userNum: 60,
+    createAt: 2017-07-13T01:59:50.377Z,
+    closeAt: null,
+    month: [ 24 ],
+    settle: 21600,
+    difference: 10800,
+    differenceWith: '5966d35603ba9d86555e9786',
+    first: null },
+  { _id: 5966d42a03ba9d86555e9788,
+    clientId: '5966d31e03ba9d86555e9785',
+    startTime: '2017-07-12T16:00:00.000Z',
+    endTime: '2018-07-12T16:00:00.000Z',
+    userNum: 50,
+    createAt: 2017-07-13T02:00:10.205Z,
+    closeAt: null,
+    first: null,
+    month: [ 12 ],
+    settle: 9000,
+    difference: -12600,
+    differenceWith: '5966d41603ba9d86555e9787' },
+  { _id: 5966d44503ba9d86555e9789,
+    clientId: '5966d31e03ba9d86555e9785',
+    startTime: '2018-07-12T16:00:00.000Z',
+    endTime: '2019-07-12T16:00:00.000Z',
+    userNum: 50,
+    createAt: 2017-07-13T02:00:37.562Z,
+    closeAt: null,
+    month: [ 24 ],
+    settle: 18000,
+    difference: 9000,
+    differenceWith: '5966d42a03ba9d86555e9788',
+    pauseResume: { status: 0, record: [Object] } } ]
+[2017-07-13 10:07:00.210] [INFO] console - 遍历客户结束 [ { clientId: '596494099fe043545fc102ec',
+    clientName: 'eqwe',
+    month: 7,
+    settle: 9000 },
+  { clientId: '596494179fe043545fc102ed',
+    clientName: '123123',
+    month: 7,
+    settle: 3234 },
+  { clientId: '596494289fe043545fc102ee',
+    clientName: '全方位',
+    month: 7,
+    settle: 2600.4 },
+  { clientId: '596494959fe043545fc102ef',
+    clientName: '德玛西亚',
+    month: 7,
+    settle: 0 },
+  { clientId: '5965dd1a876b9176a4c31f51',
+    clientName: '233',
+    month: 7,
+    settle: 0 },
+  { clientId: '5966d31e03ba9d86555e9785',
+    clientName: '客户名称',
+    month: 7,
+    settle: 9000 } ]
+[2017-07-13 10:07:00.264] [INFO] console - 客户：eqwe-7月账单插入成功（9000元）
+[2017-07-13 10:07:00.274] [INFO] console - 客户：123123-7月账单插入成功（3234元）
+[2017-07-13 10:07:00.277] [INFO] console - 客户：全方位-7月账单插入成功（2600.4元）
+[2017-07-13 10:07:00.278] [INFO] console - 客户：德玛西亚-7月账单插入成功（0元）
+[2017-07-13 10:07:00.282] [INFO] console - 客户：233-7月账单插入成功（0元）
+[2017-07-13 10:07:00.284] [INFO] console - 客户：客户名称-7月账单插入成功（9000元）
+[2017-07-13 10:07:00.284] [INFO] console - 账单插入完成
+[2017-07-13 10:07:14.336] [INFO] console - Express server listening on port 3000
+[2017-07-13 10:07:18.842] [INFO] record - GET /bill/list
+[2017-07-13 10:07:21.814] [INFO] record - OPTIONS /bill/detail
+[2017-07-13 10:07:21.900] [INFO] record - POST /bill/detail
+[2017-07-13 10:07:40.218] [INFO] record - GET /bill/list
+[2017-07-13 10:07:41.734] [INFO] record - OPTIONS /bill/detail
+[2017-07-13 10:07:41.773] [INFO] record - POST /bill/detail
+[2017-07-13 10:07:43.153] [INFO] record - GET /bill/list
+[2017-07-13 10:07:44.329] [INFO] record - OPTIONS /bill/detail
+[2017-07-13 10:07:44.357] [INFO] record - POST /bill/detail
+[2017-07-13 10:07:54.835] [INFO] record - GET /bill/list
+[2017-07-13 10:07:56.385] [INFO] record - OPTIONS /bill/detail
+[2017-07-13 10:07:56.423] [INFO] record - POST /bill/detail
+[2017-07-13 10:08:02.845] [INFO] record - GET /bill/list
+[2017-07-13 10:08:07.235] [INFO] record - OPTIONS /bill/detail
+[2017-07-13 10:08:07.379] [INFO] record - POST /bill/detail
+[2017-07-13 10:08:23.918] [INFO] record - GET /user/list
+[2017-07-13 10:08:23.972] [INFO] record - GET /role/list
+[2017-07-13 10:08:23.991] [INFO] record - GET /client/list
+[2017-07-13 10:08:25.068] [INFO] record - GET /user/list
+[2017-07-13 10:08:25.111] [INFO] record - GET /client/list
+[2017-07-13 10:08:25.886] [INFO] record - GET /bill/list
+[2017-07-13 10:08:26.689] [INFO] record - GET /user/list
+[2017-07-13 10:08:26.786] [INFO] record - GET /role/list
+[2017-07-13 10:08:26.800] [INFO] record - GET /client/list
+[2017-07-13 10:08:27.596] [INFO] record - GET /user/list
+[2017-07-13 10:08:27.624] [INFO] record - GET /client/list
+[2017-07-13 10:08:29.228] [INFO] record - GET /role/list
+[2017-07-13 10:08:30.328] [INFO] record - GET /user/list
+[2017-07-13 10:08:30.357] [INFO] record - GET /client/list
+[2017-07-13 10:08:30.919] [INFO] record - GET /user/list
+[2017-07-13 10:08:30.935] [INFO] record - GET /role/list
+[2017-07-13 10:08:30.951] [INFO] record - GET /client/list
+[2017-07-13 10:08:32.030] [INFO] record - GET /bill/list
+[2017-07-13 10:08:32.816] [INFO] record - GET /user/list
+[2017-07-13 10:08:32.848] [INFO] record - GET /client/list
+[2017-07-13 10:08:34.786] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:08:34.820] [INFO] record - POST /client/service/list
+[2017-07-13 10:09:07.834] [INFO] record - GET /user/list
+[2017-07-13 10:09:07.909] [INFO] record - GET /client/list
+[2017-07-13 10:09:11.695] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:09:11.716] [INFO] record - POST /client/service/list
+[2017-07-13 10:09:14.078] [INFO] record - GET /user/list
+[2017-07-13 10:09:14.110] [INFO] record - GET /client/list
+[2017-07-13 10:09:16.061] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:09:16.106] [INFO] record - POST /client/service/list
+[2017-07-13 10:09:23.137] [INFO] record - GET /user/list
+[2017-07-13 10:09:23.168] [INFO] record - GET /client/list
+[2017-07-13 10:09:24.533] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:09:24.556] [INFO] record - POST /client/service/list
+[2017-07-13 10:09:36.140] [INFO] record - GET /user/list
+[2017-07-13 10:09:36.165] [INFO] record - GET /client/list
+[2017-07-13 10:09:42.992] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:09:43.023] [INFO] record - POST /client/service/list
+[2017-07-13 10:09:44.376] [INFO] record - GET /user/list
+[2017-07-13 10:09:44.423] [INFO] record - GET /client/list
+[2017-07-13 10:09:45.754] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:09:45.788] [INFO] record - POST /client/service/list
+[2017-07-13 10:09:47.325] [INFO] record - GET /user/list
+[2017-07-13 10:09:47.366] [INFO] record - GET /client/list
+[2017-07-13 10:09:57.666] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:09:57.696] [INFO] record - POST /client/service/list
+[2017-07-13 10:11:53.505] [INFO] record - GET /user/list
+[2017-07-13 10:11:53.530] [INFO] record - GET /client/list
+[2017-07-13 10:11:55.269] [INFO] record - GET /user/list
+[2017-07-13 10:11:55.299] [INFO] record - GET /role/list
+[2017-07-13 10:11:55.330] [INFO] record - GET /client/list
+[2017-07-13 10:11:56.717] [INFO] record - GET /role/list
+[2017-07-13 10:12:29.301] [INFO] record - OPTIONS /role/update
+[2017-07-13 10:12:29.353] [INFO] record - POST /role/update
+[2017-07-13 10:12:29.423] [INFO] record - GET /role/list
+[2017-07-13 10:12:39.501] [INFO] record - OPTIONS /role/update
+[2017-07-13 10:12:39.534] [INFO] record - POST /role/update
+[2017-07-13 10:12:39.650] [INFO] record - GET /role/list
+[2017-07-13 10:13:43.855] [INFO] record - GET /user/list
+[2017-07-13 10:13:43.936] [INFO] record - GET /client/list
+[2017-07-13 10:15:45.542] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:15:45.619] [INFO] record - POST /client/service/list
+[2017-07-13 10:15:55.884] [INFO] record - GET /user/list
+[2017-07-13 10:15:55.919] [INFO] record - GET /client/list
+[2017-07-13 10:16:12.101] [INFO] record - GET /user/list
+[2017-07-13 10:16:12.134] [INFO] record - GET /role/list
+[2017-07-13 10:16:12.151] [INFO] record - GET /client/list
+[2017-07-13 10:16:25.061] [INFO] record - GET /bill/list
+[2017-07-13 10:17:05.145] [INFO] console - 导出账单 [ '5966d5c40e847d0986615be7',
+  '5966d5c40e847d0986615be8',
+  '5966d5c40e847d0986615be9',
+  '5966d5c40e847d0986615bea',
+  '5966d5c40e847d0986615beb',
+  '5966d5c40e847d0986615bec' ]
+[2017-07-13 10:17:05.321] [INFO] record - GET /bill/export?p=5966d5c40e847d0986615be7,5966d5c40e847d0986615be8,5966d5c40e847d0986615be9,5966d5c40e847d0986615bea,5966d5c40e847d0986615beb,5966d5c40e847d0986615bec
+[2017-07-13 10:17:15.940] [INFO] record - OPTIONS /bill/detail
+[2017-07-13 10:17:15.989] [INFO] record - POST /bill/detail
+[2017-07-13 10:17:18.626] [INFO] record - GET /bill/list
+[2017-07-13 10:17:19.701] [INFO] record - OPTIONS /bill/detail
+[2017-07-13 10:17:19.731] [INFO] record - POST /bill/detail
+[2017-07-13 10:18:21.332] [INFO] record - GET /user/list
+[2017-07-13 10:18:21.440] [INFO] record - GET /role/list
+[2017-07-13 10:18:21.463] [INFO] record - GET /client/list
+[2017-07-13 10:18:26.822] [INFO] record - GET /user/list
+[2017-07-13 10:18:26.888] [INFO] record - GET /client/list
+[2017-07-13 10:18:29.574] [INFO] record - GET /bill/list
+[2017-07-13 10:18:41.161] [INFO] record - GET /version/list
+[2017-07-13 10:18:47.818] [INFO] record - GET /role/list
+[2017-07-13 10:18:55.387] [INFO] record - GET /user/list
+[2017-07-13 10:18:55.416] [INFO] record - GET /client/list
+[2017-07-13 10:18:56.912] [INFO] record - GET /user/list
+[2017-07-13 10:18:56.942] [INFO] record - GET /role/list
+[2017-07-13 10:18:56.970] [INFO] record - GET /client/list
+[2017-07-13 10:18:58.135] [INFO] record - GET /bill/list
+[2017-07-13 10:18:59.637] [INFO] record - GET /user/list
+[2017-07-13 10:18:59.670] [INFO] record - GET /role/list
+[2017-07-13 10:18:59.684] [INFO] record - GET /client/list
+[2017-07-13 10:19:00.760] [INFO] record - GET /user/list
+[2017-07-13 10:19:00.796] [INFO] record - GET /client/list
+[2017-07-13 10:19:02.358] [INFO] record - GET /role/list
+[2017-07-13 10:19:03.774] [INFO] record - GET /version/list
+[2017-07-13 10:19:07.678] [INFO] record - GET /role/list
+[2017-07-13 10:24:10.866] [INFO] record - GET /user/list
+[2017-07-13 10:24:10.870] [INFO] record - GET /client/list
+[2017-07-13 10:36:59.086] [INFO] console - Express server listening on port 3000
+[2017-07-13 10:37:16.894] [INFO] record - OPTIONS /login
+[2017-07-13 10:37:17.074] [INFO] record - POST /login
+[2017-07-13 10:37:43.375] [INFO] record - GET /islogin
+[2017-07-13 10:37:50.090] [INFO] record - GET /role/list
+[2017-07-13 10:38:04.199] [INFO] record - GET /user/list
+[2017-07-13 10:38:04.288] [INFO] record - GET /client/list
+[2017-07-13 10:38:09.699] [INFO] record - GET /user/list
+[2017-07-13 10:38:09.735] [INFO] record - GET /role/list
+[2017-07-13 10:38:09.744] [INFO] record - GET /client/list
+[2017-07-13 10:38:14.061] [INFO] record - GET /bill/list
+[2017-07-13 10:38:43.222] [INFO] record - GET /user/list
+[2017-07-13 10:38:43.225] [INFO] record - GET /client/list
+[2017-07-13 10:38:43.227] [INFO] record - GET /role/list
+[2017-07-13 10:39:01.805] [INFO] record - GET /bill/list
+[2017-07-13 10:39:05.827] [INFO] record - OPTIONS /bill/detail
+[2017-07-13 10:39:05.863] [INFO] record - POST /bill/detail
+[2017-07-13 10:39:07.583] [INFO] record - GET /bill/list
+[2017-07-13 10:39:08.637] [INFO] record - OPTIONS /bill/detail
+[2017-07-13 10:39:08.665] [INFO] record - POST /bill/detail
+[2017-07-13 10:39:11.377] [INFO] record - GET /role/list
+[2017-07-13 10:39:12.628] [INFO] record - GET /version/list
+[2017-07-13 10:39:16.873] [INFO] record - GET /user/list
+[2017-07-13 10:39:16.917] [INFO] record - GET /client/list
+[2017-07-13 10:39:17.825] [INFO] record - GET /user/list
+[2017-07-13 10:39:17.850] [INFO] record - GET /role/list
+[2017-07-13 10:39:17.863] [INFO] record - GET /client/list
+[2017-07-13 10:42:57.709] [INFO] record - GET /user/list
+[2017-07-13 10:42:57.733] [INFO] record - GET /client/list
+[2017-07-13 10:43:01.971] [INFO] record - GET /role/list
+[2017-07-13 10:43:03.747] [INFO] record - GET /user/list
+[2017-07-13 10:43:03.778] [INFO] record - GET /client/list
+[2017-07-13 10:43:48.584] [INFO] record - GET /user/list
+[2017-07-13 10:43:48.626] [INFO] record - GET /role/list
+[2017-07-13 10:43:48.635] [INFO] record - GET /client/list
+[2017-07-13 10:43:52.785] [INFO] record - GET /bill/list
+[2017-07-13 10:50:06.454] [INFO] record - GET /user/list
+[2017-07-13 10:50:06.495] [INFO] record - GET /role/list
+[2017-07-13 10:50:06.508] [INFO] record - GET /client/list
+[2017-07-13 10:50:07.501] [INFO] record - GET /user/list
+[2017-07-13 10:50:07.527] [INFO] record - GET /client/list
+[2017-07-13 10:50:08.730] [INFO] record - GET /role/list
+[2017-07-13 10:50:10.064] [INFO] record - GET /user/list
+[2017-07-13 10:50:10.089] [INFO] record - GET /client/list
+[2017-07-13 10:50:45.722] [INFO] record - GET /role/list
+[2017-07-13 10:50:47.372] [INFO] record - GET /version/list
+[2017-07-13 10:50:48.618] [INFO] record - GET /role/list
+[2017-07-13 10:50:49.250] [INFO] record - GET /user/list
+[2017-07-13 10:50:49.275] [INFO] record - GET /client/list
+[2017-07-13 10:50:50.098] [INFO] record - GET /user/list
+[2017-07-13 10:50:50.128] [INFO] record - GET /role/list
+[2017-07-13 10:50:50.136] [INFO] record - GET /client/list
+[2017-07-13 10:50:50.950] [INFO] record - GET /bill/list
+[2017-07-13 10:50:52.623] [INFO] record - GET /user/list
+[2017-07-13 10:50:52.645] [INFO] record - GET /role/list
+[2017-07-13 10:50:52.657] [INFO] record - GET /client/list
+[2017-07-13 10:50:53.388] [INFO] record - GET /user/list
+[2017-07-13 10:50:53.407] [INFO] record - GET /client/list
+[2017-07-13 10:51:13.228] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:51:13.272] [INFO] record - POST /client/service/list
+[2017-07-13 10:59:29.517] [INFO] record - GET /version/list
+[2017-07-13 10:59:36.795] [INFO] record - GET /user/list
+[2017-07-13 10:59:36.828] [INFO] record - GET /client/list
+[2017-07-13 10:59:37.392] [INFO] record - GET /user/list
+[2017-07-13 10:59:37.439] [INFO] record - GET /role/list
+[2017-07-13 10:59:37.440] [INFO] record - GET /client/list
+[2017-07-13 10:59:39.283] [INFO] record - GET /user/list
+[2017-07-13 10:59:39.311] [INFO] record - GET /client/list
+[2017-07-13 10:59:40.411] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:59:40.448] [INFO] record - POST /client/service/list
+[2017-07-13 10:59:50.159] [INFO] record - GET /user/list
+[2017-07-13 10:59:50.179] [INFO] record - GET /client/list
+[2017-07-13 10:59:51.448] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:59:51.481] [INFO] record - POST /client/service/list
+[2017-07-13 10:59:52.778] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-13 10:59:52.804] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-07-14T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-12T12:38:02.967Z,
+  closeAt: null,
+  status: 1,
+  month: [ 12 ],
+  settle: 9000,
+  difference: 4620,
+  differenceWith: '59649672c129e65588b9bfa6',
+  first: null,
+  pauseResume: 
+   { status: 0,
+     record: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ] } }
+[2017-07-13 10:59:52.843] [INFO] record - POST /client/service/pauseresume
+[2017-07-13 10:59:52.845] [INFO] console - redis pauseResume client:596494099fe043545fc102ec OK
+[2017-07-13 10:59:52.860] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:59:52.888] [INFO] record - POST /client/service/list
+[2017-07-13 10:59:56.265] [INFO] record - OPTIONS /client/service/pauseresume
+[2017-07-13 10:59:56.290] [INFO] console - { clientId: '596494099fe043545fc102ec',
+  startTime: '2017-07-14T16:00:00.000Z',
+  endTime: '2018-07-14T16:00:00.000Z',
+  userNum: 50,
+  createAt: 2017-07-12T12:38:02.967Z,
+  closeAt: null,
+  status: 1,
+  month: [ 12 ],
+  settle: 9000,
+  difference: 4620,
+  differenceWith: '59649672c129e65588b9bfa6',
+  first: null,
+  pauseResume: 
+   { status: 1,
+     record: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ] } }
+[2017-07-13 10:59:56.295] [INFO] record - POST /client/service/pauseresume
+[2017-07-13 10:59:56.296] [INFO] console - redis pauseResume client:596494099fe043545fc102ec OK
+[2017-07-13 10:59:56.320] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 10:59:56.344] [INFO] record - POST /client/service/list
+[2017-07-13 13:34:39.304] [INFO] console - Express server listening on port 3000
+[2017-07-13 13:56:27.569] [INFO] record - GET /islogin
+[2017-07-13 14:06:02.360] [INFO] record - OPTIONS /login
+[2017-07-13 14:06:02.558] [INFO] record - POST /login
+[2017-07-13 14:06:02.780] [INFO] record - GET /user/list
+[2017-07-13 14:06:02.843] [INFO] record - GET /client/list
+[2017-07-13 14:06:06.504] [INFO] record - GET /user/list
+[2017-07-13 14:06:06.569] [INFO] record - GET /role/list
+[2017-07-13 14:06:06.590] [INFO] record - GET /client/list
+[2017-07-13 14:06:07.601] [INFO] record - GET /bill/list
+[2017-07-13 14:06:08.389] [INFO] record - GET /user/list
+[2017-07-13 14:06:08.426] [INFO] record - GET /client/list
+[2017-07-13 14:06:10.871] [INFO] record - OPTIONS /client/service/list
+[2017-07-13 14:06:10.920] [INFO] record - POST /client/service/list
+[2017-07-13 14:09:00.398] [INFO] record - GET /role/list
+[2017-07-13 14:09:01.475] [INFO] record - GET /version/list
+[2017-07-13 14:09:02.106] [INFO] record - GET /role/list

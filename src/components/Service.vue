@@ -277,6 +277,11 @@ export default{
 						}
 					})
 			}else if( this.option === 'change' && this.edit ){
+				let year = new Date(this.edit.endTime).getFullYear() - new Date(this.edit.startTime).getFullYear()
+				if( this.starttime == this.edit.startTime && this.year==year && this.usernum==this.edit.userNum){
+					this.$Message.warning({content: '未做任何修改', duration: 3, closable: true});
+					return;
+				}
 				this.axios.post(apiUrl+'/client/service/change', {
 					clientid: this.clientId,
 					serviceid: this.edit._id,
@@ -442,7 +447,8 @@ export default{
 			for( let i=0;i<this.services.length;i++ ){
 				if( this.services[i]._id === sid ){
 					this.starttime = this.services[i].startTime
-					this.endtime = this.services[i].endTime
+					//this.endtime = this.services[i].endTime
+					this.year = new Date(this.services[i].endTime).getFullYear() - new Date(this.services[i].startTime).getFullYear()
 					this.usernum = this.services[i].userNum
 					this.edit = this.services[i]
 				}
@@ -474,8 +480,9 @@ export default{
 				if( this.services[i]._id === sid ){
 					
 					this.starttime = this.services[i].startTime
-					this.endtime = this.services[i].endTime
-					this.year = this.services[i].year
+					//this.endtime = this.services[i].endTime
+					this.year = new Date(this.services[i].endTime).getFullYear() - new Date(this.services[i].startTime).getFullYear()
+					//this.year = this.services[i].year
 					this.usernum = this.services[i].userNum
 					this.edit = this.services[i]
 
@@ -488,7 +495,6 @@ export default{
 							}
 						}
 					}
-					
 				}
 			}
 		},
@@ -502,6 +508,7 @@ export default{
 		clear(){
 			this.starttime = ''
 			this.endtime = ''
+			this.year = ''
 			this.usernum = null
 			this.modalTitle = "新增服务"
 			this.edit = null
