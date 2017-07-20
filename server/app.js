@@ -27,7 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // cors允许跨域请求
 app.use(cors({
-	origin:['http://localhost:8080','http://localhost:8000','http://testapi.zxwave.com:9999','http://60.205.110.195:9999'],
+	//origin:['http://localhost:8080','http://localhost:8000','http://testapi.zxwave.com:9999','http://60.205.110.195:9999'],
+	origin:['http://101.201.54.133','http://www.zxwave.com','http://market.haofenwei.net'],
 	methods:['OPTIONS','GET','POST'],
 	credentials: true
 }));
@@ -44,8 +45,9 @@ app.use(session({
 	saveUninitialized: true,
 	store: new RedisStore({
 		host: "127.0.0.1",
-		port: 6666,
-		pass: 'operate123...'
+		/*port: 6666,
+		pass: 'operate123...'*/
+		port: 6379
 	})
 }));
 

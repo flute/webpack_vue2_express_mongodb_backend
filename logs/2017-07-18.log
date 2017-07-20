@@ -1,0 +1,7 @@
+[2017-07-18 09:41:00.136] [INFO] record - GET /version/list
+[2017-07-18 09:41:06.534] [INFO] record - OPTIONS /login
+[2017-07-18 09:41:07.137] [INFO] record - POST /login
+[2017-07-18 09:41:07.367] [INFO] record - GET /version/list
+[2017-07-18 16:46:28.713] [INFO] console - 定时任务：到期提醒 2017-07-18T08:46:28.708Z
+[2017-07-18 16:46:29.355] [INFO] console - 服务到期通知——服务遍历结束 []
+[2017-07-18 16:46:29.365] [INFO] console - 无到期提醒

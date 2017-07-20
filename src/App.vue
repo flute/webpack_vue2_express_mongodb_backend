@@ -150,6 +150,7 @@ export default {
 }
 .layout-content{
 	height: calc(100% - 60px);
+	width: 100%;
     overflow: hidden;
     background: #fff;
     text-align: left;

@@ -106,3 +106,6 @@
 [2017-07-17 17:13:13.602] [INFO] record - GET /role/list
 [2017-07-17 17:13:14.873] [INFO] record - GET /version/list
 [2017-07-17 17:13:16.769] [INFO] record - GET /bill/list
+[2017-07-17 17:18:16.812] [INFO] console - Express server listening on port 3000
+[2017-07-17 18:03:56.721] [INFO] record - OPTIONS /hasread
+[2017-07-17 18:03:57.331] [INFO] record - POST /hasread
