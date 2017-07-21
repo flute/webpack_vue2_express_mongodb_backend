@@ -1,0 +1,141 @@
+[2017-07-21 09:58:55.222] [INFO] console - Express server listening on port 3000
+[2017-07-21 09:58:55.410] [INFO] console - redis update version :version-asistant-ios——哇咔咔 OK
+[2017-07-21 09:58:55.412] [INFO] console - redis update version :version-asistant-android——一家亲正式版 OK
+[2017-07-21 09:58:55.412] [INFO] console - service restart set client:596494099fe043545fc102ec OK
+[2017-07-21 09:58:55.415] [INFO] console - service restart set client:596494179fe043545fc102ed OK
+[2017-07-21 09:58:55.420] [INFO] console - service restart set client:596494289fe043545fc102ee OK
+[2017-07-21 09:58:55.421] [INFO] console - service restart set client:596494959fe043545fc102ef OK
+[2017-07-21 09:58:55.429] [INFO] console - service restart set client:5965dd1a876b9176a4c31f51 OK
+[2017-07-21 09:58:55.432] [INFO] console - service restart set client:5966d31e03ba9d86555e9785 OK
+[2017-07-21 09:58:55.457] [INFO] console - 服务重启,客户信息更新至redis完毕
+[2017-07-21 09:58:55.458] [INFO] console - service restart set client:596c29415a13ab773f38c1bd OK
+[2017-07-21 09:58:55.459] [INFO] console - service restart set client:596c2f597cfbfc78c91b991d OK
+[2017-07-21 09:58:55.459] [INFO] console - service restart set client:596c56a7e420f48084c8cec6 OK
+[2017-07-21 09:59:41.390] [INFO] record - OPTIONS /login
+[2017-07-21 09:59:41.538] [INFO] record - POST /login
+[2017-07-21 09:59:43.028] [INFO] record - GET /user/list
+[2017-07-21 09:59:43.169] [INFO] record - GET /client/list
+[2017-07-21 10:00:16.026] [INFO] record - GET /version/list
+[2017-07-21 10:03:17.203] [INFO] console - Express server listening on port 3000
+[2017-07-21 10:03:17.268] [INFO] console - redis update version :version-asistant-android——一家亲正式版 OK
+[2017-07-21 10:03:17.269] [INFO] console - redis update version :version-asistant-ios——哇咔咔 OK
+[2017-07-21 10:03:17.273] [INFO] console - service restart set client:596494099fe043545fc102ec OK
+[2017-07-21 10:03:17.276] [INFO] console - service restart set client:596494179fe043545fc102ed OK
+[2017-07-21 10:03:17.279] [INFO] console - service restart set client:596494289fe043545fc102ee OK
+[2017-07-21 10:03:17.281] [INFO] console - service restart set client:596494959fe043545fc102ef OK
+[2017-07-21 10:03:17.283] [INFO] console - service restart set client:5965dd1a876b9176a4c31f51 OK
+[2017-07-21 10:03:17.284] [INFO] console - service restart set client:5966d31e03ba9d86555e9785 OK
+[2017-07-21 10:03:17.288] [INFO] console - service restart set client:596c29415a13ab773f38c1bd OK
+[2017-07-21 10:03:17.290] [INFO] console - 服务重启,客户信息更新至redis完毕
+[2017-07-21 10:03:17.291] [INFO] console - service restart set client:596c2f597cfbfc78c91b991d OK
+[2017-07-21 10:03:17.292] [INFO] console - service restart set client:596c56a7e420f48084c8cec6 OK
+[2017-07-21 10:06:21.547] [INFO] console - Express server listening on port 3000
+[2017-07-21 10:06:21.603] [INFO] console - 596494099fe043545fc102ec
+[2017-07-21 10:06:21.613] [INFO] console - redis update version :version-asistant-android——一家亲正式版 OK
+[2017-07-21 10:06:21.614] [INFO] console - redis update version :version-asistant-ios——哇咔咔 OK
+[2017-07-21 10:06:21.616] [INFO] console - null
+[2017-07-21 10:06:21.618] [INFO] console - 596494179fe043545fc102ed
+[2017-07-21 10:06:21.620] [INFO] console - service restart set client:596494099fe043545fc102ec OK
+[2017-07-21 10:06:21.621] [INFO] console - null
+[2017-07-21 10:06:21.621] [INFO] console - 596494289fe043545fc102ee
+[2017-07-21 10:06:21.624] [INFO] console - null
+[2017-07-21 10:06:21.624] [INFO] console - 596494959fe043545fc102ef
+[2017-07-21 10:06:21.625] [INFO] console - service restart set client:596494179fe043545fc102ed OK
+[2017-07-21 10:06:21.626] [INFO] console - null
+[2017-07-21 10:06:21.627] [INFO] console - 5965dd1a876b9176a4c31f51
+[2017-07-21 10:06:21.628] [INFO] console - service restart set client:596494289fe043545fc102ee OK
+[2017-07-21 10:06:21.629] [INFO] console - null
+[2017-07-21 10:06:21.630] [INFO] console - 5966d31e03ba9d86555e9785
+[2017-07-21 10:06:21.631] [INFO] console - service restart set client:596494959fe043545fc102ef OK
+[2017-07-21 10:06:21.632] [INFO] console - null
+[2017-07-21 10:06:21.700] [INFO] console - 596c29415a13ab773f38c1bd
+[2017-07-21 10:06:21.701] [INFO] console - service restart set client:5965dd1a876b9176a4c31f51 OK
+[2017-07-21 10:06:21.702] [INFO] console - null
+[2017-07-21 10:06:21.703] [INFO] console - 596c2f597cfbfc78c91b991d
+[2017-07-21 10:06:21.705] [INFO] console - service restart set client:5966d31e03ba9d86555e9785 OK
+[2017-07-21 10:06:21.706] [INFO] console - null
+[2017-07-21 10:06:21.706] [INFO] console - 596c56a7e420f48084c8cec6
+[2017-07-21 10:06:21.708] [INFO] console - service restart set client:596c29415a13ab773f38c1bd OK
+[2017-07-21 10:06:21.709] [INFO] console - null
+[2017-07-21 10:06:21.711] [INFO] console - 服务重启,客户信息更新至redis完毕
+[2017-07-21 10:06:21.711] [INFO] console - service restart set client:596c2f597cfbfc78c91b991d OK
+[2017-07-21 10:06:21.713] [INFO] console - service restart set client:596c56a7e420f48084c8cec6 OK
+[2017-07-21 10:07:25.364] [INFO] console - Express server listening on port 3000
+[2017-07-21 10:07:25.444] [INFO] console - redis update version :version-asistant-android——一家亲正式版 OK
+[2017-07-21 10:07:25.445] [INFO] console - redis update version :version-asistant-ios——哇咔咔 OK
+[2017-07-21 10:07:25.451] [INFO] console - service restart set client:596494099fe043545fc102ec OK
+[2017-07-21 10:07:25.452] [INFO] console - service restart set client:596494179fe043545fc102ed OK
+[2017-07-21 10:07:25.463] [INFO] console - service restart set client:596494289fe043545fc102ee OK
+[2017-07-21 10:07:25.463] [INFO] console - service restart set client:596494959fe043545fc102ef OK
+[2017-07-21 10:07:25.468] [INFO] console - service restart set client:5965dd1a876b9176a4c31f51 OK
+[2017-07-21 10:07:25.470] [INFO] console - service restart set client:5966d31e03ba9d86555e9785 OK
+[2017-07-21 10:07:25.474] [INFO] console - service restart set client:596c29415a13ab773f38c1bd OK
+[2017-07-21 10:07:25.480] [INFO] console - service restart set client:596c2f597cfbfc78c91b991d OK
+[2017-07-21 10:07:25.487] [INFO] console - 服务重启,客户信息更新至redis完毕
+[2017-07-21 10:07:25.497] [INFO] console - service restart set client:596c56a7e420f48084c8cec6 OK
+[2017-07-21 10:09:18.801] [INFO] console - Express server listening on port 3000
+[2017-07-21 10:09:18.868] [INFO] console - redis update version :version-asistant-android——一家亲正式版 OK
+[2017-07-21 10:09:18.870] [INFO] console - redis update version :version-asistant-ios——哇咔咔 OK
+[2017-07-21 10:09:18.876] [INFO] console - service restart set client:596494099fe043545fc102ec[1] OK
+[2017-07-21 10:09:18.880] [INFO] console - service restart set client:596494179fe043545fc102ed[1] OK
+[2017-07-21 10:09:18.880] [INFO] console - service restart set client:596494289fe043545fc102ee[1] OK
+[2017-07-21 10:09:18.904] [INFO] console - service restart set client:596494959fe043545fc102ef[1] OK
+[2017-07-21 10:09:18.920] [INFO] console - service restart set client:5965dd1a876b9176a4c31f51[0] OK
+[2017-07-21 10:09:18.920] [INFO] console - service restart set client:5966d31e03ba9d86555e9785[1] OK
+[2017-07-21 10:09:18.922] [INFO] console - service restart set client:596c29415a13ab773f38c1bd[0] OK
+[2017-07-21 10:09:18.924] [INFO] console - service restart set client:596c2f597cfbfc78c91b991d[1] OK
+[2017-07-21 10:09:18.939] [INFO] console - 服务重启,客户信息更新至redis完毕
+[2017-07-21 10:09:18.940] [INFO] console - service restart set client:596c56a7e420f48084c8cec6[1] OK
+[2017-07-21 10:09:52.097] [INFO] record - OPTIONS /version/publish
+[2017-07-21 10:09:52.174] [INFO] console - redis delete :version-asistant-android——一家亲正式版 1
+[2017-07-21 10:09:52.209] [INFO] record - POST /version/publish
+[2017-07-21 10:09:52.270] [INFO] record - GET /version/list
+[2017-07-21 10:09:59.739] [INFO] console - Express server listening on port 3000
+[2017-07-21 10:10:59.669] [INFO] console - Express server listening on port 3000
+[2017-07-21 10:10:59.737] [INFO] console - redis update version :version-asistant-ios——哇咔咔 OK
+[2017-07-21 10:10:59.743] [INFO] console - service restart set client:596494099fe043545fc102ec[1] OK
+[2017-07-21 10:11:54.908] [INFO] console - Express server listening on port 3000
+[2017-07-21 10:11:54.985] [INFO] console - redis update version :version-asistant-ios——哇咔咔 OK
+[2017-07-21 10:11:54.987] [INFO] console - redis del version :version-asistant-android 0
+[2017-07-21 10:11:54.993] [INFO] console - service restart set client:596494099fe043545fc102ec[1] OK
+[2017-07-21 10:11:55.004] [INFO] console - service restart set client:596494179fe043545fc102ed[1] OK
+[2017-07-21 10:11:55.008] [INFO] console - service restart set client:596494289fe043545fc102ee[1] OK
+[2017-07-21 10:11:55.011] [INFO] console - service restart set client:596494959fe043545fc102ef[1] OK
+[2017-07-21 10:11:55.013] [INFO] console - service restart set client:5965dd1a876b9176a4c31f51[0] OK
+[2017-07-21 10:11:55.018] [INFO] console - service restart set client:5966d31e03ba9d86555e9785[1] OK
+[2017-07-21 10:11:55.021] [INFO] console - service restart set client:596c29415a13ab773f38c1bd[0] OK
+[2017-07-21 10:11:55.035] [INFO] console - 服务重启,客户信息更新至redis完毕
+[2017-07-21 10:11:55.037] [INFO] console - service restart set client:596c2f597cfbfc78c91b991d[1] OK
+[2017-07-21 10:11:55.038] [INFO] console - service restart set client:596c56a7e420f48084c8cec6[1] OK
+[2017-07-21 10:13:00.802] [INFO] console - Express server listening on port 3000
+[2017-07-21 10:13:00.866] [INFO] console - redis del version :version-asistant-android 0
+[2017-07-21 10:13:00.867] [INFO] console - redis update version :version-asistant-ios——哇咔咔 OK
+[2017-07-21 10:13:00.873] [INFO] console - service restart set client:596494099fe043545fc102ec[1] OK
+[2017-07-21 10:13:00.882] [INFO] console - service restart set client:596494179fe043545fc102ed[1] OK
+[2017-07-21 10:13:00.884] [INFO] console - service restart set client:596494289fe043545fc102ee[1] OK
+[2017-07-21 10:13:00.886] [INFO] console - service restart set client:596494959fe043545fc102ef[1] OK
+[2017-07-21 10:13:00.889] [INFO] console - service restart set client:5965dd1a876b9176a4c31f51[0] OK
+[2017-07-21 10:13:00.891] [INFO] console - service restart set client:5966d31e03ba9d86555e9785[1] OK
+[2017-07-21 10:13:00.906] [INFO] console - service restart set client:596c29415a13ab773f38c1bd[0] OK
+[2017-07-21 10:13:00.908] [INFO] console - 服务重启,客户信息更新至redis完毕
+[2017-07-21 10:13:00.910] [INFO] console - service restart set client:596c2f597cfbfc78c91b991d[1] OK
+[2017-07-21 10:13:00.911] [INFO] console - service restart set client:596c56a7e420f48084c8cec6[1] OK
+[2017-07-21 10:13:17.695] [INFO] record - OPTIONS /version/publish
+[2017-07-21 10:13:17.755] [INFO] console - 通知操作
+[2017-07-21 10:13:17.786] [INFO] console - redis update :version-asistant-android——一家亲正式版 OK
+[2017-07-21 10:13:17.790] [INFO] record - POST /version/publish
+[2017-07-21 10:13:17.887] [INFO] record - GET /version/list
+[2017-07-21 10:13:17.889] [INFO] console - App版本更新通知成功
+[2017-07-21 10:13:25.669] [INFO] console - Express server listening on port 3000
+[2017-07-21 10:13:25.729] [INFO] console - redis update version :version-asistant-android——一家亲正式版 OK
+[2017-07-21 10:13:25.730] [INFO] console - redis update version :version-asistant-ios——哇咔咔 OK
+[2017-07-21 10:13:25.734] [INFO] console - service restart set client:596494099fe043545fc102ec[1] OK
+[2017-07-21 10:13:25.736] [INFO] console - service restart set client:596494179fe043545fc102ed[1] OK
+[2017-07-21 10:13:25.738] [INFO] console - service restart set client:596494289fe043545fc102ee[1] OK
+[2017-07-21 10:13:25.749] [INFO] console - service restart set client:596494959fe043545fc102ef[1] OK
+[2017-07-21 10:13:25.752] [INFO] console - service restart set client:5965dd1a876b9176a4c31f51[0] OK
+[2017-07-21 10:13:25.754] [INFO] console - service restart set client:5966d31e03ba9d86555e9785[1] OK
+[2017-07-21 10:13:25.760] [INFO] console - service restart set client:596c29415a13ab773f38c1bd[0] OK
+[2017-07-21 10:13:25.775] [INFO] console - 服务重启,客户信息更新至redis完毕
+[2017-07-21 10:13:25.775] [INFO] console - service restart set client:596c2f597cfbfc78c91b991d[1] OK
+[2017-07-21 10:13:25.776] [INFO] console - service restart set client:596c56a7e420f48084c8cec6[1] OK

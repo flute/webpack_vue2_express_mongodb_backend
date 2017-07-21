@@ -14,6 +14,8 @@ var schedule = require('node-schedule');
 var timing = require('./models/noticeModels/serviceNotice');
 // 每月账单
 var bill = require('./models/billModels/bill');
+// 重启
+var restartOption = require('./models/restartOption');
 // routes
 var routes = require('./routes/index');
 
@@ -27,8 +29,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // cors允许跨域请求
 app.use(cors({
-	//origin:['http://localhost:8080','http://localhost:8000','http://testapi.zxwave.com:9999','http://60.205.110.195:9999'],
-	origin:['http://101.201.54.133','http://www.zxwave.com','http://market.haofenwei.net'],
+	origin:['http://localhost:8080','http://localhost:8000','http://testapi.zxwave.com:9999','http://60.205.110.195:9999'],
+	//origin:['http://101.201.54.133','http://www.zxwave.com','http://market.haofenwei.net'],
 	methods:['OPTIONS','GET','POST'],
 	credentials: true
 }));
@@ -45,14 +47,17 @@ app.use(session({
 	saveUninitialized: true,
 	store: new RedisStore({
 		host: "127.0.0.1",
-		/*port: 6666,
-		pass: 'operate123...'*/
-		port: 6379
+		port: 6666,
+		pass: 'operate123...'
+		//port: 6379
 	})
 }));
 
 routes(app)
 
+// restart option
+restartOption()
+// schedule task
 var task = schedule.scheduleJob('0 0 2 * * *', function(){
 	console.info('定时任务：到期提醒', new Date());
 	timing()
