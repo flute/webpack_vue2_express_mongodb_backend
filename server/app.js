@@ -49,7 +49,8 @@ app.use(session({
 		host: "127.0.0.1",
 		port: 6666,
 		pass: 'operate123...'
-		//port: 6379
+		/*port: 6789,
+		pass: 'zxww2016'*/
 	})
 }));
 
